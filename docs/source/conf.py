@@ -10,6 +10,7 @@ import datetime
 # version of the theme.
 
 
+
 def is_development_build():
     # PR builds have an interger version
     re_version = re.compile(r"^[\d]+$")
@@ -40,6 +41,7 @@ release = "latest"
 author = u"Sebastian Schwindt"
 copyright = author
 language = "en"
+home_page_in_navbar = True
 
 extensions = [
     "sphinx.ext.intersphinx",
@@ -64,11 +66,11 @@ extensions = [
 
 
 templates_path = ["_templates"]
-source_suffix = {
-    ".rst": "restructuredtext",
-    ".txt": "restructuredtext",
-    ".md": "markdown",
-}
+# source_suffix = {
+#     ".rst": "restructuredtext",
+#     ".txt": "restructuredtext",
+#     ".md": "markdown",
+# }
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 locale_dirs = ["locale/", "docs/"]
 gettext_compact = False
