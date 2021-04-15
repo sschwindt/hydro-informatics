@@ -1,17 +1,16 @@
-MARKDOWN FILE CONVERTED TO JUPYTER
+MARKDOWN FILE CONVERTED TO JUPYTEr
 ----------------------------------
 
-Available at https://github.com/sschwindt/lidar-analysis
+Available at https://github.com/sschwindt/lidar-analysis 
 
-{% include tip.html content=“Use `QGIS <geo_software.html#qgis>`__ to
-display geospatial data products.” %}
+.. tip::
+   Use `QGIS <geo_software.html#QGIS>`__ to display geospatial data products.
 
-Laspy
+Laspy 
 -----
 
 -  `Documentation <https://laspy.readthedocs.io/en/latest/>`__
--  `Tutorials <https://laspy.readthedocs.io/en/latest/tut_background.html>`__
-
+-   `Tutorials <https://laspy.readthedocs.io/en/latest/tut_background.html>`__ 
 Install
 ~~~~~~~
 
@@ -19,29 +18,25 @@ Type in *Anaconda Prompt*:
 
 ::
 
-   conda install -c conda-forge laspy
+   conda install -c conda-forge laspy 
 
-Find advanced installation instructions on
-`laspy.readthedocs.io <https://laspy.readthedocs.io/en/latest/tut_part_1.html>`__.
+Find advanced installation instructions on `laspy.readthedocs.io <https://laspy.readthedocs.io/en/latest/tut_part_1.html>`__.
 
 Usage
 ~~~~~
 
-*laspy* uses *numpy* arrays to store data and this is why both libraries
-need be imported to read a *las* file:
+*laspy* uses *numpy* arrays to store data and this is why both libraries need be imported to read a *las* file:
 
-.. code:: python
+.. code:: python 
 
-   import numpy
-   import laspy
-   file_name = "/path/to/file/vanilla-valley.las"
+   import numpy    import laspy    file_name = "/path/to/file/vanilla-valley.las"
    file_object = laspy.file.File("./path_to_file", mode="rw")
 
-.. code:: python
+.. code:: python 
 
-   import laspy
+   import laspy 
 
    with laspy.file.File("./path_to_file", mode="rw") as las_file:
-       pts = las_file.points
+       pts = las_file.points 
 
    print(pts.dtype)

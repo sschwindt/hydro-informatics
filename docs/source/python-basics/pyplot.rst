@@ -50,9 +50,9 @@ the most important attributes are shown in the following figure. More
 attributes can be found in the showcases of
 `matplotlib.org <https://matplotlib.org/examples/showcase/anatomy.html>`__.
 
-{% include image.html file=“pyplot-defs.png” alt=“pyplot-defs”
+.. image:: ../img/pyplot-defs.png   ADAPTalt=“pyplot-defs”
 max-width=“500” caption=“Python objects (attributes) of a pyplot
-figure.” %}
+figure.
 
 .. _plotxy:
 
@@ -101,7 +101,8 @@ Step-by-step recipe for 1D (line) plots
    many more ``**kwargs`` available (`go the matplotlib
    docs <https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.savefig.html>`__).
 
-{% include tip.html content=“Most of the below illustrated
+.. tip::
+   Most of the below illustrated
 ``matplotlib`` features are embedded in a plotter script, which is
 available at the `course
 repository <https://github.com/hydro-informatics/material-py-codes/raw/master/plotting/plotter.py>`__.”
@@ -171,11 +172,13 @@ example ``save='C:/temp/weibull.png'``.
 
    png
 
-{% include challenge.html content=“The ``plot_xy`` function has some
+.. admonition:: Challenge
+
+   The ``plot_xy`` function has some
 weaknesses. For example if more arguments are provided or ``y`` data may
 be a multi-dimensional array (instead of 1D), which should be plotted as
 multiple lines. How can you optimize the ``plot_xy`` function, to make
-it more robust and enable multi-line plotting?” %}
+it more robust and enable multi-line plotting?
 
 Surface and contour plots
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -411,16 +414,20 @@ self-explaining code block.
 
    png
 
-{% include challenge.html content=“The above code blocks involve many
+.. admonition:: Challenge
+
+   The above code blocks involve many
 repetitive statements such as ``import ...`` -
 ``rcParams.update(rcParamsDefault)``, and ``plot.show()`` at the end.
 Can you write a `wrapper function <hypy_pyfun.html#wrappers>`__ to
-decorate any other *matplotlib* plot function?” %}
+decorate any other *matplotlib* plot function?
 
-{% include exercise.html content=“Get familiar with built-in plot
+.. admonition:: Exercise
+
+   Get familiar with built-in plot
 functions using *matplotlib* with the template scripts provided for the
 `Reservoir design <ex_sp.html>`__ and `Flood return period
-calculation <ex_floods.html>`__ exercises.” %}
+calculation <ex_floods.html>`__ exercises.
 
 .. _pandas:
 
@@ -599,7 +606,8 @@ of the above ultrasonic sensor data.
 
    png
 
-{% include note.html content=“In scatter plots, errors are present in
+.. note::
+   In scatter plots, errors are present in
 both *x* and *y* directions. For example, the *x*-uncertainty may result
 from the measurement device precision and *y*-uncertainty can be a
 result of signal processing. The above error measure in terms of the
@@ -665,10 +673,11 @@ Usage (simple plots)
 showcases. The following example uses one of these datasets (find more
 at
 `plotly.com <https://plotly.com/python-api-reference/generated/plotly.express.data.html>`__).
-{% include note.html content=“The here used static documentation theme
+.. note::
+   The here used static documentation theme
 does not feature interactive graphs, which is why the shown *plotly*
 examples are static. Use the lecture *ipynb* jupyter notebooks to
-experience the full capacity of interactive *plotly* graphics.” %}
+experience the full capacity of interactive *plotly* graphics.
 
 .. code:: python
 
@@ -681,7 +690,7 @@ experience the full capacity of interactive *plotly* graphics.” %}
    # fig.show()
    pyo.iplot(fig, filename='population')
 
-{% include image.html file=“plotly_pop.png” %}
+.. image:: ../img/plotly_pop.png   ADAPT%}
 
 In hydraulics, we often prefer to visualize data in locally stored text
 files, for example after processing data with *NumPy* or *pandas*.
@@ -728,7 +737,7 @@ Organization of the United Nations* (FAO) data center
    #fig.show(filename='basic-line2', include_plotlyjs=False, output_type='div')
    pyo.iplot(fig, filename='temperature-evolution')
 
-{% include image.html file=“plotly_temp.png” %}
+.. image:: ../img/plotly_temp.png   ADAPT%}
 
 Interactive map applications
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -768,7 +777,7 @@ site <https://plotly.com/python/maps/>`__.
    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
    fig.show()
 
-{% include image.html file=“plotly_unemp.png” %}
+.. image:: ../img/plotly_unemp.png   ADAPT%}
 
 Many more maps are available and some of the require a *Mapbox* account
 and the creation of a public token (read more at

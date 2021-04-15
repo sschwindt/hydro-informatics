@@ -84,7 +84,7 @@ about how to debug known issues (not that issues ever existed…).
    :maxdepth: 2
    :caption: Python (basics)
 
-   python-basics/pyinstall
+   python-basics/pyintro
    python-basics/pyinstall
    python-basics/pybase
    python-basics/pyerror
@@ -114,7 +114,7 @@ about how to debug known issues (not that issues ever existed…).
    :maxdepth: 2
    :caption: Python Exercises
 
-   python-exercises/ex-git
+   python-exercises/exercises
    python-exercises/ex-git
    python-exercises/ex-ms
    python-exercises/ex-sp
@@ -151,8 +151,8 @@ about how to debug known issues (not that issues ever existed…).
    :maxdepth: 2
    :caption: Terms and Conditions
 
-  terms/disclaimer
-  terms/License
+    terms/disclaimer
+    terms/license
 
 
 Indices and tables

@@ -1,49 +1,50 @@
-Under construction. Expected release of this tutorial: Winter 2021/22.
-----------------------------------------------------------------------
+
+Open Foam
+===========
+
+Tutorial under construction. Expected release of this tutorial: Winter 2021/22.
 
 Thank you for your patience.
 
-{% include requirements.html content=“Install
-`OpenFOAM <install-openfoam.html>`__ and
-`SALOME-HYDRO <install-telemac.html#salome-hydro>`__ or just
-`SALOME <install-openfoam.html#salome>`__ on *Debian* or an *Ubuntu*
-(deriative) *Linux* platform.” %}
+.. admonition:: Requirements
 
-This tutorial features the construction of a simple three-dimensional
-(3d) flume in *SALOME* and a hydrodynamic simulation with *OpenFOAM*.
+   Install `OpenFOAM <install-openfoam.html>`__ and `SALOME-HYDRO <install-telemac.html#SALOME-HYDRO>`__ or just `SALOME <install-openfoam.html#SALOME>`__ on *Debian* or an *Ubuntu* (deriative) *Linux* platform.
+
+This tutorial features the construction of a simple three-dimensional (3d) flume in *SALOME* and a hydrodynamic simulation with *OpenFOAM*.
 
 Input files
 -----------
 
 The *OpenFOAM* simulation will require the following files:
 
--  Control file
+-  Control file 
 
-   -  File format: ``.cas``
-   -  Software: SALOME-HYDRO’s *HydroSolver* module (alternatively:
+  
+-   File format: ``.cas``   
+-   Software: SALOME-HYDRO’s *HydroSolver* module (alternatively:
       `Fudaa PrePro <install-telemac.html#fudaa>`__)
 
--  Mesh file
+-  Mesh file 
 
-   -  File format: ``.msh``
-   -  Software: SALOME-HYDRO’s *Geometry* and *Mesh* modules
+  
+-   File format: ``.msh``   
+-   Software: SALOME-HYDRO’s *Geometry* and *Mesh* modules 
 
--  Boundary conditions
+-  Boundary conditions 
 
-   -  File format: ``.bcd``
-   -  Software: SALOME-HYDRO’s *HydroSolver* module
+  
+-   File format: ``.bcd``   
+-   Software: SALOME-HYDRO’s *HydroSolver* module 
 
--  Unsteady flow conditions
+-  Unsteady flow conditions 
 
-   -  File format: ``.qsl``
-   -  Prepare with any text editor
+  
+-   File format: ``.qsl``   
+-   Prepare with any text editor 
 
-Optional files such as a friction data file or a liquid boundary file
-can also be implemented, but are not featured here. Read more about
-optional data files and their formats on the `Telemad2d pre-processing
-page <tm2d-pre.html#optionals>`__.
+Optional files such as a friction data file or a liquid boundary file can also be implemented, but are not featured here. Read more about optional data files and their formats on the `Telemad2d pre-processing page <tm2d-pre.html#optionals>`__.
 
-.. _prepro-salome:
+.. _prepro-SALOME:
 
 Start SALOME or SALOME-HYDRO
 ----------------------------
@@ -53,29 +54,27 @@ Launch either *SALOME-HYDRO*:
 ::
 
    cd /INSTALL/DIR/OF/SALOME-HYDRO/
-   ./salome
+   ./SALOME 
 
 or *SALOME*:
 
 ::
 
    cd /INSTALL/DIR/OF/SALOME/
-   source env_launch.sh
-   ./salome
+   source env_launch.sh    ./SALOME 
 
 Setup a Base Case
 -----------------
 
-The fundamental settings for running a simulation with *OpenFOAM*
-resemble. Fir this reason, it makes sense to use one of the tutorials
-for base case. Here, we use the **CASE** from *OpenFOAM-8/tutorials/*:
+The fundamental settings for running a simulation with *OpenFOAM* resemble. Fir this reason, it makes sense to use one of the tutorials for base case. Here, we use the **CASE** from *OpenFOAM-8/tutorials/*:
 
 The base case contains the following folders and files:
 
 -  ``0/``
--  ``constant/``
--  ``system/``
--  ``xx.msh`` - the mesh (geometry) file with boundary conditions
+-   ``constant/``
+-   ``system/``
+-   ``xx.msh``
+-  the mesh (geometry) file with boundary conditions 
 
 Set Initial Values
 ------------------
@@ -83,23 +82,16 @@ Set Initial Values
 Create Geometry, Mesh and Boundaries
 ------------------------------------
 
-With *SALOME-HYDRO* being installed in a directory called
-**/home/salome-hydro/appli_V1_1_univ/salome** (adapt according to the
-installation directory and version of SALOME-HYDRO),
-
-If no file menus show up because ``export QT_STYLE_OVERRIDE=gtk2`` is
-not added to ``~/.profile``, close SALOME-HYDRO and restart it with
-(read more on the `installation
-page <install-telemac.html#mod-profile>`__):
+With *SALOME-HYDRO* being installed in a directory called **/home/SALOME-HYDRO/appli_V1_1_univ/SALOME** (adapt according to the installation directory and version of SALOME-HYDRO), 
+If no file menus show up because ``export QT_STYLE_OVERRIDE=gtk2`` is not added to ``~/.profile``, close SALOME-HYDRO and restart it with (read more on the `installation page <install-telemac.html#mod-profile>`__):
 
 ::
 
    export QT_STYLE_OVERRIDE=gtk2
-   /home/salome-hydro/appli_V1_1_univ/salome
+   /home/SALOME-HYDRO/appli_V1_1_univ/SALOME 
 
-{% include note.html content=“If ``QT_STYLE_OVERRIDE=gtk2`` is not set,
-the *HydroSolver* module will not work correctly and throw a
-``Could not create file tree`` error.” %}
+.. note::
+   If ``QT_STYLE_OVERRIDE=gtk2`` is not set, the *HydroSolver* module will not work correctly and throw a ``Could not create file tree`` error.
 
 Run Simulation (Compute)
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -109,14 +101,12 @@ Use *icoFoam* Solver with properties:
 -  incompressible (continuity conservation)
 -  transient (partial time derivative in momentum conservation)
 -  laminar (no turbulence solver)
--  for Newtonian fluids only (one constant viscosity parameter in the
-   diffusion term of the momentum equations)
+-  for Newtonian fluids only (one constant viscosity parameter in the    diffusion term of the momentum equations)
 -  single phase (fluid only)
--  isothermal (no energy equation for temperature gradient simulation
-   applies)
+-  isothermal (no energy equation for temperature gradient simulation    applies)
 -  pressure corresponds to pressure divided by density (*PISO-loop*)
 
-ParaVis
+ParaVis 
 -------
 
 Activate the **ParaVis** module from the top menu.

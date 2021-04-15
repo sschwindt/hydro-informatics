@@ -1,21 +1,25 @@
-Exercise: Create a habitat suitability map
-------------------------------------------
+Create a habitat suitability map
+================================
 
-{% include goals.html content=“This exercise guides through the creation
+.. admonition:: Goals
+
+   This exercise guides through the creation
 of rasters (``osgeo.gdal.Dataset``), the usage of georeferences, raster
 array calculations, as well as the conversion of a raster to a polygon
-shapefile and modifications to the shapefile’s *Attribute Table* to
+shapefile and  modifications to the shapefile’s *Attribute Table* to
 calculate usable (physical) habitat area. For this purpose, a ``Raster``
 class is written, which enables mathematical operations between its
 instances through the implementation of magic methods. The exercise also
 shows how the course’s `geo_utils
 package <https://github.com/hydro-informatics/geo-utils>`__ can be used
-to leverage complex challenges in just a few lines of code.” %}
+to leverage complex challenges in just a few lines of code.
 
-{% include requirements.html content=“*Python* libraries: *numpy*,
-*pandas*, *gdal*, *geopandas*, *alphashape*, *shapely*, and *json*.
-Understand how `object orientation <hypy_classes.html>`__ works as well
-as `geospatial data and analyses with Python <geo-python.html>`__.” %}
+.. admonition:: Requirements
+
+   *Python* libraries: *numpy*,
+*pand as*, *gdal*, *geopand as*, *alphashape*, *shapely*, and  *json*.
+Understand  how `object orientation <hypy_classes.html>`__ works as well
+as `geospatial data and  analyses with Python <geo-python.html>`__.
 
 Get ready by cloning the exercise repository:
 
@@ -29,22 +33,22 @@ Schwindt 2019).*
 What is Habitat Suitability?
 ----------------------------
 
-Fish and other aquatic species rest, orient, and reproduce in a fluvial
+Fish and  other aquatic species rest, orient, and  reproduce in a fluvial
 environment that represents their physical habitat. Throughout their
 different life stages, different fish have specific physical habitat
 preferences which are defined, for instance, as a function of water
-depth, flow velocity, and grain size of the riverbed. The so-called
+depth, flow velocity, and  grain size of the riverbed. The so-called
 *Habitat Suitability Index*\ **HSI** can be calculated for hydraulic
-(water depth or flow velocity) and morphological (e.g., grain size or
+(water depth or flow velocity) and  morphological (e.g., grain size or
 cover in the form of large wood) parameters individually to describe the
-quality of physical habitat for a fish and at a specific life stage. The
-figure below shows exemplary *HSI* curves for the fry, juvenile and
+quality of physical habitat for a fish and  at a specific life stage. The
+figure below shows exemplary *HSI* curves for the fry, juvenile and 
 adult life stages of rainbow trout as a function of water depth. The
-*HSI* curves look different in every river and should be established
+*HSI* curves look different in every river and  should be established
 individually by an aquatic ecologist. |hsi-curves|\  *Habitat
-Suitability Index (HSI) curves for the fry, juvenile, and adult life
+Suitability Index (HSI) curves for the fry, juvenile, and  adult life
 stages of rainbow trout in a cobble-bed river. Take care: HSI curves
-look different in any river and need to be established by an aquatic
+look different in any river and  need to be established by an aquatic
 ecologist.*
 
 The *HSI* concept also accounts for the so-called cover habitat in the
@@ -57,42 +61,42 @@ hydraulic habitat characteristics (not cover habitat).
 bridge pier in the upper Neckar River.*
 
 The combination of multiple *HSI* values (e.g., water depth-related
-*HSIh*, flow velocity-related *HSIu*, grain size-related *HSId*, and/or
+*HSIh*, flow velocity-related *HSIu*, grain size-related *HSId*, and /or
 cover *HSIcov*) results in the *combined Habitat Suitability
 Index*\ **cHSI**. There are various calculation methods for combining
 different *HSIpar* values into one *cHSI* value, where the geometric
-mean and the product are the most widely used deterministic combination
+mean and  the product are the most widely used deterministic combination
 methods:
 
 -  Geometric mean: *cHSI =* (*∏par HSIpar*)\ *1/n*\ For example, the
-   combination of the water depth-related *HSIh* and flow
+   combination of the water depth-related *HSIh* and  flow
    velocity-related *HSIu* with the geometric mean method is: *cHSI =
    (HSIh · HSIu)1/2*
 -  Product: *cHSI = ∏par HSIpar*\ For example, the combination of the
-   water depth-related *HSIh* and flow velocity-related *HSIu* with the
+   water depth-related *HSIh* and  flow velocity-related *HSIu* with the
    product method is: *cHSI =* (*HSIh · HSIu*)
 
-Therefore, if the pixel-based *HSI* values for water depth and flow
+Therefore, if the pixel-based *HSI* values for water depth and  flow
 velocity are known from a two-dimensional (2D) hydrodynamic model, then
 for each pixel the *cHSI* value can be calculated either as the product
 or geometric mean of the single-parameter *HSIpar* rasters.
 
 This habitat assessment concept was introduced by `Bovee
-(1986) <https://pubs.er.usgs.gov/publication/70121265>`__ and `Stalnaker
+(1986) <https://pubs.er.usgs.gov/publication/70121265>`__ and  `Stalnaker
 (1995) <www.dtic.mil/cgi-bin/GetTRDoc?AD=ADA322762>`__. However, these
 authors built their usable (physical) habitat assessment based on
 one-dimensional (1D) numerical models that were commonly used in the
 last millennium. Today, 2D numerical models are the state-of-the-art to
 determine physical habitat geospatially explicit based on pixel-based
 *cHSI* values. There are two different options for calculating the
-usable habitat area (*UHA*) based on pixel-based *cHSI* values (and even
+usable habitat area (*UHA*) based on pixel-based *cHSI* values (and  even
 more options can be found in the scientific literature).
 
 1. Use a threshold value above which a pixel is classified as a usable
    habitat.
 
    -  Typical values for the threshold value *cHSIcrit* are between 0.4
-      (tolerant) and 0.75 (strict).
+      (tolerant) and  0.75 (strict).
    -  The usable habitat area *UHA* results from the pixel size *pxa*
       (e.g., in m²) multiplied by the number of pixels (*px*) where
       *cHSI > cHSIcrit*:\ **UHA = pxa · ∑ pxi(cHSIpxi > cHSIcrit)**
@@ -109,12 +113,12 @@ more options can be found in the scientific literature).
       (`Bovee 1986 <https://pubs.er.usgs.gov/publication/70121265>`__).
 
 {% include note.html content=" The threshold method is preferable over
-the weighting method because the *HSI* has the unit of *Index* and is
+the weighting method because the *HSI* has the unit of *Index* and  is
 therefore not dimensionless. As a result, unrealistic units of *Index*
 areas (e.g., *Index*-m²) are created in the weighting method, which is
 also introducing non-measurable uncertainty." %}
 
-An alternative to the deterministic calculation of the *HSI* and *cHSI*
+An alternative to the deterministic calculation of the *HSI* and  *cHSI*
 values of a pixel is a fuzzy logics approach (`Noack et
 al. 2013 <https://onlinelibrary.wiley.com/doi/pdf/10.1002/9781118526576>`__).
 In the fuzzy logic approach, pixels are classified, for instance, as
@@ -122,15 +126,15 @@ In the fuzzy logic approach, pixels are classified, for instance, as
 associated water depth or flow velocity using categorical (*low*,
 *medium*, or *high*), expert assessment-based *HSI* curves. The *cHSI*
 value results from the center of gravity of superimposed membership
-functions of considered parameters (e.g., water depth and flow
+functions of considered parameters (e.g., water depth and  flow
 velocity).
 
 Sustainable river management involves the challenge of designing aquatic
 habitat for target fish species at different life stages. The concept of
 usable physical habitat area represents a powerful tool to leverage the
-assessment of the ecological integrity of river management and
+assessment of the ecological integrity of river management and 
 engineering measures. For example, by calculating the usable habitat
-area before and after the implementation of measures, valuable
+area before and  after the implementation of measures, valuable
 conclusions can be drawn about the ecological integrity of restoration
 efforts.
 
@@ -138,31 +142,31 @@ This exercise demonstrates the use of 2D hydrodynamic modeling results
 to algorithmically evaluate usable habitat area based on the calculation
 of geospatially explicit *cHSI* values.
 
-Available data and code structure
+Available data and  code structure
 ---------------------------------
 
-The following flow chart illustrates the provided code and data.
-Functions, methods, and files to be created in this exercise are
+The following flow chart illustrates the provided code and  data.
+Functions, methods, and  files to be created in this exercise are
 highlighted in bold, italic, *YELLOW* font.
 
 |code-structure|\ 
 
 The provided *QGIS* project file ``visualize_with_QGIS.qgz`` helps to
-verify input raster datasets and results.
+verify input raster datasets and  results.
 
 Two-dimensional (2D) hydrodynamic modelling (folder: **basement**) 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This exercise uses (hydraulic) flow velocity and water depth rasters
+This exercise uses (hydraulic) flow velocity and  water depth rasters
 (*GeoTIFF*\ s) produced with the `ETH Zurich\ ’s
 BASEMENT <https://basement.ethz.ch/>`__ software. Read more about
 hydrodynamic modeling with *BASEMENT* on
 `hydro-informatics.github.io <bm.html>`__. The hydraulic rasters were
 produced with the *BASEMENT* developer’s `example data from the Flaz
 River <http://people.ee.ethz.ch/~basement/baseweb/download/tutorials/Flaz_2D_v3.zip>`__
-in Switzerland (`read more on their
+in Switzerland  (`read more on their
 website <https://basement.ethz.ch/download/tutorials/tutorials3.html>`__).
-The water depth ``water_depth.tif`` and flow velocity
+The water depth ``water_depth.tif`` and  flow velocity
 ``flow_velocity.tif`` rasters are provided for this exercise in the
 folder ``/basement/``.
 
@@ -170,17 +174,17 @@ Habitat Suitability Index *HSI* curves (folder: **habitat**)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``/habitat/`` folder in the exercise repository contains *HSI*
-curves in the form of an *xlsx* workbook (``trout.xlsx``) and in the
+curves in the form of an *xlsx* workbook (``trout.xlsx``) and  in the
 form of a `JSON file <hypy_xml.html#json>`__ (``trout.json``). Both
 files contain the same data for rainbow trout of a hypothetical
-cobble-bed river and this exercise only uses the *JSON* file (the
+cobble-bed river and  this exercise only uses the *JSON* file (the
 workbook serves for visual verification only).
 
 Code
 ~~~~
 
 **GEO_UTILS (folder: geo_utils)**\  A couple of ``gdal``-based functions
-for processing rasters and shapefiles were introduced in the lecture.
+for processing rasters and  shapefiles were introduced in the lecture.
 This exercise re-uses some of these functions, which are available in
 the geo-processing code repository specifically for this course. The
 name of this geoprocessing repository is
@@ -191,12 +195,13 @@ repository is well implemented in the exercise directory (i.e.,
 ``Exercise-geco\geo_utils\``). The ``\geo_utils\`` folder corresponds to
 the ``geo-utils\geo_utils\`` directory when you clone the repository.
 
-{% include important.html content=“Make sure that in the
+.. important::
+   Make sure that in the
 ``\geo_utils\geoconfig.py`` file, the ``nan_value`` is defined as 0.0
-(``nan_value = 0.0``).” %}
+(``nan_value = 0.0``).
 
 **CONFIG.PY**\  The code in this exercise uses a ``config.py`` file
-where all necessary libraries and global variables are loaded centrally.
+where all necessary libraries and  global variables are loaded centrally.
 
 .. code:: python
 
@@ -204,13 +209,13 @@ where all necessary libraries and global variables are loaded centrally.
 
    import os
    import logging
-   import random
+   import rand om
    import shutil
    import string
    import json
 
    import numpy as np
-   import pandas as pd
+   import pand as as pd
 
    import geo_utils as geo
 
@@ -221,7 +226,7 @@ where all necessary libraries and global variables are loaded centrally.
    nan_value = 0.0
 
 **FUN.PY (FUNCTIONS)**\  At this point in the course, it is assumed that
-students are familiar with object orientation and especially with
+students are familiar with object orientation and  especially with
 writing functions. Therefore, many basic functions for this exercise are
 already provided with the script ``fun.py`` (alphabetically ordered
 list):
@@ -233,30 +238,30 @@ list):
 -  ``check_cache`` verifies if the cache folder defined in ``config.py``
    already exists. The function is automatically called by the ``cache``
    wrapper.
--  ``create_random_string(length)`` generates unique file names for
+-  ``create_rand om_string(length)`` generates unique file names for
    temporary (cached) datasets, where ``length`` is an *integer* value
-   that determines the number of characters of the random string to be
+   that determines the number of characters of the rand om string to be
    created.
 -  ``interpolate_from_list(x_values, y_values, xi_values)`` linearly
    interpolates *yi* values from two sorted lists containing paired *x*
-   and *y* values for a *list* of given *xi* values (returns a
+   and  *y* values for a *list* of given *xi* values (returns a
    ``numpy.array`` of the same length as ``xi_values``). If one of the
    *xi* values is beyond the value range of ``x_values``, the function
    appends the ``nan_value`` defined in ``config.py`` to the results
    array.
 -  ``interpolate_y(x1, x2, y1, y2, xi)`` is called by the
-   ``interpolate_from_list`` function for paired lower and upper
-   ``x1``-``y1`` and ``x2``-``y2`` *float*\ s of the ``x_values`` and
+   ``interpolate_from_list`` function for paired lower and  upper
+   ``x1``-``y1`` and  ``x2``-``y2`` *float*\ s of the ``x_values`` and 
    ``y_values`` *list*\ s (returns a *float* number corresponding to the
    linearly interpolated ``yi`` value of the ``xi``-``yi`` pair between
-   ``x1``-``y1`` and ``x2``-``y2``). If ``xi`` is not numeric, or if the
+   ``x1``-``y1`` and  ``x2``-``y2``). If ``xi`` is not numeric, or if the
    interpolation results in a ``ZeroDivisionError``, the function
    returns the ``nan_value`` defined in ``config.py``.
 -  ``log_actions(fun)`` wraps a function (``fun``), where actions should
    be written to a logfile. Logging is started with the
-   ``start_logging`` function (see below) and logging is stopped with
+   ``start_logging`` function (see below) and  logging is stopped with
    ``logging.shutdown()``.
--  ``read_json`` opens a *JSON* file and returns it as *Python* object.
+-  ``read_json`` opens a *JSON* file and  returns it as *Python* object.
    In this exercise, this function will be used to open the
    ``/habitat/trout.json`` file. The *HSI* values can then be assessed
    from the *JSON* object, for example:
@@ -270,35 +275,35 @@ list):
 
 -  ``remove_directory(directory)`` removes a ``directory`` (*string*
    argument). Be careful, this function aggressively removes the
-   ``directory`` and all its contents with little chance of data
+   ``directory`` and  all its contents with little chance of data
    recovery.
--  ``start_logging()`` starts logging to a logfile (``logfile.log``) and
+-  ``start_logging()`` starts logging to a logfile (``logfile.log``) and 
    the *Python* console at the ``logging.DEBUG`` level.
 
 **RASTER.PY / RASTER_HSI.PY**\  The parent ``Raster`` class is stored in
 the ``raster.py`` script, where magic methods, a *pseudo* private
-``_make_raster``, and a ``save`` method will be created in this
+``_make_raster``, and  a ``save`` method will be created in this
 exercise. The ``HSIRaster`` class in the ``raster_hsi.py`` script is a
 child of the ``Raster`` class. In this exercise, we will only look at
-how this child class is structured and what it produces (i.e., no
+how this child class is structured and  what it produces (i.e., no
 modifications are necessary).
 
-**CREATE_HSI_RASTERS.PY and CALCULATE_HABITAT_AREA.PY**\  The two
-scripts ``reate_hsi_rasters.py`` and ``calculate_habitat_area.py``
-represent the focal point of this exercise and make use of the provided
-data and *Python* scripts. Therefore, only the basic framework functions
-and imports are pre-existing in these two template scripts.
+**CREATE_HSI_RASTERS.PY and  CALCULATE_HABITAT_AREA.PY**\  The two
+scripts ``reate_hsi_rasters.py`` and  ``calculate_habitat_area.py``
+represent the focal point of this exercise and  make use of the provided
+data and  *Python* scripts. Therefore, only the basic framework functions
+and  imports are pre-existing in these two template scripts.
 
-Create and combine *HSI* rasters
+Create and  combine *HSI* rasters
 --------------------------------
 
 Complete magic methods of the ``Raster`` class (``raster.py``)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``raster.py`` script imports the functions and libraries loaded in
-the ``fun.py`` script, and therefore, also the ``config.py`` script. For
-this reason, the *numpy* and *pandas* libraries are already available
-(``as`` ``np`` and ``pd``, respectively), and the *geo_utils* package is
+The ``raster.py`` script imports the functions and  libraries loaded in
+the ``fun.py`` script, and  therefore, also the ``config.py`` script. For
+this reason, the *numpy* and  *pand as* libraries are already available
+(``as`` ``np`` and  ``pd``, respectively), and  the *geo_utils* package is
 already imported as ``geo`` (``import geo_utils as geo`` in
 ``config.py``).
 
@@ -306,7 +311,7 @@ The ``Raster`` class will load any *GeoTIFF* file name as a
 geo-referenced array object that can be used with mathematical
 operators. First, we will complement the ``__init__`` method by a
 ``Raster.name`` (extract from the ``file_name`` argument), as well as
-georeferences and array datasets:
+georeferences and  array datasets:
 
 .. code:: python
 
@@ -316,7 +321,7 @@ georeferences and array datasets:
 If the provided ``file_name`` does not exist, the ``__init__`` method
 creates a new raster with the ``file_name`` (this behaviour is already
 implemented in the ``if not os.path.exists(file_name)`` statement. Next,
-load the ``osgeo.gdal.dataset``, the ``np.array``, and the
+load the ``osgeo.gdal.dataset``, the ``np.array``, and  the
 ``geo_transformation`` of the raster. For this purpose, use the
 `raster2array function <geo-raster.html#createarray>`__ from the
 lecture, which is also implemented in *geo_utils* (``geo``):
@@ -324,13 +329,13 @@ lecture, which is also implemented in *geo_utils* (``geo``):
 .. code:: python
 
        # __init__(...) of Raster class in raster.py
-           self.dataset, self.array, self.geo_transformation = geo.raster2array(file_name, band_number=band) 
+           self.dataset, self.array, self.geo_transformation = geo.raster2array(file_name, band _number=band ) 
 
 To identify the `EPSG number (Authority
 code) <geospatial-data.html#prj>`__ of a raster, retrieve the spatial
 reference system (*SRS*) of the raster. Also for this purpose we have
 already developed a function in the lecture with the `get_srs
-function <geo-raster.html#reproject>`__. Load the *SRS* and the *EPSG*
+function <geo-raster.html#reproject>`__. Load the *SRS* and  the *EPSG*
 number using the *get_srs* function with the following two lines of code
 in the ``__init__`` method:
 
@@ -346,12 +351,12 @@ That is it. The ``__init__`` method of the ``Raster`` class is complete.
 
 To enable mathematical operations between multiple instances of the
 ``Raster`` class, implement `magic methods (recall the lecture
-notes) <hypy_classes.html#operator-binary-and-assignment-methods>`__
+notes) <hypy_classes.html#operator-binary-and -assignment-methods>`__
 that tell the class what to do when two ``Raster`` instances are for
 example added (``+`` sign), multiplied (``*`` sign), or subtracted
 (``-`` sign). For instance, implementing the magic methods
 ``__truediv__`` (for using the ``/`` operator), ``__mul__`` (for using
-the ``*`` operator), and ``__pow__`` (for using the ``**`` operator)
+the ``*`` operator), and  ``__pow__`` (for using the ``**`` operator)
 will enable the usage of ``Raster`` instances like this:
 
 .. code:: python
@@ -398,7 +403,7 @@ Let us take a close look at what the ``__truediv__`` method does:
       which is a computationally efficient wrapper of C/C++ code (much
       faster than a *Python* loop over array elements).
    -  If ``constant_or_raster`` is a numeric value, then invoking
-      ``contant_or_raster.array`` results in an ``AttributeError`` and
+      ``contant_or_raster.array`` results in an ``AttributeError`` and 
       the ``__truediv__`` method falls in the ``except AttributeError``
       statement, where ``self.array`` is simply divided by
       ``constant_or_raster``.
@@ -416,15 +421,15 @@ Let us take a close look at what the ``__truediv__`` method does:
 .. code:: python
 
        def _make_raster(self, file_marker):
-           f_ending = "__{0}{1}__.tif".format(file_marker, create_random_string(4))
+           f_ending = "__{0}{1}__.tif".format(file_marker, create_rand om_string(4))
            geo.create_raster(cache_folder + self.name + f_ending, self.array, epsg=self.epsg,
                              nan_val=nan_value,
                              geo_info=self.geo_transformation)
            return Raster(cache_folder + self.name + f_ending)
 
 -  ``file_marker`` is a *string* variable added to the *GeoTIFF* file
-   name along with a random, four characters-long *string* (`recall the
-   ``create_random_string`` function <#funs>`__). ``file_marker`` is
+   name along with a rand om, four characters-long *string* (`recall the
+   ``create_rand om_string`` function <#funs>`__). ``file_marker`` is
    unique for every implemented operator. For the ``__truediv__`` method
    use ``file_marker="div"``. Thus, the temporary *GeoTIFF* file name is
    defined as ``cache_folder + self.name + f_ending``
@@ -443,14 +448,14 @@ Let us take a close look at what the ``__truediv__`` method does:
 
 Then you have a point. The above-described approach implements the
 ``_make_raster`` method to reuse the temporary *GeoTIFF*\ s later with
-both constants (*float*) and arrays, but there is a more elegant way to
+both constants (*float*) and  arrays, but there is a more elegant way to
 return a new ``Raster`` instance. However, returning a new instance of
 the same class requires that the input argument must be an instance of
-the class itself (i.e., ``Raster``) and not a numeric variable. The
+the class itself (i.e., ``Raster``) and  not a numeric variable. The
 alternative solution for returning a ``Raster`` instance starts with a
-different implementation of the magic method (e.g., ``__truediv__``) and
+different implementation of the magic method (e.g., ``__truediv__``) and 
 requires to import *Python4*-style ``annotations``. Therefore, the first
-line of the script must include (only works with *Python 3.7* and
+line of the script must include (only works with *Python 3.7* and 
 higher) the following import:
 
 .. code:: python
@@ -462,7 +467,7 @@ Then we can rewrite the ``__truediv__`` method:
 .. code:: python
 
        def __truediv__(self, other: Raster) -> Raster: 
-           f_ending = "__div%s__.tif" % create_random_string(4)  
+           f_ending = "__div%s__.tif" % create_rand om_string(4)  
            return Raster(file_name=cache_folder + self.name + f_ending, 
                          raster_array=np.divide(self.array, other.array),
                          epsg=self.epsg,
@@ -520,7 +525,7 @@ are already present in the ``raster.py`` template):
 
 The last item to complete in the ``Raster`` class is the built-in
 ``save`` method that receives a ``file_name`` (*string*) argument
-defining the directory and save-as name of the ``Raster`` instance:
+defining the directory and  save-as name of the ``Raster`` instance:
 
 .. code:: python
 
@@ -528,19 +533,19 @@ defining the directory and save-as name of the ``Raster`` instance:
            return save_status
 
 Why do we need the ``save_status`` variable? First, it states if saving
-the raster was successful (``save_status=0``), and second, this
+the raster was successful (``save_status=0``), and  second, this
 information could be used to delete the raster from the ``__cache__``
-folder and flush the memory (feel free to do so for speeding up the
+folder and  flush the memory (feel free to do so for speeding up the
 code).
 
 --------------
 
-Write *HSI* and *cHSI* raster creation script
+Write *HSI* and  *cHSI* raster creation script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The provided ``create_hsi_rasters.py`` script already contains required
-package imports, an ``if __name__ == '__main__'`` stand-alone statement
-as well as the void ``main``, ``get_hsi_curve``, ``get_hsi_raster``, and
+package imports, an ``if __name__ == '__main__'`` stand -alone statement
+as well as the void ``main``, ``get_hsi_curve``, ``get_hsi_raster``, and 
 ``combine_hsi_rasters`` functions:
 
 .. code:: python
@@ -581,7 +586,7 @@ as well as the void ``main``, ``get_hsi_curve``, ``get_hsi_raster``, and
                "depth": os.path.abspath("") + "\\basement\\water_depth.tif"}
        hsi_output_dir = os.path.abspath("") + "\\habitat\\"
 
-       # run code and evaluate performance
+       # run code and  evaluate performance
        t0 = perf_counter()
        main()
        t1 = perf_counter()
@@ -591,40 +596,40 @@ The ``if __name__ == '__main__'`` statement contains a time counter
 (``perf_counter``) that prompts how long running the script takes
 (typically between 3 to 6 seconds). Make sure that
 
--  the ``parameters`` list contains ``"velocity"`` and ``"depth"`` (as
+-  the ``parameters`` list contains ``"velocity"`` and  ``"depth"`` (as
    per the ``par_dict`` in the ``config.py`` script),
--  the file paths are defined correctly, and
+-  the file paths are defined correctly, and 
 -  a life stage is defined (i.e., either ``"fry"``, ``"juvenile"``,
    ``"adult"``, or ``"spawning"`` as per the */habitat/fish.xlsx*
    workbook).
 
 The following paragraphs show step by step how to load the *HSI* curves
 from the *JSON* file (``get_hsi_curve``), apply them to the
-``flow_velocity`` and ``water_depth`` rasters (``get_hsi_raster``), and
+``flow_velocity`` and  ``water_depth`` rasters (``get_hsi_raster``), and 
 combine the resulting *HSI* rasters into *cHSI* rasters
 (``combine_hsi_rasters``).
 
 The ``get_hsi_curve`` function will load the *HSI* curve from the *JSON*
 file (*/habitat/trout.json*) in a dictionary for the two parameters
-``"velocity"`` and ``"depth"``. Thus, the goal is to create a
-``curve_data`` dictionary that contains one *pandas* ``DataFrame``
-object for all parameters (i.e., velocity and depth). For example,
-``curve_data["velocity"]["u"]`` will be a *pandas* ``Series`` of
+``"velocity"`` and  ``"depth"``. Thus, the goal is to create a
+``curve_data`` dictionary that contains one *pand as* ``DataFrame``
+object for all parameters (i.e., velocity and  depth). For example,
+``curve_data["velocity"]["u"]`` will be a *pand as* ``Series`` of
 velocity entries (in m/s) that corresponds to
-``curve_data["velocity"]["HSI"]``, which is a *pandas* ``Series`` of
-*HSI* values. Similarly, ``curve_data["depth"]["h"]`` is a *pandas*
+``curve_data["velocity"]["HSI"]``, which is a *pand as* ``Series`` of
+*HSI* values. Similarly, ``curve_data["depth"]["h"]`` is a *pand as*
 ``Series`` of depth entries (in meters) that corresponds to
-``curve_data["depth"]["HSI"]``, which is a *pandas* ``Series`` of *HSI*
+``curve_data["depth"]["HSI"]``, which is a *pand as* ``Series`` of *HSI*
 values (corresponds to the curves shown in the `HSI
 graphs <#hsi-image>`__ above). To extract the desired information from
 the *JSON* file, ``get_hsi_curve`` takes three arguments (``json_file``,
-``life_stage``, and ``parameters``) in order to:
+``life_stage``, and  ``parameters``) in order to:
 
 -  Get the information stored in the *JSON* file with the ``read_json``
    function (`see above <#funs>`__).
 -  Instantiate a void ``curve_data`` *dictionary* that will contain the
-   *pandas* ``DataFrame``\ s for ``"velocity"`` and ``"depth"``.
--  Run a loop over the (two) parameters (``"velocity"`` and
+   *pand as* ``DataFrame``\ s for ``"velocity"`` and  ``"depth"``.
+-  Run a loop over the (two) parameters (``"velocity"`` and 
    ``"depth"``), in which it:
 
    -  Creates a void ``par_pairs`` *list* for storing pairs of parameter
@@ -633,10 +638,10 @@ the *JSON* file, ``get_hsi_curve`` takes three arguments (``json_file``,
       data pairs (e.g., ``[u_value, HSI_value]``) are appended to the
       ``par_pairs`` *list*. This iteration is what actually creates the
       nested *list*.
-   -  Converts the final ``par_pairs`` list to a *pandas* ``DataFrame``
+   -  Converts the final ``par_pairs`` list to a *pand as* ``DataFrame``
       that it adds to the ``curve_data`` *dictionary*.
 
--  ``return`` the ``curve_data`` *dictionary* with its *pandas*
+-  ``return`` the ``curve_data`` *dictionary* with its *pand as*
    ``DataFrame``\ s.
 
 .. code:: python
@@ -656,17 +661,17 @@ the *JSON* file, ``get_hsi_curve`` takes three arguments (``json_file``,
                # if the parameter is not empty (i.e., __len__ > 0), append the parameter-HSI (e.g., [u_value, HSI_value]) pair as nested list
                if str(file_info[par][life_stage][i]["HSI"]).__len__() > 0:
                    try:
-                       # only append data pairs if both parameter and HSI are numeric (floats)
+                       # only append data pairs if both parameter and  HSI are numeric (floats)
                        par_pairs.append([float(file_info[par][life_stage][i][par_dict[par]]),
                                          float(file_info[par][life_stage][i]["HSI"])])
                    except ValueError:
                        logging.warning("Invalid HSI curve entry for {0} in parameter {1}.".format(life_stage, par))
-           # add the nested parameter pair list as pandas DataFrame to the curve_data dictionary
+           # add the nested parameter pair list as pand as DataFrame to the curve_data dictionary
            curve_data.update({par: pd.DataFrame(par_pairs, columns=[par_dict[par], "HSI"])})
        return curve_data
 
 In the ``main`` function, call ``get_hsi_curves`` to get the *HSI*
-curves as a *dictionary*. In addition, implement the ``cache`` and the
+curves as a *dictionary*. In addition, implement the ``cache`` and  the
 ``log_actions`` wrappers (`recall the descriptions of provided
 functions <#funs>`__) for the ``main`` function:
 
@@ -679,23 +684,23 @@ functions <#funs>`__) for the ``main`` function:
    @log_actions
    @cache
    def main():
-       # get HSI curves as pandas DataFrames nested in a dictionary
+       # get HSI curves as pand as DataFrames nested in a dictionary
        hsi_curve = get_hsi_curve(fish_file, life_stage=life_stage, parameters=parameters)
 
    ...
 
 With the provided ``HSIRaster`` (``raster_hsi.py``) class, the *HSI*
 rasters can be conveniently created in the ``get_hsi_raster`` function.
-Before using the ``HSIRaster`` class, make sure to understand how it
-works. The ``HSIRaster`` class inherits from the ``Raster`` class and
+Before using the ``HSIRaster`` class, make sure to understand  how it
+works. The ``HSIRaster`` class inherits from the ``Raster`` class and 
 initiates its parent class in its ``__init__`` method through
-``Raster.__init__(self, file_name=file_name, band=band, raster_array=raster_array, geo_info=geo_info)``.
+``Raster.__init__(self, file_name=file_name, band =band , raster_array=raster_array, geo_info=geo_info)``.
 Then, the class calls its ``make_hsi`` method, which takes an *HSI*
 curve (nested *list*) of two equal *list* pairs (*list* of parameters
-and *list* of *HSI* values) as argument. The ``make_hsi`` method:
+and  *list* of *HSI* values) as argument. The ``make_hsi`` method:
 
 -  Extracts parameter values (e.g., depth or velocity) from the first
-   element of the nested ``hsi_curves`` *list*, and *HSI* values from
+   element of the nested ``hsi_curves`` *list*, and  *HSI* values from
    the second element of the nested ``hsi_curves`` *list*.
 -  Uses *numpy*\ ’s built-in ``np.nditer`` function, which iterates
    through *numpy* arrays with high computational efficiency (read more
@@ -703,7 +708,7 @@ and *list* of *HSI* values) as argument. The ``make_hsi`` method:
    ```nditer`` <https://numpy.org/doc/stable/reference/generated/numpy.nditer.html>`__).
 
    -  The ``nditer`` loop passes the ``par_values`` as ``x_values``
-      *list* argument and the ``hsi_values`` as ``y_values`` *list*
+      *list* argument and  the ``hsi_values`` as ``y_values`` *list*
       arguments to the ``interpolate_from_list`` function (`recall the
       function descriptions above <#funs>`__).
    -  The array values (i.e., flow velocity or water depth) correspond
@@ -711,7 +716,7 @@ and *list* of *HSI* values) as argument. The ``make_hsi`` method:
       ``interpolate_from_list`` function.
    -  The ``interpolate_from_list`` function then identifies for each
       element of the ``xi_values`` *list* the closest elements (*xi*
-      values) in the ``x_values`` *list* and the corresponding positions
+      values) in the ``x_values`` *list* and  the corresponding positions
       in the ``y_values`` *list*.
    -  The ``interpolate_from_list`` function passes the identified
       values to the ``interpolate_y`` function, which then linearly
@@ -729,8 +734,8 @@ and *list* of *HSI* values) as argument. The ``make_hsi`` method:
    from raster import *
 
    class HSIRaster(Raster):
-       def __init__(self, file_name, hsi_curve, band=1, raster_array=None, geo_info=False):
-           Raster.__init__(self, file_name=file_name, band=band, raster_array=raster_array, geo_info=geo_info)
+       def __init__(self, file_name, hsi_curve, band =1, raster_array=None, geo_info=False):
+           Raster.__init__(self, file_name=file_name, band =band , raster_array=raster_array, geo_info=geo_info)
            self.make_hsi(hsi_curve)
 
        def make_hsi(self, hsi_curve):
@@ -759,9 +764,9 @@ Modify the ``get_hsi_rasters`` function to directly return a
 
 The ``get_hsi_raster`` function requires two arguments, which it must
 receive from the ``main`` function. For this reason, iterate over the
-``parameters`` *list* in the ``main`` function and extract the
+``parameters`` *list* in the ``main`` function and  extract the
 corresponding raster directories from the ``tifs`` *dictionary* (recall
-the variable definition in the `standalone
+the variable definition in the `stand alone
 statement <#chsi-template>`__). In addition, save the ``Raster`` objects
 returned by the ``get_hsi_raster`` function in another *dictionary*
 (``eco_rasters``) to combine them in the next step into a *cHSI* raster.
@@ -775,10 +780,10 @@ returned by the ``get_hsi_raster`` function in another *dictionary*
    @log_actions
    @cache
    def main():
-       # get HSI curves as pandas DataFrames nested in a dictionary
+       # get HSI curves as pand as DataFrames nested in a dictionary
        hsi_curve = get_hsi_curve(fish_file, life_stage=life_stage, parameters=parameters)
        
-           # create HSI rasters for all parameters considered and store the Raster objects in a dictionary
+           # create HSI rasters for all parameters considered and  store the Raster objects in a dictionary
        eco_rasters = {}
        for par in parameters:
            hsi_par_curve = [list(hsi_curve[par][par_dict[par]]),
@@ -790,24 +795,25 @@ returned by the ``get_hsi_raster`` function in another *dictionary*
 Of course, one can also loop over the parameters *list* directly in the
 ``get_hsi_raster`` function.
 
-{% include tip.html content=“This is a good moment to test if the code
-works. Run ``create_hsi_rasters.py`` and verify that the two *GeoTIFF*
-files (*habitat/hsi_velocity.tif* and */habitat/hsi_depth.tif*) are
-created correctly. *QGIS* visualizes the *GeoTIFF*-products and the
+.. tip::
+   This is a good moment to test if the code
+works. Run ``create_hsi_rasters.py`` and  verify that the two *GeoTIFF*
+files (*habitat/hsi_velocity.tif* and  */habitat/hsi_depth.tif*) are
+created correctly. *QGIS* visualizes the *GeoTIFF*-products and  the
 activated *Identify Features* button in *QGIS* enables to check if the
 linearly interpolated *HSI* values agree with the *HSI* curves in the
 provided workbook (*/habitat/trout.xlsx*). Thus, load both *GeoTIFF*
 pairs in *QGIS*: */habitat/hsi_velocity.tif* +
-*/basement/flow_velocity.tif* and */habitat/hsi_depth.tif* +
-*/basement/water_depth.tif*.” %}
+*/basement/flow_velocity.tif* and  */habitat/hsi_depth.tif* +
+*/basement/water_depth.tif*.
 
 Next, we come to the reason why we had to define magic methods for the
 ``Raster`` class: combine the *HSI* rasters using both combination
-formulae presented above (recall the `product and geometric
+formulae presented above (recall the `product and  geometric
 mean <#combine-methods>`__ formulae), where ``"geometric_mean"`` should
 be used by default. The ``combine_hsi_rasters`` function accepts two
 arguments (a *list* of ``Raster`` objects corresponding to *HSI* rasters
-and the ``method`` to use as *string*).
+and  the ``method`` to use as *string*).
 
 If the method corresponds to the default value ``"geometric_mean"``,
 then the ``power`` to be applied to the product of the ``Raster`` *list*
@@ -844,7 +850,7 @@ power of the previously determined ``power`` value.
        return chsi_raster ** power
 
 To finish the ``create_hsi_rasters.py`` script, implement the call to
-the ``combine_hsi_rasters`` function in the ``main`` function and save
+the ``combine_hsi_rasters`` function in the ``main`` function and  save
 the result as *cHSI* *GeoTIFF* raster in the ``/habitat/`` folder:
 
 .. code:: python
@@ -864,13 +870,13 @@ the result as *cHSI* *GeoTIFF* raster in the ``/habitat/`` folder:
            eco_rasters.update({par: get_hsi_raster(tif_dir=tifs[par], hsi_curve=hsi_par_curve)})
            eco_rasters[par].save(hsi_output_dir + "hsi_%s.tif" % par)
        
-       # get and save chsi raster
+       # get and  save chsi raster
        chsi_raster = combine_hsi_rasters(raster_list=list(eco_rasters.values()),
                                          method="geometric_mean")
        chsi_raster.save(hsi_output_dir + "chsi.tif")
    ...
 
-Run the *HSI* and *cHSI* raster creation code
+Run the *HSI* and  *cHSI* raster creation code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A successful run of the script ``create_hsi_rasters.py`` should look
@@ -881,7 +887,7 @@ like this (in *PyCharm*):
 Plotted in *QGIS*, the *cHSI* *GeoTIFF* raster should look like this:
 
 |chsi-results|\  *The cHSI raster plotted in QGIS, where poor physical
-habitat quality (cHSI close to 0.0) is colored in red and high physical
+habitat quality (cHSI close to 0.0) is colored in red and  high physical
 habitat quality (cHSI close to 1.0) is colored in green.*
 
 Result interpretation
@@ -891,7 +897,7 @@ The presentation of the *cHSI* raster shows that preferred habitat areas
 for juvenile trout exist only close to the banks. Also, numerical
 artifacts of the triangular mesh used by *BASEMENT* are visible.
 Therefore, the question arises whether the calculated flow velocities
-and water depths, and in consequence also the *cHSI* values, close to
+and  water depths, and  in consequence also the *cHSI* values, close to
 the banks can be considered representative.
 
 Calculate the usable habitat area
@@ -902,7 +908,7 @@ Write the code
 
 The *cHSI* rasters enable the calculation of the available usable
 habitat area. The previous section featured examples using the fish
-species *trout* and its *juvenile* life stage, for which we will
+species *trout* and  its *juvenile* life stage, for which we will
 determine here the usable habitat area *UHA* (in m²) using a *cHSI*
 threshold value (rather than the pixel area weighting approach). So we
 follow the `threshold formula described above <#uha-methods>`__, using a
@@ -910,14 +916,14 @@ threshold value of *cHSIcrit* = 0.4. Thus, every pixel that has a *cHSI*
 value of 0.4 or greater counts as usable habitat area.
 
 From a technical point of view, this part of the exercise is about
-converting a raster into a polygon shapefile as well as accessing and
+converting a raster into a polygon shapefile as well as accessing and 
 modifying the *Attribute Table* of the shapefile.
 
 Similar to the creation of the *cHSI* raster, there is a template script
 available for this part of the exercise, called
-``calculate_habitat_area.py``, which contains package and module
-imports, an ``if __name__ == '__main__'`` stand-alone statement, as well
-as the void ``main`` and ``calculate_habitat_area`` functions. The
+``calculate_habitat_area.py``, which contains package and  module
+imports, an ``if __name__ == '__main__'`` stand -alone statement, as well
+as the void ``main`` and  ``calculate_habitat_area`` functions. The
 template script looks like this:
 
 .. code:: python
@@ -949,24 +955,24 @@ will use with the `threshold formula <#uha-methods>`__.
 
 In the ``main`` function, start with loading the *cHSI* raster
 (``chsi_raster``) as a ```Raster`` object <#raster>`__. Then, access the
-*numpy* array of the *cHSI* raster and compare it with
+*numpy* array of the *cHSI* raster and  compare it with
 ``chsi_threshold`` using *numpy*\ ’s built-in
 `greater_equal <https://numpy.org/doc/stable/reference/generated/numpy.greater_equal.html>`__
-function. ``np.greater_equal`` takes an array as first argument and a
+function. ``np.greater_equal`` takes an array as first argument and  a
 second argument, which is the condition that can be a numeric variable
 or another *numpy* array. Then, ``np.greater_equal`` checks if the
 elements of the first array are greater than or equal to the second
 argument. In the case of the second argument being an array, this is an
 element-wise ≥ comparison. The result of ``np.greater_equal`` is a
 *boolean* array (``True`` where the greater-or-equal condition is
-fulfilled and ``False`` otherwise). However, to create an
+fulfilled and  ``False`` otherwise). However, to create an
 ``osgeo.gdal.Dataset`` object from the result of ``np.greater_equal``,
 we need a numeric array. For this reason, multiply the result of
-``np.greater_equal`` by 1.0 and assign it as a new *numpy* array of
-zeros (``False``) and ones (``True``) to a variable named
+``np.greater_equal`` by 1.0 and  assign it as a new *numpy* array of
+zeros (``False``) and  ones (``True``) to a variable named
 ``habitat_pixels`` (see the code block below).
 
-With the ``habitat_pixels`` array and the georeference of
+With the ``habitat_pixels`` array and  the georeference of
 ``chsi_raster``, create a new *integer* *GeoTIFF* raster with the
 `create_raster function of
 geo_utils <https://github.com/hydro-informatics/geo-utils#create-raster>`__
@@ -992,17 +998,17 @@ raster is saved in the */habitat/* folder of the exercise as
    ...
 
 In the next step, convert the habitat pixel raster into a polygon
-shapefile and save it in the */habitat/* folder as ``habitat-area.shp``.
+shapefile and  save it in the */habitat/* folder as ``habitat-area.shp``.
 The conversion of a raster into a polygon shapefile requires that the
 raster contains only *integer* values, which is the case in the habitat
-pixel raster (only zeros and ones - `recall the lecture
+pixel raster (only zeros and  ones - `recall the lecture
 notes <geo-convert.html#raster2polygon>`__). With the `raster2polygon
 function of
 geo_utils <https://github.com/hydro-informatics/geo-utils#convert-raster-to-polygon-shapefile>`__,
 create the new polygon shapefile, specify *habitat-pixels.tif* as
-``raster_file_name`` to be converted, and ``/habitat/habitat-area.shp``
+``raster_file_name`` to be converted, and  ``/habitat/habitat-area.shp``
 as output file name. ``geo.raster2polygon`` returns an
-``osgeo.ogr.DataSource`` object and we can pass its layer including the
+``osgeo.ogr.DataSource`` object and  we can pass its layer including the
 information of the *EPSG* authority code (from ``chsi_raster``) directly
 to the not-yet-written ``calculate_habitat_area`` function:
 
@@ -1040,19 +1046,20 @@ of the shapefile.
        area_unit = "square %s" % str(srs.GetLinearUnitsName())
    ...
 
-{% include note.html content=“In practice, many mistakes are made due to
+.. note::
+   In practice, many mistakes are made due to
 the incorrect use of area units, which is often not obvious at first
 because of the size of geospatial data (several gigabytes). There are
-many units of length and area (meters, feet, acre, hectare, km²) and a
+many units of length and  area (meters, feet, acre, hectare, km²) and  a
 difference of an order of magnitude is sometimes only noticed when a
 critical reviewer or a local expert becomes suspicious. In the
 application shown here, we use the information of the length units only
 to output the total area with a correct reference to the area units (m²)
-on the console, but in practice, this information can save a career.” %}
+on the console, but in practice, this information can save a career.
 
 To determine the habitat area, the area of each polygon must be
 calculated. For this purpose, add a new field to the ``layer`` in the
-*Attribute Table*, name it ``"area"``, and assign a ``geo.ogr.OFTReal``
+*Attribute Table*, name it ``"area"``, and  assign a ``geo.ogr.OFTReal``
 (numeric) data type (recall how to `create a field an data types
 explained in the lecture notes <geo-shp.html#add-field>`__). Then,
 create a void *list* called ``poly_size``, in which we will write the
@@ -1070,11 +1077,12 @@ features using a ``for`` loop, which:
 -  Saves the changes (calculated area) to the shapefile ``layer`` with
    ``layer.SetFeature(feature)``.
 
-{% include important.html content=“Looping through an attribute table is
+.. important::
+   Looping through an attribute table is
 computationally expensive in *Python*. If a shapefile has many elements
 (points, lines, polygons), this loop can last for hours, days, or even
 weeks. Therefore, it can be useful to convert a shapefile into a raster
-and perform calculations using *numpy*\ ’s computationally efficient
+and  perform calculations using *numpy*\ ’s computationally efficient
 built-in functions (C/C++ wrappers), which are many times faster. A
 particular problem is the processing of large lidar datasets (several
 million points), where it may be necessary to use other software (read
@@ -1084,7 +1092,7 @@ more at
 
 The last information needed after the ``for`` loop is the total area of
 the ``"value"=1`` polygons, which we get by writing the ``sum`` of the
-``poly_size`` *list* to the console. Therefore, the second and last part
+``poly_size`` *list* to the console. Therefore, the second and  last part
 of the ``calculate_habitat_area`` function looks like this:
 
 .. code:: python
@@ -1113,16 +1121,17 @@ of the ``calculate_habitat_area`` function looks like this:
            # add the feature modifications to the layer
            layer.SetFeature(feature)
 
-       # calculate and print habitat area
+       # calculate and  print habitat area
        print("The total habitat area is {0} {1}.".format(str(sum(poly_size)), area_unit))
 
    ...
 
-{% include note.html content=“To calculate other geometry attributes
+.. note::
+   To calculate other geometry attributes
 than the polygon area (e.g., envelope extents, derive a convex hull, or
 get the length of lines), refer to the `functions described in the
-lecture notes <geo-shp.html#calc>`__ and use those functions in lieu of
-``polygon.GetArea()``.” %}
+lecture notes <geo-shp.html#calc>`__ and  use those functions in lieu of
+``polygon.GetArea()``.
 
 Run the Usable Habitat Area calculation code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1135,7 +1144,7 @@ Plotted in *QGIS*, the *habitat-area* shapefile looks like this (use
 
 |uha-results| *The habitat-area shapefile plotted in QGIS with
 Categorized symbology, where the usable habitat area UHA (cHSI > 0.4) is
-delineated by the hatched purple patches and their dashed outlines.*
+delineated by the hatched purple patches and  their dashed outlines.*
 
 .. _result-interpretation-1:
 
@@ -1144,18 +1153,19 @@ Result interpretation
 
 The *UHA* of the analyzed river section represents a very small share of
 the total wetted area, which can be interpreted as an ecologically poor
-status of the river. However, a glance at a map and the simulation files
+status of the river. However, a glance at a map and  the simulation files
 of the Flaz example of *BASEMENT* suggests that at a discharge of 50
 m³/s, a flood situation can be assumed. As during floods, there are
 generally higher flow velocities, which are out-of-favor of juvenile
 fish, the small usable habitat area is finally not surprising.
 
-{% include important.html content=“Remember that the here presented
+.. important::
+   Remember that the here presented
 habitat assessment assumes that fish prefer regions with high *cHSI*
-values and that rivers with a high proportion of areas with high *cHSI*
+values and  that rivers with a high proportion of areas with high *cHSI*
 values are ecologically particularly valuable. This approach represents
 an assessment of the physical habitat state with limited information on
-the functional habitat state.” %}
+the functional habitat state.
 
 +--------------------+-----------------------------------------+
 | **BONUS            | Rewrite the magic methods of the        |
@@ -1165,7 +1175,7 @@ the functional habitat state.” %}
 |                    | instead of                              |
 |                    | ``def                                   |
 |                    | __METHOD__(self, constant_or_raster):`` |
-|                    | and the ``_make_raster`` method.        |
+|                    | and  the ``_make_raster`` method.        |
 +--------------------+-----------------------------------------+
 
 .. |fish| image:: https://github.com/Ecohydraulics/media/raw/master/jpg/yuba-fish.jpg

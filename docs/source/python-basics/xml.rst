@@ -96,15 +96,16 @@ called ``wb`` and worksheets contain the letters ``ws``.
    Workbook data in cell A2: 0.3678794411714422
    Corresponds to np.array value: 0.3678794411714422
 
-{% include image.html file=“py-xlsx.png” %}
+.. image:: ../img/py-xlsx.png   ADAPT%}
 
 Read and manipulate an existing workbook
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-{% include warning.html content=“When *openpyxl* opens an existing
+.. attention::
+   When *openpyxl* opens an existing
 workbook, it cannot read graphical objects (e.g., graphs, shapes, or
 images). For this reason, saving the workbook with the same name will
-make graphical objects disappear.” %}
+make graphical objects disappear.
 
 *openpyxl* reads existing workbooks with
 ``openpyxl.load_workbook(filename=str())``. This function accepts
@@ -176,7 +177,7 @@ randomized discharge measurements.
    wb.save("data/python_workbook_reloaded.xlsx")
    wb.close()
 
-{% include image.html file=“py-xlsx-reloaded.png” %}
+.. image:: ../img/py-xlsx-reloaded.png   ADAPT%}
 
 The below code block provides the short helper function ``read_columns``
 to read only one or more columns into a (nested) *list* (reads until the
@@ -260,7 +261,7 @@ re-uses the first column of random values in the previously created
    wb.save("data/python_workbook_chart.xlsx")
    wb.close()
 
-{% include image.html file=“py-xlsx-plot.png” %}
+.. image:: ../img/py-xlsx-plot.png   ADAPT%}
 
 Other workbook charts are available and their implementation (still: why
 would you?) is explained in the `openpyxl
@@ -314,10 +315,12 @@ An extended example script with more complex ``Read`` and ``Write``
 classes can be downloaded from the `course
 repository <https://github.com/hydro-informatics/material-py-codes/raw/master/workbooks/xlsx.py>`__.
 
-{% include challenge.html content=“What are your favorite fonts, table
+.. admonition:: Challenge
+
+   What are your favorite fonts, table
 colors and layouts? Write your own ``Read`` and ``Write`` classes with
 formatting methods to have a personal template ready to be used at any
-time.” %}
+time.
 
 An example from water resources engineering and research
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -336,9 +339,11 @@ geospatially explicit data and to read and interpolate HSI curves from
 workbooks. How does that look like technically? The course exercises
 will help you to find out …
 
-{% include exercise.html content=“Get more familiar with workbook
+.. admonition:: Exercise
+
+   Get more familiar with workbook
 handling in the `Sediment transport (1D) <ex_sediment.html>`__
-exercise.” %}
+exercise.
 
 JSON
 ----
@@ -368,11 +373,12 @@ called ``river_struct.json`` with a ``RIVER`` key that has a nested
 dictionary as value. The value-*dictionary* contains three keys
 (``NAME``, ``GEOMETRY``, and ``HYDRAULICS``).
 
-{% include tip.html content=“Take a couple of minutes to understand the
+.. tip::
+   Take a couple of minutes to understand the
 elements of ``river_struct.json``. What is the purpose of the
 ``FLOWBOUNDARIES`` in ``GEOMETRY``? How could the ``FLOWBOUNDARIES`` be
 related to the ``BOUNDARY`` key of ``HYDRAULICS``? What units could the
-``FRICTION`` values correspond to? Can you find the river on a map?” %}
+``FRICTION`` values correspond to? Can you find the river on a map?
 
 .. code:: python
 
@@ -548,9 +554,11 @@ arrays in the form of a result structure (*dictionary* in the
    NAME                                              Honey river
    RESULTS     {'flow_depth': [[0.0, 1.8204724788697753, 0.98...
 
-{% include image.html file=“py-json-file.png” caption=“The exported JSON
-file (river_results.json).” %}
+.. image:: ../img/py-json-file.png   ADAPTcaption=“The exported JSON
+file (river_results.json).
 
-{% include exercise.html content=“Get more familiar with *JSON* file
+.. admonition:: Exercise
+
+   Get more familiar with *JSON* file
 handling in the `geospatial ecohydraulics <ex_geco.html>`__ exercise
-(requires understanding the chapter on geospatial *Python*).” %}
+(requires understanding the chapter on geospatial *Python*).

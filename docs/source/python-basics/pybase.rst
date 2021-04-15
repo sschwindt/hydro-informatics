@@ -1,7 +1,7 @@
 First steps
 ===========
 
-Summary: About Python, variable types and script execution.
+Summary: About Python, variable types and  script execution.
 
 The *html* version of this notebook is hosted at
 https://hydro-informatics.github.io/hypy_pybase.html.
@@ -13,14 +13,13 @@ These pages are written with `Jupyter Lab <https://jupyter.org/>`__ .
 *Jupyter* notebooks (``.ipynb``) are great to explore an explain
 *Python*, but if you want to build more complex code, other *IDE*\ s may
 be more suitable. `Anaconda <hy_ide.html#anaconda>`__ provides both the
-pluged-in installation of `Jupyter Lab <https://jupyter.org/>`__ and
-`PyCharm <hy_ide.html#anaconda>`__. For the best learning experience use
+pluged-in installation of `Jupyter Lab <https://jupyter.org/>`__ and  `PyCharm <hy_ide.html#anaconda>`__. For the best learning experience use
 both environments as follows:
 
--  *Jupyter Lab* to follow course contents, inline exercises, and to
-   produce own online material (mix of *Python* code and *markdown*
+-  *Jupyter Lab* to follow course contents, inline exercises, and  to
+   produce own online material (mix of *Python* code and  *markdown*
    text)
--  *PyCharm* to accomplish assignments and project work (object-oriented
+-  *PyCharm* to accomplish assignments and  project work (object-oriented
    code mainly)
 
    **Tip**: The setup of the `PyCharm IDE <hy_ide.html#ide>`__ is
@@ -42,47 +41,45 @@ by typing:
 
     print("This is an ice cream callback.")
 
-In order to run the above ``print``\ command in *Jupyter Lab*, just
+In order to run the above ``print``\ command  in *Jupyter Lab*, just
 click in the above box, then click on the run (triangle) button in the
 top menu.
 
-In order to run a print command in *PyCharm*: \* Expand the project
+In order to run a print command  in *PyCharm*: \* Expand  the project
 branch (if not yet done: on left side of the window) \* Right-click in
-the project folder, select ``New`` > ``Python File`` and name the new
+the project folder, select ``New`` > ``Python File`` and  name the new
 *Python* (``.py``) file (e.g., ``icecream_tutorial.py``). \* Copy the
-above ``print("...")`` code into the new Python file and save it. \*
+above ``print("...")`` code into the new Python file and  save it. \*
 Right-click in the Python file, then ``Run icecream_tutorial.py``
 (alternatively: press the ``Ctrl`` + ``Shift`` + ``F10``\ keys). \* Now,
-the *Python Console* should pop up at the bottom of the window and it
-will print the text in the above ``print``\ command.
+the *Python Console* should pop up at the bottom of the window and  it
+will print the text in the above ``print``\ command .
 
    **Note**: In the following, there will not be anymore the
-   differentiation between using *PyCharm* (or any other *IDE*) and
-   *Jupyter Lab*. Thus, **Run the script** means: run the script in your
+   differentiation between using *PyCharm* (or any other *IDE*) and     *Jupyter Lab*. Thus, **Run the script** means: run the script in your
    favorite *IDE* in the following.
 
-With the ``"`` apostrophes in the ``print`` command, we pass a
-**string** variable to the ``print`` command. Instead of using ``"``,
+With the ``"`` apostrophes in the ``print`` command , we pass a
+**string** variable to the ``print`` command . Instead of using ``"``,
 one can also use ``'``, but it is important to use the same type of
-apostrophe at the beginning and at the end of the string (text)
+apostrophe at the beginning and  at the end of the string (text)
 variable.
 
    **Warning**: Be reasonable with the usage of ``print``. Especially in
-   loops, the use of ``print`` leads to unnecessary system load and
-   slows down the script.
+   loops, the use of ``print`` leads to unnecessary system load and     slows down the script.
 
 A marginal note: In Python3 ``print`` is a function, not a keyword as in
 Python2. ``print`` is useful for example to make a running script show
 where it currently is.
 
 It is also possible to print other types of variables than strings, but
-the combination of numerical and text variables requires more encoding.
+the combination of numerical and  text variables requires more encoding.
 
-Python variables and data types
+Python variables and  data types
 -------------------------------
 
-The above print command already introduced string variables. In sum,
-there are five standard variable (or data) types in *Python*:
+The above print command  already introduced string variables. In sum,
+there are five stand ard variable (or data) types in *Python*:
 
 -  text
 -  boolean
@@ -93,9 +90,9 @@ there are five standard variable (or data) types in *Python*:
 
 ..
 
-   **Tip**: Data and variable types are difficult to understand if you
+   **Tip**: Data and  variable types are difficult to understand  if you
    simply try to learn them by heart. Remember that there are different
-   data types that can be useful when writing code and that the most
+   data types that can be useful when writing code and  that the most
    relevant data types are listed here in tabular form.
 
 Text
@@ -122,7 +119,7 @@ facilitate coding. To create (instantiate) a string variable, use the
     print(flavor1[0])
     print(flavor1.split("ll")[0])
 
-Characters can be converted to numbers and other way round. This feature
+Characters can be converted to numbers and  other way round. This feature
 can be useful in loops to iterate for example over alphabetically
 ordered lists (attention: the conversion depends on how your operating
 system is configured).
@@ -155,7 +152,7 @@ Numbers (numeric)
 | ``float``   | ``5.382`` | Floating point real number               |
 +-------------+-----------+------------------------------------------+
 | ``complex`` | ``1.43J`` | Complex number where J is in the range   |
-|             |           | between 0 and 255                        |
+|             |           | between 0 and  255                        |
 +-------------+-----------+------------------------------------------+
 
 To create a variable, use the ``=`` sign as follows:
@@ -171,17 +168,17 @@ a high-level, interpreted programming language (other than for example
 it in the code (it is just good practice - so that scoops remain
 integers).
 
-If a print statement combines numeric and text variables, the numeric
-variables first have to be converted to text and then *concatenated* to
+If a print statement combines numeric and  text variables, the numeric
+variables first have to be converted to text and  then *concatenated* to
 a string. There are several ways to combine multiple variables in a text
 string.
 
 .. code:: ipython3
 
-    print("My ice cream consists of %d scoops." % scoops) # use %d for integers, %f for floats and %s for strings
+    print("My ice cream consists of %d scoops." % scoops) # use %d for integers, %f for floats and  %s for strings
     print("My ice cream weighs %1.3f kg." % weight)
     print("My ice cream weighs " + str(weight) + " kg.")
-    print("My ice cream weighs {0} kg and has {1} scoops".format(weight * scoops, scoops)) # multiple variable conversion
+    print("My ice cream weighs {0} kg and  has {1} scoops".format(weight * scoops, scoops)) # multiple variable conversion
 
 .. code:: ipython3
 
@@ -201,7 +198,7 @@ or tuple) - even a list (so-called *nested lists*).
     print(nested_list)
     print("A list of strings: " + str(list("ABC")))
 
-The items of a list are called *entries* and *entries* can be appended,
+The items of a list are called *entries* and  *entries* can be appended,
 inserted or deleted from a list. > **Note**\ *:*\ Python\* alway starts
 counting from zero. Thus, the first entry of a list is entry number 0.
 Also lists have many useful built-in functions:
@@ -223,9 +220,9 @@ Tuple
 ~~~~~
 
 A tuple represents a collection of *Python* objects, similar to a list
-and the sequence of values (data types) in a tuple can take any type.
+and  the sequence of values (data types) in a tuple can take any type.
 Elements of a tuple are also indexed with integers. In contrast to
-lists, a tuple is embraced with round parentheses ``()`` and a **tuple
+lists, a tuple is embraced with round parentheses ``()`` and  a **tuple
 is immutable** while **lists are mutable**. This means that a tuple
 object can no longer be modified after it has been created. So why would
 you like to use tuples then? The answer is that a tuple is more memory
@@ -239,8 +236,8 @@ references to existing objects. In addition, a tuple can serve as a
     print(a_tuple[0])
     print(a_tuple[-1]) # last element of a tuple (this also works with lists ..)
     
-    # comparison of lists and tuples
-    import time # we need this package (module here) and we will learn more about modules later
+    # comparison of lists and  tuples
+    import time # we need this package (module here) and  we will learn more about modules later
     print("patience ...")
     
     # iterate over a list with 100000 elements
@@ -266,10 +263,10 @@ references to existing objects. In addition, a tuple can serve as a
 Dictionary
 ~~~~~~~~~~
 
-Dictionaries are a powerful data type in *Python* and have the basic
+Dictionaries are a powerful data type in *Python* and  have the basic
 structure ``my_dict = {key: value}``. In contrast to lists, an element
 of a dictionary is called by invoking a ``key`` rather than an entry
-number. A dictionary is not enumerated and ``key``\ s just point to
+number. A dictionary is not enumerated and  ``key``\ s just point to
 their ``value``\ s (whatever data type the ``value``\ then is).
 
 .. code:: ipython3
@@ -299,11 +296,11 @@ Two lists of the same length can be *zipped* into a dictionary:
 Operators
 ---------
 
-The following operators compare data types and output boolean values
+The following operators compare data types and  output boolean values
 (``True``\ or ``False``):
 
 -  ``a == b`` or ``a is b`` *a* equals / is *b*
--  ``a and b`` *a* and *b*
+-  ``a and  b`` *a* and  *b*
 -  ``a or b`` *a* or *b*
 -  ``a <= b`` *a* smaller than or equal to *b* (similar without equal
    sign)
