@@ -22,6 +22,7 @@ def is_development_build():
 
 
 sys.path.insert(0, os.path.abspath(".."))
+sys.path.append(0, os.path.abspath("..") + "/img/")
 
 # the following modules will be mocked (i.e. bogus imports - required for C-dependent packages)
 autodoc_mock_imports = [
