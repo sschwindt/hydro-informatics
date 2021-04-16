@@ -226,9 +226,9 @@ The provided *HEC-RAS* dataset is stored in an *xlsx* workbook (```HEC-RAS/outpu
 and contains the following output:
 
 +-------+-------------+--------+-----+-------------------------------+
-| *     | *           | **Vari | **  | **Description**               |
+|       |             | **Vari | **  | **Description**               |
 | *Col. | *Alphabetic | able** | Typ |                               |
-| No.** | Col.**      |        | e** |                               |
+| No.*  | Col.*       |        | e** |                               |
 +=======+=============+========+=====+===============================+
 | Col.  | A           | Reach  | [s  | River (reach) name            |
 | 01    |             |        | tri |                               |

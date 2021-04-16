@@ -85,9 +85,10 @@ The descriptions on the *Get started* for installing and launching `JupyterLab <
 
 The *Kernel* menu runs the defined programming language (*Python 3* in the example below). The *Settings* menu provides options to configure styles (e.g., choose the *JupyterLab Dark* theme shown in the below figure). *JupyterLab* runs on a local server (typically on ``localhost:XXPORTXX/lab``), which is why it is just like an interactive website in your browser. At the beginning it takes some getting used to, but one gets quickly familiar with it and there are many advantages such as the inline use of online graphics.
 
-.. image:: ../img/jupyter-illu.png
+.. figure:: ../img/jupyter-illu.png
    :alt: pyc-prj-setup
-   :caption: JupyterLab in Dark theme appearance with a Jupyter notebook (xml.ipynb) opened showing the combination of a markdown cell (Charts(plots)) and a Python 3 cell.
+   
+    JupyterLab in Dark theme appearance with a Jupyter notebook (xml.ipynb) opened showing the combination of a markdown cell (Charts(plots)) and a Python 3 cell.
 
 *Jupyter* is a spin-off of `IPython <https://ipython.org/>`__, which is “a rich architecture for interactive computing. Therefore, when we start a *Python* kernel in *JupyterLab*, an *IPython* kernel is started, which refers to the currently activated *conda* environment. So if you need to install a package for usage in *JupyterLab*, follow the `above instructions <##install-pckg>`__ and make sure that the corresponding environment is activated.
 
@@ -135,7 +136,8 @@ After the successful installation of `PyCharm <hy_ide.html#ide>`__ within *Anaco
 
 .. figure:: ../img/pyc-project.png
    :alt: pyc-prj
-   :caption: Create a new project in PyCharm.
+   
+    Create a new project in PyCharm.
   
 2. Define The new ``hypy`` environment as *Pure Python* project interpreter:
   
@@ -144,8 +146,9 @@ After the successful installation of `PyCharm <hy_ide.html#ide>`__ within *Anaco
 	-   Click *Create* to create the new project. 
 	
 .. figure:: ../img/pyc-prj-setup.png
-	:alt: pyc-prj-setup
-	:caption: Setup the hypy conda environment for the new project.
+   :alt: pyc-prj-setup
+   
+    Setup the hypy conda environment for the new project.
 
 3. Verify that the project interpreter is correctly defined:
   
@@ -154,7 +157,8 @@ After the successful installation of `PyCharm <hy_ide.html#ide>`__ within *Anaco
 	-   Make sure that the above-created ``hypy`` *conda* environment is defined as *Project Interpreter*. 
 
 .. image:: ../img/pyc-prj-interp.png
-   :alt: pyc-prj-interp	:caption: Verify the correct setup of the Project Interpreter.
+   :alt: pyc-prj-interp	
+    Verify the correct setup of the Project Interpreter.
 
 .. tip::
    **Are you struggling with setting up PyCharm correctly?** *PyCharm* and *Anaconda* are designed for working hand -in-hand and the developers provide an `up-to-date documentation <https://docs.anaconda.com/anaconda/user-guide/tasks/pycharm/>`__ for setting up *PyCharm* to work with *conda* environments.

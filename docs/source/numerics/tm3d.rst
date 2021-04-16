@@ -175,7 +175,6 @@ One or more calculation cases can be created to define elements for the later si
 **Step 4:** Omit the definition of a *Strickler table* and press **Next >**. \* Note that this step may be useful to define zones with different roughness attributes.
 
 .. image:: ../img/salome/sah-create-calc-case-strickler.png
-
    :alt: telemac SALOME hydro contour strickler 
 
 **Step 5:** Finalize the calculation case creation by clicking on the **Finish** button.
@@ -212,7 +211,8 @@ Right-click on *HYDRO_Hydrodynamic_1* and select **Create Group** from the conte
 
 .. figure:: ../img/salome/geo-create-group-upstream.png
    :alt: telemac SALOME geometry group faces
-   :caption: Define the upstream edge of the surface.
+   
+   Define the upstream edge of the surface.
 
 -  For defining the other edges (``downstream``, ``leftwall``, and ``rightwall``), use the indications in the following figure.
 

@@ -65,7 +65,8 @@ To load any point *shapefile* start *BK* and :
 .. image:: ../img/bk-import-pts.png
    :alt: bkimportpts
 
-   :caption: Importing a point shapefile in BK.
+   
+    Importing a point shapefile in BK.
 
 -  Right-click on **points (X)** and open the **Properties**
 -   In the **Properties** window got to the **Data** tab > select **Z(float)** and **Apply**; then go to the **ColourScale** tab >
@@ -75,7 +76,8 @@ To load any point *shapefile* start *BK* and :
 
 .. figure:: ../img/bk-imported-3dpts.png
    :alt: blue kenue 3d points
-   :caption: The imported points a point shapefile in BK.
+   
+    The imported points a point shapefile in BK.
 
 Generate a Mesh
 ~~~~~~~~~~~~~~~
@@ -215,7 +217,9 @@ Open the PostTelemac plugin
 Find the *PostTelemac* icon in the menu bar to open the plugin. By default, the plugin window will most likely open up in the bottom-right corner of the QGIS window. For better handling, click the *detach* symbol and enlarge the detached plugin window.
 
 .. figure:: ../img/posttm-display.png
-   	:caption: The detached window of the PostTelemac plugin with the Display tab opened to render simulation variables such as VELOCITY U/V, VITESSE (principal absolute U-V velocity) or DEPTH.
+   	
+    The detached window of the PostTelemac plugin with the Display tab opened to render simulation variables such as VELOCITY U/V, VITESSE (principal absolute U-V velocity) or DEPTH.
 
 .. figure:: ../img/posttm-tools.png
-   	:caption: The detached window of the PostTelemac plugin with the Tools tab opened (e.g., to create shapefiles or GeoTIFF rasters).
+   	
+    The detached window of the PostTelemac plugin with the Tools tab opened (e.g., to create shapefiles or GeoTIFF rasters).

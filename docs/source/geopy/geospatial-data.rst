@@ -38,7 +38,8 @@ A geodatabase (also known as *spatial database*) can store, query (e.g., using `
 
 .. figure:: ../img/geo-database.png
    :alt: gdb
-   :caption: Functional skeleton of a geodatabase.
+   
+   Functional skeleton of a geodatabase.
 
 .. _vector:
 
@@ -69,7 +70,8 @@ Shapefile vector data typically has an attribute table (just like any other geod
 
 .. figure:: ../img/geo-shp-illu.png
    :alt: shapefile presentration
-   :caption: Illustration of point, (poly) line, and polygon shapefiles.
+   
+    Illustration of point, (poly) line, and polygon shapefiles.
 
 Shapefile versus geodatabase
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -87,7 +89,8 @@ The file ending of a TIN is ``.TIN``.
 
 .. figure:: ../img/geo-tin.png
    :alt: tin-illu
-   :caption: Illustration of a TIN.
+   
+   Illustration of a TIN.
 
 GeoJSOn
 ~~~~~~~
@@ -127,7 +130,8 @@ Raster datasets store pixel values (*cells*), which require large storage space,
 
 .. figure:: ../img/geo-raster-illu.png
    :alt: raster file illustration GeoTiff
-   :caption: Illustration of the Natural Earth’s NE1_50M_SR_W.tif raster zoomed on Nepal, with point and line shapefiles indicating major cities and country borders, respectively. Take note of the tile-like appearance of the grid, where each tile corresponds to a 50m-x-50m raster cell.
+   
+   Illustration of the Natural Earth’s NE1_50M_SR_W.tif raster zoomed on Nepal, with point and line shapefiles indicating major cities and country borders, respectively. Take note of the tile-like appearance of the grid, where each tile corresponds to a 50m-x-50m raster cell.
 
 .. _prj:
 

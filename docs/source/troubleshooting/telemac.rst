@@ -51,7 +51,7 @@ To increase model stability, modify the following variables or make sure that th
 Errors in Mesh Files
 --------------------
 
-.. admonition::
+.. admonition:: 3d-Meshing
 
    A 3d simulation may crash when it is used with the parameter ``CHECKING THE MESH : YES``. Thus, **in 3d, favourably use ``CHECKING THE MESH : NO``**.
 

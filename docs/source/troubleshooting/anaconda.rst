@@ -52,7 +52,7 @@ Several reason may cause that installing new packages fails in *Anaconda Prompt*
 	-   Restart *Terminal* or *Anaconda Prompt*   
 	-   Try to re-install the package prompted.
 
-Large size of *Anaconda on disk
+Large size of *Anaconda* on disk
 --------------------------------
 
 The *Anaconda* *base* environment comes with many pre-installed packages and can be very storage intensive in the order of many gigabytes. Every new environment that is produced can take the same size and multiple *conda* environments may jam your hard disk. Again, there are some solutions:

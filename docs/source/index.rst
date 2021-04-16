@@ -153,8 +153,8 @@ about how to debug known issues (not that issues ever existed…).
    :maxdepth: 2
    :caption: Terms and Conditions
 
-    terms/disclaimer
-    terms/license
+   terms/disclaimer
+   terms/license
 
 
 Indices and tables

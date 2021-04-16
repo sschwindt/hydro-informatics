@@ -20,6 +20,7 @@ The ``results.xdmf`` contains geospatially explicit data (e.g., of flow velocity
 
 .. figure:: ../img/npp-xdmf-replace.png
    :alt: bmy
-   :caption: Find the string results_aux.h5 in results.xdmf and remove the file directories.
+   
+   Find the string results_aux.h5 in results.xdmf and remove the file directories.
 
 This issue is also discussed in the `BASEMENT User Forum <http://people.ee.ethz.ch/~basement/forum/viewtopic.php?id=5261>`__).

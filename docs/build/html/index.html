@@ -245,12 +245,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python-basics/xml.html">
-   Workbook (xlsx) handling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="python-basics/xml.html#json">
-   JSON
+   Structured Objects
   </a>
  </li>
  <li class="toctree-l1">
@@ -295,11 +290,6 @@
    Convert Raster to Vector datasets and  Vice Versa
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="geopy/geo-arcpy.html">
-   The commercial arcpy library
-  </a>
- </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -339,7 +329,19 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python-exercises/ex-gui.html">
-   Create a **G**raphical **U**ser **I**nterface (GUI)
+   Create a
+   <strong>
+    G
+   </strong>
+   raphical
+   <strong>
+    U
+   </strong>
+   ser
+   <strong>
+    I
+   </strong>
+   nterface (GUI)
   </a>
  </li>
  <li class="toctree-l1">
@@ -377,6 +379,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="numerics/tm2d.html">
    Telemac 2d (coming soon)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numerics/tm3d.html">
+   Telemac 3d and SALOME
   </a>
  </li>
 </ul>
@@ -691,20 +698,9 @@ about how to debug known issues (not that issues ever existed…).</p>
 <li class="toctree-l2"><a class="reference internal" href="python-basics/classes.html#template-for-a-custom-python-class">Template for a custom <em>Python</em> class</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="python-basics/xml.html">Workbook (xlsx) handling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="python-basics/xml.html#create-a-workbook">Create a workbook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python-basics/xml.html#read-and-manipulate-an-existing-workbook">Read and manipulate an existing workbook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python-basics/xml.html#formulae-in-workbooks">Formulae in workbooks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python-basics/xml.html#un-merge-cells">(Un)merge cells</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python-basics/xml.html#charts-plots">Charts (plots)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python-basics/xml.html#customize-workbook-manipulation">Customize workbook manipulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python-basics/xml.html#an-example-from-water-resources-engineering-and-research">An example from water resources engineering and research</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="python-basics/xml.html#json">JSON</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="python-basics/xml.html#json-file-structure"><em>JSON</em> file structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python-basics/xml.html#read-decode-and-write-encode-json-files-with-the-json-library">Read (decode) and write (encode) <em>JSON</em> files with the <code class="docutils literal notranslate"><span class="pre">json</span></code> library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python-basics/xml.html#read-decode-and-write-encode-json-files-with-pandas">Read (decode) and write (encode) <em>JSON</em> files with <em>pandas</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-basics/xml.html">Structured Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python-basics/xml.html#workbook-xlsx-handling">Workbook (xlsx) handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-basics/xml.html#json">JSON</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="python-basics/gui.html">Graphical User Interfaces</a><ul>
@@ -770,14 +766,6 @@ about how to debug known issues (not that issues ever existed…).</p>
 <li class="toctree-l2"><a class="reference internal" href="geopy/geo-convert.html#rasterize-vector-shapefile-to-raster">Rasterize (vector shapefile to raster)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="geopy/geo-arcpy.html">The commercial arcpy library</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-arcpy.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-arcpy.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-arcpy.html#use-arcpy-in-external-ides">Use <code class="docutils literal notranslate"><span class="pre">arcpy</span></code> in external <em>IDE</em>s</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-arcpy.html#spatial-analyst-raster-operations">Spatial Analyst &amp; Raster operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-arcpy.html#shapefile-operations">Shapefile operations</a></li>
-</ul>
-</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -814,10 +802,10 @@ about how to debug known issues (not that issues ever existed…).</p>
 <li class="toctree-l2"><a class="reference internal" href="python-exercises/ex-sediment.html#launch-and-debug">Launch and debug</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="python-exercises/ex-gui.html">Create a **G**raphical **U**ser **I**nterface (GUI)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="python-exercises/ex-gui.html">Create a <strong>G</strong>raphical <strong>U</strong>ser <strong>I</strong>nterface (GUI)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="python-exercises/ex-gui.html#make-the-application-frame">Make the application frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python-exercises/ex-gui.html#make-the-script-stand-alone">Make the script stand-alone</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python-exercises/ex-gui.html#launch-the-gui">Launch the GUi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-exercises/ex-gui.html#launch-the-gui">Launch the GUI</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="python-exercises/ex-geco.html">Create a habitat suitability map</a><ul>
@@ -871,6 +859,20 @@ about how to debug known issues (not that issues ever existed…).</p>
 <li class="toctree-l2"><a class="reference internal" href="numerics/tm2d.html#post-processing-with-qgis">Post-processing with QGIS</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="numerics/tm3d.html">Telemac 3d and SALOME</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="numerics/tm3d.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics/tm3d.html#input-files">Input files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics/tm3d.html#start-salome-hydro">Start SALOME-HYDRO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics/tm3d.html#hydro-module">HYDRO module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics/tm3d.html#build-the-geometry">Build the Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics/tm3d.html#generate-a-mesh">Generate a Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics/tm3d.html#export-med-file">Export MED File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics/tm3d.html#generate-boundary-conditions">Generate Boundary Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics/tm3d.html#create-simulation-case-cas">Create Simulation Case (CAS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics/tm3d.html#run-simulation-compute">Run Simulation (Compute)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics/tm3d.html#post-processing-with-salome-and-paravis">Post-Processing with SALOME and ParaVis</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -879,7 +881,7 @@ about how to debug known issues (not that issues ever existed…).</p>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting/anaconda.html">Troubleshoot Anaconda</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting/anaconda.html#anaconda-navigator-does-not-start-up"><em>Anaconda Navigator</em> does not start up</a></li>
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting/anaconda.html#conda-package-installation-fails">Conda package installation fails</a></li>
-<li class="toctree-l2"><a class="reference internal" href="troubleshooting/anaconda.html#large-size-of-anaconda-on-disk">Large size of *Anaconda on disk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting/anaconda.html#large-size-of-anaconda-on-disk">Large size of <em>Anaconda</em> on disk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting/anaconda.html#cannot-find-path">Cannot find … path</a></li>
 </ul>
 </li>

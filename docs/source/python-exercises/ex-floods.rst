@@ -7,8 +7,7 @@ Calculate flood return periods
 
 .. admonition:: Requirements
 
-   *Python* libraries: *pandas* and 
-*matplotlib*. Understand data handling with `pand as <https://hydro-informatics.github.io/hypy_pynum.html>`__.
+   *Python* libraries: *pandas* and *matplotlib*. Understand data handling with `pand as <https://hydro-informatics.github.io/hypy_pynum.html>`__.
 
 Get ready by cloning the exercise repository:
 
@@ -170,8 +169,8 @@ This is only interpolation. For extrapolating return periods beyond the length o
 After all, there is already a software that calculates return periods, freely available at the US Army Corps of Engineers’ Hydrologic Engineering Center (*HEC*): `HEC-SPP <https://www.hec.usace.army.mil/software/hec-ssp/>`__. *HEC-SPP* enables the calculation of flow event frequencies and return periods according to US-standards. So if you are not working in or for the United States, you still may want to have your own code ready. Moreover, *HEC-SPP* requires pre-processing of discharge data (i.e., it only works with annual maxima).
 
 +--------------+-----------------------------------------+
-| *            | Use the formulae in the provided        |
-| *HOMEWORK:** | workbook (ILIAS) to implement the       |
+|              | Use the formulae in the provided        |
+| *HOMEWORK:*  | workbook (ILIAS) to implement the       |
 |              | Gumbel distribution for extrapolating a |
 |              | 200, 500, and 1000-years flood.         |
 |              | Interpolations discharges of 2, 5, 10,  |

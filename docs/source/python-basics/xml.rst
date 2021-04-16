@@ -1,3 +1,6 @@
+Structured Objects
+==================
+
 This lesson starts with some background information about XML and what
 XML has to do with workbooks and JSON: XML is the abbreviation of
 `E\ \ x\ \ tensible\ M\ \ arkup\ L\ \ anguage <https://www.w3.org/TR/xml/>`__
@@ -96,7 +99,8 @@ called ``wb`` and worksheets contain the letters ``ws``.
    Workbook data in cell A2: 0.3678794411714422
    Corresponds to np.array value: 0.3678794411714422
 
-.. image:: ../img/py-xlsx.png   ADAPT%}
+.. image:: ../img/py-xlsx.png
+
 
 Read and manipulate an existing workbook
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -177,7 +181,7 @@ randomized discharge measurements.
    wb.save("data/python_workbook_reloaded.xlsx")
    wb.close()
 
-.. image:: ../img/py-xlsx-reloaded.png   ADAPT%}
+.. image:: ../img/py-xlsx-reloaded.png  
 
 The below code block provides the short helper function ``read_columns``
 to read only one or more columns into a (nested) *list* (reads until the
@@ -261,7 +265,7 @@ re-uses the first column of random values in the previously created
    wb.save("data/python_workbook_chart.xlsx")
    wb.close()
 
-.. image:: ../img/py-xlsx-plot.png   ADAPT%}
+.. image:: ../img/py-xlsx-plot.png  
 
 Other workbook charts are available and their implementation (still: why
 would you?) is explained in the `openpyxl
@@ -341,9 +345,7 @@ will help you to find out …
 
 .. admonition:: Exercise
 
-   Get more familiar with workbook
-handling in the `Sediment transport (1D) <ex_sediment.html>`__
-exercise.
+   Get more familiar with workbook handling in the `Sediment transport (1D) <ex_sediment.html>`__ exercise.
 
 JSON
 ----
@@ -554,8 +556,9 @@ arrays in the form of a result structure (*dictionary* in the
    NAME                                              Honey river
    RESULTS     {'flow_depth': [[0.0, 1.8204724788697753, 0.98...
 
-.. image:: ../img/py-json-file.png   ADAPTcaption=“The exported JSON
-file (river_results.json).
+.. image:: ../img/py-json-file.png  
+
+
 
 .. admonition:: Exercise
 

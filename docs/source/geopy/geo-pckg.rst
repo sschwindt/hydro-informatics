@@ -3,7 +3,7 @@ Geospatial Libraries
 
 This page lists open-source packages for geospatial file manipulation with *Python*. The necessary packages are already installed if you use the provided ```hypy`` <hypy_install.html#create-and -install-conda-environments>`__ environment. The following sections provide explanations of relevant and optional packages for this course and how those can be installed.
 
-.. admonition::
+.. admonition:: ArcGIS and arcpy
 
    The proprietary license-requiring ``arcpy`` package is described on the `Commercial software <geo-arcpy.html>`__ page.
 
@@ -105,10 +105,11 @@ Besides the above mentioned packages there are other useful libraries for geospa
 
 -  ```alphashape`` <https://pypi.org/project/alphashape/>`__ creates    bounding polygons containing a set of points install in *Anaconda Prompt* with \ ``conda install -c conda-forge alphashape``).
 -  ```django`` <https://docs.djangoproject.com/en/3.0/ref/contrib/gis/>`__ as a geographic web frame and for database connections - install in *Anaconda Prompt* with \ ``conda install -c anaconda django``
--   ```geopand as`` <https://geopand as.org/>`__ enables the application of *pandas* data frame operations to geospatial datasets -  install in    *Anaconda Prompt* with \ ``conda install -c conda-forge geopand as``
--   ```NetworkX`` <https://networkx.github.io/documentation/stable/index.html>`__ for network analyses such as finding a least cost / shortest path between two points - install in *Anaconda Prompt* with \ ``conda install -c anaconda networkx``
--   ```owslib`` <http://geopython.github.io/OWSLib/>`__ to connect with *Open Geospatial Consortium* (*OGC*) web services - install in *Anaconda Prompt* with \ ``conda install -c conda-forge owslib``
--   ```postgresql`` <https://www.postgresqltutorial.com/postgresql-python/>`__ for SQL database connections -  install in *Anaconda Prompt* with \ ``conda install -c anaconda postgresql``
--   ```rasterio`` <https://rasterio.readthedocs.io/en/latest/>`__ for processing raster data as ```numpy`` <hypy_pynum.html#numpy>`__ arrays install in *Anaconda Prompt* with \ ``conda install -c conda-forge rasterio``
--   ```rasterstats`` <https://pythonhosted.org/rasterstats/>`__ produces zonal statistics of rasters and can interact with *GeoJSON* files - install in *Anaconda Prompt* with \ ``conda install -c conda-forge rasterstats``
--   ```sckit-image`` <https://scikit-image.org/>`__ for machine learning applied to georeferenced images - install in *Anaconda Prompt* with \ ``conda install -c anaconda scikit-image`` 
+-  ```geopand as`` <https://geopand as.org/>`__ enables the application of *pandas* data frame operations to geospatial datasets -  install in    *Anaconda Prompt* with \ ``conda install -c conda-forge geopand as``
+-  ```NetworkX`` <https://networkx.github.io/documentation/stable/index.html>`__ for network analyses such as finding a least cost / shortest path between two points - install in *Anaconda Prompt* with \ ``conda install -c anaconda networkx``
+-  ```owslib`` <http://geopython.github.io/OWSLib/>`__ to connect with *Open Geospatial Consortium* (*OGC*) web services - install in *Anaconda Prompt* with \ ``conda install -c conda-forge owslib``
+-  ```postgresql`` <https://www.postgresqltutorial.com/postgresql-python/>`__ for SQL database connections -  install in *Anaconda Prompt* with \ ``conda install -c anaconda postgresql``
+-  ```rasterio`` <https://rasterio.readthedocs.io/en/latest/>`__ for processing raster data as ```numpy`` <hypy_pynum.html#numpy>`__ arrays install in *Anaconda Prompt* with \ ``conda install -c conda-forge rasterio``
+-  ```rasterstats`` <https://pythonhosted.org/rasterstats/>`__ produces zonal statistics of rasters and can interact with *GeoJSON* files - install in *Anaconda Prompt* with \ ``conda install -c conda-forge rasterstats``
+-  ```sckit-image`` <https://scikit-image.org/>`__ for machine learning applied to georeferenced images - install in *Anaconda Prompt* with \ ``conda install -c anaconda scikit-image`` 
+

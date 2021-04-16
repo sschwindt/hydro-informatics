@@ -4,7 +4,8 @@ About git
 *Git* is a fast, scalable, distributed revision control system, originally developed by *Linus Torvalds* (`read more about the git kernel <https://git.kernel.org/>`__). *Git* enables to coordinate work among collaborators beyond programming, in any set of files. Its support of non-linear workflows, speed and data integrity make git an indispensable tool in many industries and research. Before starting to read this *git* tutorial, have a look at the schematic functioning of repositories hosted with *git*.
 
 .. figure:: ../img/git-scheme.png  
-	:caption: The concept of git with some basic vocabulary.
+	
+    The concept of git with some basic vocabulary.
 	
 The REMOTE frame is online (i.e., some one else’s computer) and the LOCAL frame is what happens on a personal computer, which is connected to the internet. Repositories can be newly created or forked remotely. Remote repositories can be cloned locally, modified locally, and local changes can be pushed to a remote repository. Collaborators want to make sure to regularly pull changes of a remote repository. Working with and on different branches becomes increasingly important with the number of developers and for the moment we just need to remember that we start working in the master branch (i.e., upstream origin / HEAD = master
 

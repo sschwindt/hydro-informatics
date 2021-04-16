@@ -20,7 +20,7 @@ Get ready by cloning the exercise repository:
 The theory
 ----------
 
-The `Gauckler-Manning-Strickler formula <https://en.wikipedia.org/wiki/Manning_formula>`__ (or *Strickler formula* in Europe) relates water depth and flow velocity of open channel flow based on the assumption of one-dimensional (cross-section-averaged) flow characteristics. The *Strickler formula* results from a heavy simplification of the `Navier-Stokes <https://en.wikipedia.org/wiki/Navier-Stokes_equations>`__ and the `continuity <https://en.wikipedia.org/wiki/Continuity_equation>`__ equations. Even though one-dimensional (1D) approaches have largely been replaced by at least two-dimensional (2D) numerical models today, the 1d Strickler formula is still frequently used as a first approximation for boundary conditions.
+The `Gauckler-Manning-Strickler formula <https://en.wikipedia.org/wiki/Manning_formula>`__ (or *Strickler formula* in Europe) relates water depth and flow velocity of open channel flow based on the assumption of one-dimensional (cross-section-averaged) flow characteristics. The *Strickler formula* results from a heavy simplification of the `Navier-Stokes <https://en.wikipedia.org/wiki/Navier-Stokes_equations>`__ and the `continuity <https://en.wikipedia.org/wiki/Continuity_equation>`__ equations. Even though one-dimensional (1D) approaches have largely been replaced by at least two-dimensional (2d) numerical models today, the 1d Strickler formula is still frequently used as a first approximation for boundary conditions.
 
 The basic shape of the *Strickler formula* is:
 

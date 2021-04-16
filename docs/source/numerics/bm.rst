@@ -55,7 +55,8 @@ NAME  riverbed lower_bank upper_bank floodplain street
 
 The window should now look like this: 
 .. figure:: ../img/bm-mod-reg.png
-   :alt: bm-7	:caption: Region definitions.
+   :alt: bm-7	
+    Region definitions.
 
 -  Next, we need to define inflow and outflow boundary condition with ``stringdefs``. In the ``GEOMETRY`` section right-click –
    ``Add item`` ``STRINGDEF`` – ``Add item`` (2 times) and define item [0] as:  
@@ -92,7 +93,8 @@ If you used `BASEmesh’s Stringdef tool <QGIS-prepro.html#stringdef>`__, the up
 =============== ======== ========== ========== ========== ======
 
 .. figure:: ../img/bm-mod-frc.png 
-   :caption: Assignment of friction (roughness) values to model regions.
+   
+    Assignment of friction (roughness) values to model regions.
 
 -  In the ``PARAMETER`` section define:  
 	-   ``CFL`` = ``0.95``   
@@ -104,7 +106,8 @@ If you used `BASEmesh’s Stringdef tool <QGIS-prepro.html#stringdef>`__, the up
 Note that the definitions of ``PHYSICAL_PROPERTIES`` and ``BASEPLANE_2D`` are mandatory. Click on the ``Write`` button (bottom-right corner) to save the model setup (see image below). If everything is correctly set up, the ``Console`` tab will automatically open and the ``Error Output`` canvas is empty.
 
 .. figure:: ../img/bm-mod-sum.png 
-    :caption: Final model setup 
+    
+    Final model setup 
 
 Setup the Simulation File
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -115,7 +118,8 @@ In *BASEMENT* go to the ``SIMULATION`` Tab (situated in left window pane) and un
 -  Define the TIME item as: \* ``end`` = ``5000.0`` \* ``out`` = ``200.0`` \* ``start`` = ``0.0`` The *BASEMENT* window should now look like this:
 
 .. image:: ../img/bm-sim-set.png
-    :caption: The Simulation tab setup. In order to export results with *BASEMENT*\ ’s Python scripts, the OUTPUT parameters must be defined in exactly that order.
+    
+    The Simulation tab setup. In order to export results with *BASEMENT*\ ’s Python scripts, the OUTPUT parameters must be defined in exactly that order.
 
 Run the simulation
 ~~~~~~~~~~~~~~~~~~
@@ -123,7 +127,8 @@ Run the simulation
 After the successful simulation setup, select an appropriate ``Number of CPU cores`` (bottom-right in the above figure). If a high-quality graphics card with a powerful GPU is available, the GPu (high-performance hardware) has a much faster performance. Otherwise (no powerful GPU available), do not select GPU because it may significantly slow down the simulation speed. For faster simulations, select ``Single`` precision (bottom-right in the above figure), but in this example, ``Double`` precision will work sufficiently fast as well. Click on the ``Run`` button to start the simulation and wait for approximately 2-10 minutes. *BASEMENT* will prompt the simulation progress, while the ``Error Output`` canvas should remain white (see below `figure <#bm-sim-end>`__). If any error occurs, go back to the above sections (or even to the mesh generation) and fix error message issues.
 
 .. image:: ../img/bm-sim-end.png 
-    :caption: *BASEMENT* after successful simulation.
+    
+    *BASEMENT* after successful simulation.
 
 Export results
 ~~~~~~~~~~~~~~
@@ -131,7 +136,8 @@ Export results
 Once the simulation successfully finished, go to *BASEMENT*\ ’s ``Results`` tab and make sure that the ``xdmf`` output format is defined. Then click on the ``Export`` button (see also below `figure <#bm-res-exp>`__). *BASEMENT* will inform about the export success.
 
 .. figure:: ../img/bm-res-exp.png 
-    :caption: Export results after successful simulation.
+    
+    Export results after successful simulation.
 
 | *BASEMENT*\ ’s developers at the ETH Zurich provide a suite of `Python   scripts <http://people.ee.ethz.ch/~basement/baseweb/download/tools/python-scripts/>`__   for post-processing the simulation results. Here, we need the Python script ```BMv3NodestringResults.py`` <http://people.ee.ethz.ch/~basement/baseweb/download/tools/python-scripts/BMv3NodestringResults.py>`__ (`click to download <http://people.ee.ethz.ch/~basement/baseweb/download/tools/python-scripts/BMv3NodestringResults.py>`__).
 | To run the Python script, a Python3 installation with the ``numpy`` and ``h5py`` packages is required. To learn more about the installation and usage of Python, have a look at the `instructions on this website to install Python <hy_install.html>`__. Note that working   with the provided Python file requires that the output variables must   be exactly defined as shown in the above `figure <#bm-sim-set>`__ of *BASEMENT*\ ’s ``SIMULATION`` tab.
@@ -152,7 +158,8 @@ To explore the model results:
 - To plot a variable, select one (e.g., ``flow_velocity``) in the toolbar (light-blue-highlighted circle in the upper part of the below `figure <#pv-vis>`__). Then click the play button in the toolbar (dark-blue-highlighted circle around the green arrow in the upper part of the below `figure <#pv-vis>`__) to cycle through the time steps.
 
 .. figure:: ../img/pv-vis.png
-    :caption: ParaView after successful import of the model results (results.xdmf) -  see above descriptions.
+    
+    ParaView after successful import of the model results (results.xdmf) -  see above descriptions.
 
 All available time steps are listed in the Blocks tab (bottom-left in Figure 1). Anything should be visible at the beginning because the initial conditions were defined as ``dry`` (see the setup of `inital conditions <#init>`__ ). The above `figure <#pv-vis>`__ shows the last time step (``Timestep[25]``), with water flowing at a peak velocity of 3.7 m/s. The 25 available time steps result from the definition made in *BASEMENT*\ ’s ``SIMULATION`` tab with a total duration of 5000.0 and an output step of 200.0. Note that the time units have no dimension here because they correspond to computational time steps.
 
@@ -178,7 +185,8 @@ For geospatial calculations (e.g., calculate `habitat suitability indices for ta
 The point data export is now complete. The next step is to import the data (here: *bm-steady-vanilla.csv*) in *QGIS* (`next section <#QGIS-import>`__).
 
 .. figure:: ../img/pv-exp-steps.png 
-    :caption: The CellCenters (dark-blue circle) filter in ParaView, with the maximum Time step setting (red circle) and the Properties definitions (green circle).
+    
+    The CellCenters (dark-blue circle) filter in ParaView, with the maximum Time step setting (red circle) and the Properties definitions (green circle).
 
 Post-processing with QGIS
 -------------------------
@@ -198,7 +206,8 @@ Use *ParaView* export (here: *bm-steady-vanilla.csv*)
 After data export from *ParaView*:
 -  In *QGIS*, click on the ``Layer`` menu > ``Add Layer`` > ``Add Delimited Text Layer...``. 
 .. figure:: ../img/QGIS-add-lyr.png
-   :alt: bmx	:caption: Open the Add Delimited Text Layer import wizard.
+   :alt: bmx	
+    Open the Add Delimited Text Layer import wizard.
 
 -  The ``Data Source Manager | Delimited Text`` window opens (`see figure below <#QGIS-import-csv>`__)
 -  In the ``File name`` field select *bm-steady-vanilla.csv*
@@ -211,7 +220,8 @@ After data export from *ParaView*:
 -  Click the ``Add`` and the ``Close`` buttons on the bottom of the window. The points should now be plotted in the main *QGIS* window.
 
 .. figure:: ../img/QGIS-import-csv.png
-   :caption: The Data Source Manager: Delimited Text window with required settings highlighted with the green marker.
+   
+    The Data Source Manager: Delimited Text window with required settings highlighted with the green marker.
 
 Use the ``results.xdmf`` file directly(**recommended for geospatial data conversion**)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -222,22 +232,26 @@ Modify ``results.xdmf`` and directly import model result in *QGIS*:
 -  For example: ``Find what`` = ``C:/temp/results_aux.h5`` (pay   attention to use ``/`` rather than ``\``) and ``Replace with`` = ``results_aux.h5`` (see `below figure <#npp-xdmf-replace>`__). After having removed all path occurrences in the document, save and close   ``results.xdmf``. 
 
 .. figure:: ../img/npp-xdmf-replace.png
-      :caption: Find the string results_aux.h5 in results.xdmf and remove the file directories.
+      
+    Find the string results_aux.h5 in results.xdmf and remove the file directories.
 
 -  If not yet done, load the mesh file   (here: ```finalmesh.2dm`` <QGIS-prepro.html#2dm>`__) by clicking on   *QGIS*\ ’ ``Layer`` menu > ``Data Source Manager`` > ``Mesh`` tab and select ``finalmesh.2dm``.
 -  In *QGIS*\ ’ ``Layers`` window,   double-click on the ``finalmesh`` layer to open the ``Layer Properties`` window.
 -  In the ``Layer Properties`` window, go   to ``Source`` > click on ``Assign Extra Data Set to Mesh`` and choose ``results.xdmf`` 
 
 .. figure:: ../img/QGIS-assign-meshdata.png
-   :caption: Assign mesh data to the computational mesh.
+   
+    Assign mesh data to the computational mesh.
 
 -  After import, double-click on the new ``results`` layer to open the ``Symbology`` (``Layer Properties``) and select a variable to represent from the ``Groups`` canvas. Make sure to enable the contour plot (right side in the `below figure <#QGIS-meshdata-u>`__) symbol, select the timestep to plot (for steady-state simulation, select the last timestep), optionally go to the ``Contours`` ribbon to change the color pattern (upper-most green circle in the `below   figure <#QGIS-meshdata-u>`__), and click ``Apply``. 
 
 .. figure:: ../img/QGIS-meshdata-u.png
-   :caption: Illustrate the flow velocity with QGIS’ Layer Properties > Symbology controls. The green circles highlight settings for the last timestep of a steady-state simulation.
+   
+    Illustrate the flow velocity with QGIS’ Layer Properties > Symbology controls. The green circles highlight settings for the last timestep of a steady-state simulation.
   
 .. figure:: ../img/QGIS-meshdata-u-plotted.png
-   :caption: After application of the above Symbology settings: The flow velocity is illustrated in red-shades.
+   
+    After application of the above Symbology settings: The flow velocity is illustrated in red-shades.
 
 Thanks to Matthias Bürgler who helped with instructions in the `BASEMENt user forum <http://people.ee.ethz.ch/~basement/forum/viewtopic.php?pid=6095#p6095>`__.
 
@@ -260,7 +274,8 @@ Conversion with the Crayfish plugin (recommended)
 Open the *Crayfish* plugin’s ``Rasterize`` tool from *QGIS*\ ’ ``Processing`` menu > ``Toolbox`` > ``Crayfish`` > ``Rasterize`` (see figure below).
 
 .. figure:: ../img/QGIS-crayfish-installed.png
-   :caption: Open the Rasterize tool of the Crayfish plugin.
+   
+    Open the Rasterize tool of the Crayfish plugin.
 
 In the ``Rasterize`` window make the following settings (see also `figure below <#QGIS-crayfish-exp>`__):  
 -   ``Input mesh layer`` = ``finalmesh``   
@@ -272,12 +287,14 @@ In the ``Rasterize`` window make the following settings (see also `figure below 
 -  Click ``Run`` 
 
 .. figure:: ../img/QGIS-crayfish-exp.png
-   :caption: Settings to be made in Crayfish’s Rasterize tool.
+   
+    Settings to be made in Crayfish’s Rasterize tool.
 
 With a ``Singleband pseudocolor`` > ``Spectral`` ``Symbology``-selection in the ``Layer Properties``, the *QGIS* window should now look like this:
 
 .. figure:: ../img/QGIS-crayfish-final.png
-   :caption: A Singleband pseudocolor (Layer Properties > Symbology) selection will represent the velocity distribution in the final velocity GeoTIFF.
+   
+    A Singleband pseudocolor (Layer Properties > Symbology) selection will represent the velocity distribution in the final velocity GeoTIFF.
 
 Conversion of ParaView exports (not recommended)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -293,7 +310,8 @@ Conversion of ParaView exports (not recommended)
 -  Click ``OK`` 
 
 .. image:: ../img/QGIS-exp-sim-pts.png
-   :caption: The Save Vector Layer As… window with required settings highlighted (green marker).
+   
+    The Save Vector Layer As… window with required settings highlighted (green marker).
 
 | Next, the point shapefile needs to be converted to a   `GeoTIFF <https://en.wikipedia.org/wiki/GeoTIFF>`__ raster format to enable further data analyses. Therefore: 
 	-  In *QGIS* ``Raster`` menu,   click on ``Conversion`` and select ``Rasterize (Vector to Raster)``
@@ -302,7 +320,8 @@ Conversion of ParaView exports (not recommended)
 -  Click ``Run``.
 
 .. figure:: ../img/QGIS-make-tiff.png
-   :caption: The Rasterize (Vector to Raster) window with required settings highlighted (green marker).
+   
+    The Rasterize (Vector to Raster) window with required settings highlighted (green marker).
 
 .. tip::
    Facilitate the conversion of geospatial data with efficient *Python* algorithms (see the `geospatial Python <geo-python.html>`__ section). Many *Python* conversion routines are also efficiently accessible and tailored for river analysis in the `flusstools <https://flusstools.readthedocs.io/>`__ package.

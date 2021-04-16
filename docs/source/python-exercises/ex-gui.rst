@@ -1,5 +1,5 @@
-Create a **G**raphical **U**ser **I**nterface (GUI)
-===================================================
+Create a **G**\ raphical **U**\ ser **I**\ nterface (GUI)
+=========================================================
 
 .. admonition:: Goals
 
@@ -185,7 +185,7 @@ Add a ``ttk.Combobox`` that lists grain sizes and lets the user choose which val
            self.cbx_D_char['values'] = [""]
 
 Add methods (command s) called through widgets
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The above-defined buttons call methods to open file names and directories (as *string*). As file selection dialogues are required twice (grains and *HEC-RAS* data), it makes sense to have a general function for selecting files. Therefore, add a new method to ``SediApp`` and call it ``select_file``. The method uses ``askopenfilename`` from ``tkinter.filedialog`` and takes two input arguments. The first argument (``description``) should be a (very) short description of the file to select. The second argument (``file_type``) represents the file type (ending) that the user should look for. Both arguments are bound as a *tuple* into a *list* of ``filetypes`` that ``askopenfilename`` uses to narrow down and clarify file selection options.
 
@@ -301,7 +301,7 @@ To create the window, make ``gui.py`` stand-alone executable by adding the follo
    if __name__ == '__main__':
        SediApp().mainloop()
 
-Launch the GUi
+Launch the GUI
 --------------
 
 Using `PyCharm <hy_ide.html#pycharm>`__, right-click in the ``gui.py`` script and click ``> Run 'gui'``. If the script crashes or raises error messages, trace them back, and fix the issues. Otherwise, a ``tkinter`` window opens:

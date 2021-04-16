@@ -12,15 +12,7 @@ copyrighted data must be processed locally. and  for local data
 processing, a GUI is a very convenient way to control self-written,
 custom programs.
 
-Several GUI library (packages) are available for *Python* and  this
-introduction uses the
-```tkinter`` <https://docs.python.org/3/library/tkinter.html>`__
-library. Alternatives are, for example,
-`wxPython <https://www.wxpython.org/>`__ or
-`Jython <https://www.jython.org/>`__ (a *Java* implementation of *Python
-2*). ``tkinter`` is a stand ard library, which does not need to be
-installed additionally. For a quick example, type in the terminal (e.g.,
-*PyCharm* or *Linux* terminal - not in the *Python* console):
+Several GUI library (packages) are available for *Python* and  this introduction uses the ```tkinter`` <https://docs.python.org/3/library/tkinter.html>`__ library. Alternatives are, for example, `wxPython <https://www.wxpython.org/>`__ or `Jython <https://www.jython.org/>`__ (a *Java* implementation of *Python 2*). ``tkinter`` is a stand ard library, which does not need to be installed additionally. For a quick example, type in the terminal (e.g., *PyCharm* or *Linux* terminal - not in the *Python* console):
 
 ::
 
@@ -28,16 +20,7 @@ installed additionally. For a quick example, type in the terminal (e.g.,
 
 .. admonition:: Linux
 
-   If you encounter troubles with ``tkinter``
-on *Linux*, make sure that ``tkinter`` for *Python* is installed, either
-with \ ``sudo apt-get install python3-tk`` or
-\ ``sudo apt-get install python3.X-tk`` (replace ``X`` with your
-*Python* version) or ``sudo apt install tk8.6-dev`` to install the
-library only (this should be sufficient). If the above comments do not
-work, make sure that the ``tkinter`` repository is available to your
-system: ``sudo add-apt-repository ppa:deadsnakes/ppa`` (the repository
-address may change and  depends on your *Linux* and  *Python* versions).”
-%}
+   If you encounter troubles with ``tkinter`` on *Linux*, make sure that ``tkinter`` for *Python* is installed, either with \ ``sudo apt-get install python3-tk`` or \ ``sudo apt-get install python3.X-tk`` (replace ``X`` with your *Python* version) or ``sudo apt install tk8.6-dev`` to install the library only (this should be sufficient). If the above comments do not work, make sure that the ``tkinter`` repository is available to your system: ``sudo add-apt-repository ppa:deadsnakes/ppa`` (the repository address may change and  depends on your *Linux* and  *Python* versions).
 
 ``tkinter`` works on many popular platforms (*Linux*, *macOS*,
 *Windows*) and  is not only available to *Python*, but also to
@@ -48,10 +31,7 @@ many more languages. Because of its support for languages like *Ruby* or
 applications.
 
 .. note::
-   All GUI codes on this pages can be
-downloaded from the `course
-repository <https://github.com/hydro-informatics/material-py-codes/raw/master/gui/>`__.”
-%}
+   All GUI codes on this pages can be downloaded from the `course repository <https://github.com/hydro-informatics/material-py-codes/raw/master/gui/>`__.
 
 The first GUI
 -------------
@@ -77,7 +57,8 @@ block shows how to create a parent window with a label element
    a_label.pack()
    top.mainloop()
 
-.. image:: ../img/py-tk-first.png   ADAPT%}
+.. image:: ../img/py-tk-first.png
+
 
 After calling the ``mainloop()`` method, a window opens in a *wait*
 state. That means, the window is waiting for ``events`` being triggered
@@ -101,7 +82,7 @@ modified with the ``title``, ``minsize`` or ``maxsize``, and
    top.configure(bg="sky blue")
    top.mainloop()
 
-.. image:: ../img/py-tk-first-config.png   ADAPT%}
+.. image:: ../img/py-tk-first-config.png  
 
 Add a Button to call a function
 -------------------------------
@@ -130,7 +111,8 @@ imported from ``tkinter.messagebox``.
    a_button.pack()
    top.mainloop()
 
-.. image:: ../img/py-tk-button.png   ADAPT%}
+.. image:: ../img/py-tk-button.png
+
 
 .. note::
    The ``command `` receives a
@@ -143,13 +125,7 @@ here.
 A vanilla ``tkinter`` program
 -----------------------------
 
-In the above sections, we have created single ``tkinter`` objects
-(*widgets*) in a straightforward script-style. However, when we write a
-GUI, we most likely want to start an application (*App*) by just running
-a script. This is why ``tkinter`` widgets are usually created as objects
-of customized classes. Therefore, we want to recast our example as
-object-oriented code according to the template from the `lecture on
-Python classes <hypy_classes.html#template>`__.
+In the above sections, we have created single ``tkinter`` objects (*widgets*) in a straightforward script-style. However, when we write a GUI, we most likely want to start an application (*App*) by just running a script. This is why ``tkinter`` widgets are usually created as objects of customized classes. Therefore, we want to recast our example as object-oriented code according to the template from the `lecture on Python classes <hypy_classes.html#template>`__.
 
 The next code block creates a ``VanillaApp``, which is a child of
 ``tk.Frame`` (``tkinter`` parent frame). Thus, the initialization method
@@ -186,7 +162,7 @@ statement on the `packages page <hypy_pckg.html#stand alone>`__).
    if __name__ == "__main__":
        VanillaApp().mainloop()
 
-.. image:: ../img/py-tk-vanilla.png   ADAPT%}
+.. image:: ../img/py-tk-vanilla.png 
 
 .. tip::
    The above code block with the
@@ -238,9 +214,8 @@ following illustration features some widgets with a:
    ``False``-``True``-only frame of a *checkbutton*)
 -  ``tk.PhotoImage`` to display a sub-sampled image in the GUI
 
-.. image:: ../img/py-tk-elements.png   ADAPTcaption=“tkinter
-widgets: Label, Button, Entry, Combobox, Listbox with Scrollbar,
-Checkbutton, and  an Image.
+.. figure:: ../img/py-tk-elements.png
+	:caption: tkinter widgets: Label, Button, Entry, Combobox, Listbox with Scrollbar, Checkbutton, and  an Image.
 
 This is the code that creates the ``tkinter`` widgets in the above figure (the
 `script <https://github.com/hydro-informatics/material-py-codes/raw/master/gui/start_gui.py>`__,
@@ -420,7 +395,7 @@ are available at the course repository).
    if __name__ == '__main__':
        MyApp().mainloop()
 
-.. image:: ../img/py-tk-variables.png   ADAPT%}
+.. image:: ../img/py-tk-variables.png  
 
 .. _place-widget:
 
@@ -474,8 +449,7 @@ The axis origin (zero positions of *x* and  *y*) are determined with the
 ``anchor`` keyword.
 
 .. note::
-   The parent frame still needs to be
-``pack``-ed (``self.pack(...)``).
+   The parent frame still needs to be ``pack``-ed (``self.pack(...)``).
 
 .. code:: python
 
@@ -493,13 +467,10 @@ The axis origin (zero positions of *x* and  *y*) are determined with the
    if __name__ == '__main__':
        PlacedApp().mainloop()
 
-.. image:: ../img/py-tk-placed.png   ADAPT%}
+.. image:: ../img/py-tk-placed.png  
 
 .. note::
-   The above example does not create class
-objects of ``tk.Labels``, which makes the labels non-modifiable. This
-definition of widgets is acceptable to shorten long GUI scripts, but
-only if the widgets should not be modified later.
+   The above example does not create class objects of ``tk.Labels``, which makes the labels non-modifiable. This definition of widgets is acceptable to shorten long GUI scripts, but only if the widgets should not be modified later.
 
 Place objects with ``grid``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -529,7 +500,7 @@ implementation of pixel space around widgets.
    if __name__ == '__main__':
        GriddedApp().mainloop()
 
-.. image:: ../img/py-tk-grid.png   ADAPT%}
+.. image:: ../img/py-tk-grid.png 
 
 Configure widgets
 ~~~~~~~~~~~~~~~~~
@@ -587,19 +558,16 @@ windows (child frames of the parent frame).
    if __name__ == '__main__':
        ReConfigApp().mainloop()
 
-.. image:: ../img/py-tk-config.png   ADAPT%}
+.. image:: ../img/py-tk-config.png
 
 .. admonition:: Challenge
 
-   (1) The roughness value varies from
-case to case. Can you implement a ``ttk.Combobox`` to let a user choose
-a *Strickler* *kst* roughness value between 10 and  85 (integers) and 
-define the channel slope in a ``tk.Entry`` or a custom pop-up window
-(see below)?(2) The cross-section averaged flow velocity also depends on
-the cross-section geometry. Can you implement ``tkinter`` widgets to
-enable user definitions of the bank slope ``m`` and  channel base width
-``w`` to calculate the hydraulic radius? {% include image.html
-file=“flowVariables_xs.png   ADAPT%}
+   (1) The roughness value varies from case to case. Can you implement a ``ttk.Combobox`` to let a user choose a *Strickler* *kst* roughness value between 10 and  85 (integers) and define the channel slope in a ``tk.Entry`` or a custom pop-up window (see below)?
+   
+   (2) The cross-section averaged flow velocity also depends on the cross-section geometry. Can you implement ``tkinter`` widgets to enable user definitions of the bank slope ``m`` and  channel base width ``w`` to calculate the hydraulic radius?
+
+
+.. image:: ../img/flowVariables_xs.png
 
 Pop-up windows
 --------------
@@ -679,20 +647,12 @@ and  ``tk.Entry(pop_up).pack()`` creates an entry in the child
    if __name__ == '__main__':
        PopApp().mainloop()
 
-.. image:: ../img/py-tk-popup-custom.png   ADAPT%}
+.. image:: ../img/py-tk-popup-custom.png  
 
 File dialog (open …)
 ~~~~~~~~~~~~~~~~~~~~
 
-When a custom function’s argument is a file or file name, we most likely
-want the user to be able to select the file needed. The
-```tkinter.filedialog`` <https://docs.python.org/3.10/library/dialog.html#module-tkinter.filedialog>`__
-module provides methods to let a user choose general or specific file
-types. Specific file types can be defined with the
-``filetypes=("Name", "*.ending")`` (or
-``filetypes=("Name", "*.ending1;*.ending2;...")`` for multiple file
-types) keyword argument. The following example illustrates the usage of
-``tkinter.filedialog``\ ’s ``askopenfilename``.
+When a custom function’s argument is a file or file name, we most likely want the user to be able to select the file needed. The ```tkinter.filedialog`` <https://docs.python.org/3.10/library/dialog.html#module-tkinter.filedialog>`__ module provides methods to let a user choose general or specific file types. Specific file types can be defined with the ``filetypes=("Name", "*.ending")`` (or ``filetypes=("Name", "*.ending1;*.ending2;...")`` for multiple file types) keyword argument. The following example illustrates the usage of ``tkinter.filedialog``\ ’s ``askopenfilename``.
 
 .. code:: python
 
@@ -719,24 +679,14 @@ types) keyword argument. The following example illustrates the usage of
    if __name__ == '__main__':
        OpenFileApp().mainloop()
 
-.. image:: ../img/py-tk-filedialog.png   ADAPT%}
+.. image:: ../img/py-tk-filedialog.png 
 
 Quit
 ----
 
-To cleanly quit a GUI, use ``tk.Frame.quit()`` (i.e., in a customized
-class, use ``self.quit()`` or ``master.quit()``). The above example of
-the ``PopApp`` class also features the ``destroy()`` method, which can
-remove particular widgets.
+To cleanly quit a GUI, use ``tk.Frame.quit()`` (i.e., in a customized class, use ``self.quit()`` or ``master.quit()``). The above example of the ``PopApp`` class also features the ``destroy()`` method, which can remove particular widgets.
 
-``tkinter`` provides many more options such as the implementation of
-tabs with ``ttk.Notebook()`` (requires
-`binding <https://effbot.org/tkinterbook/tkinter-events-and -bindings.htm>`__
-of tab objects), tables
-(``from tkintertable import TableCanvas, TableModel``), or interactive
-graphic objects with ``matplotlib``. To use ``tkinter`` with
-``matplotlib``, add the following code block to the file header and 
-create ``matplotlib`` objects as children of ``tkinter`` windows.
+``tkinter`` provides many more options such as the implementation of tabs with ``ttk.Notebook()`` (requires `binding <https://effbot.org/tkinterbook/tkinter-events-and -bindings.htm>`__ of tab objects), tables (``from tkintertable import TableCanvas, TableModel``), or interactive graphic objects with ``matplotlib``. To use ``tkinter`` with ``matplotlib``, add the following code block to the file header and create ``matplotlib`` objects as children of ``tkinter`` windows.
 
 .. code:: python
 
@@ -750,5 +700,4 @@ Enjoy creating your own apps!
 
 .. admonition:: Exercise
 
-   Get familiar with creating GUIs and 
-object orientation in the `GUI <ex_gui.html>`__ exercise.
+   Get familiar with creating GUIs and object orientation in the `GUI <ex_gui.html>`__ exercise.

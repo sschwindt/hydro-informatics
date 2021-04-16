@@ -307,8 +307,8 @@ The usage of the sequent peak algorithm (also known as *Rippl’s method*, owing
 In the end, there are several algorithms and ways to code them. Many factors (e.g. terrain or climate zone) determine whether a seasonal storage is possible or necessary. When determining the storage volume, social and environmental aspects must not be neglected. Every grain of sediment retained is missing in downstream sections of the river, every fish that is no longer able to migrate suffers a loss in habitat, and more than anything else, every inhabitant who suffers economic losses or is even forced to resettle because of the dam must be avoided or adequately compensated.
 
 +--------------+-----------------------------------------+
-| *            | Re-write the peak (extrema) analysis    |
-| *HOMEWORK:** | either with two consecutive functions,  |
+|              | Re-write the peak (extrema) analysis    |
+| *HOMEWORK:*  | either with two consecutive functions,  |
 |              | or using                                |
 |              | ```from sci                             |
 |              | py.signal import find_peaks`` <https:// |
