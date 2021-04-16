@@ -61,7 +61,8 @@ To add a base map (e.g., satellite data, streets, or administrative boundaries),
 
 .. figure:: ../img/QGIS-basemap.png
    :alt: basemap
-   :caption: Add a base map to QGIS: (1) locate the Browser (2) right-click on XYZ-Tiles and select New Connection… (3) enter a Name and a URL (see below table) for the new connection, click OK (4) drag and drop the new tile (here: Google Satellite) into the Layers tab.
+   
+   Add a base map to QGIS: (1) locate the Browser (2) right-click on XYZ-Tiles and select New Connection… (3) enter a Name and a URL (see below table) for the new connection, click OK (4) drag and drop the new tile (here: Google Satellite) into the Layers tab.
 
 The following URL can be used for retrieving online XYZ tiles (more URLs can be found in the internet).
 
@@ -90,7 +91,7 @@ The following URL can be used for retrieving online XYZ tiles (more URLs can be 
 | (OSM)      |                                                         |
 +------------+---------------------------------------------------------+
 | OSM Black  | ``http://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png``  |
-| and White |                                                         |
+| and White |                                                          |
 +------------+---------------------------------------------------------+
 
 .. tip::

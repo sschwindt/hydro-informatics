@@ -79,7 +79,8 @@ The model boundary defines the calculation extent and needs to be define within 
     Open QGIS’ Toolbox from the main menu.
 
 .. figure:: ../img/QGIS-chull.png
-	:cpation: The Concave Hull (Alpha Shapes) wizard.
+
+	The Concave Hull (Alpha Shapes) wizard.
 
 -  Right-click on *QGIS*\ ’ ``Settings`` menu, and activate the ``Snapping`` toolbar checkbox. In the now shown snapping toolbar, activate snapping with a click on the horseshoe icon.
 -  Adapt the boundary.shp polygon to a tighter fit of the shapefile nodes by clicking on the ``Toggle editing`` (pen) symbol and activating the ``Vertex Tool`` in the toolbar.
@@ -176,13 +177,13 @@ In *QGIS*\ ’ ``Plugins`` menu, click on *BASEmesh* > QUALITY MESHING to open t
 
 1. ``Model boundary`` = ``boundary`` (`see above section <#boundary>`__)
 2. ``breaklines`` = ``breaklines`` (`see above section <#breaklines>`__)
-3. ``Regions`` = ``regions-points`` (`see above section <#regions>`__)
-   and activate all checkboxes 4. In the ``Shapefile output`` canvas, click on the ``browse`` button to    define the output mesh as (for example) ``base_qualitymesh.shp`` 
-.. image:: ../img/QGIS-qualm.png
-   :alt: bm-13
-
+3. ``Regions`` = ``regions-points`` (`see above section <#regions>`__) and activate all checkboxes
+4. In the ``Shapefile output`` canvas, click on the ``browse`` button to    define the output mesh as (for example) ``base_qualitymesh.shp`` 
    
-    BASEmesh’s Quality Meshing wizard.
+.. image:: ../img/QGIS-qualm.png
+   :alt: qgis qualm
+   
+   BASEmesh’s Quality Meshing wizard.
 
 Quality meshing may take time. After successful mesh generation the files ``base_qualitymesh_qualityNodes.shp`` and ``base_qualitymesh_qualityElements.shp`` are generated. Finally, click ``Close``.
 
@@ -216,7 +217,7 @@ To run *BASEMENT*, the mesh needs to be exported in 2dm format.
 *BASEmesh*\ ’s ``Export Mesh`` wizard (*QGIS* ``Plugins`` menu >
 *BASEmesh* > ``Export Mesh``) does the job with the following settings (see also below `figure <#QGIS-exp-mesh>`__: Export of the mesh to 2dm format with *BASEmesh*\ ’s ``Export Mesh`` wizard.): 
 
-1. Select the checkbox 2D MESH ``Export``
+1. Select the checkbox 2d MESH ``Export``
 2. Mesh elements = ``base_qualitymesh_quality_elementy.shp`` (`see above <#qualm-interp>`__) with ``Material ID field`` = ``MATID``
 3. Mesh nodes = ``finalmesh_interpolated_nodes_elevmesh.shp`` (`see above <#qualm>`__) with ``Elevation field`` =\ ``Z`` 
 4. In the ``Mesh output`` canvas, click on the ``Browse`` button and select an export mesh directory and name (e.g., ``finalmesh.2dm``). 
@@ -228,13 +229,12 @@ To run *BASEMENT*, the mesh needs to be exported in 2dm format.
 
 In order to work with *BASEMENT* v3.x, the .2dm file requires a couple of adaptations. Open the produced finalmesh.2dm in a text editor software (right-click and , for example, edit with `Notepad++ <hy_others.html#npp>`__) and :
 
--  At the top, insert the following line at line No. 2:
-   ``NUM_MATERIALS_PER_ELEM 1``
+-  At the top, insert the following line at line No. 2: ``NUM_MATERIALS_PER_ELEM 1``
    
 .. figure:: ../img/mod-2dm.png   
    :alt: basement model 2d
    
-    Modification of the upper part of the .2dm file.
+   Modification of the upper part of the .2dm file.
 
 -  At the bottom of the file, add the node string definitions for the inflow and outflow boundary. Enter the following 2 new lines (where *ndi* and *ndj* represent the *Inflow* and *Outflow* nodes, respectively, of    `finalmesh_interpolatedNodes_elevMesh.shp <#qualm-interp>`__):
   

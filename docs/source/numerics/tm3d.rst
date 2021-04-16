@@ -17,7 +17,7 @@ To explore example cases of *Telemac3d*, check out the *TELEMAC* installation fo
 Introduction
 ------------
 
-*Telemac3d* solves the Navier-Stokes equations along a three-dimensional 3D) computational grid using a finite element scheme. *Telemac3d* mounts the tetrahedral 3D mesh from a triangular 2D mesh in a user-defined number of vertical layers. The number of vertical layers to use is defined in the TELEMAC steering (CAS) file. This tutorial walks through the creation of a 2D mesh with SALOME-HYDRO along with boundary and control files. The tutorial also features running a *Telemac3d* simulation with the files created and plotting results with the *ParaVis* plugin of *SALOME-9.6.0* (a tweaked version of *ParaView* that is able to read *MED* files).
+*Telemac3d* solves the Navier-Stokes equations along a three-dimensional 3D) computational grid using a finite element scheme. *Telemac3d* mounts the tetrahedral 3D mesh from a triangular 2d mesh in a user-defined number of vertical layers. The number of vertical layers to use is defined in the TELEMAC steering (CAS) file. This tutorial walks through the creation of a 2d mesh with SALOME-HYDRO along with boundary and control files. The tutorial also features running a *Telemac3d* simulation with the files created and plotting results with the *ParaVis* plugin of *SALOME-9.6.0* (a tweaked version of *ParaView* that is able to read *MED* files).
 
 Input files
 -----------
@@ -46,7 +46,7 @@ A *Telemac3d* simulation requires similar input files as a *Telemac2d* simulatio
 
 Optional files such as a friction data file or a liquid boundary file can also be implemented, but are not featured here. Read more about input data files and their formats in the `TELEMAC introduction <telemac.html>`__.
 
-.. _prepro-SALOME:
+.. _prepro-SALOMEH:
 
 Start SALOME-HYDRO
 ------------------
@@ -244,14 +244,14 @@ In the **Create mesh** popup window set the following:
 -   **Name**: ``Mesh_Hn_1``
 -   **Geometry**: ``HYDRO_Hydrodynamic_1``
 -   Leave the **Mesh type** as *Any*
--   In the **2D** tab:
+-   In the **2d** tab:
   
-	-   Choose *Netgen 1D-2D* for **Algorithm**   
-	-   Find the cogwheel symbol behind the **Hypothesis** field and click on it to construct hypotheses for **Netgen 2D Parameters**.
+	-   Choose *Netgen 1D-2d* for **Algorithm**   
+	-   Find the cogwheel symbol behind the **Hypothesis** field and click on it to construct hypotheses for **Netgen 2d Parameters**.
   
 -   In the **Hypothesis Construction** popup window:
     
-	-   Define **Name** as ``NETGEN 2D Parameters 10_30``      
+	-   Define **Name** as ``NETGEN 2d Parameters 10_30``      
 	-   Set **Max. Size** to ``30``      
 	-   Set **Min. Size** to ``10``      
 	-   Set **Fineness** to *Very Fine*,
@@ -539,10 +539,10 @@ The below code block shows the steering file ``t3d_flume.cas`` and details for e
    GEOMETRY FILE FORMAT     : 'MED'
    3D RESULT FILE           : r3d_canal-t3d.med    
    3D RESULT FILE FORMAT    : 'MED'
-   2D RESULT FILE           : r2d3d_canal-t3d.med    
-   2D RESULT FILE FORMAT    : 'MED'
+   2d RESULT FILE           : r2d3d_canal-t3d.med    
+   2d RESULT FILE FORMAT    : 'MED'
    /
-   VARIABLES FOR 2D GRAPHIC PRINTOUTS : U,V,h    
+   VARIABLES FOR 2d GRAPHIC PRINTOUTS : U,V,h    
    VARIABLES FOR 3D GRAPHIC PRINTOUTS : Z,U,V,w    
    /------------------------------------------------------------------/
    /           GENERAL PARAMETERs    
@@ -633,11 +633,11 @@ The computation environment defines a **Title** (e.g., ``TELEMAC 3D FLUME``). Th
 The **output** can be defined with the following keywords:
 
 -   ``3D RESULT FILE``: ``r3d_canal.med`` -  can be either a *MED* file or a *SLF* file
--   ``2D RESULT FILE``: ``r2d3d_canal.med`` -  can be either a *MED* file or a *SLF* file
+-   ``2d RESULT FILE``: ``r2d3d_canal.med`` -  can be either a *MED* file or a *SLF* file
 -   ``3D RESULT FILE FORMAT``: ``'MED'`` -  can be omitted when using *SLF* output files
--   ``2D RESULT FILE FORMAT``: ``'MED'`` -  can be omitted when using *SLF* output files
+-   ``2d RESULT FILE FORMAT``: ``'MED'`` -  can be omitted when using *SLF* output files
 -   ``VARIABLES FOR 3D GRAPHIC PRINTOUTS``: ``Z,U,V,W`` -  many more options can be found in section 3.12 of the `Telemac 3d docs <http://ot-svn-public:telemac1*@svn.opentelemac.org/svn/opentelemac/tags/v8p1r1/documentation/telemac3d/user/telemac3d_user_v8p1.pdf>`__
--   ``VARIABLES FOR 2D GRAPHIC PRINTOUTS``: ``U,V,H`` -  many more options can be found in section 3.13 of the `Telemac 3d docs <http://ot-svn-public:telemac1*@svn.opentelemac.org/svn/opentelemac/tags/v8p1r1/documentation/telemac3d/user/telemac3d_user_v8p1.pdf>`__ 
+-   ``VARIABLES FOR 2d GRAPHIC PRINTOUTS``: ``U,V,H`` -  many more options can be found in section 3.13 of the `Telemac 3d docs <http://ot-svn-public:telemac1*@svn.opentelemac.org/svn/opentelemac/tags/v8p1r1/documentation/telemac3d/user/telemac3d_user_v8p1.pdf>`__ 
 
 In addition, the ``MASS-BALANCE : YES`` setting will printout the mass fluxes and errors in the computation region, which is an important parameter for verifying the plausibility of the model.
 
@@ -938,7 +938,7 @@ Set the visualization to **Surface with Edges** (instead of *Surface*), next to 
 Export Data
 ~~~~~~~~~~~
 
-To export data from a results file, go to **File** > **Save Data…*.
+To export data from a results file, go to **File** > **Save Data…**.
 
 .. image:: ../img/salome/pv10-data-save.png
    :alt: telemac3d SALOME save export data 

@@ -115,12 +115,7 @@ imported from ``tkinter.messagebox``.
 
 
 .. note::
-   The ``command `` receives a
-```lambda`` <hypy_pyfun.html#lambda>`__ function that links to the
-``call_back`` function. Why do we need this complication? The answer is
-that the ``call_back`` function would be automatically triggered with
-the ``mainloop()`` method if we were not using a ``lambda`` function
-here.
+   The ``command `` receives a´```lambda`` <hypy_pyfun.html#lambda>`__ function that links to the ``call_back`` function. Why do we need this complication? The answer is that the ``call_back`` function would be automatically  triggered with the ``mainloop()`` method if we were not using a ``lambda`` function here.
 
 A vanilla ``tkinter`` program
 -----------------------------
@@ -165,27 +160,14 @@ statement on the `packages page <hypy_pckg.html#stand alone>`__).
 .. image:: ../img/py-tk-vanilla.png 
 
 .. tip::
-   The above code block with the
-``VanillaApp`` class can be copied to any external *Python* file and 
-saved as, for example, ``vanilla_app.py``. With *Python* being defined
-as a `system
-variable <https://docs.python.org/3/using/windows.html#excursus-setting-environment-variables>`__
-(only necessary in *Windows* - point at your *Anaconda* base
-environment’s *Python* executable), the GUI can be started as follows:1)
-Open Terminal (or a *Command  prompt* ``cmd`` in *Windows*).2) Navigate
-to the directory where the script is located (use ``cd`` in
-`Windows <https://docs.microsoft.com/en-us/windows-server/administration/windows-command s/cd>`__
-or `Linux/macOS <http://www.linfo.org/cd.html>`__).3) Type
-``python vanilla_app.py`` (or ``python -m vanilla_app.py``) to launch
-the GUI.Another tip: this sequence of command s can also be written to a
-batch file (```.bat`` on
-Windows <https://www.wikihow.com/Write-a-Batch-File>`__) or shell script
-(`.sh on
-Linux/macOS <https://www.linux.com/training-tutorials/writing-simple-bash-script/>`__
-- `alternative
-source <http://linuxcommand .org/lc3_writing_shell_scripts.php>`__).
-Then, a double click on the batch file starts the *Python*-based GUI.”
-%}
+   The above code block with the ``VanillaApp`` class can be copied to any external *Python* file and saved as, for example, ``vanilla_app.py``. With *Python* being defined as a `system variable  <https://docs.python.org/3/using/windows.html#excursus-setting-environment-variables>`__ (only necessary in *Windows* - point at your *Anaconda* base environment’s *Python* executable), the GUI can be started as follows:
+   
+   1. Open Terminal (or a *Command  prompt* ``cmd`` in *Windows*).
+   2. Navigate to the directory where the script is located (use ``cd`` in `Windows <https://docs.microsoft.com/en-us/windows-server/administration/windows-command s/cd>`__ or `Linux/macOS <http://www.linfo.org/cd.html>`__).
+   3. Type ``python vanilla_app.py`` (or ``python -m vanilla_app.py``) to launch the GUI.Another tip: this sequence of command s can also be written to a batch file (```.bat`` on Windows <https://www.wikihow.com/Write-a-Batch-File>`__) or shell script (`.sh on Linux/macOS <https://www.linux.com/training-tutorials/writing-simple-bash-script/>`__ - `alternative source <http://linuxcommand .org/lc3_writing_shell_scripts.php>`__).
+   
+   Then, a double click on the batch file starts the *Python*-based GUI.
+
 
 More *Widget*\ s
 ----------------
@@ -215,14 +197,10 @@ following illustration features some widgets with a:
 -  ``tk.PhotoImage`` to display a sub-sampled image in the GUI
 
 .. figure:: ../img/py-tk-elements.png
-	:caption: tkinter widgets: Label, Button, Entry, Combobox, Listbox with Scrollbar, Checkbutton, and  an Image.
+	
+   tkinter widgets: Label, Button, Entry, Combobox, Listbox with Scrollbar, Checkbutton, and an Image.
 
-This is the code that creates the ``tkinter`` widgets in the above figure (the
-`script <https://github.com/hydro-informatics/material-py-codes/raw/master/gui/start_gui.py>`__,
-`image <https://github.com/hydro-informatics/material-py-codes/raw/master/gui/sunny_image.gif>`__
-and 
-`icon <https://github.com/hydro-informatics/material-py-codes/raw/master/gui/sample_icon.ico>`__
-are available at the course repository):
+This is the code that creates the ``tkinter`` widgets in the above figure (the `script <https://github.com/hydro-informatics/material-py-codes/raw/master/gui/start_gui.py>`__, `image <https://github.com/hydro-informatics/material-py-codes/raw/master/gui/sunny_image.gif>`__ and  `icon <https://github.com/hydro-informatics/material-py-codes/raw/master/gui/sample_icon.ico>`__ are available at the course repository):
 
 .. code:: python
 
@@ -400,7 +378,7 @@ are available at the course repository).
 .. _place-widget:
 
 Design, place and  modify widgets
---------------------------------
+---------------------------------
 
 The above code examples use both the ``OBJECT.grid()`` and  the
 ``OBJECT.pack()`` methods (geometry managers) to place widgets in the
@@ -437,7 +415,7 @@ methods to modify widgets. Examples of the ``pack`` method are provided
 with the above code blocks.
 
 ``place`` widgets and  use object colors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The simplest geometry manager is the ``pack`` method, which works even
 without any keyword provided as the very first examples on this page
@@ -473,7 +451,7 @@ The axis origin (zero positions of *x* and  *y*) are determined with the
    The above example does not create class objects of ``tk.Labels``, which makes the labels non-modifiable. This definition of widgets is acceptable to shorten long GUI scripts, but only if the widgets should not be modified later.
 
 Place objects with ``grid``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In ``grid``-ed GUIs, the widget alignment can be controlled with the
 ``sticky`` argument that uses cardinal directions (e.g., ``sticky=tk.W``

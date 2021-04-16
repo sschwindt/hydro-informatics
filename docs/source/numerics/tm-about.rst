@@ -11,7 +11,7 @@ It is strongly recommended to install `Debian Linux <https://www.debian.org/>`__
 General Introduction and Tutorial Guide
 ---------------------------------------
 
-Analysis of a hydro-environment with *TELEMAC* involves pre-processing for abstracting the fluvial land scape, setting up control files, running a *TELEMAC* solver, and post-processing. The first-time user faces an overwhelming number of software options for pre- and post-processing. Besides, *TELEMAC* comes with a wide range of modules for 2D and 3d calculations of hydro-morphodynamic processes of various water bodies, from mountain rivers to coastal deltas under the influence of tides. Also, various sediment transport processes can be considered coupled with steady or unsteady flow conditions.
+Analysis of a hydro-environment with *TELEMAC* involves pre-processing for abstracting the fluvial land scape, setting up control files, running a *TELEMAC* solver, and post-processing. The first-time user faces an overwhelming number of software options for pre- and post-processing. Besides, *TELEMAC* comes with a wide range of modules for 2d and 3d calculations of hydro-morphodynamic processes of various water bodies, from mountain rivers to coastal deltas under the influence of tides. Also, various sediment transport processes can be considered coupled with steady or unsteady flow conditions.
 
 The tutorials on this website show how to:
 
@@ -29,7 +29,7 @@ Pre-processing
 
 Pre-processing involves abstracting the river land scape into a computational grid (mesh) with boundary conditions. Many software tools can be used for this purpose and this website features two options for mesh generation and defining geometry boundary conditions:
 
-1. Use `QGIS <geo_software.html#QGIS>`__ and the `BASEmesh plugin <pre-QGIS.html#get-ready-with-QGIS>`__. The `QGIS Prepro option <pre-QGIS.html>`__ is convenient for creating geo-referenced 2D meshes and uses the pre-processing routines of `BASEMENT <basement.html>`__. So this is not an officially recommended version by the *TELEMAC* developers, but rather a home-brewed option on this website.
+1. Use `QGIS <geo_software.html#QGIS>`__ and the `BASEmesh plugin <pre-QGIS.html#get-ready-with-QGIS>`__. The `QGIS Prepro option <pre-QGIS.html>`__ is convenient for creating geo-referenced 2d meshes and uses the pre-processing routines of `BASEMENT <basement.html>`__. So this is not an officially recommended version by the *TELEMAC* developers, but rather a home-brewed option on this website.
 2. Use the National Research Council Canada’s `Blue KenueTM <install-telemac.html#bluekenue>`__ GUI software. The `Blue KenueTM Prepro option <telemac2d.html>`__ is preferably for *Windows* users and is somewhat cumbersome for creating geo-referenced point and line datasets to delineate the mesh.
 3. Use `SALOME-HYDRO <install-telemac.html#SALOME>`__ for generating computational meshes in *MED* geometry files (more details in the `Telemac3d <telemac3d.html>`__ tutorial).
 
@@ -46,7 +46,7 @@ Post-processing
 The *TELEMAC* file structure
 ----------------------------
 
-For any *TELEMAC* 2D simulation, the following input files are **mandatory**:
+For any *TELEMAC* 2d simulation, the following input files are **mandatory**:
 
 -  Steering file 
   
@@ -102,6 +102,7 @@ Continue with setting up a mesh (*2dm* file) and a geometry file (*SLF*) with ei
 
 -  `> QGIS > <pre-QGIS.html>`__, or
 -  `> Blue KenueTM > <telemac2d.html>`__ 
+
 --------------
 
 Detailed file descriptions

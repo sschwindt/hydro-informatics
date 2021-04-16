@@ -136,8 +136,8 @@ After the successful installation of `PyCharm <hy_ide.html#ide>`__ within *Anaco
 
 .. figure:: ../img/pyc-project.png
    :alt: pyc-prj
-   
-    Create a new project in PyCharm.
+
+   Create a new project in PyCharm.
   
 2. Define The new ``hypy`` environment as *Pure Python* project interpreter:
   
@@ -148,7 +148,7 @@ After the successful installation of `PyCharm <hy_ide.html#ide>`__ within *Anaco
 .. figure:: ../img/pyc-prj-setup.png
    :alt: pyc-prj-setup
    
-    Setup the hypy conda environment for the new project.
+   Setup the hypy conda environment for the new project.
 
 3. Verify that the project interpreter is correctly defined:
   
@@ -158,7 +158,8 @@ After the successful installation of `PyCharm <hy_ide.html#ide>`__ within *Anaco
 
 .. image:: ../img/pyc-prj-interp.png
    :alt: pyc-prj-interp	
-    Verify the correct setup of the Project Interpreter.
+   
+   Verify the correct setup of the Project Interpreter.
 
 .. tip::
    **Are you struggling with setting up PyCharm correctly?** *PyCharm* and *Anaconda* are designed for working hand -in-hand and the developers provide an `up-to-date documentation <https://docs.anaconda.com/anaconda/user-guide/tasks/pycharm/>`__ for setting up *PyCharm* to work with *conda* environments.

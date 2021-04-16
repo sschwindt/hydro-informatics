@@ -10,8 +10,7 @@ Two-dimensional (2d) numerical simulation methods described on these pages use t
 
 .. admonition:: Requirements
 
-   To complete the tutorial, the following software is needed (all software can be run on *Windows* and 
-*Linux* platforms): \ **-**\ `BASEMENt v3.0.2 <https://basement.ethz.ch/>`__\ \ **-**\ `QGIS v3.16 <geo_software.html#QGIS>`__, and \ **-**\ `ParaView <https://www.paraview.org/>`__.
+   To complete the tutorial, the following software is needed (all software can be run on *Windows* and *Linux* platforms): \ **-**\ `BASEMENt v3.0.2 <https://basement.ethz.ch/>`__\ \ **-**\ `QGIS v3.16 <geo_software.html#QGIS>`__, and \ **-**\ `ParaView <https://www.paraview.org/>`__.
 
 This tutorial uses *BASEMENT*\ ’s *BASEplane* module (version 3.0.2) to perform a two-dimensional (2d) hydrodynamic numerical simulation.
 
@@ -31,7 +30,7 @@ In addition to the mesh (``2dm`` file), the numerical engine of *BASEMENT* needs
 
 Make sure to place the two input files in the folder:
 
--  The 2D mesh ``.2dm`` file (i.e., the *finalmesh.2d* from the `pre-processing <#prepro>`__).
+-  The 2d mesh ``.2dm`` file (i.e., the *finalmesh.2d* from the `pre-processing <#prepro>`__).
 -  A discharge inflow file (flat hydrograph) for the upstream boundary condition can be downloaded `here <https://github.com/hydro-informatics/materials-bm/blob/master/flows/SteadyVanillaInflow.txt>`__ (if necessary, copy the file contents locally into a text editor and 
    save the file as ``SteadyVanillaInflow.txt`` in the local project directory).
 
@@ -54,19 +53,22 @@ NAME  riverbed lower_bank upper_bank floodplain street
 ===== ======== ========== ========== ========== ======
 
 The window should now look like this: 
-.. figure:: ../img/bm-mod-reg.png
-   :alt: bm-7	
-    Region definitions.
 
--  Next, we need to define inflow and outflow boundary condition with ``stringdefs``. In the ``GEOMETRY`` section right-click –
-   ``Add item`` ``STRINGDEF`` – ``Add item`` (2 times) and define item [0] as:  
+.. figure:: ../img/bm-mod-reg.png
+   :alt: basement regions
+   
+   Region definitions.
+
+-  Next, we need to define inflow and outflow boundary condition with ``stringdefs``. In the ``GEOMETRY`` section right-click – ``Add item`` ``STRINGDEF`` 
+– ``Add item`` (2 times) and define item [0] as:  
 	-   ``name`` = ``Inflow``   
 	-   ``upstream_direction`` = ``right`` 
 -  Define ``STRINGDEF`` item [1] as:  
 	-   ``name`` = ``Outflow``   
 	-   ``upstream_direction`` = ``right`` 
+	
 .. note::
-If you used `BASEmesh’s Stringdef tool <QGIS-prepro.html#stringdef>`__, the upstream direction must be defined as ``right``.
+   If you used `BASEmesh’s Stringdef tool <QGIS-prepro.html#stringdef>`__, the upstream direction must be defined as ``right``.
 
 -  Add the initial condition in the ``HYDRAULICS`` section with by right-clicking > ``Add item`` > ``INITIAL`` (if not yet present) and set ``type``: “DRY (i.e., the river is dry at the beginning of the simulation).
 -  Add upstream and downstream boundary conditions with a right-click on the ``HYDRAULICS`` section > ``Add item`` > ``BOUNDARY`` (if not yet present), then right-click on the new ``BOUNDARY`` section > ``Add item STand ARD`` > ``Add item`` (2 times)
@@ -103,7 +105,7 @@ If you used `BASEmesh’s Stringdef tool <QGIS-prepro.html#stringdef>`__, the up
 	-   ``minimum_water_depth`` =\ ``0.01`` 
 -  Define a ``simulation_name`` (e.g., ``SteadyVanilla``)
 
-Note that the definitions of ``PHYSICAL_PROPERTIES`` and ``BASEPLANE_2D`` are mandatory. Click on the ``Write`` button (bottom-right corner) to save the model setup (see image below). If everything is correctly set up, the ``Console`` tab will automatically open and the ``Error Output`` canvas is empty.
+Note that the definitions of ``PHYSICAL_PROPERTIES`` and ``BASEPLANE_2d`` are mandatory. Click on the ``Write`` button (bottom-right corner) to save the model setup (see image below). If everything is correctly set up, the ``Console`` tab will automatically open and the ``Error Output`` canvas is empty.
 
 .. figure:: ../img/bm-mod-sum.png 
     
@@ -117,7 +119,7 @@ In *BASEMENT* go to the ``SIMULATION`` Tab (situated in left window pane) and un
 -  Right-click on the ``OUTPUT`` item an ``Add item`` (5 times). Then define exactly in that irder (important for results export later on): \* [0] = ``water_depth`` \* [1] = ``water_surface`` \* [2] = ``bottom_elevation`` \* [3] = ``flow_velocity`` \* [4] = ``ns_hyd_discharge``
 -  Define the TIME item as: \* ``end`` = ``5000.0`` \* ``out`` = ``200.0`` \* ``start`` = ``0.0`` The *BASEMENT* window should now look like this:
 
-.. image:: ../img/bm-sim-set.png
+.. figure:: ../img/bm-sim-set.png
     
     The Simulation tab setup. In order to export results with *BASEMENT*\ ’s Python scripts, the OUTPUT parameters must be defined in exactly that order.
 
@@ -126,7 +128,7 @@ Run the simulation
 
 After the successful simulation setup, select an appropriate ``Number of CPU cores`` (bottom-right in the above figure). If a high-quality graphics card with a powerful GPU is available, the GPu (high-performance hardware) has a much faster performance. Otherwise (no powerful GPU available), do not select GPU because it may significantly slow down the simulation speed. For faster simulations, select ``Single`` precision (bottom-right in the above figure), but in this example, ``Double`` precision will work sufficiently fast as well. Click on the ``Run`` button to start the simulation and wait for approximately 2-10 minutes. *BASEMENT* will prompt the simulation progress, while the ``Error Output`` canvas should remain white (see below `figure <#bm-sim-end>`__). If any error occurs, go back to the above sections (or even to the mesh generation) and fix error message issues.
 
-.. image:: ../img/bm-sim-end.png 
+.. figure:: ../img/bm-sim-end.png 
     
     *BASEMENT* after successful simulation.
 
@@ -173,13 +175,16 @@ Export Data
 
 For geospatial calculations (e.g., calculate `habitat suitability indices for target fish species <https://riverarchitect.github.io/RA_wiki/SHArC>`__ based on flow velocity and water depth), the simulation results must be converted to geospatial data formats. The first conversion step is to extract relevant point data in *ParaView*:
 
-1. With the ``results.xdmf`` file opened in *ParaView*, right-click on ``results.xdmf`` in the ``Pipeline Browser``, then ``Add Filter`` > ``Alphabetical`` > ``Cell Centers`` 2. With the ``CellCenters1`` filter enabled in the ``Pipeline Browser`` (blue-highlighted circle in the `figure below <#pv-exp-steps>`__), set the ``Time`` in the menu bar to the end time step (here: ``5000``, i.e., step no. ``25``, see the red-highlighted circle in the `figure below <#pv-exp-steps>`__))
+1. With the ``results.xdmf`` file opened in *ParaView*, right-click on ``results.xdmf`` in the ``Pipeline Browser``, then ``Add Filter`` > ``Alphabetical`` > ``Cell Centers``.
+2. With the ``CellCenters1`` filter enabled in the ``Pipeline Browser`` (blue-highlighted circle in the `figure below <#pv-exp-steps>`__), set the ``Time`` in the menu bar to the end time step (here: ``5000``, i.e., step no. ``25``, see the red-highlighted circle in the `figure below <#pv-exp-steps>`__)).
 3. In the ``Properties`` tab (green-highlighted circle in the `figure below <#pv-exp-steps>`__), check the ``Vertex Cells`` box, and click the ``Apply`` button.
 4. Press ``CTRL`` + ``S`` on the keyboard > a ``Save File`` dialogue window opens:  
+
 	-   Navigate to the folder where you want to save the data   
 	-   Enter a ``File name`` (e.g., *bm-steady-vanilla*)  
 	-   In the ``Files of type`` drop-down field, select ``Comma or Tab Delimited Files(*.csv *.tsv *.txt)``   
 	-   Click ``OK`` 
+
 5. The ``Configure Writer (CSVWriter)`` window opens. Make sure that ``Point Data`` is selected as ``Field Association``. Optionally, check the ``Choose Arrays To Write`` box and select relevant fields only. Press the ``OK`` button.
 
 The point data export is now complete. The next step is to import the data (here: *bm-steady-vanilla.csv*) in *QGIS* (`next section <#QGIS-import>`__).

@@ -12,18 +12,18 @@ temporal variability of sediment size classes (uniform, graded or mixed), proper
 Coupling GAIA and TELEMAC
 -------------------------
 
-GAIA can be internally coupled with the hydrodynamic models TELEMAC-2d or TELEMAC- 3D. The following keywords must be included in the TELEMAC-2D or TELEMAC-3D steering files:
+GAIA can be internally coupled with the hydrodynamic models TELEMAC-2d or TELEMAC- 3D. The following keywords must be included in the TELEMAC-2d or TELEMAC-3D steering files:
 
 ``COUPLING WITH = ’GAIA’`` 
 ``GAIA STEERING FILE = ’<name of the gaia steering file>’`` 
-Since GAIA is not operated fully coupled, the first step is to compute the flow variables with a fixed bed. Subsequently the discretized sediment equation is solved separately. The suspended sediment transport processes are computed by the hydrodynamic modules (TELEMAC-2D or TELEMAC-3D), while near-bed, bedload and processes in the bottom layer are hand led by GAIA.
+Since GAIA is not operated fully coupled, the first step is to compute the flow variables with a fixed bed. Subsequently the discretized sediment equation is solved separately. The suspended sediment transport processes are computed by the hydrodynamic modules (TELEMAC-2d or TELEMAC-3D), while near-bed, bedload and processes in the bottom layer are hand led by GAIA.
 
 Mandatory files
 ---------------
 
 The following files are mandatory to simulate morphodynamics:
 
--  the steering files for GAIA and the hydrodynamic module    (e.g. `T2D <https://hydro-informatics.github.io/telemac2d.html>`__ or    `T3D <https://hydro-informatics.github.io/telemac3d.html>`__)
+-  the steering files for GAIA and the hydrodynamic module    (e.g. `T2d <https://hydro-informatics.github.io/telemac2d.html>`__ or    `T3D <https://hydro-informatics.github.io/telemac3d.html>`__)
   
 	-   File format = \*.cas 
 

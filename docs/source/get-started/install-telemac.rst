@@ -175,7 +175,8 @@ We will need more packages to enable parallelism and compiling, but before insta
 
 ::
 
-   svn co http://svn.opentelemac.org/svn/opentelemac/tags/v8p2r0  ~/telemac/v8p2 --username ot-svn-public --password telemac1* 
+   svn co http://svn.opentelemac.org/svn/opentelemac/tags/v8p2r0  ~/telemac/v8p2 --username ot-svn-public --password telemac1*
+
 This will have downloaded *TELEMAC* *v8p2r0* to the directory ``/home/USER-NAME/telemac/v8p2``.
 
 Install recommended Prerequisites (Part 2: Parallelism and Compilers)

@@ -75,7 +75,7 @@ where it currently is.
 It is also possible to print other types of variables than strings, but
 the combination of numerical and  text variables requires more encoding.
 
-Python variables and  data types
+Python variables and data types
 -------------------------------
 
 The above print command  already introduced string variables. In sum,
@@ -152,7 +152,7 @@ Numbers (numeric)
 | ``float``   | ``5.382`` | Floating point real number               |
 +-------------+-----------+------------------------------------------+
 | ``complex`` | ``1.43J`` | Complex number where J is in the range   |
-|             |           | between 0 and  255                        |
+|             |           | between 0 and  255                       |
 +-------------+-----------+------------------------------------------+
 
 To create a variable, use the ``=`` sign as follows:

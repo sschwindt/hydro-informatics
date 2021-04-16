@@ -245,7 +245,10 @@ The selection of an output directory uses ``askdirectory``, which is another met
 --------------
 
 .. admonition:: Are all user inputs correctly defined?
-	Before running the bed load computation, we need to make sure that a grain size file, *HEC-RAS* workbook, and output directory are defined because the user can press the ``self.b_run`` button at any time. To ensure that the necessary inputs are provided, parse ``self.grain_file``, ``self.hec_file``, and ``self.out_folder`` for the *string* ``"SELECT"``, which is the default value of these variables (i.e., if the user did not make a choice, the variables contain the *string* ``"SELECT"``). Implement the validity check in a method called ``valid_selections``:
+
+	Before running the bed load computation, we need to make sure that a grain size file, *HEC-RAS* workbook, and output directory are defined because the user can press the ``self.b_run`` button at any time. To ensure that the necessary inputs are provided, parse ``self.grain_file``, ``self.hec_file``, and ``self.out_folder`` for the *string* ``"SELECT"``, which is the default value of these variables (i.e., if the user did not make a choice, the variables contain the *string* ``"SELECT"``).
+
+Implement the validity check in a method called ``valid_selections``:
 
 .. code:: python 
 
@@ -317,16 +320,3 @@ After a successful run, the file ``bed_load_mpm.xlsx`` opens, the ``Compute`` bu
 	:alt: guiend 
 
 
-+--------------+-----------------------------------------+
-| *            | Tweak the validity check of user        |
-| *HOMEWORK:** | inputs. Deactivate the ``self.b_run``   |
-|              | button with                             |
-|              | ``self.b_run["state"] = "disabled"``    |
-|              | and re-activate the button              |
-|              | (``self.b_run["state"] = "normal"``) if |
-|              | the user inputs are correct (result of  |
-|              | ``valid_selections``). For this         |
-|              | purpose, the call to                    |
-|              | ``valid_selections`` must be moved      |
-|              | outside the ``run_program`` method.     |
-+--------------+-----------------------------------------+

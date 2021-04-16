@@ -16,7 +16,7 @@ Input files
 Overview
 ~~~~~~~~
 
-For any TELEMAC 2D simulation, the following files are mandatory:
+For any TELEMAC 2d simulation, the following files are mandatory:
 
 -  Steering file 
   
@@ -64,39 +64,37 @@ To load any point *shapefile* start *BK* and :
 
 .. image:: ../img/bk-import-pts.png
    :alt: bkimportpts
-
    
-    Importing a point shapefile in BK.
+   Importing a point shapefile in BK.
 
 -  Right-click on **points (X)** and open the **Properties**
--   In the **Properties** window got to the **Data** tab > select **Z(float)** and **Apply**; then go to the **ColourScale** tab >
-   **Reset** button > **Apply** > **OK**. Now, **points (X)** should have turned into **points (Z)**
--   Drag **points (X)** from **Data Items** to **Views \| 2D View (1)**
+-   In the **Properties** window got to the **Data** tab > select **Z(float)** and **Apply**; then go to the **ColourScale** tab > **Reset** button > **Apply** > **OK**. Now, **points (X)** should have turned into **points (Z)**
+-   Drag **points (X)** from **Data Items** to **Views \| 2d View (1)**
 -   ALTERNATIVELY: Use a three-dimensional (3D) view of the points: Go to the **Window** menu > **New 3D View** > drag **points (X)** from **Data Items** to **Views \| 3D View (1)** 
 
 .. figure:: ../img/bk-imported-3dpts.png
    :alt: blue kenue 3d points
    
-    The imported points a point shapefile in BK.
+   The imported points a point shapefile in BK.
 
 Generate a Mesh
 ~~~~~~~~~~~~~~~
 
-TM solves the (depth-averaged) Navier Stokes equations along a computational grid based on either a finite element or a finite volume scheme. BK provides mesh generators for creating regular or unstructured computational grids (meshes). This example features the **T3 Channel Mesher** to generate a triangular mesh. Switch to a **2D View** of the above points and walk down the following workflow.
+TM solves the (depth-averaged) Navier Stokes equations along a computational grid based on either a finite element or a finite volume scheme. BK provides mesh generators for creating regular or unstructured computational grids (meshes). This example features the **T3 Channel Mesher** to generate a triangular mesh. Switch to a **2d View** of the above points and walk down the following workflow.
 
 1. Define the computational domain with a **New Closed Line** 
   
--   Find the *New Closed Line* button approximately below the *Help*       menu   
--   Draw a polygon around the region of interest by clicking on the most outside points of the point cloud   
--   When finished drawing, press the ``Esc`` key and enter ``ClosedLine_domain`` in the *Name* field > click OK and OK (in the popup window) 
+	-   Find the *New Closed Line* button approximately below the *Help* menu   
+	-   Draw a polygon around the region of interest by clicking on the most outside points of the point cloud   
+	-   When finished drawing, press the ``Esc`` key and enter ``ClosedLine_domain`` in the *Name* field > click OK and OK (in the popup window) 
 
 .. figure:: ../img/bk-domain-closedline.png
    :alt: bk-domain max-width=“500
 
 2. Draw **New Open Line** objects to delineate the main (river) channel, levees, and right-left extents.
-
   
--   Find the *New Open Line* button next to the *New Closed Line* button 
+	-   Find the *New Open Line* button next to the *New Closed Line* button 
+
 
 Geometry File Option 2: QGIS & BASEMESH
 ---------------------------------------
@@ -187,7 +185,7 @@ Load the TELEMAC *Python* variables:
 
 .. _steadyrun:
 
-Start a 2D hydrodynamic simulation (steady)
+Start a 2d hydrodynamic simulation (steady)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To start a simulation, ``cd`` to the directory where the simulation files live (see previous page) and launch the steering file (*cas*) with *telemac2d.py*:

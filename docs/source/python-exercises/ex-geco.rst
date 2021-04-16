@@ -55,7 +55,7 @@ Sustainable river management involves the challenge of designing aquatic habitat
 
 This exercise demonstrates the use of 2d hydrodynamic modeling results to algorithmically evaluate usable habitat area based on the calculation of geospatially explicit *cHSI* values.
 
-Available data and  code structure
+Available data and code structure
 ---------------------------------
 
 The following flow chart illustrates the provided code and data. Functions, methods, and  files to be created in this exercise are highlighted in bold, italic, *YELLOW* font.
@@ -130,7 +130,7 @@ Code
 
 **CREATE_HSI_RASTERS.PY and  CALCULATE_HABITAT_AREA.PY**\  The two scripts ``reate_hsi_rasters.py`` and  ``calculate_habitat_area.py`` represent the focal point of this exercise and  make use of the provided data and  *Python* scripts. Therefore, only the basic framework functions and  imports are pre-existing in these two template scripts.
 
-Create and  combine *HSI* rasters
+Create and combine *HSI* rasters
 --------------------------------
 
 Complete magic methods of the ``Raster`` class (``raster.py``)
@@ -704,16 +704,6 @@ The *UHA* of the analyzed river section represents a very small share of the tot
 .. important::
    Remember that the here presented habitat assessment assumes that fish prefer regions with high *cHSI* values and  that rivers with a high proportion of areas with high *cHSI* values are ecologically particularly valuable. This approach represents an assessment of the physical habitat state with limited information on the functional habitat state.
 
-+--------------------+-----------------------------------------+
-|   BONUS            | Rewrite the magic methods of the        |
-| HOMEWORK:          | ``Raster`` class by using               |
-|                    | ``def __MET                             |
-|                    | HOD__(self, other: Raster) -> Raster:`` |
-|                    | instead of                              |
-|                    | ``def                                   |
-|                    | __METHOD__(self, constant_or_raster):`` |
-|                    | and  the ``_make_raster`` method.       |
-+--------------------+-----------------------------------------+
 
 .. |fish| image:: https://github.com/Ecohydraulics/media/raw/master/jpg/yuba-fish.jpg
 .. |hsi-curves| image:: https://github.com/Ecohydraulics/media/raw/master/png/hsi-curves.png

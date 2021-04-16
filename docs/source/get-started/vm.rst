@@ -125,26 +125,23 @@ Install Debian Linux
 **Estimated duration: 30 minutes.** 
 To install Debian Linux to the VM, start the before created *Debian Linux VM* in the *VirtualBox* manager window (click on the *Debian Linux* VM and then on the green *Start* arrow). The *VirtualBox VM* window will ask for the *.iso* file to use (confirm the selected one), and start navigating through the installation:
 
--  Inside the *VirtualBox VM* window, select the *Graphical install*    option.
--  Navigate through the language options (recommended: English
--  English    (United States)).
--  Optionally define a hostname (e.g., debian-vm) and a domain name    (e.g., debian-net).
--  Create a root user name and password (write down the credentials    somewhere) as well as a user name (no root rights) and password.
+-  Inside the *VirtualBox VM* window, select the *Graphical install* option.
+-  Navigate through the language options (recommended: English - English (United States)).
+-  Optionally define a hostname (e.g., debian-vm) and a domain name (e.g., debian-net).
+-  Create a root user name and password (write down the credentials somewhere) as well as a user name (no root rights) and password.
 -  Set up the clock.
--  Disk partitioning: Choose the *Guided
--  use entire disk* option.
-   Click *Continue* (2 times).
--  Select the *All files in one partition (recommended for new users)*    option. Click *Continue*.
--  Make sure that *Finish partitioning and write changes to disk* is    selected and click *Continue*.
--  Select *Yes* in the next step (*Write the changes to disks?*). … grab    your favorite beverage and wait while the installation progresses …
+-  Disk partitioning: Choose the *Guided - use entire disk* option. Click *Continue* (2 times).
+-  Select the *All files in one partition (recommended for new users)* option. Click *Continue*.
+-  Make sure that *Finish partitioning and write changes to disk* is selected and click *Continue*.
+-  Select *Yes* in the next step (*Write the changes to disks?*). … grab your favorite beverage and wait while the installation progresses …
 -  Select *No* to answer the question *Scan another CD or DVD?* and 
    click *Continue*.
--  Select the geographically closest mirror to access Debian archives    (software repositories and updates) and click *Continue* (2 times).
+-  Select the geographically closest mirror to access Debian archives (software repositories and updates) and click *Continue* (2 times).
 -  Skip the proxy information question (just click *Continue*).
--  Optionally, select *No* to answer the question *Participate in the    package usage survey?* and click *Continue*.
--  Software to install: Select *GNOME* and keep the other defaults    (Debian desktop, print server, and standard system utilities). …
-   continue enjoying your favorite beverage and wait while the    installation progresses …
--  Click *Continue* to finalize the installation and reboot (or    shutdown) the VM.
+-  Optionally, select *No* to answer the question *Participate in the package usage survey?* and click *Continue*.
+-  Software to install: Select *GNOME* and keep the other defaults (Debian desktop, print server, and standard system utilities). …
+   continue enjoying your favorite beverage and wait while the installation progresses …
+-  Click *Continue* to finalize the installation and reboot (or shutdown) the VM.
 
 Once the VM is shutdown, re-open the VM *Settings* (from *VirtualBox Manager* window) and go to the *Storage* tab. Verify that there is again an *Empty* disk symbol in the *Controller: IDE* field.
 
@@ -182,14 +179,14 @@ Find the *Devices* drop-down menu of the *VirtualBox VM* window (not in Debian L
    The *VirtualBox VM* window does not show the menu with the *Devices* entry anywhere? + This may happen when the *View* was set to *Scaled mode*. + To toggle the view mode and make the menu bar visible, press the RIGHT ``CTRL`` (``Host``) key + the ``C`` on your keyboard, while being in the host system view.
 
 .. note::
-   If the error ``The guest system has no CR-ROM ...`` occurs, shutdown the VM. In the *VirtualBox* manager window, right-click on the *Debian Linux* VM >
-*Storage* tab > Add new Optical Drive to *Controller: IDE*. Restart the *Debian Linux* VM.
+   If the error ``The guest system has no CR-ROM ...`` occurs, shutdown the VM. In the *VirtualBox* manager window, right-click on the *Debian Linux* VM > *Storage* tab > Add new Optical Drive to *Controller: IDE*. Restart the *Debian Linux* VM.
 
 Back in the Debian Linux *Terminal*, mount the *Guest Additions* *iso* file by typing in *Terminal*:
 
 ::
 
-   sudo mkdir -p /mnt/cdrom    sudo mount /dev/cdrom /mnt/cdrom 
+   sudo mkdir -p /mnt/cdrom
+   sudo mount /dev/cdrom /mnt/cdrom 
 
 Navigate to the mounted directory and execute the *VBoxLinuxAdditions.run* file with the *–nox11* flag to avoid spawning an xterm window.
 
@@ -283,8 +280,7 @@ The shared folder will then be visible in the *Files* (*Activities* >
    File sharing only works with the *Guest Additions CD image* installed (see above section on setting up and 
 familiarizing with Debian Linux).
 
-A **Permission denied** message is likely to appear when you click on ``sf_shared``. The message may appear because your user name is not assigned to the *vboxsf* group. The *vboxsf* is the one, which is automatically assigned for accessing the shared folder. To verify the group name, go to the shared folder, right-click in the free space, and 
-select *Permissions*. A window with group names that have access to the shared folder opens. To add your username type (in *Terminal*):
+A **Permission denied** message is likely to appear when you click on ``sf_shared``. The message may appear because your user name is not assigned to the *vboxsf* group. The *vboxsf* is the one, which is automatically assigned for accessing the shared folder. To verify the group name, go to the shared folder, right-click in the free space, and select *Permissions*. A window with group names that have access to the shared folder opens. To add your username type (in *Terminal*):
 
 ::
 
@@ -439,20 +435,16 @@ To install a *Windows* application:
    NEVER run wine as root (sudo). If you did anyway, do ``cd $HOME`` and tap ``sudo chown -R $USER:$USER .wine`` 
 **Launch a Windows application** by typing ``wine explorer`` in *Terminal*. *Wine*\ ’s *Windows* file system will be displayed in a *Windows*-like window. To start and application:
 
--  If a *Desktop Icon* was created during the installation, go to    *Desktop* and double-click on the application (e.g., *BlueKenue*)
--  Otherwise, identify the installation path and the executable that    launches the application.
+-  If a *Desktop Icon* was created during the installation, go to *Desktop* and double-click on the application (e.g., *BlueKenue*)
+-  Otherwise, identify the installation path and the executable that launches the application.
+  
+	-   32-bit programs are typically installed in ``"C:\\Program Files (x86)\\`` (e.g., ``"C:\\Program Files (x86)\\CHC\\BlueKenue\\BlueKenue.exe"``).	  
+	-   64-bit programs are typically installed in ``"C:\\Program Files\\``.
 
+-  With the installation path, any *Windows* application can be launched through *Terminal* with:
   
--   32-bit programs are typically installed in ``"C:\\Program Files (x86)\\`` (e.g., ``"C:\\Program Files (x86)\\CHC\\BlueKenue\\BlueKenue.exe"``).
-  
--   64-bit programs are typically installed in ``"C:\\Program Files\\``.
-
--  With the installation path, any *Windows* application can be launched    through *Terminal* with:
-
-  
--   ``wine "C:\\path\\to\\the.exe"`` (use ``\\`` to separate sub-directories).
-  
--   For example, ``wine "C:\\Program Files (x86)\\CHC\\BlueKenue\\BlueKenue.exe"``       typically starts *Blue KenueTM*.
+	-   ``wine "C:\\path\\to\\the.exe"`` (use ``\\`` to separate sub-directories).  
+	-   For example, ``wine "C:\\Program Files (x86)\\CHC\\BlueKenue\\BlueKenue.exe"`` typically starts *Blue KenueTM*.
 
 Re-use (transfer or copy) a VM on another Host
 ----------------------------------------------
