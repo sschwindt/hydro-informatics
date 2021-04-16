@@ -18,7 +18,7 @@ Get ready with *QGIS*
 
     (1) Make sure to `install QGIS v3.16 via Flatpak <https://flathub.org/apps/details/org.QGIS.QGIS>`__ or the *Linux* *Software Manager* (open *Software Manager*, search for *QGIS* and install the *QGIS Flatpak*). If *Software Manager* cannot find *QGIS*, make sure that *Flatpak* is added as repository (find the good repository for your Unix-based operating system (OS) `here <https://flatpak.org/setup/>`__).
 	
-    (2) The **QGIS Flatpak installation will** most likely **not include scipy**. In order to **fix** this issue, **open Terminal** (stand ard application on Unix-based OS) and type: ``flatpak run --command =pip3 org.QGIS.QGIS install scipy --user``.
+    (2) The **QGIS Flatpak installation will** most likely **not include scipy**. In order to **fix** this issue, **open Terminal** (standard application on Unix-based OS) and type: ``flatpak run --command =pip3 org.QGIS.QGIS install scipy --user``.
 	
     This solution has been tested on **Linux Ubuntu and Linux Mint. It potentially also works with Red Hat, openSUSE, Mac OS, Arch, Fedora, and roid, Debian, Kubuntu** and `many more <https://flatpak.org/setup/>`__. Read more about the *QGIS Flatpak* installation on the `QGIS web site <https://QGIS.org/en/site/forusers/alldownloads.html#flatpak>`__.
 
@@ -66,9 +66,9 @@ Model Boundary
 
 The model boundary defines the calculation extent and needs to be define within a polygon shapefile that encloses all points in the above produced point shapefile. *QGIS* provides a Convex Hull tool that enables the automated creation of the outer boundary. This tool is used as follows:
 
--  In *QGIS*\ ’ ``Processing`` menu, select ``Toolbox`` (see    `figure <#QGIS-tbx>`__). The ``Toolbox`` sub-window opens now.
--  In the toolbox, click on ``Vector Geometry`` > ``Concave Hull (Alpha Shapes)``, which opens the    ``Concave Hull (Alpha Shapes)`` wizard (see `figure <#QGIS-chull>`__).
--  In the ``Concave Hull (Alpha Shapes)`` wizard, select the    ``xyz-points`` layer as ``Input Layer``, set the ``Threhold`` to 0.300 (keep default), define an output ``Concave Hull`` shapefile (e.g., ``boundary.shp``) by clicking on the ``...`` button, and click    on ``Run``.
+-  In *QGIS*\ ’ ``Processing`` menu, select ``Toolbox`` (see `figure <#QGIS-tbx>`__). The ``Toolbox`` sub-window opens now.
+-  In the toolbox, click on ``Vector Geometry`` > ``Concave Hull (Alpha Shapes)``, which opens the ``Concave Hull (Alpha Shapes)`` wizard (see `figure <#QGIS-chull>`__).
+-  In the ``Concave Hull (Alpha Shapes)`` wizard, select the ``xyz-points`` layer as ``Input Layer``, set the ``Threhold`` to 0.300 (keep default), define an output ``Concave Hull`` shapefile (e.g., ``boundary.shp``) by clicking on the ``...`` button, and click    on ``Run``.
 
 .. figure:: ../img/QGIS-tbx.png
 	:caption: Open QGIS’ Toolbox from the main menu.
@@ -77,8 +77,7 @@ The model boundary defines the calculation extent and needs to be define within 
 	:cpation: The Concave Hull (Alpha Shapes) wizard.
 
 -  Right-click on *QGIS*\ ’ ``Settings`` menu, and activate the ``Snapping`` toolbar checkbox. In the now shown snapping toolbar, activate snapping with a click on the horseshoe icon.
--  Adapt the boundary.shp polygon to a tighter fit of the shapefile nodes by clicking on the ``Toggle editing`` (pen) symbol and 
-   activating the ``Vertex Tool`` in the toolbar.
+-  Adapt the boundary.shp polygon to a tighter fit of the shapefile nodes by clicking on the ``Toggle editing`` (pen) symbol and activating the ``Vertex Tool`` in the toolbar.
 
 .. figure:: ../img/QGIS-mod-feat.png
 	:caption: Toggle editing and enable the Vertex Tool.
@@ -86,7 +85,7 @@ The model boundary defines the calculation extent and needs to be define within 
 -  Modify the boundary edges (as shown in `figure <#QGIS-mod-boundary>`__): click on the centre cross (creates a new point) and dragging it to the next outest boundary point of the DEM points. Note:  
 	-   The boundary polygon must not be a perfect fit, but it must include all xyz-points with many details in vicinity of the river inflow and outflow regions (dense point cloud in the left part of the point file).	  
 	-   The more precise the boundary the better will be the quality mesh and the faster and more stable will be the simulation.	  
-	-   Regularly save edits by clicking on SAVE ``Layer`` (floppy disk symbol next to the editing pen symbol)
+	-   Regularly save edits by clicking on SAVE ``Layer`` (floppy disk symbol next to the editing pen symbol).
 
 .. figure:: ../img/QGIS-mod-boundary.png
 	:caption: Modify the boundary polygon with a click on the centre cross (creates a new point) and dragging it to the next outest boundary point of the DEM points.
@@ -112,6 +111,7 @@ This section explains the creation of a triangulated irregular network (TIN) wit
 6. Click on ``Generate Elevation Mesh`` and ``Close`` the wizard after successful execution.
 
 As a result, two new layers will now show up in the Layers window: 
+
 1. ``base_tin_elevation_nodes.shp``, and 
 2. ``base_tin_elevation_elements.shp``.
 
@@ -167,7 +167,7 @@ In *QGIS*\ ’ ``Plugins`` menu, click on *BASEmesh* > QUALITY MESHING to open t
 3. ``Regions`` = ``regions-points`` (`see above section <#regions>`__)
    and activate all checkboxes 4. In the ``Shapefile output`` canvas, click on the ``browse`` button to    define the output mesh as (for example) ``base_qualitymesh.shp`` 
 .. image:: ../img/QGIS-qualm.png
-   :alt: bm-13”
+   :alt: bm-13
 
    :caption: BASEmesh’s Quality Meshing wizard.
 
@@ -177,9 +177,11 @@ Elevation data interpolation on a quality mesh
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *BASEmesh*\ ’s ``Interpolation`` wizard projects elevation data onto the quality mesh by interpolation from a TIN. Make sure to check (show) the ``base_qualitymesh_qualityNodes`` and ``base_qualitymesh_qualityElements`` from the last step, and ``base_tin_elevation_nodes.shp`` and ```base_tin_elevation_elements.shp`` <#tin>`__. Then, open *BASEmesh*\ ’s ``Interpolation`` wizard (*QGIS* ``Plugins`` menu > *BASEmesh* > ``Interpolation``) and (see also `figure <#QGIS-qualm-interp>`__): 
+
 1. In the ``Quality Mesh`` canvas, select ``base_qualitymesh_qualityNodes`` 
-1. In the ``Elevation Data`` canvas, activate the ``Elevation Mesh`` checkbox and select ``base_tin_elevation_nodes.shp`` and ```base_tin_elevation_elements.shp`` <#tin>`__ 1. In the ``Shapefile output`` canvas, define the output file as finalmesh.shp. 
-1. Click ``Interpolate elevations`` (may take a while) After successful execution, the new layer finalmesh_Interpolated_nodes_elevMesh.shp will be created. Click Close to close the Interpolation wizard.
+2. In the ``Elevation Data`` canvas, activate the ``Elevation Mesh`` checkbox and select ``base_tin_elevation_nodes.shp`` and ```base_tin_elevation_elements.shp`` <#tin>`__ 
+3. In the ``Shapefile output`` canvas, define the output file as finalmesh.shp. 
+4. Click ``Interpolate elevations`` (may take a while) After successful execution, the new layer finalmesh_Interpolated_nodes_elevMesh.shp will be created. Click Close to close the Interpolation wizard.
 
 .. figure:: ../img/QGIS-qualm-interp.png
 	:caption: BASEmesh’s Interpolation wizard and setup.
@@ -200,10 +202,10 @@ To run *BASEMENT*, the mesh needs to be exported in 2dm format.
 *BASEmesh* > ``Export Mesh``) does the job with the following settings (see also below `figure <#QGIS-exp-mesh>`__: Export of the mesh to 2dm format with *BASEmesh*\ ’s ``Export Mesh`` wizard.): 
 
 1. Select the checkbox 2D MESH ``Export``
-1. Mesh elements = ``base_qualitymesh_quality_elementy.shp`` (`see above <#qualm-interp>`__) with ``Material ID field`` = ``MATID``
-1. Mesh nodes = ``finalmesh_interpolated_nodes_elevmesh.shp`` (`see above <#qualm>`__) with ``Elevation field`` =\ ``Z`` 
-1. In the ``Mesh output`` canvas, click on the ``Browse`` button and select an export mesh directory and name (e.g., ``finalmesh.2dm``). 
-1. Click on ``Export Mesh`` (may take a while) and ``Close`` the wizard afterwards.
+2. Mesh elements = ``base_qualitymesh_quality_elementy.shp`` (`see above <#qualm-interp>`__) with ``Material ID field`` = ``MATID``
+3. Mesh nodes = ``finalmesh_interpolated_nodes_elevmesh.shp`` (`see above <#qualm>`__) with ``Elevation field`` =\ ``Z`` 
+4. In the ``Mesh output`` canvas, click on the ``Browse`` button and select an export mesh directory and name (e.g., ``finalmesh.2dm``). 
+5. Click on ``Export Mesh`` (may take a while) and ``Close`` the wizard afterwards.
 
 .. figure:: ../img/QGIS-exp-mesh.png
 	:caption: Export of the mesh to 2dm format with BASEmesh’s Export Mesh wizard.
@@ -211,10 +213,13 @@ To run *BASEMENT*, the mesh needs to be exported in 2dm format.
 In order to work with *BASEMENT* v3.x, the .2dm file requires a couple of adaptations. Open the produced finalmesh.2dm in a text editor software (right-click and , for example, edit with `Notepad++ <hy_others.html#npp>`__) and :
 
 -  At the top, insert the following line at line No. 2:
-   ``NUM_MATERIALS_PER_ELEM 1`` .. image:: ../img/mod-2dm.png
+   ``NUM_MATERIALS_PER_ELEM 1``
    
-   :alt: bm-x2” max-width=“500”	:caption: Modification of the upper part    of the .2dm file.
--  At the bottom of the file, add the node string definitions for the    inflow and outflow boundary. Enter the following 2 new lines (where    *ndi* and *ndj* represent the *Inflow* and *Outflow* nodes, respectively, of    `finalmesh_interpolatedNodes_elevMesh.shp <#qualm-interp>`__):
+.. figure:: ../img/mod-2dm.png   
+   :alt: basement model 2d
+   :caption: Modification of the upper part of the .2dm file.
+
+-  At the bottom of the file, add the node string definitions for the inflow and outflow boundary. Enter the following 2 new lines (where *ndi* and *ndj* represent the *Inflow* and *Outflow* nodes, respectively, of    `finalmesh_interpolatedNodes_elevMesh.shp <#qualm-interp>`__):
   
 	-   *NS[SPACE][SPACE]nd1[SPACE]nd2[SPACE]ndi[SPACE]ndn[SPACE]Inflow*   
 	-   *NS[SPACE][SPACE]nd1[SPACE]nd2[SPACE]ndj[SPACE]ndm[SPACE]Outflow* 
@@ -224,7 +229,7 @@ In order to work with *BASEMENT* v3.x, the .2dm file requires a couple of adapta
   
 -   *Stringdef* identifies points that have a non-empty ``stringdef``-field (i.e., all nodes that are located exactly on that line) and writes them into a text file (*BASEMENT*-like ``stringdef`` block). The content of the ``stringdef``-field represents the ``stringdef`` name.
   
--   In order to identify the node ids on the inflow and outflow boundary lines, select the final mesh nodes in the *Mesh Nodes*       dialogue, select the provided `breaklines shapefile <https://github.com/hydro-informatics/materials-bm/raw/master/breaklines.zip>`__       in the *Breaklines* dialogue and select *stringdef* from the dropdown menu.
+-   In order to identify the node ids on the inflow and outflow boundary lines, select the final mesh nodes in the *Mesh Nodes* dialogue, select the provided `breaklines shapefile <https://github.com/hydro-informatics/materials-bm/raw/master/breaklines.zip>`__ in the *Breaklines* dialogue and select *stringdef* from the dropdown menu.
   
 -   In the *Textfile OUTPUT* dialogue, select an output text file (e.g., ``C:/temp/stringdef-breaklines.txt``) and click on **Find node IDs** 
 
@@ -233,16 +238,15 @@ In order to work with *BASEMENT* v3.x, the .2dm file requires a couple of adapta
   
 -   The *Stringdef* tool now has generated ``stringdef``\ s in upstream-looking right direction (note: to create new boundaries, the lines need to be drawn from the left riverbank to the right riverbank).
   
--   Open the resulting text file (``C:/temp/stringdef-breaklines.txt`` in the above example) and copy the node list to the bottom of *finalmesh.2dm* with the above-shown format (i.e., start with *NS*, followed by two SPACEs, then the node IDs *ndi/j * separated by on SPACE, then *Inflow* and *Outflow*, respectively). *Note:
-      The node IDs my vary from those shown in the figure(s).* {%
-      include .. figure:: ../img/QGIS-stringdef-out.png
-   :alt: bm-strdef”
-      max-width=“700”	:caption: The output of BASEmesh’s Stringdef tool:
-      Node IDs of the Inflow and Outflow boundaries.
+-   Open the resulting text file (``C:/temp/stringdef-breaklines.txt`` in the above example) and copy the node list to the bottom of *finalmesh.2dm* with the above-shown format (i.e., start with *NS*, followed by two SPACEs, then the node IDs *ndi/j * separated by on SPACE, then *Inflow* and *Outflow*, respectively). *Note: The node IDs my vary from those shown in the figure(s).* 
+	  
+.. figure:: ../img/QGIS-stringdef-out.png
+   :alt: basement stringdef
+   :caption: The output of BASEmesh’s Stringdef tool: Node IDs of the Inflow and Outflow boundaries.
 
 -  Finally, the bottom of the finalmesh.2dm (text editor) should look like this in the text editor (node ``ID``\ s may vary from those in the screenshot): 
 
-.. image:: ../img/mod-2dm-bottom.png
+.. figure:: ../img/mod-2dm-bottom.png
    	:caption: Modification of the bottom part of the .2dm file.
 
 Congratulations, you finished meshing!

@@ -14,8 +14,7 @@ https://hydro-informatics.github.io/geo-shp.html.
    package.
 
 Load an existing shapefile
---------------------
-------
+--------------------------
 
 ``gdal``\ ’s ``ogr`` module is an excellent source for handling
 shapefiles. To open a shapefile in *Python*, we need to instantiate the
@@ -143,10 +142,10 @@ dragging the files from the *Browser* tab into the *Layers* tab. Then:
 We will come back to these descriptions and use this shapefile on the
 *Raster handling* page.
 
-.. |img| image:: https://hydro-informatics.github.io/images/QGIS-create-shp.png
-.. |image1| image:: https://hydro-informatics.github.io/images/QGIS-new-shp.png
-.. |image2| image:: https://hydro-informatics.github.io/images/QGIS-toggle-editing.png
-.. |image3| image:: https://hydro-informatics.github.io/images/QGIS-draw-polygon.png
+.. |img| image:: ../img/QGIS-create-shp.png
+.. |image1| image:: ../img/QGIS-new-shp.png
+.. |image2| image:: ../img/QGIS-toggle-editing.png
+.. |image3| image:: ../img/QGIS-draw-polygon.png
 
 Get and set shapefile projections
 ---------------------------------
@@ -518,7 +517,7 @@ Earth quick start
 kit <http://naciscdn.org/naturalearth/packages/Natural_Earth_quick_start.zip>`__.
 |img|
 
-.. |img| image:: https://hydro-informatics.github.io/images/QGIS-rivers.png
+.. |img| image:: ../img/QGIS-rivers.png
 
 Multiline (polyline) shapefile
 ------------------------------
@@ -583,11 +582,10 @@ shapefile from the `Natural Earth quick start
 kit <http://naciscdn.org/naturalearth/packages/Natural_Earth_quick_start.zip>`__.
 |img|
 
-.. |img| image:: https://hydro-informatics.github.io/images/QGIS-rhine.png
+.. |img| image:: ../img/QGIS-rhine.png
 
 Polygon shapefile
-----------
--------
+-----------------
 
 Polygons are surface patches that can be created point-by-point,
 line-by-line, or from a ``"Multipolygon"`` *WKB* definition. When
@@ -642,8 +640,7 @@ for creating a line shapefile are:
     va_geo = None
 
 Build shapefile from *JSON*
---------------------
--------
+---------------------------
 
 Loading geometry data from a in-line defined variables is cumbersome in
 practice, where geospatial data are often provided on public platforms
@@ -668,7 +665,7 @@ are stored in *WKB* polygon geometry format
       calculated in m2 using ``polygon.GetArea()``.
 
 -  The polygon geometries are derived from the *WKB*-formatted
-   definitions in the ``"wkb_geom"`` field of the *pand as* data frame
+   definitions in the ``"wkb_geom"`` field of the *pandas* data frame
    object ``dreisam_inundation``
 
 .. code:: ipython3

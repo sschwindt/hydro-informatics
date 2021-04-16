@@ -21,7 +21,7 @@ Since GAIA is not operated fully coupled, the first step is to compute the flow 
 Mandatory files
 ---------------
 
-The following files are mand atory to simulate morphodynamics:
+The following files are mandatory to simulate morphodynamics:
 
 -  the steering files for GAIA and the hydrodynamic module    (e.g. `T2D <https://hydro-informatics.github.io/telemac2d.html>`__ or    `T3D <https://hydro-informatics.github.io/telemac3d.html>`__)
   

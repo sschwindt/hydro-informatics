@@ -353,7 +353,7 @@ the ``create_raster`` function:
     # call create_raster to create a 1-m-resolution raster in EPSG:4326 projection
     create_raster(raster_name, unis_dem, raster_origin,  pixel_width=1,  pixel_height=1, epsg=3857) 
 
-.. figure:: https://hydro-informatics.github.io/images/QGIS-ras-unis.png
+.. figure:: ../img/QGIS-ras-unis.png
    :alt: img
 
    img
@@ -437,7 +437,7 @@ number *GeoTIFF* raster. In detail, the workflow involves to:
     create_raster(file_name= r"" + os.path.abspath("") + "/geodata/rasters/Fr1000cfs.tif",
                   raster_array=Froude, epsg=6418, geo_info=h_geo_info)
 
-.. figure:: https://hydro-informatics.github.io/images/QGIS-py-fr.png
+.. figure:: ../img/QGIS-py-fr.png
    :alt: img
 
    img
@@ -600,7 +600,7 @@ to ``epsg=4326``).
 Plotted in *QGIS*, the reprojected *Froude* number raster looks like
 this:
 
-.. figure:: https://hydro-informatics.github.io/images/QGIS-reproj-Froude.png
+.. figure:: ../img/QGIS-reproj-Froude.png
    :alt: img
 
    img
@@ -639,7 +639,7 @@ An application example with zonal statistics
 
 In hydraulic and geospatial analyses, the question of statistical values
 of certain areas of one or more rasters often arises. For example, we
-may be interested in mean values and stand ard deviations in specific
+may be interested in mean values and standard deviations in specific
 water body zones. *Zonal statistics* enable the delineation of an area
 of a raster by using a polygon shapefile.
 
@@ -686,10 +686,10 @@ With ``zonal_stats``, we can easily obtain many statistical values of
 the water depth and flow velocity raster within the just drawn
 slackwater polygon.
 
-.. |img| image:: https://hydro-informatics.github.io/images/QGIS-create-shp.png
-.. |image1| image:: https://hydro-informatics.github.io/images/QGIS-new-shp.png
-.. |image2| image:: https://hydro-informatics.github.io/images/QGIS-toggle-editing.png
-.. |image3| image:: https://hydro-informatics.github.io/images/QGIS-draw-polygon.png
+.. |img| image:: ../img/QGIS-create-shp.png
+.. |image1| image:: ../img/QGIS-new-shp.png
+.. |image2| image:: ../img/QGIS-toggle-editing.png
+.. |image3| image:: ../img/QGIS-draw-polygon.png
 
 .. code:: ipython3
 
@@ -725,7 +725,7 @@ In addition, user-defined statistics can be added, where the
 ```numpy.ma`` <https://numpy.org/doc/stable/reference/routines.ma.html#masked-arrays-arithmetics>`__
 module is particularly useful with its array handling capacities include
 transposing or specifying statistics along axis. For example, we can
-define a specific function to calculate stand ard deviation:
+define a specific function to calculate standard deviation:
 
 .. code:: ipython3
 
@@ -815,7 +815,7 @@ brackets are optional):
 
    gdaldem slope input_dem output_slope_map  [-p use percent slope (default=degrees)] [-s scale* (default=1)] [-alg ZevenbergenThorne] [-compute_edges] [-b Band (default=1)] [-of format] [-co "NAME=VALUE"]* [-q]
 
-To call the command line tool, we can use *Python*\ ’s stand ard library
+To call the command line tool, we can use *Python*\ ’s standard library
 ``subprocess``. The following code block illustrates the usage of the
 ``gdaldem`` command line tool through
 ```subprocess.call`` <https://docs.python.org/3/library/subprocess.html>`__
@@ -838,7 +838,7 @@ data’s ``dem.tif``. ``subprocess.call`` returns ``0`` if the command execution
 
 
 
-.. figure:: https://hydro-informatics.github.io/images/QGIS-slope.png
+.. figure:: ../img/QGIS-slope.png
    :alt: img
 
    img
@@ -870,7 +870,7 @@ To create an aspect raster of the *River Architect* sample data DEM run:
 
 
 
-.. figure:: https://hydro-informatics.github.io/images/QGIS-aspect.png
+.. figure:: ../img/QGIS-aspect.png
    :alt: img
 
    img
@@ -888,7 +888,7 @@ floodplain back into the main channel where there is enough water. In
 the figure below, point 1 shows the starting point on the floodplain and point 2 the destination in the main channel. The reddish background
 represents the previously produced slope raster (slope-percent.tif) and the water depth at normal runoff is colored in blue.
 
-.. figure:: https://hydro-informatics.github.io/images/QGIS-slope-pts.png
+.. figure:: ../img/QGIS-slope-pts.png
    :alt: img
 
    img
@@ -903,7 +903,7 @@ strand ing risk for fish in many regulated rivers. The following figure
 illustrates strand ing risk zones as a function of discharge (in cubic
 feet per second) at the lower Yuba River (California, USA).
 
-.. figure:: https://hydro-informatics.github.io/images/ra-strand ing.png
+.. figure:: ../img/ra-strand ing.png
    :alt: img
 
    img
@@ -1116,7 +1116,7 @@ The below code block uses these functions as follows:
     create_raster(out_raster_name, path_array, epsg=int(src_srs.GetAuthorityCode(None)),
                   rdtype=gdal.GDT_Byte, geo_info=geo_transform)
 
-.. figure:: https://hydro-informatics.github.io/images/QGIS-least-cost.png
+.. figure:: ../img/QGIS-least-cost.png
    :alt: img
 
    img

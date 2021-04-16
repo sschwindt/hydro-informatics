@@ -6,8 +6,7 @@ This page is under construction. Expected release of this tutorial: Fall 2021.
 Thank you for your patience.
 
 
-requirements.html content="The case featured in this tutorial was established with: \ **-**\ `BlueKenue v3.12 <install-telemac.html#sbluekenue>`__ (on *Windows*)\ **-**\ `QGIS v3.16 <geo_software.html#QGIS>`__ (tested on *Windows* and **Debian 10
-Linux\ ),\ \ -\ \ \ **\ `Fudaa PrePro v1.4 <install-telemac.html#fudaa>`__\ **\ (tested on\ Windows\* and **\ Debian 10 Linux\ *), and \ *\ **-**\ *\ *\ `TELEMAc v8p2r0 <install-telemac.html#modular-install>`__\ *(stand -alone installation on*\ Debian 10 Linux*)." %}
+requirements.html content="The case featured in this tutorial was established with: \ **-**\ `BlueKenue v3.12 <install-telemac.html#sbluekenue>`__ (on *Windows*)\ **-**\ `QGIS v3.16 <geo_software.html#QGIS>`__ (tested on *Windows* and **Debian 10 Linux\ ),\ \ -\ \ \ **\ `Fudaa PrePro v1.4 <install-telemac.html#fudaa>`__\ **\ (tested on\ Windows\* and **\ Debian 10 Linux\ *), and \ *\ **-**\ *\ *\ `TELEMAC v8p2r0 <install-telemac.html#modular-install>`__\ *(stand-alone installation on*\ Debian 10 Linux*)." %}
 
 This tutorial uses descriptions provided in the `telemac2d <http://ot-svn-public:telemac1*@svn.opentelemac.org/svn/opentelemac/tags/v8p1r1/documentation/telemac2d/user/telemac2d_user_v8p1.pdf>`__ user manual.
 
@@ -17,43 +16,42 @@ Input files
 Overview
 ~~~~~~~~
 
-For any TELEMAC 2D simulation, the following files are mand atory:
+For any TELEMAC 2D simulation, the following files are mandatory:
 
 -  Steering file 
-
   
--   File format: ``cas``   
--   Prepare either with `Fudaa PrePro <https://fudaa-project.atlassian.net/wiki/spaces/PREPRO/pages/253165587/How+to+launch+Fudaa-Prepro>`__       or `BlueKenueTM <install-telemac.html#bluekenue>`__.
+	-   File format: ``cas``   
+	-   Prepare either with `Fudaa PrePro <https://fudaa-project.atlassian.net/wiki/spaces/PREPRO/pages/253165587/How+to+launch+Fudaa-Prepro>`__ or `BlueKenueTM <install-telemac.html#bluekenue>`__.
 
 -  Geometry file 
-
   
--   File format: ``.slf``       (`selafin <https://gdal.org/drivers/vector/selafin.html>`__)
-  
--   Prepare either with 
+	-   File format: ``.slf`` (`selafin <https://gdal.org/drivers/vector/selafin.html>`__)  
+	-   Prepare either with 
 
 -  Boundary conditions 
-
   
--   File format: ``.cli``   
--   Prepare either with 
+	-   File format: ``.cli``   
+	-   Prepare either with 
 
 The basic setup of the files is explained below.
 
 Build geometry and computational mesh
 -------------------------------------
 
+Pass
+
 Geometry File Option 1: BlueKenue
 ---------------------------------
 
-File description and reference to CAs
+File description and reference to CAS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The geometry file in `slf (selafin) <https://gdal.org/drivers/vector/selafin.html>`__ format contains binary data about the mesh with its nodes. The name format of the geometry file can be modified in the steering file with:
 
 ::
 
-   /steering.cas    GEOMETRY FILE            : 't2d_channel.slf'
+   /steering.cas
+   GEOMETRY FILE            : 't2d_channel.slf'
    GEOMETRY FILE FORMAT     : SLF  / or MED with SALOME verify usage 
 
 Load points to create a geometry file (BK)
@@ -61,23 +59,22 @@ Load points to create a geometry file (BK)
 
 To load any point *shapefile* start *BK* and :
 
--  *File* > *Import* > *ArcView Shape File* > Navigate to the directory    where the point *shapefile* lives > Select the *All Files (*.*)*    option (in lieu of *Telemac Selafin File (*.slf)*) > Select the file    (e.g., *xyz.shp*)
--  ALTERNATIVELY: Open any other point data file with *File* > *Open* >
-   Navigate to DIR > look for *.xyz* or *.dat* files 
+-  *File* > *Import* > *ArcView Shape File* > Navigate to the directory where the point *shapefile* lives > Select the *All Files (*.*)* option (in lieu of *Telemac Selafin File (*.slf)*) > Select the file (e.g., *xyz.shp*)
+-  ALTERNATIVELY: Open any other point data file with *File* > *Open* >  Navigate to DIR > look for *.xyz* or *.dat* files 
 
 .. image:: ../img/bk-import-pts.png
-   :alt: bkimportpts”
+   :alt: bkimportpts
 
    :caption: Importing a point shapefile in BK.
 
 -  Right-click on **points (X)** and open the **Properties**
--   In the **Properties** window got to the **Data** tab > select    **Z(float)** and **Apply**; then go to the **ColourScale** tab >
-   **Reset** button > **Apply** > **OK**. Now, **points (X)** should    have turned into **points (Z)**
+-   In the **Properties** window got to the **Data** tab > select **Z(float)** and **Apply**; then go to the **ColourScale** tab >
+   **Reset** button > **Apply** > **OK**. Now, **points (X)** should have turned into **points (Z)**
 -   Drag **points (X)** from **Data Items** to **Views \| 2D View (1)**
--   ALTERNATIVELY: Use a three-dimensional (3D) view of the points: Go to    the **Window** menu > **New 3D View** > drag **points (X)** from    **Data Items** to **Views \| 3D View (1)** 
-.. image:: ../img/bk-imported-3dpts.png
-   :alt: bk3dpts”
+-   ALTERNATIVELY: Use a three-dimensional (3D) view of the points: Go to the **Window** menu > **New 3D View** > drag **points (X)** from **Data Items** to **Views \| 3D View (1)** 
 
+.. figure:: ../img/bk-imported-3dpts.png
+   :alt: blue kenue 3d points
    :caption: The imported points a point shapefile in BK.
 
 Generate a Mesh
@@ -90,20 +87,21 @@ TM solves the (depth-averaged) Navier Stokes equations along a computational gri
 -   Find the *New Closed Line* button approximately below the *Help*       menu   
 -   Draw a polygon around the region of interest by clicking on the most outside points of the point cloud   
 -   When finished drawing, press the ``Esc`` key and enter ``ClosedLine_domain`` in the *Name* field > click OK and OK (in the popup window) 
-.. figure:: ../img/bk-domain-closedline.png
-   :alt: bk-domain” max-width=“500
 
-2. Draw **New Open Line** objects to delineate the main (river) channel,    levees, and right-left extents.
+.. figure:: ../img/bk-domain-closedline.png
+   :alt: bk-domain max-width=“500
+
+2. Draw **New Open Line** objects to delineate the main (river) channel, levees, and right-left extents.
 
   
--   Find the *New Open Line* button next to the *New Closed Line*       button 
+-   Find the *New Open Line* button next to the *New Closed Line* button 
 
 Geometry File Option 2: QGIS & BASEMESH
 ---------------------------------------
 
 Follow the instructions in the `QGIS data pre-processing <QGIS-prepro.html>`__ section for creating a .2dm file.
 
-Then…
+Then...
 
 .. _prepro-fudaa:
 
@@ -114,25 +112,21 @@ Model setup with Fudaa Prepro
 
 -  ``cd`` to the installation directory of *Fudaa*
 -   start the GUI:
-
   
--   *Linux*: tap ``sh supervisor.sh``   
--   *Windows*: tap ``supervisor.bat`` 
+	-   *Linux*: tap ``sh supervisor.sh``   
+	-   *Windows*: tap ``supervisor.bat`` 
+
 Boundary Conditions
 -------------------
 
-The boundary file in *cli* format contains information about inflow and 
-outflow nodes (coordinates and IDs). The *cli* file can be opened and 
-modified with any text editor, which is not recommended to avoid inconsistencies. Preferably use `Fudaa-PrePro <install-telemac.html#fudaa>`__ or `BlueKenue <install-telemac.html#bluekenue>`__ for generating and /or modifying *cli* files.
+The boundary file in *cli* format contains information about inflow and outflow nodes (coordinates and IDs). The *cli* file can be opened and modified with any text editor, which is not recommended to avoid inconsistencies. Preferably use `Fudaa-PrePro <install-telemac.html#fudaa>`__ or `BlueKenue <install-telemac.html#bluekenue>`__ for generating and /or modifying *cli* files.
 
-In addition, users can define a liquid boundary conditions file (*qsl*)
-to define time-dependent boundary conditions (e.g., discharge, water depth, flow velocity or tracers).
+In addition, users can define a liquid boundary conditions file (*qsl*) to define time-dependent boundary conditions (e.g., discharge, water depth, flow velocity or tracers).
 
 Stage-discharge (or WSE-Q) Relationship
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Define a stage-discharge file (*ASCII* format) to use a stage (water surface elevation *WSE*)
--  discharge relationship for boundary conditions. Such files typically apply to the downstream boundary of a model at control sections (e.g., a free overflow weir). To use a stage-discharge file, define the following keyword in the steering file:
+Define a stage-discharge file (*ASCII* format) to use a stage (water surface elevation *WSE*) -  discharge relationship for boundary conditions. Such files typically apply to the downstream boundary of a model at control sections (e.g., a free overflow weir). To use a stage-discharge file, define the following keyword in the steering file:
 
 ::
 
@@ -163,7 +157,8 @@ Example for a liquid boundary conditions file:
 
    # bc_unsteady.qsl    # Time-dependent inflow (discharge Q(2)) and outflow (depth SL(1))
    T           Q(1)     SL(2)
-   s           m3/s     m    0.            0.     5.0
+   s           m3/s     m    
+   0.            0.     5.0
    500.        100.     5.0
    5000.       150.     5.0
 
@@ -184,7 +179,9 @@ Load the TELEMAC *Python* variables:
 
 ::
 
-   cd ~/telemac/v8p1/configs    source pysource.openmpi.sh    config.py 
+   cd ~/telemac/v8p1/configs
+   source pysource.openmpi.sh
+   config.py 
 
 .. _steadyrun:
 
@@ -195,11 +192,11 @@ To start a simulation, ``cd`` to the directory where the simulation files live (
 
 ::
 
-   cd /go/to/dir    telemac2d.py run_2dhydrodynamic.cas 
+   cd /go/to/dir
+   telemac2d.py run_2dhydrodynamic.cas 
 
 Post-processing with QGIS
---------------------
------
+-------------------------
 
 Install the PostTelemac plugin
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

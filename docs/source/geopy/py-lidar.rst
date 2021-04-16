@@ -1,4 +1,7 @@
-MARKDOWN FILE CONVERTED TO JUPYTEr
+Lidar & Python
+==============
+
+MARKDOWN FILE CONVERTED TO JUPYTER
 ----------------------------------
 
 Available at https://github.com/sschwindt/lidar-analysis 

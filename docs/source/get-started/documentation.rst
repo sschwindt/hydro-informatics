@@ -1,8 +1,7 @@
 Documentation
 =============
 
-Leonardo Da Vinci used journals to sketch, develop and eventually pass on his ideas. Alexand er von Humboldt documented many of his journeys in travel journals and Marie Skłodowska Curie wrote down the theory of “radioactivity” using pens and papers. Today, writing media have evolved into infinite digital oceans with sophisticated tools for documenting code and ideas. Also the way in which we look for and retrieve information has evolved from searching for lexicon entries to using keywords in search engines. So if you have made an ingenious discovery, you want to make sure you document it well so that others can understand 
-and use it. You also want to make sure that others can find your stroke of genius in digital media. You also want to make sure that others can find your stroke of genius in digital media. One of the most widespread methods for documenting and spreading ideas is the use of so-called wikis (from Hawaiian: *fast*), which can easily be written in markdown language. *GitHub* provides comprehensive, easy-to-read explanations for `project documentation <https://guides.github.com/features/wikis/>`__ with *Markdown* as core element. This page presents the basics of the markdown language to leverage wikis. Moreover, the powerful alternative of using *reStructuredText* in *Sphinx*-based documentations is introduced.
+Leonardo Da Vinci used journals to sketch, develop and eventually pass on his ideas. Alexand er von Humboldt documented many of his journeys in travel journals and Marie Skłodowska Curie wrote down the theory of “radioactivity using pens and papers. Today, writing media have evolved into infinite digital oceans with sophisticated tools for documenting code and ideas. Also the way in which we look for and retrieve information has evolved from searching for lexicon entries to using keywords in search engines. So if you have made an ingenious discovery, you want to make sure you document it well so that others can understand and use it. You also want to make sure that others can find your stroke of genius in digital media. You also want to make sure that others can find your stroke of genius in digital media. One of the most widespread methods for documenting and spreading ideas is the use of so-called wikis (from Hawaiian: *fast*), which can easily be written in markdown language. *GitHub* provides comprehensive, easy-to-read explanations for `project documentation <https://guides.github.com/features/wikis/>`__ with *Markdown* as core element. This page presents the basics of the markdown language to leverage wikis. Moreover, the powerful alternative of using *reStructuredText* in *Sphinx*-based documentations is introduced.
 
 .. tip::
    `Write the Docs <https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/>`__ provides comprehensive guides for code documentation
@@ -24,7 +23,7 @@ Requirements
 This section should answer the following questions:
 
 -  What system requirements are needed?
--  Which dependencies does the software have (e.g., other *Python*    packages such as *NumPy*)?
+-  Which dependencies does the software have (e.g., other *Python* packages such as *NumPy*)?
 -  What input data does a user need to run the software?
 
 Installation
@@ -35,8 +34,7 @@ Describe step-by-step the installation of the software (e.g., how to download an
 Usage
 ~~~~~
 
-Describe how the software can be used, starting with basics such as importing the software as *Python* package. Mention possible pre- and 
-post-processing for input and output data, respectively. If available, add more complex functionalities consecutively in a logical order.
+Describe how the software can be used, starting with basics such as importing the software as *Python* package. Mention possible pre- and post-processing for input and output data, respectively. If available, add more complex functionalities consecutively in a logical order.
 
 To truly make your software useful to others, add a case study. Most users will not read the detailed code documentation until they get the software to run once and see what it can do. A use case also helps to check the logic of your code and gives users the opportunity to bridge imperfect code documentation sections to their workflow. This can sometimes be necessary, even if your code is certainly perfect and the documentation is foolproof.
 
@@ -51,8 +49,7 @@ Sure, your code is error-free and of course only the user makes mistakes. Show c
 Contributing
 ~~~~~~~~~~~~
 
-Your software is brilliant. To make the software even more brilliant, foolproof, and powerful, it is a great idea (actually: an absolute must)
-to get more authors on the development team. However, it is very likely that any other author has individual preferences when it comes to code stand ards. So make sure to set up clear rules for other contributors from the beginning. For example, define clear code conventions as explained on the `code style <hypy_pystyle.html>`__ page.
+Your software is brilliant. To make the software even more brilliant, foolproof, and powerful, it is a great idea (actually: an absolute must) to get more authors on the development team. However, it is very likely that any other author has individual preferences when it comes to code standards. So make sure to set up clear rules for other contributors from the beginning. For example, define clear code conventions as explained on the `code style <hypy_pystyle.html>`__ page.
 
 Markdown 
 --------
@@ -84,8 +81,8 @@ Markdown Editors (IDEs)
 
 Many text editors provide *Markdown* add-ons and *Markdown*-only editors are loosing their significance more and more. Editors that simultaneously support *Markdown* and programming languages like *Python* or *R* are state of the art and therefore recommended.
 
-Basic text editors that support *Markdown* are listed `here <hy_others.html#npp>`__. Popular and multi-platform *IDE*\ s for editing *Markdown* (``.md``) files are `ATOM <https://atom.io/>`__ (for combination with *JavaScript*, *html*, and *CSS*), and `Jupyter Lab <https://jupyter.org>`__ or `PyCharm <https://www.jetbrains.com/pycharm/>`__ (for combination with *Python* or *R*), which both are available through `Anaconda <https://docs.conda.io/>`__. `Read more about Anaconda and 
-associated IDE\ s on the previous pages. <hy_ide.html>`__ 
+Basic text editors that support *Markdown* are listed `here <hy_others.html#npp>`__. Popular and multi-platform *IDE*\ s for editing *Markdown* (``.md``) files are `ATOM <https://atom.io/>`__ (for combination with *JavaScript*, *html*, and *CSS*), and `Jupyter Lab <https://jupyter.org>`__ or `PyCharm <https://www.jetbrains.com/pycharm/>`__ (for combination with *Python* or *R*), which both are available through `Anaconda <https://docs.conda.io/>`__. `Read more about Anaconda and associated IDE\ s on the previous pages. <hy_ide.html>`__ 
+
 Markdown command overview (+images)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -185,13 +182,12 @@ Jackfruit Plantae Artocarpus
 
 --------------
 
-Converting complex tables from workbooks (e.g., from *LibreOffice Calc* or *MS Excel*) is possible with many online tools and here is just one example from Dave Johnson:
-`https://thisDaveJ.com <https://thisdavej.com/copy-table-in-excel-and -paste-as-a-markdown-table/>`__.
+Converting complex tables from workbooks (e.g., from *LibreOffice Calc* or *MS Excel*) is possible with many online tools and here is just one example from Dave Johnson: `https://thisDaveJ.com <https://thisdavej.com/copy-table-in-excel-and -paste-as-a-markdown-table/>`__.
 
 Math expressions: Equations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Math expressions and equations must be implemented as text in stand ard *Markdown*. *GitHub*\ s markdown interpreter does not support many external *TeX*-like equation renderers for reasons of security. However, *GitHub* users can still render *TeX*-like equations with the following code:
+Math expressions and equations must be implemented as text in standard *Markdown*. *GitHub*\ s markdown interpreter does not support many external *TeX*-like equation renderers for reasons of security. However, *GitHub* users can still render *TeX*-like equations with the following code:
 
 .. code:: html 
 
@@ -209,8 +205,7 @@ html -  markdown
 Math expressions: Greek letters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In order to use greek letters in inline text, use *html* language, where ``&lettername;`` produces the desired *Greek* letter symbol (e.g., type ``&delta;`` to output δ or ``&Delta;`` to output a capital letter Δ).
-The following table provides an overview of Greek letter symbols.
+In order to use greek letters in inline text, use *html* language, where ``&lettername;`` produces the desired *Greek* letter symbol (e.g., type ``&delta;`` to output δ or ``&Delta;`` to output a capital letter Δ). The following table provides an overview of Greek letter symbols.
 
 ====== ============= ====== =============
 Letter Code          letter code 
@@ -276,7 +271,7 @@ Miscellaneous Symbols
 >  ``&gt;``     ’ ``&rsquo;``  ℑ ``&image;`` 
 Œ  ``&OElig;``  ‚ ``&sbquo;``  ℜ ``&real;`` 
 œ  ``&oelig;``  “ ``&ldquo;``  ™ ``&trade;`` 
-Š  ``&Scaron;`  ” ``&rdquo;``  ℵ ``&alefsym;`` 
+Š  ``&Scaron;`   ``&rdquo;``  ℵ ``&alefsym;`` 
 š  ``&scaron;`` „ ``&bdquo;``  ⌈ ``&lceil;`` 
 Ÿ  ``&Yuml;``   † ``&dagger;`` ⌉ ``&rceil;`` 
 ˆ  ``&circ;``   ‡ ``&Dagger;`` ⌊ ``&lfloor;`` 
@@ -293,12 +288,9 @@ Miscellaneous Symbols
 Wikis 
 -----
 
-While every `git <hy_git.html>`__ repository should at least contain a descriptive *README.md*, *wiki*\ s provide much more detail and 
-guidance. Wikis are a convenient way to guide users with permanent side bars (such as the menu bar on this web site), help users to understand 
-methods and codes, and collaborative coding with precise descriptions of scripts. *GitHub* users find options to activate *wiki*\ s in the *Settings* tab of a repository and the developers continue to improve *wiki* functions (`read more about GitHub\ ’s wikis <https://help.github.com/en/github/building-a-strong-community/about-wikis>`__).
+While every `git <hy_git.html>`__ repository should at least contain a descriptive *README.md*, *wiki*\ s provide much more detail and guidance. Wikis are a convenient way to guide users with permanent side bars (such as the menu bar on this web site), help users to understand methods and codes, and collaborative coding with precise descriptions of scripts. *GitHub* users find options to activate *wiki*\ s in the *Settings* tab of a repository and the developers continue to improve *wiki* functions (`read more about GitHub\ ’s wikis <https://help.github.com/en/github/building-a-strong-community/about-wikis>`__).
 
-More sophisticated *wiki*\ s are available on the *Jekyll* themes web site (e.g., the `git-wiki theme <https://jekyll-themes.com/git-wiki/>`__). In order to use *Jekyll* themes, make sure to enable `GitHub pages <https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site>`__ (in the repository *Settings* tab) for the repository where you want to establish the *wiki* (this wiki-repository is typically another repository in order to describe a code-repository). Then, install the *Ruby development environment* and *Jekyll* (see `instructions on their website <https://jekyllrb.com/docs/>`__) in order to access and build hundreds of themes for code and project documentation. Forked and 
-locally adapted themes can then be *push*\ ed to a remote *wiki* repository using `git <hy_git.html>`__.
+More sophisticated *wiki*\ s are available on the *Jekyll* themes web site (e.g., the `git-wiki theme <https://jekyll-themes.com/git-wiki/>`__). In order to use *Jekyll* themes, make sure to enable `GitHub pages <https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site>`__ (in the repository *Settings* tab) for the repository where you want to establish the *wiki* (this wiki-repository is typically another repository in order to describe a code-repository). Then, install the *Ruby development environment* and *Jekyll* (see `instructions on their website <https://jekyllrb.com/docs/>`__) in order to access and build hundreds of themes for code and project documentation. Forked and locally adapted themes can then be *push*\ ed to a remote *wiki* repository using `git <hy_git.html>`__.
 
 .. tip::
    There are other git-pages and wiki host providers out there, such as `GitLab <https://gitlab.com/pages>`__ or `plan.io <https://plan.io/knowledge-management/>`__.
@@ -312,8 +304,6 @@ locally adapted themes can then be *push*\ ed to a remote *wiki* repository usin
 
 An alternative to markdown is `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`__ that enables embedding *Python* *docstrings* (`read more in the code style conventions <hypy_pystyle.html>`__) of any script or module with `Sphinx <https://www.sphinx-doc.org>`__.
 
-Without any *Python* or programming knowledge, it might be hard to get started with *Sphinx*. So make sure to understand *Python* basics and 
-document any code with *docstrings*, at best using `google style <https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html>`__ formatting. Once you start documenting your first *Python* package, *google-style* *docstrings* will enable the fast generation of high-quality docs. Currently, one of the best options for partially auto-generating code documentations, for any programming language, is `readthedocs <https://readthedocs.org/>`__, which builds on *Sphinx* and 
-*reStructuredText*.
+Without any *Python* or programming knowledge, it might be hard to get started with *Sphinx*. So make sure to understand *Python* basics and document any code with *docstrings*, at best using `google style <https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html>`__ formatting. Once you start documenting your first *Python* package, *google-style* *docstrings* will enable the fast generation of high-quality docs. Currently, one of the best options for partially auto-generating code documentations, for any programming language, is `readthedocs <https://readthedocs.org/>`__, which builds on *Sphinx* and *reStructuredText*.
 
 .. |ImgName| image:: https://raw.githubusercontent.com/RiverArchitect/Media/master/images/logo_small.ico 

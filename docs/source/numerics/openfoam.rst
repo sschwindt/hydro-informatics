@@ -1,6 +1,6 @@
 
-Open Foam
-===========
+OpenFOAM
+========
 
 Tutorial under construction. Expected release of this tutorial: Winter 2021/22.
 
@@ -54,14 +54,15 @@ Launch either *SALOME-HYDRO*:
 ::
 
    cd /INSTALL/DIR/OF/SALOME-HYDRO/
-   ./SALOME 
+   ./salome 
 
 or *SALOME*:
 
 ::
 
    cd /INSTALL/DIR/OF/SALOME/
-   source env_launch.sh    ./SALOME 
+   source env_launch.sh    
+   ./salome 
 
 Setup a Base Case
 -----------------
@@ -71,13 +72,15 @@ The fundamental settings for running a simulation with *OpenFOAM* resemble. Fir 
 The base case contains the following folders and files:
 
 -  ``0/``
--   ``constant/``
--   ``system/``
--   ``xx.msh``
+-  ``constant/``
+-  ``system/``
+-  ``xx.msh``
 -  the mesh (geometry) file with boundary conditions 
 
 Set Initial Values
 ------------------
+
+Pass.
 
 Create Geometry, Mesh and Boundaries
 ------------------------------------
@@ -88,7 +91,7 @@ If no file menus show up because ``export QT_STYLE_OVERRIDE=gtk2`` is not added 
 ::
 
    export QT_STYLE_OVERRIDE=gtk2
-   /home/SALOME-HYDRO/appli_V1_1_univ/SALOME 
+   /home/SALOME-HYDRO/appli_V1_1_univ/salome
 
 .. note::
    If ``QT_STYLE_OVERRIDE=gtk2`` is not set, the *HydroSolver* module will not work correctly and throw a ``Could not create file tree`` error.
@@ -113,3 +116,5 @@ Activate the **ParaVis** module from the top menu.
 
 Load Result (MED file)
 ~~~~~~~~~~~~~~~~~~~~~~
+
+Pass.

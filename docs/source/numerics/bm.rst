@@ -23,11 +23,11 @@ Prepare a ``2dm`` mesh file as described in the `QGIS data pre-processing <QGIS-
 Steady 2d Simulation with BASEMENT 
 ----------------------------------
 
-In addition to the mesh (``2dm`` file), the numerical engine of *BASEMENT* needs a model setup file (*model.json*) and a simulation file (*simulation.json*), which both are created automatically by *BASEMENT*.
-The following sections describe how to make *BASEMENT* creating the two *.json* files. Before getting there, create a new project folder of your choice (e.g., ``C:/BM/irme-exercise/``).
+In addition to the mesh (``2dm`` file), the numerical engine of *BASEMENT* needs a model setup file (*model.json*) and a simulation file (*simulation.json*), which both are created automatically by *BASEMENT*. The following sections describe how to make *BASEMENT* creating the two *.json* files. Before getting there, create a new project folder of your choice (e.g., ``C:/BM/irme-exercise/``).
 
 
-tip.html content="The defined project folder directory must not contain any dots nor special characters nor spaces. Only use letters, numbers, \*_\* (underscore) or *-* (minus) in folder names." %}
+.. tip::
+  The defined project folder directory must not contain any dots nor special characters nor spaces. Only use letters, numbers, \*_\* (underscore) or *-* (minus) in folder names." %}
 
 Make sure to place the two input files in the folder:
 
@@ -55,7 +55,7 @@ NAME  riverbed lower_bank upper_bank floodplain street
 
 The window should now look like this: 
 .. figure:: ../img/bm-mod-reg.png
-   :alt: bm-7”	:caption: Region definitions.
+   :alt: bm-7	:caption: Region definitions.
 
 -  Next, we need to define inflow and outflow boundary condition with ``stringdefs``. In the ``GEOMETRY`` section right-click –
    ``Add item`` ``STRINGDEF`` – ``Add item`` (2 times) and define item [0] as:  
@@ -64,9 +64,10 @@ The window should now look like this:
 -  Define ``STRINGDEF`` item [1] as:  
 	-   ``name`` = ``Outflow``   
 	-   ``upstream_direction`` = ``right`` 
-note.html content=“If you used `BASEmesh’s Stringdef tool <QGIS-prepro.html#stringdef>`__, the upstream direction must be defined as ``right``.
+.. note::
+If you used `BASEmesh’s Stringdef tool <QGIS-prepro.html#stringdef>`__, the upstream direction must be defined as ``right``.
 
--  Add the initial condition in the ``HYDRAULICS`` section with by right-clicking > ``Add item`` > ``INITIAL`` (if not yet present) and set ``type``: “DRY” (i.e., the river is dry at the beginning of the simulation).
+-  Add the initial condition in the ``HYDRAULICS`` section with by right-clicking > ``Add item`` > ``INITIAL`` (if not yet present) and set ``type``: “DRY (i.e., the river is dry at the beginning of the simulation).
 -  Add upstream and downstream boundary conditions with a right-click on the ``HYDRAULICS`` section > ``Add item`` > ``BOUNDARY`` (if not yet present), then right-click on the new ``BOUNDARY`` section > ``Add item STand ARD`` > ``Add item`` (2 times)
 -  Define BOUNDARY item [0] as:  
 	-   ``discharge_file`` = ``C:/.../SteadyVanillaInflow.txt`` (select by clicking on the folder symbol that occurs when the field is activated)	  
@@ -100,7 +101,7 @@ note.html content=“If you used `BASEmesh’s Stringdef tool <QGIS-prepro.html#
 	-   ``minimum_water_depth`` =\ ``0.01`` 
 -  Define a ``simulation_name`` (e.g., ``SteadyVanilla``)
 
-Note that the definitions of ``PHYSICAL_PROPERTIES`` and ``BASEPLANE_2D`` are mand atory. Click on the ``Write`` button (bottom-right corner) to save the model setup (see image below). If everything is correctly set up, the ``Console`` tab will automatically open and the ``Error Output`` canvas is empty.
+Note that the definitions of ``PHYSICAL_PROPERTIES`` and ``BASEPLANE_2D`` are mandatory. Click on the ``Write`` button (bottom-right corner) to save the model setup (see image below). If everything is correctly set up, the ``Console`` tab will automatically open and the ``Error Output`` canvas is empty.
 
 .. figure:: ../img/bm-mod-sum.png 
     :caption: Final model setup 
@@ -132,8 +133,8 @@ Once the simulation successfully finished, go to *BASEMENT*\ ’s ``Results`` ta
 .. figure:: ../img/bm-res-exp.png 
     :caption: Export results after successful simulation.
 
-| *BASEMENT*\ ’s developers at the ETH Zurich provide a suite of `Python   scripts <http://people.ee.ethz.ch/~basement/baseweb/download/tools/python-scripts/>`__   for post-processing the simulation results. Here, we need the Python   script   ```BMv3NodestringResults.py`` <http://people.ee.ethz.ch/~basement/baseweb/download/tools/python-scripts/BMv3NodestringResults.py>`__   (`click to download <http://people.ee.ethz.ch/~basement/baseweb/download/tools/python-scripts/BMv3NodestringResults.py>`__).
-| To run the Python script, a Python3 installation with the ``numpy`` and ``h5py`` packages is required. To learn more about the installation and usage of Python, have a look at the `instructions on this website to install Python <hy_install.html>`__. Note that working   with the provided Python file requires that the output variables must   be exactly defined as shown in the above `figure <#bm-sim-set>`__ of   *BASEMENT*\ ’s ``SIMULATION`` tab.
+| *BASEMENT*\ ’s developers at the ETH Zurich provide a suite of `Python   scripts <http://people.ee.ethz.ch/~basement/baseweb/download/tools/python-scripts/>`__   for post-processing the simulation results. Here, we need the Python script ```BMv3NodestringResults.py`` <http://people.ee.ethz.ch/~basement/baseweb/download/tools/python-scripts/BMv3NodestringResults.py>`__ (`click to download <http://people.ee.ethz.ch/~basement/baseweb/download/tools/python-scripts/BMv3NodestringResults.py>`__).
+| To run the Python script, a Python3 installation with the ``numpy`` and ``h5py`` packages is required. To learn more about the installation and usage of Python, have a look at the `instructions on this website to install Python <hy_install.html>`__. Note that working   with the provided Python file requires that the output variables must   be exactly defined as shown in the above `figure <#bm-sim-set>`__ of *BASEMENT*\ ’s ``SIMULATION`` tab.
 
 Post-processing with ParaView
 -----------------------------
@@ -197,18 +198,16 @@ Use *ParaView* export (here: *bm-steady-vanilla.csv*)
 After data export from *ParaView*:
 -  In *QGIS*, click on the ``Layer`` menu > ``Add Layer`` > ``Add Delimited Text Layer...``. 
 .. figure:: ../img/QGIS-add-lyr.png
-   :alt: bmx”	:caption: Open the Add Delimited Text Layer import wizard.
+   :alt: bmx	:caption: Open the Add Delimited Text Layer import wizard.
 
 -  The ``Data Source Manager | Delimited Text`` window opens (`see figure below <#QGIS-import-csv>`__)
 -  In the ``File name`` field select *bm-steady-vanilla.csv*
--   Enter a ``Layer name`` (e.g., *bm-steady-vanilla-csv*)
+-  Enter a ``Layer name`` (e.g., *bm-steady-vanilla-csv*)
 -  In the ``File Format`` canvas, check the ``CSV (comma separated values)`` box
--   In the ``Record and Field Options`` canvas, activate the ``First record has field names`` checkbox
--   In the ``Geometry Definition`` canvas, define the ``Point Coordinates`` as ``X field`` = ``Points:0``, ``Y field`` =
-   ``Points:1`` and ``Z field`` = ``Points:2`` (verify the correctness:
+-  In the ``Record and Field Options`` canvas, activate the ``First record has field names`` checkbox
+-  In the ``Geometry Definition`` canvas, define the ``Point Coordinates`` as ``X field`` = ``Points:0``, ``Y field`` = ``Points:1`` and ``Z field`` = ``Points:2`` (verify the correctness:
    ``X``-data should be in the order of 4.2 to 4.4·106, ``Y``-data should be in the order of 5.5·106, and ``Z``-data should be in the order of 100.0 to 200.0)
--  Set the ``Geometry CRS`` to the ``Project CRS`` (``ESRI:31493
--  Germany_Zone_3``).
+-  Set the ``Geometry CRS`` to the ``Project CRS`` (``ESRI:31493 - Germany_Zone_3``).
 -  Click the ``Add`` and the ``Close`` buttons on the bottom of the window. The points should now be plotted in the main *QGIS* window.
 
 .. figure:: ../img/QGIS-import-csv.png
@@ -219,20 +218,21 @@ Use the ``results.xdmf`` file directly(**recommended for geospatial data convers
 
 Modify ``results.xdmf`` and directly import model result in *QGIS*: 
 -  Open ``results.xdmf`` in a text editor (e.g.,   `Notepad++ <hy_others.html#npp>`__)
--  Use the find-and -replace tool   (``CTRL`` + ``H`` keys in *Notpad++*) to remove file paths before   ``results_aux.h5`` in the document (otherwise *QGIS* will crash later on - `read more in BASEMENT\ ’s User Forum <http://people.ee.ethz.ch/~basement/forum/viewtopic.php?id=5261>`__). 
+-  Use the find-and-replace tool (``CTRL`` + ``H`` keys in *Notpad++*) to remove file paths before ``results_aux.h5`` in the document (otherwise *QGIS* will crash later on - `read more in BASEMENT\ ’s User Forum <http://people.ee.ethz.ch/~basement/forum/viewtopic.php?id=5261>`__). 
 -  For example: ``Find what`` = ``C:/temp/results_aux.h5`` (pay   attention to use ``/`` rather than ``\``) and ``Replace with`` = ``results_aux.h5`` (see `below figure <#npp-xdmf-replace>`__). After having removed all path occurrences in the document, save and close   ``results.xdmf``. 
 
 .. figure:: ../img/npp-xdmf-replace.png
       :caption: Find the string results_aux.h5 in results.xdmf and remove the file directories.
 
 -  If not yet done, load the mesh file   (here: ```finalmesh.2dm`` <QGIS-prepro.html#2dm>`__) by clicking on   *QGIS*\ ’ ``Layer`` menu > ``Data Source Manager`` > ``Mesh`` tab and select ``finalmesh.2dm``.
--  In *QGIS*\ ’ ``Layers`` window,   double-click on the ``finalmesh`` layer to open the   ``Layer Properties`` window.
--  In the ``Layer Properties`` window, go   to ``Source`` > click on ``Assign Extra Data Set to Mesh`` and choose   ``results.xdmf`` 
+-  In *QGIS*\ ’ ``Layers`` window,   double-click on the ``finalmesh`` layer to open the ``Layer Properties`` window.
+-  In the ``Layer Properties`` window, go   to ``Source`` > click on ``Assign Extra Data Set to Mesh`` and choose ``results.xdmf`` 
 
 .. figure:: ../img/QGIS-assign-meshdata.png
    :caption: Assign mesh data to the computational mesh.
 
--  After import, double-click on the new ``results`` layer to open the ``Symbology`` (``Layer Properties``) and select a variable to represent from the ``Groups`` canvas. Make sure to enable the contour plot (right side in the `below figure <#QGIS-meshdata-u>`__) symbol,   select the timestep to plot (for steady-state simulation, select the last timestep), optionally go to the ``Contours`` ribbon to change the color pattern (upper-most green circle in the `below   figure <#QGIS-meshdata-u>`__), and click ``Apply``. 
+-  After import, double-click on the new ``results`` layer to open the ``Symbology`` (``Layer Properties``) and select a variable to represent from the ``Groups`` canvas. Make sure to enable the contour plot (right side in the `below figure <#QGIS-meshdata-u>`__) symbol, select the timestep to plot (for steady-state simulation, select the last timestep), optionally go to the ``Contours`` ribbon to change the color pattern (upper-most green circle in the `below   figure <#QGIS-meshdata-u>`__), and click ``Apply``. 
+
 .. figure:: ../img/QGIS-meshdata-u.png
    :caption: Illustrate the flow velocity with QGIS’ Layer Properties > Symbology controls. The green circles highlight settings for the last timestep of a steady-state simulation.
   
@@ -257,8 +257,7 @@ To analyze the imported results, they need to be converted to geo-spatial data f
 Conversion with the Crayfish plugin (recommended)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open the *Crayfish* plugin’s ``Rasterize`` tool from *QGIS*\ ’
-``Processing`` menu > ``Toolbox`` > ``Crayfish`` > ``Rasterize`` (see figure below).
+Open the *Crayfish* plugin’s ``Rasterize`` tool from *QGIS*\ ’ ``Processing`` menu > ``Toolbox`` > ``Crayfish`` > ``Rasterize`` (see figure below).
 
 .. figure:: ../img/QGIS-crayfish-installed.png
    :caption: Open the Rasterize tool of the Crayfish plugin.
@@ -284,13 +283,12 @@ Conversion of ParaView exports (not recommended)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  In *QGIS*, right-click the above imported csv-points layer (here: ``bm-steaedy-vanilla-csv``) > ``Export`` > ``Save Features As...``
--   The ``Save Vector Layer as...`` window opens (`see figure below <#QGIS-exp-sim-pts>`__), where the following settings need to be defined:
+-  The ``Save Vector Layer as...`` window opens (`see figure below <#QGIS-exp-sim-pts>`__), where the following settings need to be defined:
 	-   ``Format`` = ``ESRI Shapefile``   
 	-   ``File name`` = for example ``C:\...\bm-vanilla-pts.shp``   
-	-   ``CRS`` = ``ESRI:31493
--  Germany_Zone_3``   
+	-   ``CRS`` = ``ESRI:31493 -  Germany_Zone_3``   
 	-   In the ``Encoding``\ canvas, deactivate the ``ns_hyd_discharge``, ``Points:0``, ``Points:1``, and ``Points:2`` fields   
-	-   In the ``Geometry`` canvas, set the ``Geometry type`` to ``Point``    and active ``Include z-dimension``   
+	-   In the ``Geometry`` canvas, set the ``Geometry type`` to ``Point`` and active ``Include z-dimension``   
 	-   Check the ``Extent (current: layer)`` box 
 -  Click ``OK`` 
 

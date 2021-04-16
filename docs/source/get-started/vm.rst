@@ -142,7 +142,7 @@ To install Debian Linux to the VM, start the before created *Debian Linux VM* in
 -  Select the geographically closest mirror to access Debian archives    (software repositories and updates) and click *Continue* (2 times).
 -  Skip the proxy information question (just click *Continue*).
 -  Optionally, select *No* to answer the question *Participate in the    package usage survey?* and click *Continue*.
--  Software to install: Select *GNOME* and keep the other defaults    (Debian desktop, print server, and stand ard system utilities). …
+-  Software to install: Select *GNOME* and keep the other defaults    (Debian desktop, print server, and standard system utilities). …
    continue enjoying your favorite beverage and wait while the    installation progresses …
 -  Click *Continue* to finalize the installation and reboot (or    shutdown) the VM.
 
@@ -429,7 +429,7 @@ To install a *Windows* application:
 4. Click on the *Install…* button and select the downloaded *exe* or    *msi* installer.
 
   
--   Follow the installation instructions (stand ard *Windows*       procedure).
+-   Follow the installation instructions (standard *Windows*       procedure).
   
 -   Consider to add a *Desktop Icon*, or note the installation directory (e.g., ``"C:\\Program Files (x86)\\CHC\\BlueKenue\\"``).
   

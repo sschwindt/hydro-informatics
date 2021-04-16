@@ -3,8 +3,7 @@ Telemac 3d and SALOME
 
 .. image:: ../img/salome/telemac3d-header.png 
 
-This tutorial describes setting up and running a simple three-dimensional (3d) model of a flume based on the *MED* file library provided by `SALOME-platform.org <https://www.SALOME-platform.org/>`__.
-The explanations build on the `telemac3d user manual (v8p1) <http://ot-svn-public:telemac1*@svn.opentelemac.org/svn/opentelemac/tags/v8p1r2/documentation/telemac2d/user/telemac3d_user_v8p1.pdf>`__ and more documentation can be found on `opentelemac.org/doku <http://wiki.opentelemac.org/doku.php?id=documentation_v8p2r0>`__.
+This tutorial describes setting up and running a simple three-dimensional (3d) model of a flume based on the *MED* file library provided by `SALOME-platform.org <https://www.SALOME-platform.org/>`__. The explanations build on the `telemac3d user manual (v8p1) <http://ot-svn-public:telemac1*@svn.opentelemac.org/svn/opentelemac/tags/v8p1r2/documentation/telemac2d/user/telemac3d_user_v8p1.pdf>`__ and more documentation can be found on `opentelemac.org/doku <http://wiki.opentelemac.org/doku.php?id=documentation_v8p2r0>`__.
 
 .. admonition:: Requirements
 
@@ -45,7 +44,7 @@ A *Telemac3d* simulation requires similar input files as a *Telemac2d* simulatio
 	-   File format: ``.qsl``   
 	-   Prepare with any text editor 
 
-Optional files such as a friction data file or a liquid boundary file can also be implemented, but are not featured here. Read more about input data files and their formats in the `TELEMAc introduction <telemac.html>`__.
+Optional files such as a friction data file or a liquid boundary file can also be implemented, but are not featured here. Read more about input data files and their formats in the `TELEMAC introduction <telemac.html>`__.
 
 .. _prepro-SALOME:
 
@@ -56,7 +55,7 @@ With *SALOME-HYDRO* being installed in a directory called **/home/SALOME-HYDRO/a
 
 ::
 
-   /home/SALOME-HYDRO/appli_V2_2/SALOME 
+   /home/slome-hydro/appli_V2_2/salome 
 
 .. tip::
    Read more about the installation, requirements, and launching (starting) *SALOME-HYDRO* on the `installation page <install-telemac.html#SALOME-HYDRO>`__.
@@ -75,6 +74,7 @@ Right-click on the *POLYLINE* folder, select **Create polyline** and a popup win
 
 -  For **Name** enter: ``Contour`` 
 -  Click on the *Insert new section* button: 
+
 .. image:: ../img/salome/sah-hydro-create-polyline.png
    :alt: telemac SALOME hydro    polyline 
 
@@ -83,14 +83,15 @@ Right-click on the *POLYLINE* folder, select **Create polyline** and a popup win
 -   For **Type** select **Polyline**   
 -   Ensure that the **Closed** box is checked   
 -   Press **Add** 
+
 .. image:: ../img/salome/sah-create-polyline.png 
     
--  Click on the *Addition mode* button to draw a polygon: Start with the    first point in the upper left corner and move in clock-wise to draw the other three points. 
+-  Click on the *Addition mode* button to draw a polygon: Start with the first point in the upper left corner and move in clock-wise to draw the other three points. 
 
 .. image:: ../img/salome/sah-polyline-addition.png
    :alt: telemac SALOME hydro polygon addition
 
--   The polygon should show up in the viewport as shown below    (qualitative match is sufficient for now) 
+-   The polygon should show up in the viewport as shown below (qualitative match is sufficient for now) 
 
 .. image:: ../img/salome/sah-polyline-draw.png
 
@@ -98,6 +99,7 @@ Right-click on the *POLYLINE* folder, select **Create polyline** and a popup win
    :alt: telemac SALOME hydro polygon qualitative
 
 -   Press **Apply and close** 
+
 In the viewport, click the polyline, then right-click on it and select **Modification mode** in the context menu.
 
 .. image:: ../img/salome/sah-polyline-edit.png
@@ -190,8 +192,7 @@ Export the calculation case by right-clicking on the **Hydrodynamic** calculatio
    Save the project by clicking on the disk symbol.
 
 Build the Geometry
-----------
---------
+------------------
 
 This section guides through the creation of a rectangular geometry surface representing a flume and its boundaries defined with edges (lines). To get ready, activate the **Geometry** module, right-click on *HYDRO_Hydrodynamic_1*, and select **Show Only**.
 
@@ -233,15 +234,14 @@ To work with the geometry in a numerical model, the geometry needs to be defined
 Two-dimensional (2d) mesh of the surface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Highlight HYDRO_Hydrodynamic_1** in the *Object Browser*. Then, go to the **Mesh** top menu (do not confuse with the *Mesh* module), and 
-select **Create Mesh**.
+**Highlight HYDRO_Hydrodynamic_1** in the *Object Browser*. Then, go to the **Mesh** top menu (do not confuse with the *Mesh* module), and select **Create Mesh**.
 
 .. image:: ../img/salome/mes-01-create-mesh.png
    :alt: telemac SALOME mesh create 
 
 In the **Create mesh** popup window set the following:
 
--  **Name**: ``Mesh_Hn_1``
+-   **Name**: ``Mesh_Hn_1``
 -   **Geometry**: ``HYDRO_Hydrodynamic_1``
 -   Leave the **Mesh type** as *Any*
 -   In the **2D** tab:
@@ -276,7 +276,7 @@ The 1d meshes of the boundary edges will represent sub-meshes of the 2d mesh. To
 
 In the **Create sub-mesh** popup window, start with creating the upstream boundary edge’s mesh:
 
--  **Name**: ``upstream``
+-   **Name**: ``upstream``
 -   **Mesh**: ``Mesh_Hn_1``
 -   Leave the **Mesh type** as *Any*
 -   In the **1D** tab:
@@ -315,14 +315,13 @@ In the **Create sub-mesh** popup window, start with creating the upstream bounda
 	-   Set **Start length** to ``10``   
 	-   Set **End length** to ``30``.
 
-
 .. image:: ../img/salome/mes-09-create-submesh-hypoarith1030.png
    :alt: telemac SALOME submesh create arithmetic progression hypothesis 
    
 .. image:: ../img/salome/mes-10-create-submesh-arith1030lw.png
    :alt: telemac SALOME submesh create wire discretisation arithmetic 
 
--  For the right wall sub-mesh use **Name** ``rightwall`` and construct    the following hypothesis:
+-  For the right wall sub-mesh use **Name** ``rightwall`` and construct the following hypothesis:
   
 	-   Type: **Arithmetic Progression 1D**   
 	-   Define **Name** as ``Arithmetic1d15_10``   
@@ -383,7 +382,6 @@ To reconcile the edge cause the triangle’s over-constrain, go to the **Modific
    :alt: mesh over-constrained diagonal inversion internal edges triangle 
 
 Over-constrained triangles might be hidden by the axes arrows in the corner. Thus, pay attention to sufficiently zoom into the corner unless the *Over-constrained faces* notification in the viewport shows **0**.
-
 
 .. image:: ../img/salome/mes-19-mod-over-const-edge-hidden.png
    :alt: mesh over-constrained diagonal inversion hidden edges faces 
@@ -473,12 +471,14 @@ The boundary file created with the *HydroSolver* involves a couple of issues tha
   
 	-  Set the single number in the first line to ``4``   
 	-  Remove the entire line (2) describing Group **Hydrodynamic_wetted_contour_Outer** 
-	-  To enable the coherent use of flow rates for liquid boundaries, make sure that:
+	
+-  To enable the coherent use of flow rates for liquid boundaries, make sure that:
 
-  
--   Line 2 defines ``LIHBOR`` with ``5`` (prescribed depth), ``LIUBOR`` and ``LIVBOR`` with ``4`` (free velocity), and ``LITBOR`` with ``4`` (free tracer) for the **downstream** boundary edge.
-  
--   Line 3 defines ``LIHBOR`` with ``4`` (free depth), ``LIUBOR`` and ``LIVBOR`` with ``5`` (prescribed flow rate), and ``LITBOR`` with ``4`` (free tracer) for the **upstream** boundary edge. Note that the line needs to be copied from the bottom to the top when using the *bnd* file created with the *HydroSolver* module.
+	-   Line 2 defines ``LIHBOR`` with ``5`` (prescribed depth), ``LIUBOR`` and ``LIVBOR`` with ``4`` (free velocity), and ``LITBOR`` with ``4`` (free tracer) for the **downstream** boundary edge.  
+	-   Line 3 defines ``LIHBOR`` with ``4`` (free depth), ``LIUBOR`` and ``LIVBOR`` with ``5`` (prescribed flow rate), and ``LITBOR`` with ``4`` (free tracer) for the **upstream** boundary edge. 
+
+.. note::
+  The line needs to be copied from the bottom to the top when using the *bnd* file created with the *HydroSolver* module.
 
 -  Assign wall friction (i.e., zero velocities) to the left and right wall edges:
   
@@ -490,7 +490,10 @@ The boundary file should now resemble the block below (can also be downloaded `h
 ::
 
    4
-   5 4 4 4 downstream    4 5 5 4 upstream    2 0 0 2 leftwall    2 0 0 2 rightwall 
+   5 4 4 4 downstream
+   4 5 5 4 upstream
+   2 0 0 2 leftwall
+   2 0 0 2 rightwall 
 
 .. note::
    *SLF* geometry files require more complex (node-wise) definitions of boundaries, which need to be setup with `BlueKenueTM <install-telemac.html#bluekenue>`__ and `Fudaa-PrePro <install-telemac.html#fudaa>`__.
@@ -501,7 +504,9 @@ Create Simulation Case (CAS)
 The *CAS* (``.cas``) file is the control (or *steering*) file for any *TELEMAC* simulation and links all model parameters. This section guides through setting up a simple *CAS* file for *Telemac3d* simulations either manually based on a template or with the *HydroSolver module* in *SALOME-HYDRO*. Because of program instabilities and incoherent linking of file names (directories) in *SALOME-HYDRO*, it is recommended to work with the manual CAS file setup (or with Fudaa PrePro).
 
 .. tip::
-   Copy a sample case from the *TELEMAC* folder (*/telemac/v8p2/examples/telemac3d/*) and edit it for convenience. .. admonition:: Windows
+   Copy a sample case from the *TELEMAC* folder (*/telemac/v8p2/examples/telemac3d/*) and edit it for convenience.
+
+.. admonition:: Windows
 
    The *CAS* file can also be edited/created with `Fudaa PrePro <install-telemac.html#fudaa>`__ -  or any text editor software - for use with *SALOME-HYDRO* on a *Linux* system later.
 
@@ -564,7 +569,7 @@ The below code block shows the steering file ``t3d_flume.cas`` and details for e
    SCHEME FOR ADVECTION OF K-EPSILON : 5
    SCHEME FOR ADVECTION OF TRACERS : 5
    / scheme options -  use 2 for disabling tidal flats and increase speed    
-SCHEME OPTION FOR ADVECTION OF VELOCITIES : 4
+   SCHEME OPTION FOR ADVECTION OF VELOCITIES : 4
    SCHEME OPTION FOR ADVECTION OF K-EPSILON : 4
    SCHEME OPTION FOR ADVECTION OF TRACERS : 4
    /
@@ -621,13 +626,13 @@ Computation Environment
 
 The computation environment defines a **Title** (e.g., ``TELEMAC 3D FLUME``). The most important parameters involve the **input** files:
 
--  ``GEOMETRY FILE``: ``Mesh_Hn_1.med`` -  alternatively, select a    *serafin* (SLF) geometry file
+-   ``GEOMETRY FILE``: ``Mesh_Hn_1.med`` -  alternatively, select a    *serafin* (SLF) geometry file
 -   ``Geometry file format``: ``MED`` -  omit this parameter when use a    *SLF* geometry file
 -   ``Boundary conditions file``: ``flume3d_bc.bnd`` -  with a *SLF* file,    use a *CLI* boundary file 
 
 The **output** can be defined with the following keywords:
 
--  ``3D RESULT FILE``: ``r3d_canal.med`` -  can be either a *MED* file or a *SLF* file
+-   ``3D RESULT FILE``: ``r3d_canal.med`` -  can be either a *MED* file or a *SLF* file
 -   ``2D RESULT FILE``: ``r2d3d_canal.med`` -  can be either a *MED* file or a *SLF* file
 -   ``3D RESULT FILE FORMAT``: ``'MED'`` -  can be omitted when using *SLF* output files
 -   ``2D RESULT FILE FORMAT``: ``'MED'`` -  can be omitted when using *SLF* output files
@@ -661,7 +666,7 @@ Vertical (3d) Parameters
 *Telemac3d* will add *Horizontal levels* (i.e., layers) that correspond to copies of the 2d-mesh to build a 3d-mesh of prisms (default) or tetrahedrons. These parameters can be defined with:
 
 -  ``NUMBER OF HORIZONTAL LEVELS``: ``5`` where the default and minimum is ``2`` and the horizontal levels point in upward vertical direction. The thickness of vertical layers results from the water depth, which can be user-defined through the ``INITIAL ELEVATION`` parameter (see `initial conditions <#inc>`__).
--  ``MESH TRANSFORMATION``: ``1`` is the kind of level for the    distribution (default is ``1``, a homogenous sigma distribution). For unsteady simulations, set this value to ``2`` (or ``0`` -  calcot) and implement a ``ZSTAR`` array in a user Fortran file    (``USER_MESH_TRANSFORM`` subroutine).
+-  ``MESH TRANSFORMATION``: ``1`` is the kind of level for the distribution (default is ``1``, a homogenous sigma distribution). For unsteady simulations, set this value to ``2`` (or ``0`` -  calcot) and implement a ``ZSTAR`` array in a user Fortran file (``USER_MESH_TRANSFORM`` subroutine).
 -  ``ELEMENT``: ``'PRISM'`` (default) and prisms can optionally split into tetrahedrons by settings this parameter to ``'TETRAHEDRON'`` (can potentially crash the simulation).
 
 .. tip::
@@ -692,7 +697,8 @@ These values (``5`` for the scheme and ``4`` for the scheme option) are default 
 
 Similar to advection, the above keywords can be used to define diffusion steps (replace ``ADVECTION`` with ``DIFFUSION`` in the keywords), where a value of ``0`` can be used to override the default value of ``1`` and disable diffusion.
 
-.. hint::
+.. admonition:: Advection & Diffusion
+
    **Advection** represents the motion of particles along with the bulk flow. **Diffusion** is the result of rand om motion of particles, driven by differences in concentration (e.g., dissipation of highly concentrated particles towards regions of low concentration). **Convection** encompassed both time-dependent phenomena.
 
 The ``SUPG OPTION`` (Streamline Upwind Petrov Galerkin) keyword is a list of four integers that define if upwinding applies and what type of upwinding applies. The integers may take the following values:
@@ -805,7 +811,7 @@ A new *unnamed file1* case is created and opens up in the *Computation environme
 Run Simulation (Compute)
 ------------------------
 
-Stand -alone TELEMAC installation
+stand-alone TELEMAC installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Go to the configuration folder of the local *TELEMAC* installation (e.g., ``~/telemac/v8p2/configs/``) and launch the environment (e.g., ``pysource.openmpi.sh`` -  use the same as for compiling *TELEMAC*).
@@ -868,15 +874,15 @@ Thus, *Telemac3d* produced the files ``r3d_canal-t3d.med`` and
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. attention::
-   On newer systems (e.g., Debian 10), it is highly likely, that the local libraries are newer than the ones used for compiling *TELEMAC* in the *SALOME-HYDRO* environment. Thus, simulations may fail, for example when *SALOME-HYDRO* tries to communicate with the local *openmpi* libraries. For this reason, it is recommended to use a `TELEMAC stand -alone installation <#modular-install>`__ of *TELEMAC* for running simulations.
+   On newer systems (e.g., Debian 10), it is highly likely, that the local libraries are newer than the ones used for compiling *TELEMAC* in the *SALOME-HYDRO* environment. Thus, simulations may fail, for example when *SALOME-HYDRO* tries to communicate with the local *openmpi* libraries. For this reason, it is recommended to use a `TELEMAC stand-alone installation <#modular-install>`__ of *TELEMAC* for running simulations.
 
 If the new PYTEL case is not showing up in the *Object Browser*, save the project (e.g., *tetrahedral_3d.hdf*), close, and restart *SALOME-HYDRO*. Re-open the project *hdf* file and re-activate the HydroSolver module.
 
--  In the *Object Browser*, click on *tetrahedral_steering* (highlights    in blue).
--  With the steering file highlighted, find the *Edit Pytel case for    execution* button in the menu bar and click on it.
+-  In the *Object Browser*, click on *tetrahedral_steering* (highlights in blue).
+-  With the steering file highlighted, find the *Edit Pytel case for execution* button in the menu bar and click on it.
 -  Enable the PYTEL radio button
--   In the *Object Browser*, right-click on HydroSolver and click    *Refresh*. An *EXE* sign next to *tetrahedral steering* should show    up*.
--  Right-click on the new *EXE tetrahedral steering* item in the *Object    Browser*, then click on *Compute* 
+-  In the *Object Browser*, right-click on HydroSolver and click *Refresh*. An *EXE* sign next to *tetrahedral steering* should show    up*.
+-  Right-click on the new *EXE tetrahedral steering* item in the *Object Browser*, then click on *Compute* 
 
 Post-Processing with SALOME and ParaVis 
 ---------------------------------------
@@ -886,7 +892,8 @@ Go to the installation folder where *SALOME* is installed (e.g., ``/home/SALOME-
 ::
 
    cd ~/SALOME-9.6.0/
-   source env_launch.sh    ./SALOME 
+   source env_launch.sh
+   ./salome 
 
 Once *SALOME* opened up, activate the **ParaVis** module from the top menu.
 

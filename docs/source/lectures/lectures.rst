@@ -14,7 +14,7 @@ Exercises
 Exercises are provided as integral part of this website and as external git repositories enable cloning materials such as:
 
 -  Assignment instructions,
--   Code templates, and 
+-  Code templates, and 
 -  Data files (where necessary).
 
 The link to each exercise’s git repository is provided at the top of each exercise page.
@@ -27,8 +27,7 @@ Python programming for Water Resources Engineering and Research
 About
 ~~~~~
 
-This course introduces the version-control system git and the programming language Python 3. Students learn in to use programming methods for engineering tasks, data processing including basic statistical evaluations, and geospatial analyses. Practice-oriented exercises with small homeworks guide through the programmatic solution to typical challenges in water resources engineering and research, such as ecohydraulic and sediment transport assessments. The communication between efficient algorithms and other data types (e.g., *JSON* or *xlsx* workbooks) is also presented and part of the exercises. The second part of the course introduces geospatial programming methods and 
-data analyses.
+This course introduces the version-control system git and the programming language Python 3. Students learn in to use programming methods for engineering tasks, data processing including basic statistical evaluations, and geospatial analyses. Practice-oriented exercises with small homeworks guide through the programmatic solution to typical challenges in water resources engineering and research, such as ecohydraulic and sediment transport assessments. The communication between efficient algorithms and other data types (e.g., *JSON* or *xlsx* workbooks) is also presented and part of the exercises. The second part of the course introduces geospatial programming methods and data analyses.
 
 Interactive lectures familiarize students with version control via git, markdown language for documentation and *Python* programming. The course is organized by the `IWS-LWw department <https://www.iws.uni-stuttgart.de/en/lww/>`__ at the `University of Stuttgart <https://www.uni-stuttgart.de/>`__ in the Winter semester. The course builds on in-house and external open access materials, which serve as a reference guide and support for independent studies.
 
@@ -43,12 +42,12 @@ The paramount requirement is the willingness to regularly invest time in the lec
 In terms of software, make sure to install (or having installed on any accessible computer) the following programs described in the `Get started <hy_ide.html>`__ chapter:
 
 -  `Anaconda <hy_ide.html#anaconda>`__ with its *Anaconda Navigator* and *Anaconda Prompt* interfaces.
--  `PyCharm <hy_ide.html#pycharm>`__, *Spyder* or any equivalent    *Python* IDE.
+-  `PyCharm <hy_ide.html#pycharm>`__, *Spyder* or any equivalent *Python* IDE.
 -  `JupyterLab <hy_ide.html#jupyter>`__ to edit jupyter notebooks.
 -  Ensure that `git is installed <hy_git.html#dl>`__, and thus, can be understood by your system’s command line or terminal.
--  `QGIS <geo_software.html>`__ aids to visualize geospatial datasets used and created in the `Pythongeospatial <geo-python.html>`__ chapter (not mand atory).
--  `Libre Office <hy_others.html#lo>`__ (or any other software) to edit workbooks (not mand atory).
--  `Notepad++ <hy_others.html#npp>`__ to get a clean and quick overview of many script and text-based data file types (not mand atory).
+-  `QGIS <geo_software.html>`__ aids to visualize geospatial datasets used and created in the `Pythongeospatial <geo-python.html>`__ chapter (not mandatory).
+-  `Libre Office <hy_others.html#lo>`__ (or any other software) to edit workbooks (not mandatory).
+-  `Notepad++ <hy_others.html#npp>`__ to get a clean and quick overview of many script and text-based data file types (not mandatory).
 
 Schedule (winter 2020/21)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -89,8 +88,8 @@ the following programs:
 
 -  `QGIS <geo_software.html>`__ aids to visualize and modify (edit) geospatial datasets. Add the `BASEmesh <bm-pre.html#get-ready-with-QGIS>`__ and `Crayfish <bm-post.html#add-the-crayfish-plugin>`__ plugins.
 -  `Notepad++ <hy_others.html#npp>`__ to modify boundary conditions and text-alike data file types.
--  `ParaView <bm-post.html#visualize-results-with-paraview>`__ is a powerful visualization tool for model outputs (not mand atory).
--  `Libre Office <hy_others.html#lo>`__ (or any other software) to edit workbooks (not mand atory).
+-  `ParaView <bm-post.html#visualize-results-with-paraview>`__ is a powerful visualization tool for model outputs (not mandatory).
+-  `Libre Office <hy_others.html#lo>`__ (or any other software) to edit workbooks (not mandatory).
 
 Online materials
 ~~~~~~~~~~~~~~~~

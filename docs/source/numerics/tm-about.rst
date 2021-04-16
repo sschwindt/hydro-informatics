@@ -64,17 +64,15 @@ For any *TELEMAC* 2D simulation, the following input files are **mandatory**:
 	-   Prepare ``.cli`` files with `BlueKenueTM <install-telemac.html#bluekenue>`__ and `Fudaa PrePro <telemac2d.html#prepro-fudaa>`__.
 	-   Prepare ``.bnd``/``.bcd`` files either with *SALOME-HYDRO* or with a text editor (read more in the `Telemac3d tutorial <telemac3d.html#bnd-mod>`__)
 
-There are many more file formats, which are not computationally mand atory for running a simulation with *TELEMAC*, but essential in practice to yield reasonable results with a hydro-morphodynamic model (i.e., coupled hydrodynamic-sediment transport solver). Such **optional** files are:
+There are many more file formats, which are not computationally mandatory for running a simulation with *TELEMAC*, but essential in practice to yield reasonable results with a hydro-morphodynamic model (i.e., coupled hydrodynamic-sediment transport solver). Such **optional** files are:
 
 -  Liquid boundaries file (e.g., for water surface elevation or flow rates)
   
 	-   Requires a stage-discharge relationship file   
 	-   File format: ``.qsl`` 
 
--  Friction data file 
-  
--   File format: ``tbl`` (``ASCII``)
-
+-  Friction data file   
+-  File format: ``tbl`` (``ASCII``)
 -  Reference file to enable model validation (restart)
   
 	-   File format: ``.slf`` or ``.med``   
@@ -112,7 +110,7 @@ Detailed file descriptions
 The steering file (CAS)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The steering file is the main simulation file with information about mand atory files (e.g., the `selafin <https://gdal.org/drivers/vector/selafin.html>`__ geometry or the *cli* boundary), optional files, and simulation parameters. The steering file can be created or edited either with a basic text editor or advanced software such as `Fudaa-PrePro <install-telemac.html#fudaa>`__ or `BlueKenue <install-telemac.html#bluekenue>`__. In this example, we will use *BlueKenue*.
+The steering file is the main simulation file with information about mandatory files (e.g., the `selafin <https://gdal.org/drivers/vector/selafin.html>`__ geometry or the *cli* boundary), optional files, and simulation parameters. The steering file can be created or edited either with a basic text editor or advanced software such as `Fudaa-PrePro <install-telemac.html#fudaa>`__ or `BlueKenue <install-telemac.html#bluekenue>`__. In this example, we will use *BlueKenue*.
 
 The geometry file (SLF or MED)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -137,7 +135,8 @@ The name format of the boundary conditions file can be modified in the steering 
 
 ::
 
-   /steering.cas    BOUNDARY CONDITIONS FILE : 'bc_channel.cli'
+   /steering.cas    
+   BOUNDARY CONDITIONS FILE : 'bc_channel.cli'
    LIQUID BOUNDARIES FILE   : 'bc_unsteady.qsl'
 
 Example (header only) for a boundary conditions file (*cli*):
@@ -190,7 +189,9 @@ This optional file enables the definition of bottom friction regarding the rough
 
 ::
 
-   /steering.cas    FRICTION DATA            : YEs    FRICTION DATA FILE       : 'friction.tbl' 
+   /steering.cas    
+   FRICTION DATA            : YES
+   FRICTION DATA FILE       : 'friction.tbl' 
 
 The results file (SLF or MED)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -38,7 +38,7 @@ IDE <https://hydro-informatics.github.io/hypy_install.html#ide-setup>`__
 with a *conda* environment. To create a new *conda* environment in
 *PyCharm* with *ESRI*\ ’s *conda* environment, the **Location** must be
 defined differently (see the `original
-screenshot <https://hydro-informatics.github.io/images/pyc-prj-setup.png>`__):
+screenshot <../img/pyc-prj-setup.png>`__):
 
 -  If *ArcGIS* Pro was globally installed by the system administrator,
    use: ``%PROGRAMFILES%\ArcGIS\Pro\bin\Python\Scripts\propy``
@@ -54,7 +54,7 @@ To install more packages follow the `descriptions povided by
 esri <https://developers.arcgis.com/python/guide/install-and -set-up/#Step-1:-Get-Conda>`__.
 
    **Tip**: If you are struggling with the above instructions, have a
-   look at the `developer’s docs on running stand -alone
+   look at the `developer’s docs on running stand-alone
    scripts <https://pro.arcgis.com/en/pro-app/arcpy/get-started/using-conda-with-arcgis-pro.htm>`__
    (look for instructions using ``propy`` rather than ``python27``).
 
@@ -119,7 +119,7 @@ Checkout licenses
 ~~~~~~~~~~~~~~~~~
 
 Many ``arcpy`` methods need licenses such as *Spatial Analyst* or *3D*.
-In stand -alone scripts, licenses can be activate (*checked out*) with ``arcpy.CheckOutExtension('NAME')`` and  deactivated (*checked in*) with ``arcpy.CheckInExtension('NAME')``. In light of the object orientation,
+In stand-alone scripts, licenses can be activate (*checked out*) with ``arcpy.CheckOutExtension('NAME')`` and  deactivated (*checked in*) with ``arcpy.CheckInExtension('NAME')``. In light of the object orientation,
 ``arcpy`` operations should be embedded in functions or methods of
 classes. Therefore, it is recommended to wrap functions or methods using
 ``arcpy`` with `decorators <https://hydro-informatics.github.io/hypy_pyfun.html#wrappers>`__
@@ -248,7 +248,7 @@ dates (e.g., to assess the morphodynamic evolution of rivers).
 enables such statistical evaluations. The following code blocks
 illustrates the comparison of flow velocities calculated with two
 different hydrodynamic numerical models through the calculation of the
-``MEAN`` (average) and  stand ard deviation (``STD``).
+``MEAN`` (average) and  standard deviation (``STD``).
 
 .. code:: python
 

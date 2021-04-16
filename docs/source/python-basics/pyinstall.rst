@@ -1,10 +1,9 @@
 Install Python
 ==============
 
-*Python*\ ’s two-fold development (*Python2* and *Python3*) and other parallel versions of *Python* (e.g., ESRI’s ArcGIS or Nvidia’s cuda *Python* versions) may cause that multiple versions of *Python* are installed on your computer (even though *Python2* is about to disappear). As a consequence packages might have been unintentionally or unknowingly installed for another *Python* than used for a project.
-However, the parallel existence of multiple *Python* interpreters that may access packages may be beneficial (e.g., when packages are installed that are not compatible with each other). So, how to **deal with the challenge of having multiple Python interpreters (or environments) installed?** 
-**Conda environments** are one solution to this challenge: A *Conda Environment* is a directory on your computer that represents a virtual environment with a particular *Python* interpreter (e.g., a Python2 or Python3 executable) and packages. The directory is typically named ``env`` (or ``venv`` for virtual environment) and *Anaconda* will control automatically where the environment directories (folders) are stored on your computer. On Windows, the typical directory is ``C:\users\<your-user-name>\AppData\Local\Continuum\anaconda3\envs\``.
-Note that *AppData* is a hidden folder (`view hidden folders on Windows <https://support.microsoft.com/en-us/help/4028316/windows-view-hidden-files-and -folders-in-windows-10>`__). Only change the default directory for Conda Environment directories, if you exactly know what you are doing.
+*Python*\ ’s two-fold development (*Python2* and *Python3*) and other parallel versions of *Python* (e.g., ESRI’s ArcGIS or Nvidia’s cuda *Python* versions) may cause that multiple versions of *Python* are installed on your computer (even though *Python2* is about to disappear). As a consequence packages might have been unintentionally or unknowingly installed for another *Python* than used for a project. However, the parallel existence of multiple *Python* interpreters that may access packages may be beneficial (e.g., when packages are installed that are not compatible with each other). So, how to **deal with the challenge of having multiple Python interpreters (or environments) installed?** 
+
+**Conda environments** are one solution to this challenge: A *Conda Environment* is a directory on your computer that represents a virtual environment with a particular *Python* interpreter (e.g., a Python2 or Python3 executable) and packages. The directory is typically named ``env`` (or ``venv`` for virtual environment) and *Anaconda* will control automatically where the environment directories (folders) are stored on your computer. On Windows, the typical directory is ``C:\users\<your-user-name>\AppData\Local\Continuum\anaconda3\envs\``. Note that *AppData* is a hidden folder (`view hidden folders on Windows <https://support.microsoft.com/en-us/help/4028316/windows-view-hidden-files-and-folders-in-windows-10>`__). Only change the default directory for Conda Environment directories, if you exactly know what you are doing.
 
 .. admonition:: Requirements
 
@@ -24,8 +23,7 @@ To create a new *conda* environment, open *Anaconda Prompt* and type (replace ``
 
    conda create --name ENV-NAME python=3.8
 
-An alternative (and recommended for the tutorials on this page) option is to install an environment that suites most of the needs for codes and 
-analyses shown on these pages through an *environment* (*YML*) file:
+An alternative (and recommended for the tutorials on this page) option is to install an environment that suites most of the needs for codes and analyses shown on these pages through an *environment* (*YML*) file:
 
 1. Download the environment file    `here <https://github.com/hydro-informatics/materials-py-install/blob/master/environment.yml>`__ (if needed: copy the file contents of ``environment.yml`` in a local text editor tool such as    `Notedpad++ <https://notepad-plus-plus.org/>`__    (`alternatives <hy_others.html#npp>`__) and save the file for example in a directory called *C:/temp/*).
 2. Open *Anaconda Prompt* (``Windows`` key > type ``Anaconda Prompt`` > hit ``Enter``).
@@ -50,8 +48,8 @@ Install additional *Python* packages in a *conda* environment
 
 To install more `Python packages <hypy_pckg.html>`__:
 
-1. Activate the environment where you want to install, remove, or modify    packages (e.g., ``conda activate hypy`` -  see above).
-2. Install a package by typing ``conda install PACKAGE_NAME`` (if the    package cannot be found, try    ``conda install -c conda-forge PACKAGE_NAME``).
+1. Activate the environment where you want to install, remove, or modify packages (e.g., ``conda activate hypy`` -  see above).
+2. Install a package by typing ``conda install PACKAGE_NAME`` (if the package cannot be found, try ``conda install -c conda-forge PACKAGE_NAME``).
 
 Alternatively, press the ``Windows`` key (or click on the start menu of your operating system) > type ``Anaconda Navigator`` > got to the ``Environments`` tab > select the ``hypy`` environment (or create another environment) > *install* > install packages.
 
@@ -62,7 +60,7 @@ To remove a conda environment open *Anaconda Prompt* and type:
 
 ::
 
-   conda env remove --name ENVIRONMENT-TO-REMOVe 
+   conda env remove --name ENVIRONMENT-TO-REMOVE
 
 For example, to remove the ``hypy`` environment type:
 
@@ -89,10 +87,9 @@ The *Kernel* menu runs the defined programming language (*Python 3* in the examp
 
 .. image:: ../img/jupyter-illu.png
    :alt: pyc-prj-setup
-
    :caption: JupyterLab in Dark theme appearance with a Jupyter notebook (xml.ipynb) opened showing the combination of a markdown cell (Charts(plots)) and a Python 3 cell.
 
-*Jupyter* is a spin-off of `IPython <https://ipython.org/>`__, which is “a rich architecture for interactive computing”. Therefore, when we start a *Python* kernel in *JupyterLab*, an *IPython* kernel is started, which refers to the currently activated *conda* environment. So if you need to install a package for usage in *JupyterLab*, follow the `above instructions <##install-pckg>`__ and make sure that the corresponding environment is activated.
+*Jupyter* is a spin-off of `IPython <https://ipython.org/>`__, which is “a rich architecture for interactive computing. Therefore, when we start a *Python* kernel in *JupyterLab*, an *IPython* kernel is started, which refers to the currently activated *conda* environment. So if you need to install a package for usage in *JupyterLab*, follow the `above instructions <##install-pckg>`__ and make sure that the corresponding environment is activated.
 
 *Python* cells in *Jupyter* notebooks often require certain packages, which must be reloaded for each cell after each kernel start (we will learn more about packages later on the `Modules and packages <hypy_pckg.html>`__ page). So it can be useful to define default imports for *IPython* and this works as follows.
 
@@ -156,8 +153,8 @@ After the successful installation of `PyCharm <hy_ide.html#ide>`__ within *Anaco
 	-   In the *Settings* window go to ``Project: [NAME]`` > ``Project Interpreter``   
 	-   Make sure that the above-created ``hypy`` *conda* environment is defined as *Project Interpreter*. 
 
-.. figure:: ../img/pyc-prj-interp.png
-   :alt: pyc-prj-interp”	:caption: Verify the correct setup of the Project Interpreter.
+.. image:: ../img/pyc-prj-interp.png
+   :alt: pyc-prj-interp	:caption: Verify the correct setup of the Project Interpreter.
 
 .. tip::
    **Are you struggling with setting up PyCharm correctly?** *PyCharm* and *Anaconda* are designed for working hand -in-hand and the developers provide an `up-to-date documentation <https://docs.anaconda.com/anaconda/user-guide/tasks/pycharm/>`__ for setting up *PyCharm* to work with *conda* environments.

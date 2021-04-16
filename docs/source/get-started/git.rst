@@ -6,9 +6,7 @@ About git
 .. figure:: ../img/git-scheme.png  
 	:caption: The concept of git with some basic vocabulary.
 	
-The REMOTE frame is online (i.e., some one else’s computer) and the LOCAL frame is what happens on a personal computer, which is connected to the internet. Repositories can be newly created or forked remotely.
-Remote repositories can be cloned locally, modified locally, and local changes can be pushed to a remote repository. Collaborators want to make sure to regularly pull changes of a remote repository. Working with and 
-on different branches becomes increasingly important with the number of developers and for the moment we just need to remember that we start working in the master branch (i.e., upstream origin / HEAD = master
+The REMOTE frame is online (i.e., some one else’s computer) and the LOCAL frame is what happens on a personal computer, which is connected to the internet. Repositories can be newly created or forked remotely. Remote repositories can be cloned locally, modified locally, and local changes can be pushed to a remote repository. Collaborators want to make sure to regularly pull changes of a remote repository. Working with and on different branches becomes increasingly important with the number of developers and for the moment we just need to remember that we start working in the master branch (i.e., upstream origin / HEAD = master
 
 .. _dl:
 
@@ -38,19 +36,20 @@ To create a *git* repository, make sure to have access to a *git* provider. The 
 Clone (download)
 ~~~~~~~~~~~~~~~~
 
-*GitHub* provides detailed descriptions and stand ard procedures to work with their repositories (`read more <https://help.github.com/en/articles/cloning-a-repository>`__). The following “recipe” guides through the first time download of *git* materials 
+*GitHub* provides detailed descriptions and standard procedures to work with their repositories (`read more <https://help.github.com/en/articles/cloning-a-repository>`__). The following “recipe guides through the first time download of *git* materials 
 
 1. Open your favorite *git*-able command line:
   
 	-   *Windows Option 1*: *PyCharm*      
 	-   Go to the ``Terminal`` tab, which is usually at the bottom of    the window
-	-   Go to the local target directory with the command 
-| 			 ``cd "D:/Target/Directory/"`` to change to the target installation directory.
-| 			 If the directory does not exist, it can be created in the system explorer (right-click in empty space > ``New`` > ``Folder``).	  
+	-   Go to the local target directory with the command |br|
+ 			 ``cd "D:/Target/Directory/"`` to change to the target installation directory. |br|
+ 			 If the directory does not exist, it can be created in the system explorer (right-click in empty space > ``New`` > ``Folder``).
 	-   *Windows Option 2*: *Git Bash*   
 	-   *Linux*: *Terminal* 
-2. Clone the course repository (change materials according to the course    attended):
-   ``git clone https://github.com/hydro-informatics/materials]`` (or    whatever repository you want to clone)
+	
+2. Clone the course repository (change materials according to the course attended):
+   ``git clone https://github.com/hydro-informatics/materials]`` (or whatever repository you want to clone)
 
 Done.
 
@@ -61,9 +60,9 @@ Update a local repository (re-pull)
 
 *git* (within *Git Bash*, *PyCharm* or *Terminal*) is the only option to update local copies of a remote repository consistently. To do so, open one of the above mention *git*-able command lines and do the following:
 
-1. Go to the local directory of the repository with the    ```cd`` <https://en.wikipedia.org/wiki/Cd_(command )>`__ command (e.g., ``materials``): ``cd "D:/Python/materials/"`` (or wherever    ``materials`` was cloned).
+1. Go to the local directory of the repository with the ```cd`` <https://en.wikipedia.org/wiki/Cd_(command )>`__ command (e.g., ``materials``): ``cd "D:/Python/materials/"`` (or wherever ``materials`` was cloned).
 2. ``git status`` -  shows the modifications made.
-3. Merge errors may occur when changes were made in the local copy. To    avoid merge errors, type: ``git pull --rebase`` -  if locally edited    scripts were modified remotely since the last pull, this will prompt    issues and highlight problematic section with ``>>>``. Manually open    concerned files and resolve the issues (delete invalid ``>>>``    highlights).
+3. Merge errors may occur when changes were made in the local copy. To avoid merge errors, type: ``git pull --rebase`` -  if locally edited scripts were modified remotely since the last pull, this will prompt issues and highlight problematic section with ``>>>``. Manually open concerned files and resolve the issues (delete invalid ``>>>`` highlights).
 4. ``git push`` Done.
 
 .. _push:
@@ -72,11 +71,13 @@ Update a remote repository (push local changes)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After editing files in a repository locally, *add* -  *commit* -  *push* (in that order) your edits to the remote copy of the repository with version control. To *add* - *commit* - *push* local changes to a remote repository, make sure to be the remote repository owner or a contributor. Then open a *git*-able terminal and type: 
+
 1. ``git status`` -  this shows the modifications made. 
-1. If the status seems OK with the consciously made changes, type ``git add .``; if only single files were changed, use ``git add filename.py`` instead. Best solution: use a local `.gitignore file <https://help.github.com/en/github/using-git/ignoring-files>`__. 
-1. Commit changes ``git commit -m "Leave a message"`` - leave a significant and precise short message. 
-1. ``git pull --rebase`` - if locally edited scripts were modified remotely since the last pull, this will prompt issues and highlight problematic section with ``>>>``. Manually open concerned files and resolve the issues (delete invalid ``>>>`` highlights). 
-1. ``git push`` 
+2. If the status seems OK with the consciously made changes, type ``git add .``; if only single files were changed, use ``git add filename.py`` instead. Best solution: use a local `.gitignore file <https://help.github.com/en/github/using-git/ignoring-files>`__. 
+3. Commit changes ``git commit -m "Leave a message"`` - leave a significant and precise short message. 
+4. ``git pull --rebase`` - if locally edited scripts were modified remotely since the last pull, this will prompt issues and highlight problematic section with ``>>>``. Manually open concerned files and resolve the issues (delete invalid ``>>>`` highlights). 
+5. ``git push`` 
+
 Done.
 
 .. admonition:: Exercise
