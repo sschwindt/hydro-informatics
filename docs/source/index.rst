@@ -111,7 +111,6 @@ about how to debug known issues (not that issues ever existed…).
    geopy/geo-shp
    geopy/geo-raster
    geopy/geo-convert
-   geopy/geo-arcpy
 
 .. toctree::
    :maxdepth: 2
@@ -135,7 +134,7 @@ about how to debug known issues (not that issues ever existed…).
    numerics/bm
    numerics/tm-about
    numerics/tm2d
-   numerics/tm3dsssss
+   numerics/tm3d
 
 .. toctree::
    :maxdepth: 2
