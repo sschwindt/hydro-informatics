@@ -59,7 +59,7 @@ Basemaps for QGIS (google, open street maps and more)
 
 To add a base map (e.g., satellite data, streets, or administrative boundaries), go to the **Browser**, right-click on **XYZ Tiles**, select **New Connection…**, add a name and a URL of an online base map. Once the new connection is added, it can be added to a *QGIS* project by drag and drop just like any other geodata layer. The below figure illustrates the procedure of adding a new connection and its XYZ tiles as a layer to the project.
 
-.. figure:: ../img/QGIS-basemap.png
+.. figure:: ../../img/QGIS-basemap.png
    :alt: basemap
    
    Add a base map to QGIS: (1) locate the Browser (2) right-click on XYZ-Tiles and select New Connection… (3) enter a Name and a URL (see below table) for the new connection, click OK (4) drag and drop the new tile (here: Google Satellite) into the Layers tab.
@@ -120,7 +120,7 @@ Enable the QGIS Toolbox
 
 Follow the below illustrated instructions to enable the *QGIS* *Toolbox*.
 
-.. figure:: ../img/QGIS-tbx.png
+.. figure:: ../../img/QGIS-tbx.png
    :alt: enable QGIS toolbox
    :caption: Open QGIS’ Toolbox window from the main menu.
 

@@ -254,27 +254,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Python (geo)
- </span>
-</p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="geopy/geo-python.html">
-   Geo-Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="geopy/geospatial-data.html">
-   Geodata
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="geopy/geo-pckg.html">
-   Geospatial Libraries
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="geopy/geo-shp.html">
    Shapefile (vector dataset) handling
@@ -734,28 +714,7 @@ about how to debug known issues (not that issues ever existed…).</p>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Python (geo)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="geopy/geo-python.html">Geo-Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geopy/geospatial-data.html">Geodata</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geospatial-data.html#geodata-sources">Geodata sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geospatial-data.html#visualization">Visualization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geospatial-data.html#geodatabase">Geodatabase</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geospatial-data.html#vector-data">Vector data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geospatial-data.html#gridded-cell-raster-data">Gridded cell (raster) data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geospatial-data.html#projections-and-coordinate-systems">Projections and coordinate systems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="geopy/geo-pckg.html">Geospatial Libraries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-pckg.html#gdal-including-ogr-and-osr">gdal (including ogr and osr)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-pckg.html#geojson">geojson</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-pckg.html#descartes">descartes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-pckg.html#python-imaging-library-pil-pillow">Python Imaging Library (PIL) / <em>pillow</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-pckg.html#shapely">shapely</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-pckg.html#pyshp">pyshp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-pckg.html#other-packages">Other packages</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="geopy/geo-shp.html">Shapefile (vector dataset) handling</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="geopy/geo-shp.html#load-an-existing-shapefile">Load an existing shapefile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geopy/geo-shp.html#create-a-new-shapefile">Create a new shapefile</a></li>
@@ -766,20 +725,44 @@ about how to debug known issues (not that issues ever existed…).</p>
 <li class="toctree-l2"><a class="reference internal" href="geopy/geo-shp.html#polygon-shapefile">Polygon shapefile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geopy/geo-shp.html#build-shapefile-from-json">Build shapefile from <em>JSON</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="geopy/geo-shp.html#calculate-geometric-attributes">Calculate geometric attributes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-shp.html#export-to-other-format">Export to other format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geopy/geo-shp.html#export-to-other-format">Export to other format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-shp.html#geojson">GeoJSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-shp.html#kml-google-earth">KML (Google Earth)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="geopy/geo-raster.html">Raster (gridded) dataset handling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-raster.html#load-raster">Load raster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-raster.html#create-and-save-a-raster-from-array">Create and save a raster (from array)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geopy/geo-raster.html#load-raster">Load raster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-raster.html#open-existing-raster-data">Open existing raster data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-raster.html#raster-band-statistics-and-toolbox-scripts">Raster band statistics and toolbox scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="geopy/geo-raster.html#create-and-save-a-raster-from-array">Create and save a raster (from array)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-raster.html#raster-drivers">Raster drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-raster.html#raster-data-types">Raster data types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-raster.html#create-raster-array-to-raster">Create raster (array to raster)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-raster.html#raster-calculus-raster-band-to-array">Raster calculus (raster / band to array)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-raster.html#reproject-raster">Reproject raster</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="geopy/geo-raster.html#an-application-example-with-zonal-statistics">An application example with zonal statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geopy/geo-raster.html#clip-raster">Clip raster</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geopy/geo-raster.html#slope-aspect-maps-and-built-in-command-line-scripts">Slope / aspect maps and built-in command line scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-raster.html#least-cost-path-between-pixels-and-another-way-of-reprojection">Least cost path between pixels (and another way of reprojection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geopy/geo-raster.html#least-cost-path-between-pixels-and-another-way-of-reprojection">Least cost path between pixels (and another way of reprojection)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-raster.html#ecohydraulic-background">Ecohydraulic background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-raster.html#functions-and-libraries-involved">Functions and libraries involved</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-raster.html#application">Application</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="geopy/geo-convert.html">Convert Raster to Vector datasets and  Vice Versa</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geopy/geo-convert.html#vectorize">Vectorize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geopy/geo-convert.html#vectorize">Vectorize</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-convert.html#raster-to-line">Raster to line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geopy/geo-convert.html#raster-to-polygon">Raster to polygon</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="geopy/geo-convert.html#rasterize-vector-shapefile-to-raster">Rasterize (vector shapefile to raster)</a></li>
 </ul>
 </li>

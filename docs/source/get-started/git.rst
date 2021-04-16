@@ -3,7 +3,7 @@ About git
 
 *Git* is a fast, scalable, distributed revision control system, originally developed by *Linus Torvalds* (`read more about the git kernel <https://git.kernel.org/>`__). *Git* enables to coordinate work among collaborators beyond programming, in any set of files. Its support of non-linear workflows, speed and data integrity make git an indispensable tool in many industries and research. Before starting to read this *git* tutorial, have a look at the schematic functioning of repositories hosted with *git*.
 
-.. figure:: ../img/git-scheme.png  
+.. figure:: ../../img/git-scheme.png  
 	
     The concept of git with some basic vocabulary.
 	

@@ -15,7 +15,7 @@ Get ready by cloning the exercise repository:
 
    git clone https://github.com/Ecohydraulics/Exercise-gui.git 
 
-.. figure:: ../img/hello-gui.png    
+.. figure:: ../../img/hello-gui.png    
 	:alt: gui 
 
 

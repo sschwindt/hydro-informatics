@@ -36,7 +36,7 @@ Geodatabase
 
 A geodatabase (also known as *spatial database*) can store, query (e.g., using `Structured Query Language SQL <https://en.wikibooks.org/wiki/Structured_Query_Language>`__), or modify data with geographic references (*geospatial data*). Primarily, geospatial data consist of vector data (see shapefiles), but raster data can also be implemented. A geodatabase links these data with attribute tables and geographic coordinates. The special aspect of geodatabases is that these data can be queried and manipulated by users via a (web or local) GIS (geographic information system) server. With software like `QGIS <geo_software.html#QGIS>`__ (or *ArcGIS Pro*), for example, queries can be made on a kind of local server using locally stored geodata. The typical geodatabase format is ``.gdb``, which works actually like a directory in *QGIS* or *ArcGIS*, and the maximum size of a ``.gdb`` file is 1 terabyte.
 
-.. figure:: ../img/geo-database.png
+.. figure:: ../../img/geo-database.png
    :alt: gdb
    
    Functional skeleton of a geodatabase.
@@ -68,7 +68,7 @@ These three files need to be in the same folder -  otherwise, the shapefile does
 
 Shapefile vector data typically has an attribute table (just like any other geodatabase) in which each polygon, line or point object can be assigned an attribute value. Attributes are defined by columns along with their names (column headers) and can have numeric (e.g., *float*, *double*, *int*, or *long*), text (*string*), or date/time (e.g. *yyyymmdd* or *HH:MM:SS*) formats.
 
-.. figure:: ../img/geo-shp-illu.png
+.. figure:: ../../img/geo-shp-illu.png
    :alt: shapefile presentration
    
     Illustration of point, (poly) line, and polygon shapefiles.
@@ -87,7 +87,7 @@ Triangulated Irregular Network (TIN)
 A triangulated irregular network (TIN) represents a surface consisting of multiple triangles. In hydraulic engineering and water resources research, one of the most important usage of TIN is the generation of computational meshes for numerical models (e.g., `on this website’s BASEMENT tutorial <bm-pre.html>`__). In such models, a TIN consists of lines and nodes forming georeferenced, three-dimensionally sloped triangles of the surface, which represent a digital elevation model (DEM). TIN nodes have georeferenced coordinates and potentially more attribute information such as node IDs and elevation. The advantage of a TIN DEM over a raster DEM is that it requires less storage space. Alas, manipulating a TIN is not that easy like manipulating a raster. The below figure shows an example TIN created with ```matplotlib.tri.TriAnalyzer`` <https://matplotlib.org/3.1.1/api/tri_api.html#matplotlib.tri.TriAnalyzer>`__), and based on a `showcase from the matplotlib docs <https://matplotlib.org/3.1.1/gallery/images_contours_and _fields/tricontour_smooth_delaunay.html#sphx-glr-gallery-images-contours-and -fields-tricontour-smooth-delaunay-py>`__.
 The file ending of a TIN is ``.TIN``.
 
-.. figure:: ../img/geo-tin.png
+.. figure:: ../../img/geo-tin.png
    :alt: tin-illu
    
    Illustration of a TIN.
@@ -128,7 +128,7 @@ Raster datasets store pixel values (*cells*), which require large storage space,
 .. note::
    The ``gdal`` driver name for *GeoTIFF* handling is ``gdal.GetDriverByName('GTiff')``.
 
-.. figure:: ../img/geo-raster-illu.png
+.. figure:: ../../img/geo-raster-illu.png
    :alt: raster file illustration GeoTiff
    
    Illustration of the Natural Earth’s NE1_50M_SR_W.tif raster zoomed on Nepal, with point and line shapefiles indicating major cities and country borders, respectively. Take note of the tile-like appearance of the grid, where each tile corresponds to a 50m-x-50m raster cell.

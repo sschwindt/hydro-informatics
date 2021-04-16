@@ -108,9 +108,12 @@ about how to debug known issues (not that issues ever existed…).
    geopy/geo-python
    geopy/geospatial-data
    geopy/geo-pckg
-   geopy/geo-shp
-   geopy/geo-raster
-   geopy/geo-convert
+
+
+geopy/geo-shp
+geopy/geo-raster
+geopy/geo-convert
+geopy/geo-arcpy
 
 .. toctree::
    :maxdepth: 2

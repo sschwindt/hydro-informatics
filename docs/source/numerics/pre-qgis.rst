@@ -31,11 +31,11 @@ Start *QGIS*, create a new project and save it (``Project`` > ``Save as...``). T
 4. Click ``OK``. The new repository should now be visible in the ``Plugin Repositories`` listbox. If the connection is ``OK``, click on the Close button on the bottom of the window.
 5. Verify that the *BASEmesh* plugin is now available in the *QGIS*\ ’ ``Plugins`` menu (see `figure <#QGIS-pluggedin>`__).
 
-.. figure:: ../img/QGIS-plugins.png
+.. figure:: ../../img/QGIS-plugins.png
     
     Installation of the BASEmesh plugin.
 	
-.. figure:: ../img/QGIS-pluggedin.png
+.. figure:: ../../img/QGIS-pluggedin.png
 	
     The BASEmesh plugin is available in QGIS’ Plugins menu after successful installation.
 
@@ -55,11 +55,11 @@ Terrain survey data are mostly delivered in the shape of an x-y-z point dataset.
 	-   In the ``Geometry Definition`` canvas, define the ``Point Coordinates`` as ``X Field`` = ``X``, ``Y Field`` = ``Y`` and ``Z Field`` = ``Z``; set the ``Geometry CRS`` to the ``Project CRS``.	  
 	-   Click the ``Add`` button on the bottom of the wizard window. The points should now be plotted in the main *QGIS* window.
 
-.. figure:: ../img/QGIS-add-lyr.png
+.. figure:: ../../img/QGIS-add-lyr.png
 	
     Open the Add Delimited Text Layer import wizard.
 
-.. figure:: ../img/QGIS-import-pts.png
+.. figure:: ../../img/QGIS-import-pts.png
 	
     Load the xyz-points.txt file with QGIS’ Add Delimited Text Layer (Data Source Manager \| Delimited Text) wizard.
 
@@ -74,18 +74,18 @@ The model boundary defines the calculation extent and needs to be define within 
 -  In the toolbox, click on ``Vector Geometry`` > ``Concave Hull (Alpha Shapes)``, which opens the ``Concave Hull (Alpha Shapes)`` wizard (see `figure <#QGIS-chull>`__).
 -  In the ``Concave Hull (Alpha Shapes)`` wizard, select the ``xyz-points`` layer as ``Input Layer``, set the ``Threhold`` to 0.300 (keep default), define an output ``Concave Hull`` shapefile (e.g., ``boundary.shp``) by clicking on the ``...`` button, and click    on ``Run``.
 
-.. figure:: ../img/QGIS-tbx.png
+.. figure:: ../../img/QGIS-tbx.png
 	
     Open QGIS’ Toolbox from the main menu.
 
-.. figure:: ../img/QGIS-chull.png
+.. figure:: ../../img/QGIS-chull.png
 
 	The Concave Hull (Alpha Shapes) wizard.
 
 -  Right-click on *QGIS*\ ’ ``Settings`` menu, and activate the ``Snapping`` toolbar checkbox. In the now shown snapping toolbar, activate snapping with a click on the horseshoe icon.
 -  Adapt the boundary.shp polygon to a tighter fit of the shapefile nodes by clicking on the ``Toggle editing`` (pen) symbol and activating the ``Vertex Tool`` in the toolbar.
 
-.. figure:: ../img/QGIS-mod-feat.png
+.. figure:: ../../img/QGIS-mod-feat.png
 	
     Toggle editing and enable the Vertex Tool.
 
@@ -94,11 +94,11 @@ The model boundary defines the calculation extent and needs to be define within 
 	-   The more precise the boundary the better will be the quality mesh and the faster and more stable will be the simulation.	  
 	-   Regularly save edits by clicking on SAVE ``Layer`` (floppy disk symbol next to the editing pen symbol).
 
-.. figure:: ../img/QGIS-mod-boundary.png
+.. figure:: ../../img/QGIS-mod-boundary.png
 	
     Modify the boundary polygon with a click on the centre cross (creates a new point) and dragging it to the next outest boundary point of the DEM points.
 
-.. figure:: ../img/QGIS-fin-boundary.png
+.. figure:: ../../img/QGIS-fin-boundary.png
 	
     The final boundary (hull of the point cloud).
 
@@ -124,7 +124,7 @@ As a result, two new layers will now show up in the Layers window:
 1. ``base_tin_elevation_nodes.shp``, and 
 2. ``base_tin_elevation_elements.shp``.
 
-.. figure:: ../img/QGIS-exp-tin.png
+.. figure:: ../../img/QGIS-exp-tin.png
 	
     Setup BASEmesh’s Elevation Meshing wizard.
 
@@ -135,7 +135,7 @@ Region markers are placed within regions defined by breaklines and assign for in
 
 -  Click on *QGIS*\ ’ ``Layers`` menu > ``Create Layer`` > ``New Shapefile Layer...`` (see `figure <#QGIS-new-lyr>`__)
 
-.. figure:: ../img/QGIS-new-lyr.png
+.. figure:: ../../img/QGIS-new-lyr.png
 	
     Create a new point shapefile for region definitions from QGIS’ Layer menu.
 
@@ -146,7 +146,7 @@ Region markers are placed within regions defined by breaklines and assign for in
 -   Add four ``New Field``\ s (in addition to the default ``Integer`` type ``ID`` field): + ``max_area`` = ``Decimal number`` (``length`` = 10, ``precision`` = 3) + ``MATID`` = ``Whole number`` (``length`` = 3) + ``type`` = ``Text data`` (``length`` = 20)
 -  Click ``OK`` to create the new point shapefile.
 
-.. figure:: ../img/QGIS-reg-lyr.png
+.. figure:: ../../img/QGIS-reg-lyr.png
 	
     Definitions and fields to be added to the new regions point shapefile.
 
@@ -161,7 +161,7 @@ max_area  25.0     50.0       100.0      400.0      100
 
 The below `figure <#QGIS-reg-pts>`__ shows an example for defining points within the areas delineated by the breaklines.
 
-.. figure:: ../img/QGIS-reg-pts.png
+.. figure:: ../../img/QGIS-reg-pts.png
 	
     Example for distributing region points in the project boundaries (remark: the max_area value may differ and is expert assessment-driven). After the placement of all region points, Save Layer Edits (floppy disk symbol) and Toggle Editing (pencil symbol – turn off).
 
@@ -180,7 +180,7 @@ In *QGIS*\ ’ ``Plugins`` menu, click on *BASEmesh* > QUALITY MESHING to open t
 3. ``Regions`` = ``regions-points`` (`see above section <#regions>`__) and activate all checkboxes
 4. In the ``Shapefile output`` canvas, click on the ``browse`` button to    define the output mesh as (for example) ``base_qualitymesh.shp`` 
    
-.. image:: ../img/QGIS-qualm.png
+.. image:: ../../img/QGIS-qualm.png
    :alt: qgis qualm
    
    BASEmesh’s Quality Meshing wizard.
@@ -197,7 +197,7 @@ Elevation data interpolation on a quality mesh
 3. In the ``Shapefile output`` canvas, define the output file as finalmesh.shp. 
 4. Click ``Interpolate elevations`` (may take a while) After successful execution, the new layer finalmesh_Interpolated_nodes_elevMesh.shp will be created. Click Close to close the Interpolation wizard.
 
-.. figure:: ../img/QGIS-qualm-interp.png
+.. figure:: ../../img/QGIS-qualm-interp.png
 	
     BASEmesh’s Interpolation wizard and setup.
 
@@ -206,7 +206,7 @@ Verify quality mesh elevation
 
 After the elevation interpolation, verify that elevations were correctly assigned. To identify potential outliers double-click on the new ``finalmesh_interpolated_Nodes_elevMesh`` and go to the ``Symbology`` ribbon. Select ``Graduated`` at the very top of the window (instead of ``Single Symbol``), set the ``Value`` to Z, METHOD to COLOR, choose a color ramp, and click on the ``classify`` bottom (lower part of the window). Click on ``Apply`` and ``OK`` to close the ``Symbology`` window. The below `figure <#QGIS-verify-qualm>`__ shows an example of interpolated mesh, with some irregularities (red points). The irregularities are caused by local imprecision of breaklines (line end points do not coincide with the ```xyz-points.shp`` <#epd>`__). Also some points of the `boundary <#boundary>`__ do not correspond the ``xyz-points.shp``. If such irregularities occur, zoom at the red points (irregularities) and ensure that the breakline and boundary nodes all exactly coincide with those stored in ``xyz-points.shp``. When all nodes are corrected, repeat all steps from the `TIN generation <#tin>`__ onward.
 
-.. figure:: ../img/QGIS-verify-qualm.png
+.. figure:: ../../img/QGIS-verify-qualm.png
 	
     Verify elevation interpolation using graduated color ramps. In this example, the red colored points indicated irregularities in the mesh.
 
@@ -223,7 +223,7 @@ To run *BASEMENT*, the mesh needs to be exported in 2dm format.
 4. In the ``Mesh output`` canvas, click on the ``Browse`` button and select an export mesh directory and name (e.g., ``finalmesh.2dm``). 
 5. Click on ``Export Mesh`` (may take a while) and ``Close`` the wizard afterwards.
 
-.. figure:: ../img/QGIS-exp-mesh.png
+.. figure:: ../../img/QGIS-exp-mesh.png
 	
     Export of the mesh to 2dm format with BASEmesh’s Export Mesh wizard.
 
@@ -231,7 +231,7 @@ In order to work with *BASEMENT* v3.x, the .2dm file requires a couple of adapta
 
 -  At the top, insert the following line at line No. 2: ``NUM_MATERIALS_PER_ELEM 1``
    
-.. figure:: ../img/mod-2dm.png   
+.. figure:: ../../img/mod-2dm.png   
    :alt: basement model 2d
    
    Modification of the upper part of the .2dm file.
@@ -250,7 +250,7 @@ In order to work with *BASEMENT* v3.x, the .2dm file requires a couple of adapta
   
 -   In the *Textfile OUTPUT* dialogue, select an output text file (e.g., ``C:/temp/stringdef-breaklines.txt``) and click on **Find node IDs** 
 
-.. figure:: ../img/QGIS-stringdef.png
+.. figure:: ../../img/QGIS-stringdef.png
     
     BASEmesh’s Stringdef tool.
   
@@ -258,14 +258,14 @@ In order to work with *BASEMENT* v3.x, the .2dm file requires a couple of adapta
   
 -   Open the resulting text file (``C:/temp/stringdef-breaklines.txt`` in the above example) and copy the node list to the bottom of *finalmesh.2dm* with the above-shown format (i.e., start with *NS*, followed by two SPACEs, then the node IDs *ndi/j * separated by on SPACE, then *Inflow* and *Outflow*, respectively). *Note: The node IDs my vary from those shown in the figure(s).* 
 	  
-.. figure:: ../img/QGIS-stringdef-out.png
+.. figure:: ../../img/QGIS-stringdef-out.png
    :alt: basement stringdef
    
     The output of BASEmesh’s Stringdef tool: Node IDs of the Inflow and Outflow boundaries.
 
 -  Finally, the bottom of the finalmesh.2dm (text editor) should look like this in the text editor (node ``ID``\ s may vary from those in the screenshot): 
 
-.. figure:: ../img/mod-2dm-bottom.png
+.. figure:: ../../img/mod-2dm-bottom.png
    	
     Modification of the bottom part of the .2dm file.
 

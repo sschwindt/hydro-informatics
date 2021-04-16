@@ -7,7 +7,7 @@ Calculate flood return periods
 
 .. admonition:: Requirements
 
-   *Python* libraries: *pandas* and *matplotlib*. Understand data handling with `pand as <https://hydro-informatics.github.io/hypy_pynum.html>`__.
+   *Python* libraries: *pandas* and *matplotlib*. Understand data handling with `pandas <https://hydro-informatics.github.io/hypy_pynum.html>`__.
 
 Get ready by cloning the exercise repository:
 
@@ -53,13 +53,13 @@ Get the data
 Discharge data sources
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Flow data can be retrieved from gauging stations. In Germany, the `“Gewässerkundliches Jahrbuch <http://www.dgj.de/>`__ provides a compound overview of statistic data from gauging stations. Note that many gauging stations are, as in many other countries, too, managed by state authorities and only a small share of data is available from federal institutions. For example, gauge data for Baden-Württemberg are available at the State Institute for the Environment, Survey and Nature Conservation’s (LUBW) `geo portal <https://hvz.lubw.baden-wuerttemberg.de/>`__. The following list provides more sources for discharge data around the globe.
+Flow data can be retrieved from gauging stations. In Germany, the `Gewässerkundliches Jahrbuch <http://www.dgj.de/>`__ provides a compound overview of statistic data from gauging stations. Note that many gauging stations are, as in many other countries, too, managed by state authorities and only a small share of data is available from federal institutions. For example, gauge data for Baden-Württemberg are available at the State Institute for the Environment, Survey and Nature Conservation’s (LUBW) `geo portal <https://hvz.lubw.baden-wuerttemberg.de/>`__. The following list provides more sources for discharge data around the globe.
 
 -  The `Bundesanstalt für Gewässerkunde BfG <https://www.bafg.de>`__ runs the `Global Runoff Data Centre GRDC <https://www.bafg.de/GRDC/EN/Home/homepage_node.html>`__ for the World Meteorological Organization *WMO* to provide river discharge data worldwide. The *GRDC*\ ’s download platform is available in the form of an `interactive web-GIS <https://portal.grdc.bafg.de/applications/public.html?publicuser=PublicUser#dataDownload/Home>`__. To get the data, go to their `download interface <https://portal.grdc.bafg.de/applications/public.html?publicuser=PublicUser#dataDownload/Stations>`__, select the desired station, switch to *Table* view (third row in the top left of the window), check the station, click *download*, and fill the form to send the request. You will receive an email with a download link for the requested data (wait a couple of minutes before clicking on the link - the preparation may take more time than the email).
 -  Flow datasets from alpine and midland rivers are provided by the Swiss Federal Office for the Environment’s `hydrological data platform <https://www.hydrodaten.admin.ch/>`__ (for long-term observations, a form has to be filled out here, too).
 -  In the United States, the National Oceanic and Atmospheric Administration *NOAA* provides discharge data from the past and forecasts for watersheds in North America. For example, the `California Nevada River Forecast Center <https://www.cnrfc.noaa.gov/>`__ provides flow forecasts for the South-Western United States, and historic data can be accessed from the `California Data Exchange Center CDEC <http://cdec.water.ca.gov/>`__.
--  A general *US*-borne interface for loading flow data and statistics comes with the ```hydrofunctions`` Python library <https://hydrofunctions.readthedocs.io/>`__ provided by the United States Geological Survey *USGS*. This library enables to directly get gauge data and statistics based on a stream gauge ID.
-   For example ``output = hydrofunctions.peaks("01541200")`` To install ``hydrofunctions`` in a *conda* environment, type ``conda install -c conda-forge hydrofunctions`` in `Anaconda Prompt <https://hydro-informatics.github.io/hypy_install.html#install-pckg>`__. Example usage:\ ``import hydrofunctions as hf``\ \ ``hf.draw_map()`` (only runs in *JupyterLab*)
+-  A general *US*-borne interface for loading flow data and statistics comes with the `*hydrofunctions* Python library <https://hydrofunctions.readthedocs.io/>`__ provided by the United States Geological Survey *USGS*. This library enables to directly get gauge data and statistics based on a stream gauge ID.
+   For example ``output = hydrofunctions.peaks("01541200")`` To install ``hydrofunctions`` in a *conda* environment, type ``conda install -c conda-forge hydrofunctions`` in `Anaconda Prompt <https://hydro-informatics.github.io/hypy_install.html#install-pckg>`__. Example usage:\ ``import hydrofunctions as hf``\ \ ``hf.draw_map()`` (only runs in *JupyterLab*).
 
 Load data in with *pandas* 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -91,16 +91,13 @@ Plotting data is not the focus of this exercise and for this reason, there is a 
    from plot_discharge import plot_discharge    
    plot_discharge(df.index, df["Q (CMS)"], title="Wasserburg a. Inn 1826 - 2016")
 
-On a side note, ``plot_discharge`` uses the ```matplotlib`` library <https://hydro-informatics.github.io/hypy_pyplot.html#matplotlib>`__.
+On a side note, ``plot_discharge`` uses the `*matplotlib* library <https://hydro-informatics.github.io/hypy_pyplot.html#matplotlib>`__.
 
 Construct series of annual maximum discharge
 --------------------------------------------
 
-Flood event recurrence intervals result from statistics of the annual maximum discharge. Therefore, use `pand as\ ’
-``resample`` <https://pand as.pydata.org/pand as-docs/stable/reference/api/pand as.DataFrame.resample.html>`__ function to find annual maximum values. The resample function requires the definition of a ``DateTimeIndex``, which we already implemented by using the ``index_col`` argument when we loaded the data. The first (and 
-only required) argument for the ``resample`` function is the rule defining the length of the time frame to which re-sampling applies.
-Here, we use ``"A"`` for annual statistics. For using bi-annual or 5-year periods, we could use the rule ``"5A"``. More rules can be found at the `pand as docs <https://pand as.pydata.org/pand as-docs/stable/user_guide/timeseries.html#offset-aliases>`__.
-In addition, we use the argument ``kind=period``, because we are only interested in the year in which the discharge occurred. Finally, we apply ``.max()`` to run *maximum* statistics on the data frame. Since the re-sampled dataframe is again a dataframe, all dataframe methods can also be applied to it. That is, instead of ``max()`` we can as well use ``min()``, ``sum()``, ``median()``, ``mean()`` and so on (`review pand as dataframe methods <https://pand as.pydata.org/pand as-docs/stable/reference/frame.html>`__).
+Flood event recurrence intervals result from statistics of the annual maximum discharge. Therefore, use `pandas\ ’ ``resample`` <https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.resample.html>`__ function to find annual maximum values. The resample function requires the definition of a ``DateTimeIndex``, which we already implemented by using the ``index_col`` argument when we loaded the data. The first (and only required) argument for the ``resample`` function is the rule defining the length of the time frame to which re-sampling applies. 
+Here, we use ``"A"`` for annual statistics. For using bi-annual or 5-year periods, we could use the rule ``"5A"``. More rules can be found at the `pandas docs <https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases>`__. In addition, we use the argument ``kind=period``, because we are only interested in the year in which the discharge occurred. Finally, we apply ``.max()`` to run *maximum* statistics on the data frame. Since the re-sampled dataframe is again a dataframe, all dataframe methods can also be applied to it. That is, instead of ``max()`` we can as well use ``min()``, ``sum()``, ``median()``, ``mean()`` and so on (`review pandas dataframe methods <https://pandas.pydata.org/pandas-docs/stable/reference/frame.html>`__).
 
 .. code:: python 
 

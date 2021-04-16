@@ -85,7 +85,7 @@ The descriptions on the *Get started* for installing and launching `JupyterLab <
 
 The *Kernel* menu runs the defined programming language (*Python 3* in the example below). The *Settings* menu provides options to configure styles (e.g., choose the *JupyterLab Dark* theme shown in the below figure). *JupyterLab* runs on a local server (typically on ``localhost:XXPORTXX/lab``), which is why it is just like an interactive website in your browser. At the beginning it takes some getting used to, but one gets quickly familiar with it and there are many advantages such as the inline use of online graphics.
 
-.. figure:: ../img/jupyter-illu.png
+.. figure:: ../../img/jupyter-illu.png
    :alt: pyc-prj-setup
    
     JupyterLab in Dark theme appearance with a Jupyter notebook (xml.ipynb) opened showing the combination of a markdown cell (Charts(plots)) and a Python 3 cell.
@@ -134,7 +134,7 @@ After the successful installation of `PyCharm <hy_ide.html#ide>`__ within *Anaco
 
 1. Launch *PyCharm* and create a new project. 
 
-.. figure:: ../img/pyc-project.png
+.. figure:: ../../img/pyc-project.png
    :alt: pyc-prj
 
    Create a new project in PyCharm.
@@ -145,7 +145,7 @@ After the successful installation of `PyCharm <hy_ide.html#ide>`__ within *Anaco
 	-   In the *Location* box select the new ``hypy`` environment   
 	-   Click *Create* to create the new project. 
 	
-.. figure:: ../img/pyc-prj-setup.png
+.. figure:: ../../img/pyc-prj-setup.png
    :alt: pyc-prj-setup
    
    Setup the hypy conda environment for the new project.
@@ -156,7 +156,7 @@ After the successful installation of `PyCharm <hy_ide.html#ide>`__ within *Anaco
 	-   In the *Settings* window go to ``Project: [NAME]`` > ``Project Interpreter``   
 	-   Make sure that the above-created ``hypy`` *conda* environment is defined as *Project Interpreter*. 
 
-.. image:: ../img/pyc-prj-interp.png
+.. image:: ../../img/pyc-prj-interp.png
    :alt: pyc-prj-interp	
    
    Verify the correct setup of the Project Interpreter.

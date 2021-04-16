@@ -62,7 +62,7 @@ To load any point *shapefile* start *BK* and :
 -  *File* > *Import* > *ArcView Shape File* > Navigate to the directory where the point *shapefile* lives > Select the *All Files (*.*)* option (in lieu of *Telemac Selafin File (*.slf)*) > Select the file (e.g., *xyz.shp*)
 -  ALTERNATIVELY: Open any other point data file with *File* > *Open* >  Navigate to DIR > look for *.xyz* or *.dat* files 
 
-.. image:: ../img/bk-import-pts.png
+.. image:: ../../img/bk-import-pts.png
    :alt: bkimportpts
    
    Importing a point shapefile in BK.
@@ -72,7 +72,7 @@ To load any point *shapefile* start *BK* and :
 -   Drag **points (X)** from **Data Items** to **Views \| 2d View (1)**
 -   ALTERNATIVELY: Use a three-dimensional (3D) view of the points: Go to the **Window** menu > **New 3D View** > drag **points (X)** from **Data Items** to **Views \| 3D View (1)** 
 
-.. figure:: ../img/bk-imported-3dpts.png
+.. figure:: ../../img/bk-imported-3dpts.png
    :alt: blue kenue 3d points
    
    The imported points a point shapefile in BK.
@@ -88,7 +88,7 @@ TM solves the (depth-averaged) Navier Stokes equations along a computational gri
 	-   Draw a polygon around the region of interest by clicking on the most outside points of the point cloud   
 	-   When finished drawing, press the ``Esc`` key and enter ``ClosedLine_domain`` in the *Name* field > click OK and OK (in the popup window) 
 
-.. figure:: ../img/bk-domain-closedline.png
+.. figure:: ../../img/bk-domain-closedline.png
    :alt: bk-domain max-width=“500
 
 2. Draw **New Open Line** objects to delineate the main (river) channel, levees, and right-left extents.
@@ -203,9 +203,9 @@ Install the PostTelemac plugin
 
 Open QGIS’ *Plugin Manager*, go to the *All* tab and type *posttelemac* in the search field. Click on the *Install* button to install the *PostTelemac* plugin.
 
-.. image:: ../img/QGIS-plugin-manager.png 
+.. image:: ../../img/QGIS-plugin-manager.png 
 
-.. image:: ../img/QGIS-plugin-install-posttm.png 
+.. image:: ../../img/QGIS-plugin-install-posttm.png 
 
 After the successful installation, click the *Close* button. The *PostTelemac* symbol should now be visible in the QGIS menu bar.
 
@@ -214,10 +214,10 @@ Open the PostTelemac plugin
 
 Find the *PostTelemac* icon in the menu bar to open the plugin. By default, the plugin window will most likely open up in the bottom-right corner of the QGIS window. For better handling, click the *detach* symbol and enlarge the detached plugin window.
 
-.. figure:: ../img/posttm-display.png
+.. figure:: ../../img/posttm-display.png
    	
     The detached window of the PostTelemac plugin with the Display tab opened to render simulation variables such as VELOCITY U/V, VITESSE (principal absolute U-V velocity) or DEPTH.
 
-.. figure:: ../img/posttm-tools.png
+.. figure:: ../../img/posttm-tools.png
    	
     The detached window of the PostTelemac plugin with the Tools tab opened (e.g., to create shapefiles or GeoTIFF rasters).

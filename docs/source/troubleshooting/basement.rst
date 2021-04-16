@@ -18,7 +18,7 @@ The ``results.xdmf`` contains geospatially explicit data (e.g., of flow velocity
 3. After having removed all path occurrences in the document, save and 
    close ``results.xdmf``.
 
-.. figure:: ../img/npp-xdmf-replace.png
+.. figure:: ../../img/npp-xdmf-replace.png
    :alt: bmy
    
    Find the string results_aux.h5 in results.xdmf and remove the file directories.

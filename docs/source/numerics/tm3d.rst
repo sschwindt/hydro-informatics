@@ -1,7 +1,7 @@
 Telemac 3d and SALOME
 =====================
 
-.. image:: ../img/salome/telemac3d-header.png 
+.. image:: ../../img/salome/telemac3d-header.png 
 
 This tutorial describes setting up and running a simple three-dimensional (3d) model of a flume based on the *MED* file library provided by `SALOME-platform.org <https://www.SALOME-platform.org/>`__. The explanations build on the `telemac3d user manual (v8p1) <http://ot-svn-public:telemac1*@svn.opentelemac.org/svn/opentelemac/tags/v8p1r2/documentation/telemac2d/user/telemac3d_user_v8p1.pdf>`__ and more documentation can be found on `opentelemac.org/doku <http://wiki.opentelemac.org/doku.php?id=documentation_v8p2r0>`__.
 
@@ -68,14 +68,14 @@ Create Contours (Polyline)
 
 After starting SALOME-HYDRO, activate the *HYDRO* module, then find the *Object Browser* on the right side of the window and the **POLYLINE** folder symbol.
 
-.. image:: ../img/salome/sah-startup.png
+.. image:: ../../img/salome/sah-startup.png
 
 Right-click on the *POLYLINE* folder, select **Create polyline** and a popup window will open. In the popup window:
 
 -  For **Name** enter: ``Contour`` 
 -  Click on the *Insert new section* button: 
 
-.. image:: ../img/salome/sah-hydro-create-polyline.png
+.. image:: ../../img/salome/sah-hydro-create-polyline.png
    :alt: telemac SALOME hydro    polyline 
 
   
@@ -84,44 +84,44 @@ Right-click on the *POLYLINE* folder, select **Create polyline** and a popup win
 -   Ensure that the **Closed** box is checked   
 -   Press **Add** 
 
-.. image:: ../img/salome/sah-create-polyline.png 
+.. image:: ../../img/salome/sah-create-polyline.png 
     
 -  Click on the *Addition mode* button to draw a polygon: Start with the first point in the upper left corner and move in clock-wise to draw the other three points. 
 
-.. image:: ../img/salome/sah-polyline-addition.png
+.. image:: ../../img/salome/sah-polyline-addition.png
    :alt: telemac SALOME hydro polygon addition
 
 -   The polygon should show up in the viewport as shown below (qualitative match is sufficient for now) 
 
-.. image:: ../img/salome/sah-polyline-draw.png
+.. image:: ../../img/salome/sah-polyline-draw.png
 
-.. image:: ../img/salome/sah-polyline-draw-dir.png
+.. image:: ../../img/salome/sah-polyline-draw-dir.png
    :alt: telemac SALOME hydro polygon qualitative
 
 -   Press **Apply and close** 
 
 In the viewport, click the polyline, then right-click on it and select **Modification mode** in the context menu.
 
-.. image:: ../img/salome/sah-polyline-edit.png
+.. image:: ../../img/salome/sah-polyline-edit.png
    :alt: telemac SALOME hydro edit polygon 
 
-.. image:: ../img/salome/sah-polyline-edit-popup.png
+.. image:: ../../img/salome/sah-polyline-edit-popup.png
    :alt: telemac SALOME hydro edit polygon modification 
 
 To get the data table (*Section* / *Index*) visible in the lower part of the popup window, highlight the four edges of the polygon in the viewport with the mouse.
 
 In the popup window, modify the points so that a 500-m long and 100-m wide rectangle occurs as shown below (the section *Index* numbers will change, so pay attention to not create crossing lines).
 
-.. image:: ../img/salome/sah-polyline-edited.png
+.. image:: ../../img/salome/sah-polyline-edited.png
    :alt: telemac SALOME hydro edit polygon 
 
 .. tip::
    Save the project by clicking on the **File** (top menu) > **Save As…**. In the popup menu, select the simulation target folder and define a name such as *flume3d*. Press **Save** to save the project in **hdf** format and regularly press the save button (disk symbol) in the next steps to avoid losing work. Thus, the project can be saved, closed, and re-opened any time.
 
-.. image:: ../img/salome/save-study-as.png
+.. image:: ../../img/salome/save-study-as.png
    :alt: telemac SALOME hydro save study as hdf 
 
-.. image:: ../img/salome/save-study-props.png
+.. image:: ../../img/salome/save-study-props.png
    :alt: telemac SALOME hydro save study hdf 
 
 Create a Natural Object
@@ -129,7 +129,7 @@ Create a Natural Object
 
 From the *HYDRO* top menu, select **Create immersible zone** to define a wetted area for the later created mesh.
 
-.. image:: ../img/salome/sah-nat-immersible-zone.png
+.. image:: ../../img/salome/sah-nat-immersible-zone.png
     :alt: telemac SALOME hydro create immersible zone 
 
 In the popup window, make the following settings:
@@ -138,7 +138,7 @@ In the popup window, make the following settings:
 -  **Polyline:** Select the previously created ``Contour`` rectangle    (double-click in the field).
 -  **Bathymetry:** Leave empty.
 
-.. image:: ../img/salome/sah-nat-wetted-zone.png
+.. image:: ../../img/salome/sah-nat-wetted-zone.png
     :alt: telemac SALOME hydro create wetted area zone 
 
 -  Press **Apply and close**.
@@ -159,32 +159,32 @@ One or more calculation cases can be created to define elements for the later si
 -  Highlight ``wetted_contour`` and ``Contour`` in the *Objects* frame    and press **Include >>** to add it to the list of *Included objects*.
 -  Press **Next >** (button at the bottom)
 
-.. image:: ../img/salome/sah-create-calc-case-popup.png
+.. image:: ../../img/salome/sah-create-calc-case-popup.png
    :alt: telemac SALOME hydro contour create 
 
 **Step 2:** **Include >>** ``wetted_contour_Outer``\ and press **Next >**.
 
-.. image:: ../img/salome/sah-create-calc-case-groups.png
+.. image:: ../../img/salome/sah-create-calc-case-groups.png
    :alt: telemac SALOME hydro contour zone 
 
 **Step 3:** Leave the boundary polygons window as-is and just click **Next >** 
 
-.. image:: ../img/salome/sah-create-calc-case-bc.png
+.. image:: ../../img/salome/sah-create-calc-case-bc.png
    :alt: telemac SALOME hydro contour boundary 
 
 **Step 4:** Omit the definition of a *Strickler table* and press **Next >**. \* Note that this step may be useful to define zones with different roughness attributes.
 
-.. image:: ../img/salome/sah-create-calc-case-strickler.png
+.. image:: ../../img/salome/sah-create-calc-case-strickler.png
    :alt: telemac SALOME hydro contour strickler 
 
 **Step 5:** Finalize the calculation case creation by clicking on the **Finish** button.
 
-.. image:: ../img/salome/sah-create-calc-case-finish.png
+.. image:: ../../img/salome/sah-create-calc-case-finish.png
    :alt: telemac SALOME hydro calculation case 
 
 Export the calculation case by right-clicking on the **Hydrodynamic** calculation case in the *Object Browser*, then **Export calculation case**. As a result, a *Geometry* entry becomes visible in the *Object Browser*.
 
-.. image:: ../img/salome/sah-export-calc-case-menu.png
+.. image:: ../../img/salome/sah-export-calc-case-menu.png
    :alt: telemac SALOME hydro calculation case export menu 
 
 .. tip::
@@ -195,7 +195,7 @@ Build the Geometry
 
 This section guides through the creation of a rectangular geometry surface representing a flume and its boundaries defined with edges (lines). To get ready, activate the **Geometry** module, right-click on *HYDRO_Hydrodynamic_1*, and select **Show Only**.
 
-.. image:: ../img/salome/sah-exported-calc-case-geometry.png
+.. image:: ../../img/salome/sah-exported-calc-case-geometry.png
    :alt: telemac SALOME hydro calculation case exported geometry 
 
 
@@ -209,21 +209,21 @@ Right-click on *HYDRO_Hydrodynamic_1* and select **Create Group** from the conte
 -  **Main Shape**: select ``HYDRO_Hydrodynamic_1``
 -  Click on **Show all sub-shapes** > **Select line in the viewport**. In the white frame of the *Create Group* window, make sure to select the good edge only. **Add** the correct edge and **Remove** all others.
 
-.. figure:: ../img/salome/geo-create-group-upstream.png
+.. figure:: ../../img/salome/geo-create-group-upstream.png
    :alt: telemac SALOME geometry group faces
    
    Define the upstream edge of the surface.
 
 -  For defining the other edges (``downstream``, ``leftwall``, and ``rightwall``), use the indications in the following figure.
 
-.. image:: ../img/tm-rectangular-flume.png
+.. image:: ../../img/tm-rectangular-flume.png
     :alt: telemac SALOME rectangular flume 
 
 -  Click **Apply** to create the edge boundary and proceed with the    next. After the last (fourth) edge, click **Apply and Close**.
 
 Ultimately, the *Geometry* block in the *Object Browser* should look as follows.
 
-.. image:: ../img/salome/geo-created-groups-ob.png
+.. image:: ../../img/salome/geo-created-groups-ob.png
    :alt: telemac SALOME geometry group object browser 
 
 Generate a Mesh
@@ -236,7 +236,7 @@ Two-dimensional (2d) mesh of the surface
 
 **Highlight HYDRO_Hydrodynamic_1** in the *Object Browser*. Then, go to the **Mesh** top menu (do not confuse with the *Mesh* module), and select **Create Mesh**.
 
-.. image:: ../img/salome/mes-01-create-mesh.png
+.. image:: ../../img/salome/mes-01-create-mesh.png
    :alt: telemac SALOME mesh create 
 
 In the **Create mesh** popup window set the following:
@@ -260,10 +260,10 @@ In the **Create mesh** popup window set the following:
 -  Back in the **Create mesh** window, set the just created *NETGEN 2d Parameters 10_30* as **Hypothesis**.
 -  Click on **Apply and Close** (**Create mesh** popup window)
 
-.. image:: ../img/salome/mes-02-create-mesh-netgen2d-hypo.png
+.. image:: ../../img/salome/mes-02-create-mesh-netgen2d-hypo.png
    :alt: telemac SALOME mesh create netgen 2d hypothesis
 
-.. image:: ../img/salome/mes-03-create-mesh-netgen2d.png
+.. image:: ../../img/salome/mes-03-create-mesh-netgen2d.png
    :alt: telemac SALOME mesh create netgen 1d-2d 
 
 One-dimensional (1d) meshes of boundary edges
@@ -271,7 +271,7 @@ One-dimensional (1d) meshes of boundary edges
 
 The 1d meshes of the boundary edges will represent sub-meshes of the 2d mesh. To create the sub-meshes, **highlight** the previously created **Mesh_Hn_1** in the *Object Browser* (click on it), then go to the **Mesh** top menu and select **Create Sub-Mesh**.
 
-.. image:: ../img/salome/mes-04-create-submesh-menu.png
+.. image:: ../../img/salome/mes-04-create-submesh-menu.png
    :alt: telemac SALOME mesh create 
 
 In the **Create sub-mesh** popup window, start with creating the upstream boundary edge’s mesh:
@@ -293,10 +293,10 @@ In the **Create sub-mesh** popup window, start with creating the upstream bounda
 -  Back in the **Create Mesh** window, set the just created *Segments10* as **Hypothesis**.
 -  Click on **Apply** in the **Create sub-mesh** popup window, which will remain open for the definition of the three other boundary edge’s meshes.
 
-.. image:: ../img/salome/mes-05-create-submesh-hypo.png
+.. image:: ../../img/salome/mes-05-create-submesh-hypo.png
    :alt: telemac SALOME submesh create number of segments hypothesis
 
-.. image:: ../img/salome/mes-06-create-submesh-seg10us.png
+.. image:: ../../img/salome/mes-06-create-submesh-seg10us.png
    :alt: telemac SALOME submesh create wire discretisation 
 
 **Repeat** the above steps for creating sub-meshes for the downstream, left wall, and right wall edges, but with different construction hypotheses.
@@ -315,10 +315,10 @@ In the **Create sub-mesh** popup window, start with creating the upstream bounda
 	-   Set **Start length** to ``10``   
 	-   Set **End length** to ``30``.
 
-.. image:: ../img/salome/mes-09-create-submesh-hypoarith1030.png
+.. image:: ../../img/salome/mes-09-create-submesh-hypoarith1030.png
    :alt: telemac SALOME submesh create arithmetic progression hypothesis 
    
-.. image:: ../img/salome/mes-10-create-submesh-arith1030lw.png
+.. image:: ../../img/salome/mes-10-create-submesh-arith1030lw.png
    :alt: telemac SALOME submesh create wire discretisation arithmetic 
 
 -  For the right wall sub-mesh use **Name** ``rightwall`` and construct the following hypothesis:
@@ -343,17 +343,17 @@ Compute Mesh
 
 In the **Object Browser**, extend (un-collapse) the new *Mesh* block, **right-click** on **Mesh_Hn_1**, and select **Compute**.
 
-.. image:: ../img/salome/mes-13-start-compute.png
+.. image:: ../../img/salome/mes-13-start-compute.png
    :alt: telemac SALOME compute mesh menu 
 
 This will automatically also compute all sub-meshes. After the successful computation of the mesh, *SALOME-HYDRO* informs about the mesh properties in a popup window.
 
-.. image:: ../img/salome/mes-14-end-compute.png
+.. image:: ../../img/salome/mes-14-end-compute.png
    :alt: smesh compute netgen 2d 3d 
 
 In the view port (*VTK scene* tab), find the **-OZ** button to switch to plane view. If the mesh is not visible even though the computation was successful, right-click on the mesh in the *Object Browser* and click on **Show**.
 
-.. image:: ../img/salome/mes-15-gotoOZ.png
+.. image:: ../../img/salome/mes-15-gotoOZ.png
    :alt: smesh show only 
 
 Verify Mesh
@@ -364,7 +364,7 @@ This step will ensure that the mesh is correctly oriented for the simulation wit
 **Orientation**. In the pop-up window, check the **Apply to all** box.
 Click the **Apply and close** button. The mesh should have changed from darker blue to a lighter tone of blue (if the inverse is the case, repeat the application of the orientation tool).
 
-.. image:: ../img/salome/mes-16-mod-orient.png
+.. image:: ../../img/salome/mes-16-mod-orient.png
    :alt: mesh modification orientation 
 
 **Identify and reconcile over-constraint elements** 
@@ -372,18 +372,18 @@ Click the **Apply and close** button. The mesh should have changed from darker b
 In the *Object Browser*, **highlight Mesh_Hn_1**. Then go to the **Controls** top menu > **Face Controls** > **Over-constraint faces**.
 Over-constrained triangles in the *Mesh_Hn_1* will turn red in the viewport (*VTK scene:1*) and at the bottom of the viewport, the note *Over-constrained faces: 3* will appear.
 
-.. image:: ../img/salome/mes-17-mod-over-const.png
+.. image:: ../../img/salome/mes-17-mod-over-const.png
    :alt: mesh over constrained constraint faces 
 
 To reconcile the edge cause the triangle’s over-constrain, go to the **Modification** top menu > **Diagonal inversion**, and select the internal edge of the concerned triangles.
 
 
-.. image:: ../img/salome/mes-18-mod-over-const-edge-select.png
+.. image:: ../../img/salome/mes-18-mod-over-const-edge-select.png
    :alt: mesh over-constrained diagonal inversion internal edges triangle 
 
 Over-constrained triangles might be hidden by the axes arrows in the corner. Thus, pay attention to sufficiently zoom into the corner unless the *Over-constrained faces* notification in the viewport shows **0**.
 
-.. image:: ../img/salome/mes-19-mod-over-const-edge-hidden.png
+.. image:: ../../img/salome/mes-19-mod-over-const-edge-hidden.png
    :alt: mesh over-constrained diagonal inversion hidden edges faces 
 
 .. tip::
@@ -396,17 +396,17 @@ Export MED File
 
 Exporting the mesh to a MED file requires the definition of mesh groups. To do so, highlight *Mesh_Hn_1* in the object browser and right-click on it. Select **Create Groups from Geometry** from the mesh context menu.
 
-.. image:: ../img/salome/mes-20-create-group-menu.png
+.. image:: ../../img/salome/mes-20-create-group-menu.png
    :alt: mesh export create groups context menu 
 
 In the popup window, select all groups and sub shapes of the *FLUME* geometry and all groups of **mesh elements** and **mesh nodes**. For selecting multiple geometries, hold down the ``CTRL`` (``Strg``) and ``Shift`` keys on the keyboard and select the geometry/mesh groups. The tool will automatically add all nodes selected. Press **Apply and close** to finalize the creation of groups.
 
-.. image:: ../img/salome/mes-21-create-group.png
+.. image:: ../../img/salome/mes-21-create-group.png
    :alt: mesh export create groups select 
 
 Verify the created groups by right-clicking on the top of the project tree in the *Object Browser* and selecting *Show only* with the option *Auto Color*.
 
-.. image:: ../img/salome/mes-21-final-groups.png
+.. image:: ../../img/salome/mes-21-final-groups.png
    :alt: mesh export create groups final control 
 
 .. attention::
@@ -414,7 +414,7 @@ Verify the created groups by right-clicking on the top of the project tree in th
 
 If the groups seems correct (see above figure), export them with **File** (top menu) > **Export** > **MED**.
 
-.. image:: ../img/salome/mes-22-export-med-menu.png
+.. image:: ../../img/salome/mes-22-export-med-menu.png
    :alt: mesh export med context menu 
 
 In the **Export mesh** popup window, define:
@@ -425,7 +425,7 @@ In the **Export mesh** popup window, define:
 -   Leave all other default settings.
 -  Click on **Save** to save the *MED* file.
 
-.. image:: ../img/salome/mes-23-export-med.png
+.. image:: ../../img/salome/mes-23-export-med.png
    :alt: telemac SALOME save med file 
 
 .. tip::
@@ -439,7 +439,7 @@ Basic Setup with the HydroSolver Module
 
 Activate the **HydroSolver** module from the top menu and click on the *Edit boundary conditions file* button to create a new boundary condition file.
 
-.. image:: ../img/salome/hs01-edit-bc.png
+.. image:: ../../img/salome/hs01-edit-bc.png
    :alt: telemac SALOME hydrosolver create edit boundary conditions menu 
 
 In the opening popup window, select the just exported **MED** file containing the mesh and leave the *Boundary conditions file* field in the *Input files* frame free. In the **Output files** frame, click on **…** and define a boundary conditions file (e.g., ``flume3d_bc.bnd``).
@@ -455,7 +455,7 @@ Make the following definitions in the **Boundary conditions** frame (table):
 -  Group **rightwall**: Set **Preset** to **Closed boundaries/walls**
 -  Group **upstream**: Set **Preset** to **Prescribed Q / free T**
 
-.. image:: ../img/salome/hs02-create-bc.png
+.. image:: ../../img/salome/hs02-create-bc.png
    :alt: telemac SALOME hydrosolver create edit boundary conditions 
 
 Then click on **Apply and Close**.
@@ -800,7 +800,7 @@ A *CAS* file can be created with the *HydroSolver* module in *SALOME-HYDRO* as f
 
 3. Save the new *CAS* file (e.g., ``flume3d-steady.cas``) in the same directory where all other simulation files live.
 
-.. image:: ../img/salome/hs-create-cas.png
+.. image:: ../../img/salome/hs-create-cas.png
    :alt: telemac SALOME hydro hydrosolver new cas file save as 
 
 A new *unnamed file1* case is created and opens up in the *Computation environment* frame. To make sure that no information will be lost, save the *CAS* file regularly. The *HydroSolver* module guides through parameter definitions as above shown (starting with the *COMPUTATION_ENVIRONMENT* block), with built-in explanations on the sidebar.
@@ -907,32 +907,32 @@ Load Results (MED file)
 
 To open a results (or any other) *MED* file, right-click on the **builtin:** symbol in the **Pipeline Browser** on the top-left of the window and select **Open**.
 
-.. image:: ../img/salome/pv01-open.png
+.. image:: ../../img/salome/pv01-open.png
    :alt: telemac SALOME open med file pipelinebrowser 
 
 In the popup window, use the frames on the left to navigate to the folder where the simulation and its results live. Select ``r3d_canal-t3d.med`` and click **OK**.
 
-.. image:: ../img/salome/pv02-open-res3d.png
+.. image:: ../../img/salome/pv02-open-res3d.png
    :alt: telemac SALOME open 3d med file 
 
 The file ``r3d_canal-t3d.med`` appears in the *Pipeline Browser*. Click on the green **Apply** button in the *Properties* tab.
 
-.. image:: ../img/salome/pv05-apply3d.png
+.. image:: ../../img/salome/pv05-apply3d.png
    :alt: telemac SALOME apply 3d med file 
 
 The model block (i.e., the flume, or channel -  *French: canal*) becomes visible in the viewport. Click on the block in the viewport (left mouse button), hold down and move the mouse to get an impression of the flume. To visualize the results, find the variable drop-down menu in the upper part of the window (initially shows **Solid Color**), and select **VELOCITY U**.
 
-.. image:: ../img/salome/pv06-vis-u.png
+.. image:: ../../img/salome/pv06-vis-u.png
    :alt: telemac SALOME load results velocity 
 
 Click on the *Play* **>** button (top-right of the window) to animate the results illustration to the last time step (*50*-  which is the result of ``5000`` times steps divided by the graphical printout period of ``100``).
 
-.. image:: ../img/salome/pv07-vis-ut.png
+.. image:: ../../img/salome/pv07-vis-ut.png
    :alt: telemac SALOME visualize results 
 
 Set the visualization to **Surface with Edges** (instead of *Surface*), next to the *VELOCITY U* drop-down menu, and export the current visualization by click on the **Capture screenshot …** button in the viewport.
 
-.. image:: ../img/salome/pv08-save-screenshot-with-edges.png
+.. image:: ../../img/salome/pv08-save-screenshot-with-edges.png
    :alt: telemac SALOME save screenshot surface with edges 
 
 Export Data
@@ -940,22 +940,22 @@ Export Data
 
 To export data from a results file, go to **File** > **Save Data…**.
 
-.. image:: ../img/salome/pv10-data-save.png
+.. image:: ../../img/salome/pv10-data-save.png
    :alt: telemac3d SALOME save export data 
 
 In the popup window define a file name and ending, which can be either *csv*, *tsv*, or *txt*. The selected ending will call the appropriate assistant to define export details. In this example, use **csv** by typing ``flume3d-export.csv``.
 
-.. image:: ../img/salome/pv11-export-data-csv.png
+.. image:: ../../img/salome/pv11-export-data-csv.png
    :alt: telemac3d SALOME save export data csv paravis 
 
 Select relevant data (e.g., ``U``, ``V``, ``W``, and ``Z``) by checking the **Choose Arrays to Write\* box and enable**\ Add Time\ **. Click**\ OK*\* to finalize the data export.
 
-.. image:: ../img/salome/pv12-export-data-csv-config.png
+.. image:: ../../img/salome/pv12-export-data-csv-config.png
    :alt: telemac3d SALOME export data csv paravis configure 
 
 The resulting data export file may look like this:
 
-.. image:: ../img/salome/pv13-exported-csv.png
+.. image:: ../../img/salome/pv13-exported-csv.png
    :alt: telemac3d SALOME exported data csv file 
 
 Recall that many other variables can be exported by defining them in the *CAS* file as above described in the [computational environment]](#comp-env). A full list of 2d and 3d output parameters in available sections 3.13 and 3.12, respectively, of the `Telemac 3d docs <http://ot-svn-public:telemac1*@svn.opentelemac.org/svn/opentelemac/tags/v8p1r1/documentation/telemac3d/user/telemac3d_user_v8p1.pdf>`__.

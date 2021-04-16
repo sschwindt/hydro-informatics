@@ -1,7 +1,7 @@
 Graphical User Interfaces
 =========================
 
-.. image:: ../img/hello-gui.png
+.. image:: ../../img/hello-gui.png
 
 A Graphical User Interface (GUI) facilitates setting input variables of
 scripts. This is particularly useful if you want to reuse a script that
@@ -57,7 +57,7 @@ block shows how to create a parent window with a label element
    a_label.pack()
    top.mainloop()
 
-.. image:: ../img/py-tk-first.png
+.. image:: ../../img/py-tk-first.png
 
 
 After calling the ``mainloop()`` method, a window opens in a *wait*
@@ -82,7 +82,7 @@ modified with the ``title``, ``minsize`` or ``maxsize``, and
    top.configure(bg="sky blue")
    top.mainloop()
 
-.. image:: ../img/py-tk-first-config.png  
+.. image:: ../../img/py-tk-first-config.png  
 
 Add a Button to call a function
 -------------------------------
@@ -111,7 +111,7 @@ imported from ``tkinter.messagebox``.
    a_button.pack()
    top.mainloop()
 
-.. image:: ../img/py-tk-button.png
+.. image:: ../../img/py-tk-button.png
 
 
 .. note::
@@ -157,7 +157,7 @@ statement on the `packages page <hypy_pckg.html#stand alone>`__).
    if __name__ == "__main__":
        VanillaApp().mainloop()
 
-.. image:: ../img/py-tk-vanilla.png 
+.. image:: ../../img/py-tk-vanilla.png 
 
 .. tip::
    The above code block with the ``VanillaApp`` class can be copied to any external *Python* file and saved as, for example, ``vanilla_app.py``. With *Python* being defined as a `system variable  <https://docs.python.org/3/using/windows.html#excursus-setting-environment-variables>`__ (only necessary in *Windows* - point at your *Anaconda* base environment’s *Python* executable), the GUI can be started as follows:
@@ -196,7 +196,7 @@ following illustration features some widgets with a:
    ``False``-``True``-only frame of a *checkbutton*)
 -  ``tk.PhotoImage`` to display a sub-sampled image in the GUI
 
-.. figure:: ../img/py-tk-elements.png
+.. figure:: ../../img/py-tk-elements.png
 	
    tkinter widgets: Label, Button, Entry, Combobox, Listbox with Scrollbar, Checkbutton, and an Image.
 
@@ -373,7 +373,7 @@ are available at the course repository).
    if __name__ == '__main__':
        MyApp().mainloop()
 
-.. image:: ../img/py-tk-variables.png  
+.. image:: ../../img/py-tk-variables.png  
 
 .. _place-widget:
 
@@ -445,7 +445,7 @@ The axis origin (zero positions of *x* and  *y*) are determined with the
    if __name__ == '__main__':
        PlacedApp().mainloop()
 
-.. image:: ../img/py-tk-placed.png  
+.. image:: ../../img/py-tk-placed.png  
 
 .. note::
    The above example does not create class objects of ``tk.Labels``, which makes the labels non-modifiable. This definition of widgets is acceptable to shorten long GUI scripts, but only if the widgets should not be modified later.
@@ -478,7 +478,7 @@ implementation of pixel space around widgets.
    if __name__ == '__main__':
        GriddedApp().mainloop()
 
-.. image:: ../img/py-tk-grid.png 
+.. image:: ../../img/py-tk-grid.png 
 
 Configure widgets
 ~~~~~~~~~~~~~~~~~
@@ -536,7 +536,7 @@ windows (child frames of the parent frame).
    if __name__ == '__main__':
        ReConfigApp().mainloop()
 
-.. image:: ../img/py-tk-config.png
+.. image:: ../../img/py-tk-config.png
 
 .. admonition:: Challenge
 
@@ -545,7 +545,7 @@ windows (child frames of the parent frame).
    (2) The cross-section averaged flow velocity also depends on the cross-section geometry. Can you implement ``tkinter`` widgets to enable user definitions of the bank slope ``m`` and  channel base width ``w`` to calculate the hydraulic radius?
 
 
-.. image:: ../img/flowVariables_xs.png
+.. image:: ../../img/flowVariables_xs.png
 
 Pop-up windows
 --------------
@@ -625,7 +625,7 @@ and  ``tk.Entry(pop_up).pack()`` creates an entry in the child
    if __name__ == '__main__':
        PopApp().mainloop()
 
-.. image:: ../img/py-tk-popup-custom.png  
+.. image:: ../../img/py-tk-popup-custom.png  
 
 File dialog (open …)
 ~~~~~~~~~~~~~~~~~~~~
@@ -657,7 +657,7 @@ When a custom function’s argument is a file or file name, we most likely want 
    if __name__ == '__main__':
        OpenFileApp().mainloop()
 
-.. image:: ../img/py-tk-filedialog.png 
+.. image:: ../../img/py-tk-filedialog.png 
 
 Quit
 ----
