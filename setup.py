@@ -11,7 +11,7 @@ for line in lines.read_text().split("\n"):
 
 
 setup(
-    name="eConnect",
+    name="Hydro-informatics",
     version=version,
     python_requires=">=3.7",
     author="Sebastian Schwindt",
@@ -27,7 +27,7 @@ setup(
     description="Hydro-Informatics: From algorithms to applications.",
     license="BSD License",
     long_description=Path("./README.md").read_text(),
-    long_description_content_type="text/markdown",
+    long_description_content_type="text/rst",
     packages=find_packages(),
     install_requires=[
         "pyyaml",
