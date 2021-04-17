@@ -105,9 +105,11 @@ about how to debug known issues (not that issues ever existed…).
    :maxdepth: 2
    :caption: Python (geo)
 
-   geopy/geo-python
-   geopy/geospatial-data
-   geopy/geo-pckg
+
+
+geopy/geo-python
+geopy/geospatial-data
+geopy/geo-pckg
 
 
 geopy/geo-shp
