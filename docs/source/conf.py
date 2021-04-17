@@ -20,7 +20,7 @@ def is_development_build():
         return False
     return True
 
-
+sys.path.insert(0, os.path.abspath("."))
 sys.path.insert(0, os.path.abspath(".."))
 sys.path.insert(0, os.path.abspath("../.."))
 sys.path.append(os.path.abspath("..") + "/img/")
@@ -108,8 +108,10 @@ html_theme_options = {
         "notebook_interface": "jupyterlab",
         "collapse_navigation": False
     },
+    "path_to_docs" = "docs/source/"
     "repository_url": "https://github.com/sschwindt/hyrdo-informatics/",
     "repository_branch": "main",
+    "toc_title": "Hydro-Informatics",
     "use_edit_page_button": False,
     "use_repository_button": True,
 }
@@ -142,7 +144,7 @@ html_title = "Hydro-Informatics"
 htmlhelp_basename = "Hydro-Informatics"
 html_copy_source = True
 html_sourcelink_suffix = ""
-
+show_navbar_depth = 2
 
 thebe_config = {
     "repository_url": "https://github.com/binder-examples/jupyter-stacks-datascience",
