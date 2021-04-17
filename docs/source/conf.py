@@ -108,7 +108,7 @@ html_theme_options = {
         "notebook_interface": "jupyterlab",
         "collapse_navigation": False
     },
-    "path_to_docs" = "docs/source/"
+    "path_to_docs": "docs/source/"
     "repository_url": "https://github.com/sschwindt/hyrdo-informatics/",
     "repository_branch": "main",
     "toc_title": "Hydro-Informatics",
