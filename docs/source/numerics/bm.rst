@@ -217,7 +217,7 @@ After data export from *ParaView*:
 .. figure:: ../../img/QGIS-add-lyr.png
    :alt: add qgis layer basement
 
-    Open the Add Delimited Text Layer import wizard.
+   Open the Add Delimited Text Layer import wizard.
 
 -  The ``Data Source Manager | Delimited Text`` window opens (`see figure below <#QGIS-import-csv>`__)
 -  In the ``File name`` field select *bm-steady-vanilla.csv*

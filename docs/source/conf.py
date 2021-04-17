@@ -100,6 +100,7 @@ myst_url_schemes = ("http", "https", "mailto")
 panels_add_bootstrap_css = False
 
 html_theme = "sphinx_book_theme"
+html_theme_path = ["_themes"]
 html_theme_options = {
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
