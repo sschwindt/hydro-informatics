@@ -14,12 +14,12 @@ Two-dimensional (2d) numerical simulation methods described on these pages use t
 
 This tutorial uses *BASEMENT*\ ’s *BASEplane* module (version 3.0.2) to perform a two-dimensional (2d) hydrodynamic numerical simulation.
 
-Pre-processing: Mesh Generation 
+Pre-processing: Mesh Generation
 -------------------------------
 
 Prepare a ``2dm`` mesh file as described in the `QGIS data pre-processing <QGIS-prepro.html>`__ section.
 
-Steady 2d Simulation with BASEMENT 
+Steady 2d Simulation with BASEMENT
 ----------------------------------
 
 In addition to the mesh (``2dm`` file), the numerical engine of *BASEMENT* needs a model setup file (*model.json*) and a simulation file (*simulation.json*), which both are created automatically by *BASEMENT*. The following sections describe how to make *BASEMENT* creating the two *.json* files. Before getting there, create a new project folder of your choice (e.g., ``C:/BM/irme-exercise/``).
@@ -31,7 +31,7 @@ In addition to the mesh (``2dm`` file), the numerical engine of *BASEMENT* needs
 Make sure to place the two input files in the folder:
 
 -  The 2d mesh ``.2dm`` file (i.e., the *finalmesh.2d* from the `pre-processing <#prepro>`__).
--  A discharge inflow file (flat hydrograph) for the upstream boundary condition can be downloaded `here <https://github.com/hydro-informatics/materials-bm/blob/master/flows/SteadyVanillaInflow.txt>`__ (if necessary, copy the file contents locally into a text editor and 
+-  A discharge inflow file (flat hydrograph) for the upstream boundary condition can be downloaded `here <https://github.com/hydro-informatics/materials-bm/blob/master/flows/SteadyVanillaInflow.txt>`__ (if necessary, copy the file contents locally into a text editor and
    save the file as ``SteadyVanillaInflow.txt`` in the local project directory).
 
 Setup the Model File
@@ -49,67 +49,70 @@ Regularly save setting by clicking on the ``Write`` button (bottom-right corner)
 ===== ======== ========== ========== ========== ======
 INDEX 1        2          3          4          5
 ===== ======== ========== ========== ========== ======
-NAME  riverbed lower_bank upper_bank floodplain street 
+NAME  riverbed lower_bank upper_bank floodplain street
 ===== ======== ========== ========== ========== ======
 
-The window should now look like this: 
+The window should now look like this:
 
 .. figure:: ../../img/bm-mod-reg.png
    :alt: basement regions
-   
+
    Region definitions.
 
--  Next, we need to define inflow and outflow boundary condition with ``stringdefs``. In the ``GEOMETRY`` section right-click – ``Add item`` ``STRINGDEF`` 
-– ``Add item`` (2 times) and define item [0] as:  
-	-   ``name`` = ``Inflow``   
-	-   ``upstream_direction`` = ``right`` 
--  Define ``STRINGDEF`` item [1] as:  
-	-   ``name`` = ``Outflow``   
-	-   ``upstream_direction`` = ``right`` 
-	
+-  Next, we need to define inflow and outflow boundary condition with ``stringdefs``. In the ``GEOMETRY`` section right-click – ``Add item`` ``STRINGDEF``
+- ``Add item`` (2 times) and define item [0] as:
+
+	-   ``name`` = ``Inflow``
+	-   ``upstream_direction`` = ``right``
+
+-  Define ``STRINGDEF`` item [1] as:
+
+	-   ``name`` = ``Outflow``
+	-   ``upstream_direction`` = ``right``
+
 .. note::
    If you used `BASEmesh’s Stringdef tool <QGIS-prepro.html#stringdef>`__, the upstream direction must be defined as ``right``.
 
 -  Add the initial condition in the ``HYDRAULICS`` section with by right-clicking > ``Add item`` > ``INITIAL`` (if not yet present) and set ``type``: “DRY (i.e., the river is dry at the beginning of the simulation).
 -  Add upstream and downstream boundary conditions with a right-click on the ``HYDRAULICS`` section > ``Add item`` > ``BOUNDARY`` (if not yet present), then right-click on the new ``BOUNDARY`` section > ``Add item STand ARD`` > ``Add item`` (2 times)
--  Define BOUNDARY item [0] as:  
-	-   ``discharge_file`` = ``C:/.../SteadyVanillaInflow.txt`` (select by clicking on the folder symbol that occurs when the field is activated)	  
-	-   ``name`` = ``Inflow``   
-	-   ``slope`` = 0.0056	  
-	-   ``string_name`` = ``Inflow``   
+-  Define BOUNDARY item [0] as:
+	-   ``discharge_file`` = ``C:/.../SteadyVanillaInflow.txt`` (select by clicking on the folder symbol that occurs when the field is activated)
+	-   ``name`` = ``Inflow``
+	-   ``slope`` = 0.0056
+	-   ``string_name`` = ``Inflow``
 	-   ``type`` = uniform_n`
 
--  Define BOUNDARY item [1] as:  
-	-   ``name`` = ``Outflow``   
+-  Define BOUNDARY item [1] as:
+	-   ``name`` = ``Outflow``
 	-   ``type`` = ``zero_gradient_out`` (note: this is not a good choice in practice, where a `stage-discharge relation or rating curve <https://en.wikipedia.org/wiki/Rating_curve>`__ should be used for the downstream boundary condition)
 
 -  Define a global `Strickler <https://en.wikipedia.org/wiki/Manning_formula>`__-based friction value of *kst*\ =30m1/3/s: In the ``HYDRAULICS`` section right-click > ``Add item FRICTION`` and define ``FRICTION`` with:
-	-   ``default_friction`` = 30.0	  
-	-   ``type`` = ``strickler`` 
--  Assign particular `Strickler <https://en.wikipedia.org/wiki/Manning_formula>`__ values with a right-click on ``regions`` and ``Add item`` (5 times). Then define the five regions items ([0] through [4]) as 
+	-   ``default_friction`` = 30.0
+	-   ``type`` = ``strickler``
+-  Assign particular `Strickler <https://en.wikipedia.org/wiki/Manning_formula>`__ values with a right-click on ``regions`` and ``Add item`` (5 times). Then define the five regions items ([0] through [4]) as
 
 =============== ======== ========== ========== ========== ======
 ``friction``    28       15         20         40         85
 =============== ======== ========== ========== ========== ======
-``region_name`` riverbed lower_bank upper_bank floodplain street 
+``region_name`` riverbed lower_bank upper_bank floodplain street
 =============== ======== ========== ========== ========== ======
 
-.. figure:: ../../img/bm-mod-frc.png 
-   
+.. figure:: ../../img/bm-mod-frc.png
+
     Assignment of friction (roughness) values to model regions.
 
--  In the ``PARAMETER`` section define:  
-	-   ``CFL`` = ``0.95``   
-	-   ``fluid_density`` = ``1000.0``   
-	-   ``max_time_step`` = ``100.0``   
-	-   ``minimum_water_depth`` =\ ``0.01`` 
+-  In the ``PARAMETER`` section define:
+	-   ``CFL`` = ``0.95``
+	-   ``fluid_density`` = ``1000.0``
+	-   ``max_time_step`` = ``100.0``
+	-   ``minimum_water_depth`` =\ ``0.01``
 -  Define a ``simulation_name`` (e.g., ``SteadyVanilla``)
 
 Note that the definitions of ``PHYSICAL_PROPERTIES`` and ``BASEPLANE_2d`` are mandatory. Click on the ``Write`` button (bottom-right corner) to save the model setup (see image below). If everything is correctly set up, the ``Console`` tab will automatically open and the ``Error Output`` canvas is empty.
 
-.. figure:: ../../img/bm-mod-sum.png 
-    
-    Final model setup 
+.. figure:: ../../img/bm-mod-sum.png
+
+    Final model setup
 
 Setup the Simulation File
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -120,7 +123,7 @@ In *BASEMENT* go to the ``SIMULATION`` Tab (situated in left window pane) and un
 -  Define the TIME item as: \* ``end`` = ``5000.0`` \* ``out`` = ``200.0`` \* ``start`` = ``0.0`` The *BASEMENT* window should now look like this:
 
 .. figure:: ../../img/bm-sim-set.png
-    
+
     The Simulation tab setup. In order to export results with *BASEMENT*\ ’s Python scripts, the OUTPUT parameters must be defined in exactly that order.
 
 Run the simulation
@@ -128,8 +131,8 @@ Run the simulation
 
 After the successful simulation setup, select an appropriate ``Number of CPU cores`` (bottom-right in the above figure). If a high-quality graphics card with a powerful GPU is available, the GPu (high-performance hardware) has a much faster performance. Otherwise (no powerful GPU available), do not select GPU because it may significantly slow down the simulation speed. For faster simulations, select ``Single`` precision (bottom-right in the above figure), but in this example, ``Double`` precision will work sufficiently fast as well. Click on the ``Run`` button to start the simulation and wait for approximately 2-10 minutes. *BASEMENT* will prompt the simulation progress, while the ``Error Output`` canvas should remain white (see below `figure <#bm-sim-end>`__). If any error occurs, go back to the above sections (or even to the mesh generation) and fix error message issues.
 
-.. figure:: ../../img/bm-sim-end.png 
-    
+.. figure:: ../../img/bm-sim-end.png
+
     *BASEMENT* after successful simulation.
 
 Export results
@@ -137,8 +140,8 @@ Export results
 
 Once the simulation successfully finished, go to *BASEMENT*\ ’s ``Results`` tab and make sure that the ``xdmf`` output format is defined. Then click on the ``Export`` button (see also below `figure <#bm-res-exp>`__). *BASEMENT* will inform about the export success.
 
-.. figure:: ../../img/bm-res-exp.png 
-    
+.. figure:: ../../img/bm-res-exp.png
+
     Export results after successful simulation.
 
 | *BASEMENT*\ ’s developers at the ETH Zurich provide a suite of `Python   scripts <http://people.ee.ethz.ch/~basement/baseweb/download/tools/python-scripts/>`__   for post-processing the simulation results. Here, we need the Python script ```BMv3NodestringResults.py`` <http://people.ee.ethz.ch/~basement/baseweb/download/tools/python-scripts/BMv3NodestringResults.py>`__ (`click to download <http://people.ee.ethz.ch/~basement/baseweb/download/tools/python-scripts/BMv3NodestringResults.py>`__).
@@ -160,7 +163,7 @@ To explore the model results:
 - To plot a variable, select one (e.g., ``flow_velocity``) in the toolbar (light-blue-highlighted circle in the upper part of the below `figure <#pv-vis>`__). Then click the play button in the toolbar (dark-blue-highlighted circle around the green arrow in the upper part of the below `figure <#pv-vis>`__) to cycle through the time steps.
 
 .. figure:: ../../img/pv-vis.png
-    
+
     ParaView after successful import of the model results (results.xdmf) -  see above descriptions.
 
 All available time steps are listed in the Blocks tab (bottom-left in Figure 1). Anything should be visible at the beginning because the initial conditions were defined as ``dry`` (see the setup of `inital conditions <#init>`__ ). The above `figure <#pv-vis>`__ shows the last time step (``Timestep[25]``), with water flowing at a peak velocity of 3.7 m/s. The 25 available time steps result from the definition made in *BASEMENT*\ ’s ``SIMULATION`` tab with a total duration of 5000.0 and an output step of 200.0. Note that the time units have no dimension here because they correspond to computational time steps.
@@ -178,19 +181,19 @@ For geospatial calculations (e.g., calculate `habitat suitability indices for ta
 1. With the ``results.xdmf`` file opened in *ParaView*, right-click on ``results.xdmf`` in the ``Pipeline Browser``, then ``Add Filter`` > ``Alphabetical`` > ``Cell Centers``.
 2. With the ``CellCenters1`` filter enabled in the ``Pipeline Browser`` (blue-highlighted circle in the `figure below <#pv-exp-steps>`__), set the ``Time`` in the menu bar to the end time step (here: ``5000``, i.e., step no. ``25``, see the red-highlighted circle in the `figure below <#pv-exp-steps>`__)).
 3. In the ``Properties`` tab (green-highlighted circle in the `figure below <#pv-exp-steps>`__), check the ``Vertex Cells`` box, and click the ``Apply`` button.
-4. Press ``CTRL`` + ``S`` on the keyboard > a ``Save File`` dialogue window opens:  
+4. Press ``CTRL`` + ``S`` on the keyboard > a ``Save File`` dialogue window opens:
 
-	-   Navigate to the folder where you want to save the data   
-	-   Enter a ``File name`` (e.g., *bm-steady-vanilla*)  
-	-   In the ``Files of type`` drop-down field, select ``Comma or Tab Delimited Files(*.csv *.tsv *.txt)``   
-	-   Click ``OK`` 
+	-   Navigate to the folder where you want to save the data
+	-   Enter a ``File name`` (e.g., *bm-steady-vanilla*)
+	-   In the ``Files of type`` drop-down field, select ``Comma or Tab Delimited Files(*.csv *.tsv *.txt)``
+	-   Click ``OK``
 
 5. The ``Configure Writer (CSVWriter)`` window opens. Make sure that ``Point Data`` is selected as ``Field Association``. Optionally, check the ``Choose Arrays To Write`` box and select relevant fields only. Press the ``OK`` button.
 
 The point data export is now complete. The next step is to import the data (here: *bm-steady-vanilla.csv*) in *QGIS* (`next section <#QGIS-import>`__).
 
-.. figure:: ../../img/pv-exp-steps.png 
-    
+.. figure:: ../../img/pv-exp-steps.png
+
     The CellCenters (dark-blue circle) filter in ParaView, with the maximum Time step setting (red circle) and the Properties definitions (green circle).
 
 Post-processing with QGIS
@@ -201,17 +204,19 @@ Post-processing with QGIS
 
 There are two (to three) options to import the results in *QGIS*:
 
-1. `Use ParaView Outputs <#pv-exp-steps>`__ 
-2. `Modify ``results.xdmf`` and directly import results in QGIS <#qigs-imp-steps>`__ 
-3. `Use an import tool (currently only available on demand ) <#schmalzl>`__ 
+1. `Use ParaView Outputs <#pv-exp-steps>`__
+2. `Modify ``results.xdmf`` and directly import results in QGIS <#qigs-imp-steps>`__
+3. `Use an import tool (currently only available on demand ) <#schmalzl>`__
 
 Use *ParaView* export (here: *bm-steady-vanilla.csv*)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After data export from *ParaView*:
--  In *QGIS*, click on the ``Layer`` menu > ``Add Layer`` > ``Add Delimited Text Layer...``. 
+-  In *QGIS*, click on the ``Layer`` menu > ``Add Layer`` > ``Add Delimited Text Layer...``.
+
 .. figure:: ../../img/QGIS-add-lyr.png
-   :alt: bmx	
+   :alt: add qgis layer basement
+
     Open the Add Delimited Text Layer import wizard.
 
 -  The ``Data Source Manager | Delimited Text`` window opens (`see figure below <#QGIS-import-csv>`__)
@@ -225,42 +230,42 @@ After data export from *ParaView*:
 -  Click the ``Add`` and the ``Close`` buttons on the bottom of the window. The points should now be plotted in the main *QGIS* window.
 
 .. figure:: ../../img/QGIS-import-csv.png
-   
+
     The Data Source Manager: Delimited Text window with required settings highlighted with the green marker.
 
 Use the ``results.xdmf`` file directly(**recommended for geospatial data conversion**)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Modify ``results.xdmf`` and directly import model result in *QGIS*: 
+Modify ``results.xdmf`` and directly import model result in *QGIS*:
 -  Open ``results.xdmf`` in a text editor (e.g.,   `Notepad++ <hy_others.html#npp>`__)
--  Use the find-and-replace tool (``CTRL`` + ``H`` keys in *Notpad++*) to remove file paths before ``results_aux.h5`` in the document (otherwise *QGIS* will crash later on - `read more in BASEMENT\ ’s User Forum <http://people.ee.ethz.ch/~basement/forum/viewtopic.php?id=5261>`__). 
--  For example: ``Find what`` = ``C:/temp/results_aux.h5`` (pay   attention to use ``/`` rather than ``\``) and ``Replace with`` = ``results_aux.h5`` (see `below figure <#npp-xdmf-replace>`__). After having removed all path occurrences in the document, save and close   ``results.xdmf``. 
+-  Use the find-and-replace tool (``CTRL`` + ``H`` keys in *Notpad++*) to remove file paths before ``results_aux.h5`` in the document (otherwise *QGIS* will crash later on - `read more in BASEMENT\ ’s User Forum <http://people.ee.ethz.ch/~basement/forum/viewtopic.php?id=5261>`__).
+-  For example: ``Find what`` = ``C:/temp/results_aux.h5`` (pay   attention to use ``/`` rather than ``\``) and ``Replace with`` = ``results_aux.h5`` (see `below figure <#npp-xdmf-replace>`__). After having removed all path occurrences in the document, save and close   ``results.xdmf``.
 
 .. figure:: ../../img/npp-xdmf-replace.png
-      
+
     Find the string results_aux.h5 in results.xdmf and remove the file directories.
 
 -  If not yet done, load the mesh file   (here: ```finalmesh.2dm`` <QGIS-prepro.html#2dm>`__) by clicking on   *QGIS*\ ’ ``Layer`` menu > ``Data Source Manager`` > ``Mesh`` tab and select ``finalmesh.2dm``.
 -  In *QGIS*\ ’ ``Layers`` window,   double-click on the ``finalmesh`` layer to open the ``Layer Properties`` window.
--  In the ``Layer Properties`` window, go   to ``Source`` > click on ``Assign Extra Data Set to Mesh`` and choose ``results.xdmf`` 
+-  In the ``Layer Properties`` window, go   to ``Source`` > click on ``Assign Extra Data Set to Mesh`` and choose ``results.xdmf``
 
 .. figure:: ../../img/QGIS-assign-meshdata.png
-   
+
     Assign mesh data to the computational mesh.
 
--  After import, double-click on the new ``results`` layer to open the ``Symbology`` (``Layer Properties``) and select a variable to represent from the ``Groups`` canvas. Make sure to enable the contour plot (right side in the `below figure <#QGIS-meshdata-u>`__) symbol, select the timestep to plot (for steady-state simulation, select the last timestep), optionally go to the ``Contours`` ribbon to change the color pattern (upper-most green circle in the `below   figure <#QGIS-meshdata-u>`__), and click ``Apply``. 
+-  After import, double-click on the new ``results`` layer to open the ``Symbology`` (``Layer Properties``) and select a variable to represent from the ``Groups`` canvas. Make sure to enable the contour plot (right side in the `below figure <#QGIS-meshdata-u>`__) symbol, select the timestep to plot (for steady-state simulation, select the last timestep), optionally go to the ``Contours`` ribbon to change the color pattern (upper-most green circle in the `below   figure <#QGIS-meshdata-u>`__), and click ``Apply``.
 
 .. figure:: ../../img/QGIS-meshdata-u.png
-   
+
     Illustrate the flow velocity with QGIS’ Layer Properties > Symbology controls. The green circles highlight settings for the last timestep of a steady-state simulation.
-  
+
 .. figure:: ../../img/QGIS-meshdata-u-plotted.png
-   
+
     After application of the above Symbology settings: The flow velocity is illustrated in red-shades.
 
 Thanks to Matthias Bürgler who helped with instructions in the `BASEMENt user forum <http://people.ee.ethz.ch/~basement/forum/viewtopic.php?pid=6095#p6095>`__.
 
-Klaus Schmalzl’s ``Basement_post_W.exe`` 
+Klaus Schmalzl’s ``Basement_post_W.exe``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Another option in the future will be `Klaus Schmalzl’s ``Basement_post_W.exe`` <http://people.ee.ethz.ch/~basement/baseweb/users-meetings/30-01-2020/6_Schmalzl.pdf>`__, which is currently only available on demand.
@@ -279,26 +284,26 @@ Conversion with the Crayfish plugin (recommended)
 Open the *Crayfish* plugin’s ``Rasterize`` tool from *QGIS*\ ’ ``Processing`` menu > ``Toolbox`` > ``Crayfish`` > ``Rasterize`` (see figure below).
 
 .. figure:: ../../img/QGIS-crayfish-installed.png
-   
+
     Open the Rasterize tool of the Crayfish plugin.
 
-In the ``Rasterize`` window make the following settings (see also `figure below <#QGIS-crayfish-exp>`__):  
--   ``Input mesh layer`` = ``finalmesh``   
--   ``Minimum extent to render (xmin, xmax, ymin, ymax)`` = click on the ``...`` button and select the ``Layer`` option (choose ``finalmesh``)  
--   ``Map units`` = ``0.1`` (can also be larger -  the larger this number, the coarser the output *tif*)  
--   ``Dataset group`` = ``flow_velocity`` (or whatever variable should be in the final *tif* -  note that rasters can/should have only one value per pixel)  
+In the ``Rasterize`` window make the following settings (see also `figure below <#QGIS-crayfish-exp>`__):
+-   ``Input mesh layer`` = ``finalmesh``
+-   ``Minimum extent to render (xmin, xmax, ymin, ymax)`` = click on the ``...`` button and select the ``Layer`` option (choose ``finalmesh``)
+-   ``Map units`` = ``0.1`` (can also be larger -  the larger this number, the coarser the output *tif*)
+-   ``Dataset group`` = ``flow_velocity`` (or whatever variable should be in the final *tif* -  note that rasters can/should have only one value per pixel)
 -   ``Timestep`` = ``208 days, 8:00:00`` (last timestep in the case of steady-state simulations)
 -   ``Output layer`` = ``C:\ ... \u.tif`` (or whatever variable raster specifier applies)
--  Click ``Run`` 
+-  Click ``Run``
 
 .. figure:: ../../img/QGIS-crayfish-exp.png
-   
+
     Settings to be made in Crayfish’s Rasterize tool.
 
 With a ``Singleband pseudocolor`` > ``Spectral`` ``Symbology``-selection in the ``Layer Properties``, the *QGIS* window should now look like this:
 
 .. figure:: ../../img/QGIS-crayfish-final.png
-   
+
     A Singleband pseudocolor (Layer Properties > Symbology) selection will represent the velocity distribution in the final velocity GeoTIFF.
 
 Conversion of ParaView exports (not recommended)
@@ -306,26 +311,26 @@ Conversion of ParaView exports (not recommended)
 
 -  In *QGIS*, right-click the above imported csv-points layer (here: ``bm-steaedy-vanilla-csv``) > ``Export`` > ``Save Features As...``
 -  The ``Save Vector Layer as...`` window opens (`see figure below <#QGIS-exp-sim-pts>`__), where the following settings need to be defined:
-	-   ``Format`` = ``ESRI Shapefile``   
-	-   ``File name`` = for example ``C:\...\bm-vanilla-pts.shp``   
-	-   ``CRS`` = ``ESRI:31493 -  Germany_Zone_3``   
-	-   In the ``Encoding``\ canvas, deactivate the ``ns_hyd_discharge``, ``Points:0``, ``Points:1``, and ``Points:2`` fields   
-	-   In the ``Geometry`` canvas, set the ``Geometry type`` to ``Point`` and active ``Include z-dimension``   
-	-   Check the ``Extent (current: layer)`` box 
--  Click ``OK`` 
+	-   ``Format`` = ``ESRI Shapefile``
+	-   ``File name`` = for example ``C:\...\bm-vanilla-pts.shp``
+	-   ``CRS`` = ``ESRI:31493 -  Germany_Zone_3``
+	-   In the ``Encoding``\ canvas, deactivate the ``ns_hyd_discharge``, ``Points:0``, ``Points:1``, and ``Points:2`` fields
+	-   In the ``Geometry`` canvas, set the ``Geometry type`` to ``Point`` and active ``Include z-dimension``
+	-   Check the ``Extent (current: layer)`` box
+-  Click ``OK``
 
-.. image:: ../../img/QGIS-exp-sim-pts.png
-   
+.. figure:: ../../img/QGIS-exp-sim-pts.png
+
     The Save Vector Layer As… window with required settings highlighted (green marker).
 
-| Next, the point shapefile needs to be converted to a   `GeoTIFF <https://en.wikipedia.org/wiki/GeoTIFF>`__ raster format to enable further data analyses. Therefore: 
+Next, the point shapefile needs to be converted to a   `GeoTIFF <https://en.wikipedia.org/wiki/GeoTIFF>`__ raster format to enable further data analyses. Therefore:
 	-  In *QGIS* ``Raster`` menu,   click on ``Conversion`` and select ``Rasterize (Vector to Raster)``
 	-  In the ``Rasterize (Vector to Raster)`` window define: \*   ``Input layer`` = ``bm-vanilla-pts`` \* For ``Field to use for a burn-in value``, select one target value, for example: ``water_depth`` (note: rasters can have only one value per   pixel)
-| \* Do not assign any value in the ``A fixed value to burn`` field \* ``Output raster size units`` = ``Pixels`` \* ``Width/Horizontal resolution`` = ``5.0`` \* ``Height/Vertical resolution`` = ``5.0`` \* ``Output extent (xmin, xmax, ymin, ymax)``: Click on the ``...`` button and select *Use Layer extent* > *Use extent from* ``bm-vanilla-pts`` \* Below the *Advanced parameters* canvas, define a raster output directory and name (e.g., ``vanilla-depth.tif``) 
+| \* Do not assign any value in the ``A fixed value to burn`` field \* ``Output raster size units`` = ``Pixels`` \* ``Width/Horizontal resolution`` = ``5.0`` \* ``Height/Vertical resolution`` = ``5.0`` \* ``Output extent (xmin, xmax, ymin, ymax)``: Click on the ``...`` button and select *Use Layer extent* > *Use extent from* ``bm-vanilla-pts`` \* Below the *Advanced parameters* canvas, define a raster output directory and name (e.g., ``vanilla-depth.tif``)
 -  Click ``Run``.
 
 .. figure:: ../../img/QGIS-make-tiff.png
-   
+
     The Rasterize (Vector to Raster) window with required settings highlighted (green marker).
 
 .. tip::

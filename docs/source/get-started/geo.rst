@@ -26,12 +26,12 @@ The *QGIS* developers provide detailed installation instructions for several *Li
 
    sudo apt install flatpak
    sudo apt install gnome-software-plugin-flatpak
-   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
+   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 Restart the system and open the *Software Manager* app. It will update and add the flathub repo. Once the update was successful, search for *QGIS* and click *Install* (patience - the installation may take while).
 
 The *QGIS Flatpak* installation will most likely not include the important *scipy* module. In order to fix this issue, open *Terminal* (standard Linux application) and type: |br|
-\ ``flatpak run --command =pip3 org.QGIS.QGIS install scipy --user`` 
+\ ``flatpak run --command =pip3 org.QGIS.QGIS install scipy --user``
 
 This solution has been tested on *Linux Ubuntu* and *Linux Mint*. It potentially also works with *Red Hat*, *openSUSE*, *Mac OS*, *Arch*, *Fedora*, *and roid*, *Debian*, *Kubuntu* and many more (read installation guides on the `maintainer’s website <https://flatpak.org/setup/>`__). Read more about the *QGIS Flatpak* installation on the `QGIS website <https://QGIS.org/en/site/forusers/alldownloads.html#flatpak>`__.
 
@@ -61,7 +61,7 @@ To add a base map (e.g., satellite data, streets, or administrative boundaries),
 
 .. figure:: ../../img/QGIS-basemap.png
    :alt: basemap
-   
+
    Add a base map to QGIS: (1) locate the Browser (2) right-click on XYZ-Tiles and select New Connection… (3) enter a Name and a URL (see below table) for the new connection, click OK (4) drag and drop the new tile (here: Google Satellite) into the Layers tab.
 
 The following URL can be used for retrieving online XYZ tiles (more URLs can be found in the internet).
@@ -104,9 +104,9 @@ In `Anaconda Prompt <hy_ide.html#anaconda>`__, you can create a new environment 
 
 ::
 
-   conda create  -c conda-forge -n QGIScube python=3.6 QGIS=3 datacube    conda activate QGIScube 
+   conda create  -c conda-forge -n QGIScube python=3.6 QGIS=3 datacube    conda activate QGIScube
 
-Get Useful Plugins 
+Get Useful Plugins
 ~~~~~~~~~~~~~~~~~~
 
 The conversion between geospatial data types and numerical (computational) grids can be facilitated with plugins. To install any plugin in *QGIS*, go to the ``Plugins`` menu > ``Manage and Install Plugins...`` > ``All`` tab > ``Search...`` for a relevant plugin and install it.
@@ -115,14 +115,15 @@ In the context of river analysis, the following plugins are recommended and used
 
 -  The *Crayfish* plugin, which is available in the *QGIS* toolbox after the installation.
 
-Enable the QGIS Toolbox 
+Enable the QGIS Toolbox
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Follow the below illustrated instructions to enable the *QGIS* *Toolbox*.
 
 .. figure:: ../../img/QGIS-tbx.png
    :alt: enable QGIS toolbox
-   :caption: Open QGIS’ Toolbox window from the main menu.
+
+   Open QGIS’ Toolbox window from the main menu.
 
 .. _agis:
 
@@ -132,7 +133,7 @@ ArcGIS Pro
 .. important::
    ArcGIS Pro is designed for Windows and will not run on macOS or Linux. In addition, a license needs to be purchased. The proprietary software *ArcGIS Pro* represents a powerful tool for any kind of geospatial analysis including web applications. *ArcGIS Pro* is maintained by `esri <https://www.esri.com/>`__ and comes with an own `Python conda Environments <hypy_install.html>`__. With the focus on freely available software, the usage of *ArcGIS Pro* and its *Python* environment including the ``arcpy`` package is just mentioned on this website.
 
-Others 
+Others
 ------
 
 There are many other tools for geospatial analyses, which all deserve much more than just being mentioned here. Alas, for practical reasons, this website focuses on the usage of *QGIS*. This is why there is just a absolutely-not-complete list of other GIS tools here:
@@ -140,7 +141,7 @@ There are many other tools for geospatial analyses, which all deserve much more 
 -  `SAGA (System for Automated Geoscientific    Analyses) <http://www.saga-gis.org/en/index.html>`__
 -  `Mapline <https://mapline.com/>`__
 -  `Mapbox <https://www.mapbox.com/>`__
--  `uDig <http://udig.refractions.net/>`__ 
+-  `uDig <http://udig.refractions.net/>`__
 
 Geospatial analyses
 -------------------

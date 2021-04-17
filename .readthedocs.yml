@@ -24,7 +24,6 @@ formats:
 python:
   version: 3
   install:
-    - requirements: docs/source/requirements.txt
     - method: pip
       path: .
       extra_requirements:
@@ -38,7 +37,7 @@ search:
    ignore:
      - 404.html
      # ignore all files in the docs/ directory
-     - docs/*
+     - docs/source/*
 
 # Enable submodules
 submodules:

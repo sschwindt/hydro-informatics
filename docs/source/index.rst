@@ -12,15 +12,7 @@ Welcome
 
 .. image:: ../img/logo_large.png
 
-Large datasets, such as airborne imagery and hydro-meteorological
-datasets collected worldwide, drive progress in many disciplines. With
-traditional spreadsheet analysis tools, however, the large amounts of
-data can hardly be analyzed, understood, or used. The courses supported
-with this website aid hydraulic engineers, geomorphologists, river
-ecologists, and any water resources related challenge with tools for
-efficient data analyses and presentation. The methods described rely on
-open-access tools to leverage international and interdisciplinary
-collaboration on all levels.
+Large datasets, such as airborne imagery and hydro-meteorological datasets collected worldwide, drive progress in many disciplines. With traditional spreadsheet analysis tools, however, the large amounts of data can hardly be analyzed, understood, or used. The courses supported with this website aid hydraulic engineers, geomorphologists, river ecologists, and any water resources related challenge with tools for efficient data analyses and presentation. The methods described rely on open-access tools to leverage international and interdisciplinary collaboration on all levels.
 
 .. note::
   The term hydroinformatics (or hydro-informatics) is widely used in relation to the field of hydrology.
@@ -31,30 +23,15 @@ collaboration on all levels.
 Contents
 ========
 
-Find your course in the `Classroom <hy_lecture_index.html>`__ chapter
-(`lectures and exercises <hy_assignments.html>`__) and take a seat.
+Find your course in the `Classroom <hy_lecture_index.html>`__ chapter (`lectures and exercises <hy_assignments.html>`__) and take a seat.
 
-The *Get started* chapter represents a summary of provide systematic
-workflows to setup your computer for: - coding with `Python
-Anaconda <hy_ide.html>`__ - code documentation with
-`markdown <hy_documentation.html>`__ - version control with
-`git <hy_git.html>`__ - geospatial analyses with `desktop
-applications <geo_software.html>`__ such as *QGIS* - using `auxiliary
-tools and open-source/access alternatives <hy_others.html>`__ to
-proprietary software such as *GNU Octave* (similar to *Matlab*) or
-*Libre Office* (similar to MS Office)
+The *Get started* chapter represents a summary of provide systematic workflows to setup your computer for: - coding with `Python Anaconda <hy_ide.html>`__ - code documentation with `markdown <hy_documentation.html>`__ - version control with `git <hy_git.html>`__ - geospatial analyses with `desktop applications <geo_software.html>`__ such as *QGIS* - using `auxiliary tools and open-source/access alternatives <hy_others.html>`__ to proprietary software such as *GNU Octave* (similar to *Matlab*) or *Libre Office* (similar to MS Office)
 
-The *Python* chapters provide: - a general introduction to *Python*
-programming and object orientation (`basics <python.html>`__); - an
-overview of `geospatial data and analyses with
-Python <geo-python.html>`__.
+The *Python* chapters provide: - a general introduction to *Python* programming and object orientation (`basics <python.html>`__); - an overview of `geospatial data and analyses with Python <geo-python.html>`__.
 
-The numerical modelling chapter provides complete workflows for getting
-started with two-dimensional (2D) hydrodynamic models: - `ETH Zurich\ ’s
-BASEMENT <bm.html>`__ software - More in the future
+The numerical modelling chapter provides complete workflows for getting started with two-dimensional (2D) hydrodynamic models: - `ETH Zurich\ ’s BASEMENT <bm.html>`__ software - More in the future
 
-The `Troubleshooting <dbg_anaconda.html>`__ chapter includes information
-about how to debug known issues (not that issues ever existed…).
+The `Troubleshooting <dbg_anaconda.html>`__ chapter includes information about how to debug known issues (not that issues ever existed ...).
 
 
 
@@ -71,7 +48,7 @@ about how to debug known issues (not that issues ever existed…).
    lectures/take_seat
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Software
 
    get-started/vm
