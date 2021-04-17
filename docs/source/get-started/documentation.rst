@@ -4,8 +4,7 @@ Documentation
 Leonardo Da Vinci used journals to sketch, develop and eventually pass on his ideas. Alexand er von Humboldt documented many of his journeys in travel journals and Marie Skłodowska Curie wrote down the theory of “radioactivity using pens and papers. Today, writing media have evolved into infinite digital oceans with sophisticated tools for documenting code and ideas. Also the way in which we look for and retrieve information has evolved from searching for lexicon entries to using keywords in search engines. So if you have made an ingenious discovery, you want to make sure you document it well so that others can understand and use it. You also want to make sure that others can find your stroke of genius in digital media. You also want to make sure that others can find your stroke of genius in digital media. One of the most widespread methods for documenting and spreading ideas is the use of so-called wikis (from Hawaiian: *fast*), which can easily be written in markdown language. *GitHub* provides comprehensive, easy-to-read explanations for `project documentation <https://guides.github.com/features/wikis/>`__ with *Markdown* as core element. This page presents the basics of the markdown language to leverage wikis. Moreover, the powerful alternative of using *reStructuredText* in *Sphinx*-based documentations is introduced.
 
 .. tip::
-   `Write the Docs <https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/>`__ provides comprehensive guides for code documentation
--  just take about 10 minutes to read how to save days.
+   `Write the Docs <https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/>`__ provides comprehensive guides for code documentation -  just take about 10 minutes to read how to save days.
 
 What to document?
 -----------------
@@ -51,20 +50,20 @@ Contributing
 
 Your software is brilliant. To make the software even more brilliant, foolproof, and powerful, it is a great idea (actually: an absolute must) to get more authors on the development team. However, it is very likely that any other author has individual preferences when it comes to code standards. So make sure to set up clear rules for other contributors from the beginning. For example, define clear code conventions as explained on the `code style <hypy_pystyle.html>`__ page.
 
-Markdown 
+Markdown
 --------
 
 *Markdown* was created in 2004 and is a simple markup language that is intuitive and easy to learn. Markup languages structure the content of plain text documents regarding the way a document is displayed to end users (rich text format). Other popular markup languages are for example `TeX <https://en.wikipedia.org/wiki/TeX>`__ and `XML (Extensible Markup Language) <https://en.wikipedia.org/wiki/XML>`__. *Markdown* became a popular tool for writing syntactically distinguishable computer text that is then translated into rich text. Here is an example how *Markdown* works:
 
-.. code:: markdown 
+.. code:: markdown
 
-   # Better than Word-like rich text editors 
+   # Better than Word-like rich text editors
    *OS*-independent functionality:
-  
-	-  Avoid formatting of the same kind of thing redundantly (and inconsistently)	  
-	-  Backwards compatibility   
-	-  Formulae handling 	  
-	-  ... and many more ... 
+
+	-  Avoid formatting of the same kind of thing redundantly (and inconsistently)
+	-  Backwards compatibility
+	-  Formulae handling
+	-  ... and many more ...
 
 --------------
 
@@ -81,7 +80,7 @@ Markdown Editors (IDEs)
 
 Many text editors provide *Markdown* add-ons and *Markdown*-only editors are loosing their significance more and more. Editors that simultaneously support *Markdown* and programming languages like *Python* or *R* are state of the art and therefore recommended.
 
-Basic text editors that support *Markdown* are listed `here <hy_others.html#npp>`__. Popular and multi-platform *IDE*\ s for editing *Markdown* (``.md``) files are `ATOM <https://atom.io/>`__ (for combination with *JavaScript*, *html*, and *CSS*), and `Jupyter Lab <https://jupyter.org>`__ or `PyCharm <https://www.jetbrains.com/pycharm/>`__ (for combination with *Python* or *R*), which both are available through `Anaconda <https://docs.conda.io/>`__. `Read more about Anaconda and associated IDE\ s on the previous pages. <hy_ide.html>`__ 
+Basic text editors that support *Markdown* are listed `here <hy_others.html#npp>`__. Popular and multi-platform *IDE*\ s for editing *Markdown* (``.md``) files are `ATOM <https://atom.io/>`__ (for combination with *JavaScript*, *html*, and *CSS*), and `Jupyter Lab <https://jupyter.org>`__ or `PyCharm <https://www.jetbrains.com/pycharm/>`__ (for combination with *Python* or *R*), which both are available through `Anaconda <https://docs.conda.io/>`__. `Read more about Anaconda and associated IDE\ s on the previous pages. <hy_ide.html>`__
 
 Markdown command overview (+images)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -141,21 +140,21 @@ Itemization (un-numbered list)
 
 Itemized list section can be produced using ``*``, ``+``, or ``-`` symbols with tabs that determine the list indentation:
 
-.. code:: markdown 
+.. code:: markdown
 
-   * level 1 item 
-		-  level 2 item       
+   * level 1 item
+		-  level 2 item
 		-  another level 2 item
 			+ level 3 item
-   * next level 1 item 
+   * next level 1 item
 
 --------------
 
-   * level 1 item 
-		-  level 2 item       
+   * level 1 item
+		-  level 2 item
 		-  another level 2 item
 			+ level 3 item
-   * next level 1 item 
+   * next level 1 item
 
 --------------
 
@@ -164,7 +163,7 @@ Tables
 
 Table columns are separated by a ``|`` sign. The first row determines row headers and the second row the alignment through the use of ``:`` (see below example).
 
-.. code:: markdown 
+.. code:: markdown
 
    | Fruit | Kingdom | Genus |
    |-------|:-------:|------:|
@@ -176,7 +175,7 @@ Table columns are separated by a ``|`` sign. The first row determines row header
 ========= ======= ==========
 Fruit     Kingdom Genus
 ========= ======= ==========
-Banana    Plantae Musa 
+Banana    Plantae Musa
 Jackfruit Plantae Artocarpus
 ========= ======= ==========
 
@@ -189,7 +188,7 @@ Math expressions: Equations
 
 Math expressions and equations must be implemented as text in standard *Markdown*. *GitHub*\ s markdown interpreter does not support many external *TeX*-like equation renderers for reasons of security. However, *GitHub* users can still render *TeX*-like equations with the following code:
 
-.. code:: html 
+.. code:: html
 
    <img src="https://render.githubusercontent.com/render/math?math=sin{\alpha} = \sqrt{1-cos^{2}\alpha}">
 
@@ -208,32 +207,32 @@ Math expressions: Greek letters
 In order to use greek letters in inline text, use *html* language, where ``&lettername;`` produces the desired *Greek* letter symbol (e.g., type ``&delta;`` to output δ or ``&Delta;`` to output a capital letter Δ). The following table provides an overview of Greek letter symbols.
 
 ====== ============= ====== =============
-Letter Code          letter code 
+Letter Code          letter code
 ====== ============= ====== =============
-Α      ``&Alpha;``   α      ``&alpha;`` 
-Β      ``&Beta;``    β      ``&beta;`` 
-Γ      ``&Gamma;``   γ      ``&gamma;`` 
-Δ      ``&Delta;``   δ      ``&delta;`` 
-Ε      ``&Epsilon;`` ε      ``&epsilon;`` 
-Ζ      ``&Zeta;``    ζ      ``&zeta;`` 
+Α      ``&Alpha;``   α      ``&alpha;``
+Β      ``&Beta;``    β      ``&beta;``
+Γ      ``&Gamma;``   γ      ``&gamma;``
+Δ      ``&Delta;``   δ      ``&delta;``
+Ε      ``&Epsilon;`` ε      ``&epsilon;``
+Ζ      ``&Zeta;``    ζ      ``&zeta;``
 Η      ``&Eta;``     η      ``&eta;``
-Θ      ``&Theta;``   θ      ``&theta;`` 
-Ι      ``&Iota;``    ι      ``&iota;`` 
-Κ      ``&Kappa;``   κ      ``&kappa;`` 
-Λ      ``&Lambda;``  λ      ``&lambda;`` 
-Μ      ``&Mu;``      μ      ``&mu;`` 
-Ν      ``&Nu;``      ν      ``&nu;`` 
-Ξ      ``&Xi;``      ξ      ``&xi;`` 
-Ο      ``&Omicron;`` ο      ``&omicron;`` 
-Π      ``&Pi;``      π      ``&pi;`` 
-Ρ      ``&Rho;``     ρ      ``&rho;`` 
-Σ      ``&Sigma;``   σ      ``&sigma;`` 
-Τ      ``&Tau;``     τ      ``&tau;`` 
-Υ      ``&Upsilon;`` υ      ``&upsilon;`` 
-Φ      ``&Phi;``     φ      ``&phi;`` 
-Χ      ``&Chi;``     χ      ``&chi;`` 
-Ψ      ``&Psi;``     ψ      ``&psi;`` 
-Ω      ``&Omega;``   ω      ``&omega;`` 
+Θ      ``&Theta;``   θ      ``&theta;``
+Ι      ``&Iota;``    ι      ``&iota;``
+Κ      ``&Kappa;``   κ      ``&kappa;``
+Λ      ``&Lambda;``  λ      ``&lambda;``
+Μ      ``&Mu;``      μ      ``&mu;``
+Ν      ``&Nu;``      ν      ``&nu;``
+Ξ      ``&Xi;``      ξ      ``&xi;``
+Ο      ``&Omicron;`` ο      ``&omicron;``
+Π      ``&Pi;``      π      ``&pi;``
+Ρ      ``&Rho;``     ρ      ``&rho;``
+Σ      ``&Sigma;``   σ      ``&sigma;``
+Τ      ``&Tau;``     τ      ``&tau;``
+Υ      ``&Upsilon;`` υ      ``&upsilon;``
+Φ      ``&Phi;``     φ      ``&phi;``
+Χ      ``&Chi;``     χ      ``&chi;``
+Ψ      ``&Psi;``     ψ      ``&psi;``
+Ω      ``&Omega;``   ω      ``&omega;``
 ====== ============= ====== =============
 
 Math expressions: Arrows and Operators
@@ -244,17 +243,17 @@ Arrows and operators can also be implemented as *html* symbols. The following ta
 =============== =============== ============== ===============
   Arrows        Operators (1)    Operators (2)    Operators (3)
 =============== =============== ============== ===============
-←  ``&larr;``   ∀ ``&forall;``   ∗ ``&lowast;``   ∼ ``&sim;`` 
-↑  ``&uarr;``   ∂ ``&part;``     √ ``&radic;``    ≅ ``&cong;`` 
-→  ``&rarr;``   ∃ ``&exist;``    ∝ ``&prop;``     ≈ ``&asymp;`` 
-↓  ``&darr;``   ∅ ``&empty;``    ∞ ``&infin;``    ≠ ``&ne;`` 
-↔  ``&harr;``   ∇ ``&nabla;``    ∠ ``&ang;``      ≡ ``&equiv;`` 
-↵  ``&crarr;``  ∈ ``&isin;``     ∧ ``&and ;``      ≤ ``&le;`` 
-⇐  ``&lArr;``   ∉ ``&notin;``    ∨ ``&or;``       ≥ ``&ge;`` 
-⇑  ``&uArr;``   ∋ ``&ni;``       ∩ ``&cap;``      ⊂ ``&sub;`` 
-⇒  ``&rArr;``   ∏ ``&prod;``     ∪ ``&cup;``      ⊃ ``&sup;`` 
-⇓  ``&dArr;``   ∑ ``&sum;``      ∫ ``&int;``      ⊄ ``&nsub;`` 
-⇔  ``&hArr;``   − ``&minus;``    ⋅ ``&sdot;``     ⊥ ``&perp;`` 
+←  ``&larr;``   ∀ ``&forall;``   ∗ ``&lowast;``   ∼ ``&sim;``
+↑  ``&uarr;``   ∂ ``&part;``     √ ``&radic;``    ≅ ``&cong;``
+→  ``&rarr;``   ∃ ``&exist;``    ∝ ``&prop;``     ≈ ``&asymp;``
+↓  ``&darr;``   ∅ ``&empty;``    ∞ ``&infin;``    ≠ ``&ne;``
+↔  ``&harr;``   ∇ ``&nabla;``    ∠ ``&ang;``      ≡ ``&equiv;``
+↵  ``&crarr;``  ∈ ``&isin;``     ∧ ``&and ;``      ≤ ``&le;``
+⇐  ``&lArr;``   ∉ ``&notin;``    ∨ ``&or;``       ≥ ``&ge;``
+⇑  ``&uArr;``   ∋ ``&ni;``       ∩ ``&cap;``      ⊂ ``&sub;``
+⇒  ``&rArr;``   ∏ ``&prod;``     ∪ ``&cup;``      ⊃ ``&sup;``
+⇓  ``&dArr;``   ∑ ``&sum;``      ∫ ``&int;``      ⊄ ``&nsub;``
+⇔  ``&hArr;``   − ``&minus;``    ⋅ ``&sdot;``     ⊥ ``&perp;``
 =============== =============== ============== ===============
 
 Miscellaneous Symbols
@@ -265,27 +264,27 @@ Miscellaneous Symbols
 == ============ = ============ = =============
 \  Symbols (1)     Symbols (2)     Symbols (3)
 == ============ = ============ = =============
-"  ``&quot;``   – ``&ndash;``  ‾ ``&oline;`` 
-&  ``&amp;``    — ``&mdash;``  ⁄ ``&frasl;`` 
-<  ``&lt;``     ‘ ``&lsquo;``  ς ``&sigmaf;`` 
->  ``&gt;``     ’ ``&rsquo;``  ℑ ``&image;`` 
-Œ  ``&OElig;``  ‚ ``&sbquo;``  ℜ ``&real;`` 
-œ  ``&oelig;``  “ ``&ldquo;``  ™ ``&trade;`` 
-Š  ``&Scaron;`   ``&rdquo;``  ℵ ``&alefsym;`` 
-š  ``&scaron;`` „ ``&bdquo;``  ⌈ ``&lceil;`` 
-Ÿ  ``&Yuml;``   † ``&dagger;`` ⌉ ``&rceil;`` 
-ˆ  ``&circ;``   ‡ ``&Dagger;`` ⌊ ``&lfloor;`` 
-˜   ``&tilde;``  ‰ ``&permil;`` ⌋ ``&rfloor;``
-   ``&ensp;``   ‹ ``&lsaquo;`` ⟨ ``&lang;`` 
-   ``&emsp;``   › ``&rsaquo;`` ⟩ ``&rang;`` 
-   ``&thinsp;`` € ``&euro;``   ◊ ``&loz;`` ‌
-   ``&zwnj;``   • ``&bull;``   ♠ ``&spades;`` 
-   ``&zwj;``    … ``&hellip;`` ♣ ``&clubs;`` ‎
-   ``&lrm;``    ′ ``&prime;``  ♥ ``&hearts;`` ‏ 
-   ``&rlm;``    ″ ``&Prime;``  ♦ ``&diams;`` 
+"  ``&quot;``   – ``&ndash;``  ‾ ``&oline;``
+&  ``&amp;``    — ``&mdash;``  ⁄ ``&frasl;``
+<  ``&lt;``     ‘ ``&lsquo;``  ς ``&sigmaf;``
+>  ``&gt;``     ’ ``&rsquo;``  ℑ ``&image;``
+Œ  ``&OElig;``  ‚ ``&sbquo;``  ℜ ``&real;``
+œ  ``&oelig;``  “ ``&ldquo;``  ™ ``&trade;``
+Š  ``&Scaron;`` . ``&rdquo;``  ℵ ``&alefsym;`` 
+š  ``&scaron;`` „ ``&bdquo;``  ⌈ ``&lceil;``
+Ÿ  ``&Yuml;``   † ``&dagger;`` ⌉ ``&rceil;``
+ˆ  ``&circ;``   ‡ ``&Dagger;`` ⌊ ``&lfloor;``
+˜  ``&tilde;``  ‰ ``&permil;`` ⌋ ``&rfloor;``
+.  ``&ensp;``   ‹ ``&lsaquo;`` ⟨ ``&lang;``
+.  ``&emsp;``   › ``&rsaquo;`` ⟩ ``&rang;``
+.  ``&thinsp;`` € ``&euro;``   ◊ ``&loz;`` ‌
+.  ``&zwnj;``   • ``&bull;``   ♠ ``&spades;``
+.  ``&zwj;``    … ``&hellip;`` ♣ ``&clubs;`` ‎
+.  ``&lrm;``    ′ ``&prime;``  ♥ ``&hearts;`` ‏
+.  ``&rlm;``    ″ ``&Prime;``  ♦ ``&diams;``
 == ============ = ============ = =============
 
-Wikis 
+Wikis
 -----
 
 While every `git <hy_git.html>`__ repository should at least contain a descriptive *README.md*, *wiki*\ s provide much more detail and guidance. Wikis are a convenient way to guide users with permanent side bars (such as the menu bar on this web site), help users to understand methods and codes, and collaborative coding with precise descriptions of scripts. *GitHub* users find options to activate *wiki*\ s in the *Settings* tab of a repository and the developers continue to improve *wiki* functions (`read more about GitHub\ ’s wikis <https://help.github.com/en/github/building-a-strong-community/about-wikis>`__).
@@ -306,4 +305,4 @@ An alternative to markdown is `reStructuredText <https://www.sphinx-doc.org/en/m
 
 Without any *Python* or programming knowledge, it might be hard to get started with *Sphinx*. So make sure to understand *Python* basics and document any code with *docstrings*, at best using `google style <https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html>`__ formatting. Once you start documenting your first *Python* package, *google-style* *docstrings* will enable the fast generation of high-quality docs. Currently, one of the best options for partially auto-generating code documentations, for any programming language, is `readthedocs <https://readthedocs.org/>`__, which builds on *Sphinx* and *reStructuredText*.
 
-.. |ImgName| image:: https://raw.githubusercontent.com/RiverArchitect/Media/master/images/logo_small.ico 
+.. |ImgName| image:: https://raw.githubusercontent.com/RiverArchitect/Media/master/images/logo_small.ico

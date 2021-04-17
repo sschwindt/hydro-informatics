@@ -82,11 +82,9 @@ The `Troubleshooting <dbg_anaconda.html>`__ chapter includes information about h
    :maxdepth: 2
    :caption: Python (geo)
 
-
-
-geopy/geo-python
-geopy/geospatial-data
-geopy/geo-pckg
+  geopy/geo-python
+  geopy/geospatial-data
+  geopy/geo-pckg
 
 
 geopy/geo-shp
