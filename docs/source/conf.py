@@ -66,13 +66,13 @@ extensions = [
 
 
 templates_path = ["_templates"]
-# source_suffix = {
-#     ".rst": "restructuredtext",
-#     ".txt": "restructuredtext",
-#     ".md": "markdown",
-# }
+source_suffix = {
+    ".rst": "restructuredtext",
+    ".txt": "restructuredtext",
+    ".md": "markdown",
+}
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
-locale_dirs = ["locale/", "docs/"]
+locale_dirs = ["locale/", "docs/", "docs/source/"]
 gettext_compact = False
 
 master_doc = "index"
@@ -117,9 +117,9 @@ html_context = {
     "date": datetime.date.today().strftime("%Y-%m-%d"),
     "display_github": True,
     "github_user": "sschwindt",
-    "github_repo": "hyrdo-informatics",
+    "github_repo": "hydro-informatics",
     "github_version": "main/",
-    "conf_py_path": "/docs/"
+    "conf_py_path": "/docs/source/"
 }
 
 html_favicon = os.path.abspath("..") + "/img/browser-icon.ico"  # relative to source dir (where confy.py lives)
